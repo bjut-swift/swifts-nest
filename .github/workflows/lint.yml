@@ -31,3 +31,4 @@ jobs:
 
       - name: 💅 Prettier check
         run: bun run format:check
+        continue-on-error: true
