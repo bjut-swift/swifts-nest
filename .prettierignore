@@ -37,6 +37,6 @@ yarn-error.log*
 # changelog
 CHANGELOG.md
 
-pnpm-lock.yaml
+bun.lockb
 
 README.md
