@@ -15,27 +15,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: 🤌 Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: ⎔ Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          cache: 'pnpm'
+      - name: 🤌 Setup Bun
+        uses: oven-sh/setup-bun@v1
 
       - name: 📥 Download deps
-        run: pnpm install --frozen-lockfile
+        run: bun install --frozen-lockfile
 
       - name: 🔬 Lint
-        run: pnpm run lint:strict
+        run: bun run lint:strict
 
       - name: 🔎 Type check
-        run: pnpm run typecheck
+        run: bun run typecheck
 
       - name: 💅 Prettier check
-        run: pnpm run format:check
+        run: bun run format:chec
