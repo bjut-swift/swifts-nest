@@ -28,7 +28,7 @@ export default function Footer() {
         <SocialLinks />
 
         <p className='mt-8 text-sm text-gray-600 dark:text-gray-300'>
-          © Theodorus Clarence {new Date().getFullYear()}
+          © BJUT Swift {new Date().getFullYear()}
           {feedbackFlag && (
             <>
               {' • '}
@@ -127,7 +127,7 @@ function SocialLinks() {
 const footerLinks: { href: string; text: string; tooltip: React.ReactNode }[] =
   [
     {
-      href: 'https://github.com/theodorusclarence/theodorusclarence.com',
+      href: 'https://github.com/bjut-swift/swifts-nest',
       text: 'Source Code',
       tooltip: (
         <>
@@ -191,7 +191,7 @@ type Social = {
 };
 const socials: Social[] = [
   {
-    href: 'https://clarence.link/github',
+    href: 'https://github.com/bjut-swift',
     icon: SiGithub,
     id: 'Github',
     text: (
