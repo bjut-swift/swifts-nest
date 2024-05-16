@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import { InferGetStaticPropsType } from 'next';
 import * as React from 'react';
 import { IoArrowDownOutline } from 'react-icons/io5';
-import { IoNewspaperSharp } from 'react-icons/io5';
 import { SiGithub, SiTwitter } from 'react-icons/si';
 import { InView } from 'react-intersection-observer';
 
@@ -23,6 +22,8 @@ import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 import TC from '@/components/TC';
 import Tooltip from '@/components/Tooltip';
+
+import Lark from '/public/images/Lark.svg';
 
 export default function IndexPage({
   featuredPosts,
@@ -109,16 +110,20 @@ export default function IndexPage({
                 href='https://clarence.link/cv'
                 className={clsx(
                   'inline-flex items-center gap-1 text-sm font-medium md:text-base',
-                  'text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white',
+                  'group text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white',
                   'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
                   'transition-colors'
                 )}
                 onClick={() => {
-                  trackEvent('Social Link: Resume', { type: 'link' });
+                  trackEvent('Social Link: Lark', { type: 'link' });
                 }}
               >
-                <IoNewspaperSharp className='shrink-0' />
-                <span>Resume</span>
+                <Lark
+                  height={16}
+                  width={16}
+                  className='shrink-0 transition-colors group-hover:text-[#1da1f2]'
+                />
+                <span>lark</span>
               </UnstyledLink>
               <UnstyledLink
                 href='https://twitter.com/th_clarence'
@@ -136,7 +141,7 @@ export default function IndexPage({
                 <span>@th_clarence</span>
               </UnstyledLink>
               <UnstyledLink
-                href='https://github.com/theodorusclarence'
+                href='https://github.com/bjut-swift'
                 className={clsx(
                   'inline-flex items-center gap-1 text-sm font-medium md:text-base',
                   'text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white',
@@ -148,7 +153,7 @@ export default function IndexPage({
                 }}
               >
                 <SiGithub className='shrink-0' />
-                <span>theodorusclarence</span>
+                <span>bjut-swift</span>
               </UnstyledLink>
             </div>
           </article>
