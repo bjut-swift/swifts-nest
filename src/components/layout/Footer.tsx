@@ -162,7 +162,7 @@ const footerLinks: { href: string; text: string; tooltip: React.ReactNode }[] =
       tooltip: 'Get an email whenever I post, no spam',
     },
     {
-      href: 'https://theodorusclarence.com/rss.xml',
+      href: 'https://theodorusclarence.com/rss.xml', //需要更改链接
       text: 'RSS',
       tooltip: 'Add BJUT Swift blog to your feeds',
     },
