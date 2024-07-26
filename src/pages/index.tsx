@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { InferGetStaticPropsType } from 'next';
 import * as React from 'react';
 import { IoArrowDownOutline } from 'react-icons/io5';
-import { SiGithub, SiTwitter } from 'react-icons/si';
+import { SiGithub } from 'react-icons/si';
 import { InView } from 'react-intersection-observer';
 
 import { trackEvent } from '@/lib/analytics';
@@ -62,9 +62,6 @@ export default function IndexPage({
             <p
               className='mt-2 max-w-4xl text-sm leading-relaxed text-gray-700 dark:text-gray-200 md:mt-3 md:text-base 2xl:text-lg'
               data-fade='2'
-              onClick={() => {
-                trackEvent('Social Link: Dimension', { type: 'link' });
-              }}
             >
               Sharing Wisdom, Innovation & Futuristic Technologies (S.W.I.F.T.)
             </p>
@@ -124,21 +121,6 @@ export default function IndexPage({
                   className='shrink-0 transition-colors group-hover:text-[#1da1f2]'
                 />
                 <span>lark</span>
-              </UnstyledLink>
-              <UnstyledLink
-                href='https://twitter.com/th_clarence'
-                className={clsx(
-                  'inline-flex items-center gap-1 text-sm font-medium md:text-base',
-                  'group text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white',
-                  'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
-                  'transition-colors'
-                )}
-                onClick={() => {
-                  trackEvent('Social Link: Twitter', { type: 'link' });
-                }}
-              >
-                <SiTwitter className='shrink-0 transition-colors group-hover:text-[#1da1f2]' />
-                <span>@th_clarence</span>
               </UnstyledLink>
               <UnstyledLink
                 href='https://github.com/bjut-swift'

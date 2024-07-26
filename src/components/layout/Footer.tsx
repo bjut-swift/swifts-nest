@@ -2,7 +2,7 @@ import { FeedbackFish } from '@feedback-fish/react';
 import * as React from 'react';
 import { FiMail } from 'react-icons/fi';
 import { IconType } from 'react-icons/lib';
-import { SiGithub, SiLinkedin, SiTwitter } from 'react-icons/si';
+import { SiGithub } from 'react-icons/si';
 
 import { trackEvent } from '@/lib/analytics';
 import useCopyToClipboard from '@/hooks/useCopyToClipboard';
@@ -138,27 +138,12 @@ const footerLinks: { href: string; text: string; tooltip: React.ReactNode }[] =
     {
       href: '/design',
       text: 'Design',
-      tooltip: 'theodorusclarence.com color palette',
+      tooltip: 'BJUT Swift color palette',
     },
     {
-      href: 'https://clarence.link/docs',
+      href: 'https://github.com/bjut-swift/manual',
       text: 'Docs',
-      tooltip: 'Personal documentation about my best practices on development',
-    },
-    {
-      href: 'https://clarence.link/booknotes',
-      text: 'Book Notes',
-      tooltip: 'Note collection of books that I read',
-    },
-    {
-      href: 'https://clarence.link/starters',
-      text: 'Starter Templates',
-      tooltip: 'Starter that I build and use throughout my projects',
-    },
-    {
-      href: 'https://clarence.link/um',
-      text: 'Analytics',
-      tooltip: 'theodorusclarence.com views and visitors analytics',
+      tooltip: 'BJUT Swift官网操作手册',
     },
     {
       href: '/statistics',
@@ -177,9 +162,9 @@ const footerLinks: { href: string; text: string; tooltip: React.ReactNode }[] =
       tooltip: 'Get an email whenever I post, no spam',
     },
     {
-      href: 'https://theodorusclarence.com/rss.xml',
+      href: 'https://theodorusclarence.com/rss.xml', //需要更改链接
       text: 'RSS',
-      tooltip: 'Add theodorusclarence.com blog to your feeds',
+      tooltip: 'Add BJUT Swift blog to your feeds',
     },
   ];
 
@@ -197,27 +182,6 @@ const socials: Social[] = [
     text: (
       <>
         See my projects on <Accent className='font-medium'>Github</Accent>
-      </>
-    ),
-  },
-  {
-    href: 'https://clarence.link/linkedin',
-    icon: SiLinkedin,
-    id: 'Linkedin',
-    text: (
-      <>
-        Find me on <Accent className='font-medium'>Linkedin</Accent>
-      </>
-    ),
-  },
-  {
-    href: 'https://clarence.link/twt',
-    icon: SiTwitter,
-    id: 'Twitter',
-    text: (
-      <>
-        I post updates, tips, insight, and sometimes do some talk. Follow me on{' '}
-        <Accent className='font-medium'>Twitter</Accent>!
       </>
     ),
   },
