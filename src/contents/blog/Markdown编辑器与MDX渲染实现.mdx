@@ -1,0 +1,182 @@
+---
+title: 'Markdown编辑器与MDX渲染实现'
+publishedAt: '2024-08-15'
+description: 'Graduation, Tech Writing, First Job, Mentorship, and more!'
+banner: 'behnam-norouzi-k7VCuwAhmbI-unsplash_1'
+tags: 'tech'
+englishOnly: false
+---
+
+## 前言
+
+本节教程面向 next.js 开发者，实现使用 mdx/markdown 渲染文章内容以及 markdown 编辑器来编辑文章内容
+
+## 教程大致目标
+
+- 掌握在 next.js 使用 mdx 直接渲染页面
+- 掌握在 next.js 使用 mdx 动态渲染 markdown 内容
+- 对 mdx 文档实现代码高亮以及代码复制
+- next.js 集成 md-editor-rt 编辑器实现 markdown 的可视化编辑
+
+## 技术概念
+
+- markdown：一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，Markdown 文件的后缀名便是“.md”
+- mdx： 一种可以渲染前端组件（react、vue 等）markdown 编译器
+
+## 前置准备
+
+在开始本课程前，请务必学习 markdown 的编写方法，并且粗略的了解一下 mdx
+也可以看 manual 仓库中的第一篇
+
+# 应用开发
+
+现在就让我们来实现在 next.js 中进行文章的 markdown 编辑和阅读功能
+
+## mdx 渲染
+
+我们先从 mdx 入手，学习 markdown 的渲染。next.js 官方支持 mdx，需要安装以下依赖来使用
+
+    pnpm add @next/mdx @mdx-js/loader @mdx-js/react @types/mdx
+
+## 静态渲染
+
+我们先尝试一下静态渲染。也就是使用 mdx 来编写 next.js 页面和组件，这些组件是以.mdx 结尾的文件。在.mdx 文件里可以混合编写 markdown 和 react 代码。
+
+配置 next.js
+
+    // next.config.mjs
+    import createMDX from '@next/mdx';
+
+        const withMDX = createMDX();
+        /** @type {import('next').NextConfig} */
+        const nextConfig = {
+            // 启用react严格模式(可选)
+            reactStrictMode: true,
+            pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+        };
+
+        export default withMDX(nextConfig);
+
+    根据官方文档的说明，创建src/mdx-components.tsx文件，内容如下
+
+        // src/mdx-components.tsx
+    import type { MDXComponents } from 'mdx/types';
+
+    export function useMDXComponents(components: MDXComponents): MDXComponents {
+        return {
+            ...components,
+        };
+    }
+
+    // src/mdx-components.tsx
+    import type { MDXComponents } from 'mdx/types';
+
+    export function useMDXComponents(components: MDXComponents): MDXComponents {
+        return {
+            ...components,
+        };
+    }
+
+添加一个用于测试的 mdx 页面。从源码中复制 src/app/(pages)/mdx/content.mdx 放入应用位置下。这是一个纯 markdown 文件，内容大致如下
+
+    >  随着时间的推移，可能部分内容无法与官方最新版本同步，请自行对比查看。
+
+    用于Typescript或ES6+的类验证，基于[validator.js](https://github.com/chriso/validator.js)
+
+    [手动验证方法列表](https://github.com/typestack/class-validator#manual-validation)和[验证装饰器列表](https://github.com/typestack/class-validator#validation-decorators)
+
+    ## class-validator中文文档
+    // ...
+
+创建一个 src/app/(pages)/mdx/page.mdx 页面，然后把 src/app/(pages)/mdx/content.mdx 作为模块导入、
+
+**_ 注意：page.mdx 使用.mdx 结尾，而不是 tsx _**
+
+    import $styles from '../posts/[item]/page.module.css';
+    import Content from './content.mdx';
+    import { MdxTitle } from './title.tsx'
+
+    <div className={$styles.container}>
+        <div className={$styles.item}>
+            <div className={$styles.content}>
+                <header className={$styles.title}>
+                    <MdxTitle />
+                </header>
+                <div className={$styles.body}>
+                    <Content />
+                </div>
+            </div>
+        </div>
+    </div>
+
+mdx 和 tsx 可以互导，比如定义一个 title.tsx 组件，然后直接可以在 page.mdx 中导入使用
+
+    // src/app/(pages)/mdx/title.tsx
+    // ...
+    export const MdxTitle: FC = () => <h1>class-validator和class-transformer的中文文档</h1>;
+
+    // src/app/(pages)/mdx/page.mdx
+    // ...
+    import { MdxTitle } from './title.tsx'
+
+    <div className={$styles.container}>
+        <div className={$styles.item}>
+            <div className={$styles.content}>
+                <header className={$styles.title}>
+                    <MdxTitle />
+                </header>
+                <div className={$styles.body}>
+                    <Content />
+                </div>
+            </div>
+        </div>
+    </div>
+
+启动应用，并访问 http://localhost:3000/mdx
+
+## 代码高亮
+
+默认情况下 next.js 渲染的 mdx 是没有代码高亮的。在 next.js 中实现 mdx 代码高亮的方法是使用 rehype-prism-plus 或 rehype-highlight 插件，它们分别是基于 prism.js 和 highlight.js 实现的 mdx 代码高亮插件。以 rehype-prism-plus 代码代码实现高亮
+
+**_注意：prism 不是 prisma！prism 是代码高亮的一个前端库，prisma 是一个数据库 ORM，两者完全不是一个东西，不要搞混了_**
+
+安装以下依赖
+
+> pnpm add rehype-prism-plus # prism 代码语法高亮插件
+
+> pnpm add prism-themes # prism 皮肤插件，会有很多代码高亮皮肤供选择，但是你也可以自定义自己喜欢的皮肤（可选）
+
+配置 prism 插件
+
+    // next.config.mjs
+    import rehypePrism from 'rehype-prism-plus';
+    const withMDX = createMDX({
+        options: {
+            rehypePlugins: [rehypePrism],
+        },
+    });
+    // ...
+
+添加 prsim 代码高亮的样式。创建 src/app/styles/prism.css，复制源码中的样式文件内容粘帖进去，然后在 index.css 中导入
+
+    /* src/app/styles/index.css */
+
+    /* ... */
+    @import './app.css';
+    @import './prism.css';
+
+    @config "../tailwind-config.ts";
+
+对于 src/app/styles/prism.css，需要做一下说明
+
+- 如果使用 prism-themes 中的样式，则不再需要定义，直接导入样式文件即可（如：@import 'prism-themes/themes/prism-one-dark.css';）。但因为站长网上找到了一个比较好看的样式，所以使用了这个自定义的样式
+- 代码行数显示样式是必须要加的（如果你开启了 rehype-prism-plus 的代码行数显示功能的话），此部分样式正式复制这个库的官方文档的，你也可以按自己的喜好更改
+
+然后，开启显示行号功能
+
+    // next.config.mjs
+    const withMDX = createMDX({
+        options: {
+            rehypePlugins: [[rehypePrism, { showLineNumbers: true }]],
+        },
+    });
