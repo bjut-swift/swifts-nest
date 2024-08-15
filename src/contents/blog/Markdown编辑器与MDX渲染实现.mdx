@@ -36,7 +36,9 @@ englishOnly: false
 
 我们先从 mdx 入手，学习 markdown 的渲染。next.js 官方支持 mdx，需要安装以下依赖来使用
 
-    pnpm add @next/mdx @mdx-js/loader @mdx-js/react @types/mdx
+```
+pnpm add @next/mdx @mdx-js/loader @mdx-js/react @types/mdx
+```
 
 ## 静态渲染
 
@@ -44,6 +46,7 @@ englishOnly: false
 
 配置 next.js
 
+```
     // next.config.mjs
     import createMDX from '@next/mdx';
 
@@ -76,9 +79,11 @@ englishOnly: false
             ...components,
         };
     }
+```
 
 添加一个用于测试的 mdx 页面。从源码中复制 src/app/(pages)/mdx/content.mdx 放入应用位置下。这是一个纯 markdown 文件，内容大致如下
 
+```
     >  随着时间的推移，可能部分内容无法与官方最新版本同步，请自行对比查看。
 
     用于Typescript或ES6+的类验证，基于[validator.js](https://github.com/chriso/validator.js)
@@ -87,11 +92,13 @@ englishOnly: false
 
     ## class-validator中文文档
     // ...
+```
 
 创建一个 src/app/(pages)/mdx/page.mdx 页面，然后把 src/app/(pages)/mdx/content.mdx 作为模块导入、
 
 **_ 注意：page.mdx 使用.mdx 结尾，而不是 tsx _**
 
+```
     import $styles from '../posts/[item]/page.module.css';
     import Content from './content.mdx';
     import { MdxTitle } from './title.tsx'
@@ -108,9 +115,11 @@ englishOnly: false
             </div>
         </div>
     </div>
+```
 
 mdx 和 tsx 可以互导，比如定义一个 title.tsx 组件，然后直接可以在 page.mdx 中导入使用
 
+```
     // src/app/(pages)/mdx/title.tsx
     // ...
     export const MdxTitle: FC = () => <h1>class-validator和class-transformer的中文文档</h1>;
@@ -131,6 +140,7 @@ mdx 和 tsx 可以互导，比如定义一个 title.tsx 组件，然后直接可
             </div>
         </div>
     </div>
+```
 
 启动应用，并访问 http://localhost:3000/mdx
 
@@ -142,12 +152,15 @@ mdx 和 tsx 可以互导，比如定义一个 title.tsx 组件，然后直接可
 
 安装以下依赖
 
+```
 > pnpm add rehype-prism-plus # prism 代码语法高亮插件
 
 > pnpm add prism-themes # prism 皮肤插件，会有很多代码高亮皮肤供选择，但是你也可以自定义自己喜欢的皮肤（可选）
+```
 
 配置 prism 插件
 
+```
     // next.config.mjs
     import rehypePrism from 'rehype-prism-plus';
     const withMDX = createMDX({
@@ -156,9 +169,11 @@ mdx 和 tsx 可以互导，比如定义一个 title.tsx 组件，然后直接可
         },
     });
     // ...
+```
 
 添加 prsim 代码高亮的样式。创建 src/app/styles/prism.css，复制源码中的样式文件内容粘帖进去，然后在 index.css 中导入
 
+```
     /* src/app/styles/index.css */
 
     /* ... */
@@ -166,6 +181,7 @@ mdx 和 tsx 可以互导，比如定义一个 title.tsx 组件，然后直接可
     @import './prism.css';
 
     @config "../tailwind-config.ts";
+```
 
 对于 src/app/styles/prism.css，需要做一下说明
 
@@ -174,9 +190,11 @@ mdx 和 tsx 可以互导，比如定义一个 title.tsx 组件，然后直接可
 
 然后，开启显示行号功能
 
+```
     // next.config.mjs
     const withMDX = createMDX({
         options: {
             rehypePlugins: [[rehypePrism, { showLineNumbers: true }]],
         },
     });
+```
