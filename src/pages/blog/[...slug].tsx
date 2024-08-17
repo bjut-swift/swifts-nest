@@ -128,7 +128,7 @@ export default function SingleBlogPage({
               <p className='mt-2 text-sm text-gray-600 dark:text-gray-300'>
                 Written on{' '}
                 {format(new Date(frontmatter.publishedAt), 'MMMM dd, yyyy')} by
-                Theodorus Clarence.
+                BJUT Swift.
               </p>
               {frontmatter.lastUpdated && (
                 <div className='mt-2 flex flex-wrap gap-2 text-sm text-gray-700 dark:text-gray-200'>
