@@ -17,13 +17,6 @@ export const incrementMetaFlag =
   isProd && getFromLocalStorage('incrementMetaFlag') !== 'false';
 
 /**
- * Show Spotify Now Playing on footer
- * @see Footer.tsx
- */
-export const spotifyFlag =
-  isProd || process.env.NEXT_PUBLIC_FLAG_SPOTIFY === 'true';
-
-/**
  * Open API access to newsletter provider (subscribe and view count)
  * @see SubscribeCard.tsx
  */
