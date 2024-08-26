@@ -37,9 +37,8 @@ const stacks = [
     icon: SiNextdotjs,
     tooltip: (
       <>
-        <CustomLink href='https://nextjs.org'>Next.js</CustomLink>, currently my
-        go-to framework because of the static generation, dynamic paths, and
-        built-in API. <em>ps: I like pages folder better than the new one.</em>
+        <CustomLink href='https://nextjs.org'>Next.js</CustomLink>,
+        一个功能强大且灵活的React框架。它提供了静态生成、动态路径和内置API等功能，极大地提高了开发效率和网站性能。
       </>
     ),
   },
@@ -48,8 +47,8 @@ const stacks = [
     icon: SiReact,
     tooltip: (
       <>
-        <CustomLink href='https://reactjs.org/'>React</CustomLink>, underlying
-        library of Next.js. I love the declarative approach and the ecosystem.
+        <CustomLink href='https://reactjs.org/'>React</CustomLink>,
+        一个流行的前端库。它提供了声明式编程模型，帮助开发者快速构建用户界面。
       </>
     ),
   },
@@ -61,11 +60,8 @@ const stacks = [
         <CustomLink href='https://www.typescriptlang.org/'>
           TypeScript
         </CustomLink>
-        , can't live without it! Check out my{' '}
-        <CustomLink href='https://github.com/theodorusclarence/ts-nextjs-tailwind-starter'>
-          starter template
-        </CustomLink>{' '}
-        using Next.js, Tailwind CSS, and TypeScript.
+        ,
+        一个静态类型检查的JavaScript超集。它可以帮助开发者编写更安全、更可维护的代码。
       </>
     ),
   },
@@ -74,13 +70,8 @@ const stacks = [
     icon: SiTailwindcss,
     tooltip: (
       <>
-        <CustomLink href='https://tailwindcss.com/'>Tailwind CSS</CustomLink> is
-        awesome, I have never achieved this much reusability. Make sure you get
-        the{' '}
-        <CustomLink href='https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss'>
-          extension
-        </CustomLink>
-        .
+        <CustomLink href='https://tailwindcss.com/'>Tailwind CSS</CustomLink>,
+        一个实用性极高的CSS框架。它提供了大量的预定义类，可以快速实现样式的重用和自定义。
       </>
     ),
   },
@@ -90,8 +81,8 @@ const stacks = [
     tooltip: (
       <>
         <CustomLink href='https://tanstack.com/'>TanStack Query</CustomLink>,
-        great react hooks for data fetching and caching. I maintain most of my
-        API fetch (get, post, put, delete) in this library.
+        一个功能强大的React Hooks
+        库。它提供了数据获取和缓存的解决方案，提高了应用程序的性能和用户体验。
       </>
     ),
   },
@@ -100,8 +91,8 @@ const stacks = [
     icon: SiPrisma,
     tooltip: (
       <>
-        <CustomLink href='https://www.prisma.io/'>Prisma</CustomLink>, great and
-        simple ORM. A little bit of documentation and you're good to go.
+        <CustomLink href='https://www.prisma.io/'>Prisma</CustomLink>,
+        一个简单易用的ORM工具。它提供了简洁的数据模型定义和查询API，帮助开发者快速构建数据层。
       </>
     ),
   },
