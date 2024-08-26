@@ -28,7 +28,7 @@ class MyDocument extends Document {
             defer
             data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID || ''}
             src='https://umami.thcl.dev/script.js'
-            data-domains='bjut-swift.cn'
+            data-domains='bjutswift.cn'
           />
         </Head>
         <body className='bg-white antialiased transition-colors dark:bg-dark dark:text-white'>

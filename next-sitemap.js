@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: 'https://bjut-swift.cn/',
+  siteUrl: 'https://bjutswift.cn/',
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [{ userAgent: '*', allow: '/' }],

@@ -81,14 +81,14 @@ function SocialLinks() {
                 ? 'Click the mail logo to copy'
                 : 'Copied to clipboard 🥳'}
               <Accent className='inline-block font-medium'>
-                bjut-swift@gmail.com
+                bjut.swift@gmail.com
               </Accent>
             </div>
           }
         >
           <button
             onClick={() => {
-              copy('bjut-swift@gmail.com').then(() => {
+              copy('bjut.swift@gmail.com').then(() => {
                 setCopyStatus('copied');
                 setTimeout(() => setCopyStatus('idle'), 1500);
               });
@@ -158,7 +158,7 @@ const footerLinks: { href: string; text: string; tooltip: React.ReactNode }[] =
       tooltip: 'Get an email whenever I post, no spam',
     },
     {
-      href: 'https://bjut-swift.cn/rss.xml',
+      href: 'https://bjutswift.cn/rss.xml',
       text: 'RSS',
       tooltip: 'Add BJUT SWIFT blog to your feeds',
     },

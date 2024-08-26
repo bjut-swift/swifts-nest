@@ -26,7 +26,7 @@ export default function DesignPage() {
             </h1>
 
             <p data-fade='1' className='mt-2 text-gray-600 dark:text-gray-300'>
-              bjut-swift.cn color palette
+              bjutswift.cn color palette
             </p>
 
             <div

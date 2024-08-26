@@ -5,10 +5,10 @@ import { openGraph } from '@/lib/helper.client';
 
 const defaultMeta = {
   title: 'BJUT SWIFT',
-  siteName: 'bjut-swift.cn',
+  siteName: 'bjutswift.cn',
   description: 'BJUT SWIFT官网',
-  url: 'https://bjut-swift.cn',
-  image: 'https://bjut-swift.cn/favicon/large-og.jpg',
+  url: 'https://bjutswift.cn',
+  image: 'https://bjutswift.cn/favicon/large-og.jpg',
   type: 'website',
   robots: 'follow, index',
   author: 'BJUT SWIFT',
