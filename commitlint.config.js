@@ -17,7 +17,8 @@ module.exports = {
         'perf',
         'revert',
         'vercel',
-        'lint'
+        'lint',
+        'husky'
       ],
     ],
   },
