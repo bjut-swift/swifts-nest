@@ -4,12 +4,11 @@ import { useRouter } from 'next/router';
 import { openGraph } from '@/lib/helper.client';
 
 const defaultMeta = {
-  title: 'Theodorus Clarence',
-  siteName: 'theodorusclarence.com',
-  description:
-    'An online portfolio and blog by Theodorus Clarence. Showcase of my projects, and some of my thoughts about website development.',
-  url: 'https://theodorusclarence.com',
-  image: 'https://theodorusclarence.com/favicon/large-og.jpg',
+  title: 'BJUT SWIFT',
+  siteName: 'bjut-swift.cn',
+  description: 'BJUT SWIFT官网',
+  url: 'https://bjut-swift.cn',
+  image: 'https://bjut-swift.cn/favicon/large-og.jpg',
   type: 'website',
   robots: 'follow, index',
 };

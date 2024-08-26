@@ -9,12 +9,12 @@ describe('All Page', () => {
 
   it('should display index page', () => {
     cy.visit('/');
-    cy.get('h1').should('contain', 'You can call me Clarence');
+    cy.get('h1').should('contain', 'BJUT SWIFT');
   });
 
   it('should display about page', () => {
     cy.visit('/about');
-    cy.get('h1').should('contain', 'Theodorus Clarence');
+    cy.get('h1').should('contain', 'BJUT SWIFT');
   });
 
   it('should display blog page', () => {
@@ -34,7 +34,7 @@ describe('All Page', () => {
 
   it('should display subscribe page', () => {
     cy.visit('/subscribe');
-    cy.get('h1').should('contain', 'Subscribe to theodorusclarence.com');
+    cy.get('h1').should('contain', 'Subscribe to BJUT SWIFT');
   });
 
   it('should display trf bca page', () => {

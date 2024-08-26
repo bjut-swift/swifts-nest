@@ -20,9 +20,8 @@ export default function GuestbookPage() {
               <Accent>Guestbook</Accent>
             </h1>
             <p className='mt-2 text-gray-700 dark:text-gray-200'>
-              Leave whatever you like to say—message, appreciation, suggestions.
-              If you got some questions, you can leave them on the{' '}
-              <CustomLink href='https://github.com/theodorusclarence/theodorusclarence.com/discussions/179'>
+              这是一个留言簿，欢迎您留下任何想说的话—信息、感谢、建议。
+              <CustomLink href='https://github.com/bjut-swift/swifts-nest/discussions'>
                 AMA discussion
               </CustomLink>
             </p>

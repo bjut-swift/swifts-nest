@@ -24,7 +24,7 @@ export default function Footer() {
         <SocialLinks />
 
         <p className='mt-8 text-sm text-gray-600 dark:text-gray-300'>
-          © BJUT Swift {new Date().getFullYear()}
+          © BJUT SWIFT {new Date().getFullYear()}
           {feedbackFlag && (
             <>
               {' • '}
@@ -81,14 +81,14 @@ function SocialLinks() {
                 ? 'Click the mail logo to copy'
                 : 'Copied to clipboard 🥳'}
               <Accent className='inline-block font-medium'>
-                me@theodorusclarence.com
+                bjut-swift@gmail.com
               </Accent>
             </div>
           }
         >
           <button
             onClick={() => {
-              copy('me@theodorusclarence.com').then(() => {
+              copy('bjut-swift@gmail.com').then(() => {
                 setCopyStatus('copied');
                 setTimeout(() => setCopyStatus('idle'), 1500);
               });
@@ -134,12 +134,12 @@ const footerLinks: { href: string; text: string; tooltip: React.ReactNode }[] =
     {
       href: '/design',
       text: 'Design',
-      tooltip: 'BJUT Swift color palette',
+      tooltip: 'BJUT SWIFT color palette',
     },
     {
       href: 'https://github.com/bjut-swift/manual',
       text: 'Docs',
-      tooltip: 'BJUT Swift官网操作手册',
+      tooltip: 'BJUT SWIFT官网操作手册',
     },
     {
       href: '/statistics',
@@ -158,9 +158,9 @@ const footerLinks: { href: string; text: string; tooltip: React.ReactNode }[] =
       tooltip: 'Get an email whenever I post, no spam',
     },
     {
-      href: 'https://theodorusclarence.com/rss.xml', //需要更改链接
+      href: 'https://bjut-swift.cn/rss.xml',
       text: 'RSS',
-      tooltip: 'Add BJUT Swift blog to your feeds',
+      tooltip: 'Add BJUT SWIFT blog to your feeds',
     },
   ];
 

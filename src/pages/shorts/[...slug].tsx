@@ -122,7 +122,7 @@ export default function SingleShortPage({ code, frontmatter }: LibraryType) {
 
             <div className='mt-8 flex flex-col items-start gap-4 md:flex-row-reverse md:justify-between'>
               <CustomLink
-                href={`https://github.com/theodorusclarence/theodorusclarence.com/blob/main/src/contents/shorts/${frontmatter.slug}.mdx`}
+                href={`https://github.com/bjut-swift/swifts-nest/blob/main/src/contents/shorts/${frontmatter.slug}.mdx`}
               >
                 Edit this on GitHub
               </CustomLink>
