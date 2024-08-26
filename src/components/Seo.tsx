@@ -11,6 +11,7 @@ const defaultMeta = {
   image: 'https://bjut-swift.cn/favicon/large-og.jpg',
   type: 'website',
   robots: 'follow, index',
+  author: 'BJUT SWIFT',
 };
 
 type SeoProps = {
@@ -20,6 +21,7 @@ type SeoProps = {
   banner?: string;
   canonical?: string;
   tags?: string;
+  author?: string;
 } & Partial<typeof defaultMeta>;
 
 export default function Seo(props: SeoProps) {
@@ -113,6 +115,7 @@ export default function Seo(props: SeoProps) {
         content='/favicon/ms-icon-144x144.png'
       />
       <meta name='theme-color' content='#ffffff' />
+      <meta name='author' content={meta.author || defaultMeta.author} />
     </Head>
   );
 }

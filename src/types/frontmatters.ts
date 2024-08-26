@@ -12,6 +12,7 @@ export type BlogFrontmatter = {
   lastUpdated?: string;
   tags: string;
   repost?: string;
+  author?: string;
 };
 
 export type ContentType = 'blog' | 'library' | 'projects';
