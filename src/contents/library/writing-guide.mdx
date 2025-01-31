@@ -25,6 +25,8 @@ title: '文章标题'
 tags: 'tag1,tag2'
 description: '文章的简短描述'
 ---
+
+> 注意：tags 之间使用英文逗号分隔，不要加空格
 ```
 
 </div>
@@ -38,11 +40,10 @@ _标签：tag1, tag2_
 
 文章的简短描述
 
+</div>
+
+</div>
 > 注意：tags 之间使用英文逗号分隔，不要加空格
-
-</div>
-</div>
-
 ### 2. 文章内容
 
 文章主体应该包含以下部分：
@@ -154,14 +155,16 @@ def hello_world():
     print("Hello, World!")
 ```
 
-```javascript
+```javascript /sayHello/
+// 通过 /text/ 来高亮一段代码
 // JavaScript 代码示例
 function sayHello() {
   console.log('Hello!');
 }
 ```
 
-```css
+```css {4}
+/* 通过 {n} 来高亮第n行代码 */
 /* CSS 代码示例 */
 .button {
   color: blue;
@@ -180,14 +183,16 @@ def hello_world():
     print("Hello, World!")
 ```
 
-```javascript
+```javascript /sayHello/
+// 通过 /text/ 来高亮一段代码
 // JavaScript 代码示例
 function sayHello() {
   console.log('Hello!');
 }
 ```
 
-```css
+```css {4}
+/* 通过 {n} 高亮第n行代码 */
 /* CSS 代码示例 */
 .button {
   color: blue;
@@ -199,32 +204,24 @@ function sayHello() {
 
 #### 图片插入
 
-使用 CloudinaryImg 组件插入图片：
+使用 github assets + cdn.bjutswift.cn 插入图片：
+
+将 GitHub 上存储的图片 如[图](https://raw.githubusercontent.com/bjut-swift/BJUT-Helper/refs/heads/master/images/title.png)
+
+通过[cdn.bjutswift.cn](https://cdn.bjutswift.cn)这个 CDN 来加速该图片的访问 并获得该图片的 url
 
 <div className="grid grid-cols-2 gap-4">
 <div>
 
-```jsx
+```
 // 基本用法
-<CloudinaryImg
-  mdx
-  publicId='your-image-id'
-  alt='图片描述'
-  width={800}
-  height={400}
-/>
+![示例图片](https://cdn.bjutswift.cn/https://raw.githubusercontent.com/bjut-swift/BJUT-Helper/refs/heads/master/images/title.png)
 ```
 
 </div>
 <div>
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blog/example-image'
-  alt='示例图片'
-  width={400}
-  height={200}
-/>
+![示例图片](https://cdn.bjutswift.cn/https://raw.githubusercontent.com/bjut-swift/BJUT-Helper/refs/heads/master/images/title.png)
 
 </div>
 </div>
