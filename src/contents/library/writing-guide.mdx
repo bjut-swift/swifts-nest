@@ -1,0 +1,245 @@
+---
+title: 'BJUTswift发文指南'
+tags: 'tutorial,guide'
+description: '这篇教程将指导你如何在教程栏目中创建和编写一篇规范的文章。'
+---
+
+## 介绍
+
+在这篇教程中，我将介绍如何在 BJUTswift 官网中创建和编写一篇规范的文章。我们将学习文章的基本结构、格式要求以及一些实用的写作技巧。
+
+## 文章结构
+
+每篇教程文章都需要包含以下基本结构：
+
+### 1. Frontmatter
+
+Frontmatter 是文章最上方的元数据部分，即文章的基本信息，使用 `---` 包裹，包含以下字段：
+
+<div className="grid grid-cols-2 gap-4">
+<div>
+
+```yaml
+---
+title: '文章标题'
+tags: 'tag1,tag2'
+description: '文章的简短描述'
+---
+```
+
+</div>
+<div>
+
+这些元数据会在文章顶部生成标题、标签和描述信息：
+
+# 文章标题
+
+_标签：tag1, tag2_
+
+文章的简短描述
+
+> 注意：tags 之间使用英文逗号分隔，不要加空格
+
+</div>
+</div>
+
+### 2. 文章内容
+
+文章主体应该包含以下部分：
+
+- **介绍**: 简要说明本文要讲什么
+- **主要内容**: 分步骤或主题展开
+- **总结**: 总结关键点
+
+### 3. 格式指南
+
+#### Markdown 语法
+
+文章使用 MDX 格式（Markdown 的扩展），支持以下常用语法：
+
+详细的语法可以参考[Markdown 语法指南](https://markdown.com.cn)
+
+<div className="grid grid-cols-2 gap-4">
+<div>
+
+```markdown
+# 一级标题
+
+## 二级标题
+
+### 三级标题
+
+- 无序列表
+- 列表项
+
+1. 有序列表
+2. 列表项
+
+**粗体文本**
+_斜体文本_
+
+[链接文本](URL)
+
+> 引用文本
+> 可以包含多行
+>
+> 空行开始新段落
+>
+> > 嵌套引用
+
+表格：
+| 表头 1 | 表头 2 |
+|-------|-------|
+| 单元格 | 单元格 |
+| 左对齐 | 居中 |
+
+任务列表：
+
+- [x] 已完成任务
+- [ ] 未完成任务
+```
+
+</div>
+<div>
+
+# 一级标题
+
+## 二级标题
+
+### 三级标题（n 个 # 即 n 级标题）
+
+- 无序列表
+- 列表项
+
+1. 有序列表
+2. 列表项
+
+**粗体文本**
+_斜体文本_
+
+[链接文本](URL)
+
+> 引用文本
+> 可以包含多行
+>
+> 空行开始新段落
+>
+> > 嵌套引用
+
+表格：
+| 表头 1 | 表头 2 |
+|-------|-------|
+| 单元格 | 单元格 |
+| 左对齐 | 居中 |
+
+任务列表：
+
+- [x] 已完成任务
+- [ ] 未完成任务
+
+</div>
+</div>
+
+#### 代码块
+
+对于代码示例，使用三个反引号包裹，并指定语言以获得语法高亮：
+
+<div className="grid grid-cols-2 gap-4">
+<div>
+
+````markdown
+```python
+# Python 代码示例
+def hello_world():
+    print("Hello, World!")
+```
+
+```javascript
+// JavaScript 代码示例
+function sayHello() {
+  console.log('Hello!');
+}
+```
+
+```css
+/* CSS 代码示例 */
+.button {
+  color: blue;
+}
+```
+````
+
+</div>
+<div>
+
+支持多种编程语言的语法高亮：
+
+```python
+# Python 代码示例
+def hello_world():
+    print("Hello, World!")
+```
+
+```javascript
+// JavaScript 代码示例
+function sayHello() {
+  console.log('Hello!');
+}
+```
+
+```css
+/* CSS 代码示例 */
+.button {
+  color: blue;
+}
+```
+
+</div>
+</div>
+
+#### 图片插入
+
+使用 CloudinaryImg 组件插入图片：
+
+<div className="grid grid-cols-2 gap-4">
+<div>
+
+```jsx
+// 基本用法
+<CloudinaryImg
+  mdx
+  publicId='your-image-id'
+  alt='图片描述'
+  width={800}
+  height={400}
+/>
+```
+
+</div>
+<div>
+
+<CloudinaryImg
+  mdx
+  publicId='theodorusclarence/blog/example-image'
+  alt='示例图片'
+  width={400}
+  height={200}
+/>
+
+</div>
+</div>
+
+## 总结
+
+创建一篇好的教程文章需要注意以下几点：
+
+- 遵循基本的文章结构
+- 使用正确的 Markdown 语法
+- 提供清晰的示例和说明
+- 保持格式规范统一
+- 注意内容的组织和展示
+- 关注读者的阅读体验
+
+现在你已经了解了如何写一篇规范的教程文章，开始创作你的第一篇教程吧！
+
+> 提示：第一次写作时可以参考这篇指南，熟悉后就能得心应手了。
