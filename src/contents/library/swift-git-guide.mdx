@@ -1,0 +1,346 @@
+---
+title: 'swift-git 使用指南'
+tags: 'git,github,workflow'
+description: '根据b站up主「码农高天」的Git教学视频进行的总结，帮助同学们速成Git基本操作。'
+---
+
+# swift-git
+
+根据 b 站 up 主[「码农高天」](https://space.bilibili.com/245645656)的 Git 教学视频进行的总结，帮助同学们速成 Git 基本操作，一切解释权归视频作者[gaogaotiantian](https://github.com/gaogaotiantian)所有，如有侵权请联系我们以删除。
+建议观看原视频，本仓库仅用作速查复习。
+
+分为三个部分：
+
+- [【十分钟学会正确的 github 工作流，和开源作者们使用同一套流程】](https://www.bilibili.com/video/BV19e4y1q7JJ)
+- [【十分钟学会常用 git 撤销操作，全面掌握 git 的时光机】](https://www.bilibili.com/video/BV1ne4y1S7S9/?share_source=copy_web&vd_source=26a2b981a461580e599a2b8bf7ecd932)
+- [【Angular 提交信息规范】](https://zjdoc-gitguide.readthedocs.io/zh-cn/latest/message/angular-commit.html)
+
+# Git & GitHub 工作流
+
+## Clone from remote
+
+![Screenshot 2024-02-19 at 20 33 14](https://github.com/bjut-swift/swift-git/assets/101612750/6cd0141c-81cb-4f92-9961-edcb9cdb46b1)
+
+## Create feature branch
+
+硬盘并不在乎你的文件在哪个 branch，在你使用`checkout`切换 branch 后，git 会把这个 branch 上的所有源文件同步给硬盘。
+
+![Screenshot 2024-02-19 at 20 37 00](https://github.com/bjut-swift/swift-git/assets/101612750/d222b4c7-9324-400c-831a-ec87c6f32152)
+
+## Check diff and Add
+
+![Screenshot 2024-02-19 at 20 56 50](https://github.com/bjut-swift/swift-git/assets/101612750/62d03e72-2ef8-4752-ac7a-686b608a0c9b)
+
+`git add <changed_file>`会把修改的文件放到**暂存区**
+
+`git commit`将修改真正的放到 git 中，
+
+![Screenshot 2024-02-19 at 20 59 36](https://github.com/bjut-swift/swift-git/assets/101612750/4ece5dae-c7fc-4da9-b47b-05c4e0e7072d)
+
+> 这样 local git 就增加一个 commit，要注意 Disk 中的内容是没有变化的
+
+## Tell the local git changes to GitHub
+
+![Screenshot 2024-02-19 at 21 01 56](https://github.com/bjut-swift/swift-git/assets/101612750/3d8ea8bd-aff4-4672-81f9-69815fe5805a)
+
+## update
+
+经常会遇到提交后发现 main branch 上有了新的 commit，那我们要测试自己的 feature 在这个 update 更新之下是否还能正常工作。所以要把 main branch 的更新同步到 my-feature branch 中。
+
+- `git checkout main`，此时 Disk 上的源代码还是 init 的状态，而不是我们修改后的状态
+- `git pull origin main`，同步 remote 的 ma
+  in 到 local 的 main 中，这样 remote、local 和 Disk 的 main 就又都一样了。
+
+![Screenshot 2024-02-19 at 21 06 24](https://github.com/bjut-swift/swift-git/assets/101612750/b76e30f4-2ed7-406c-89ae-9ea674890ef4)
+
+- `git checkout my-feature`
+  ![Screenshot 2024-02-20 at 02 47 45](https://github.com/bjut-swift/swift-git/assets/101612750/9e5d107a-cbe9-4b97-9e1d-aa620e4364b1)
+
+- `git rebase main`:
+
+![Screenshot 2024-02-20 at 02 50 09](https://github.com/bjut-swift/swift-git/assets/101612750/23bbabab-3c5e-4476-b562-42b99305c605)
+
+把我的修改先扔到一边，然后把 main 最新的修改拿过来，然后在这个基础上在尝试把我的 commit 弄回去。
+
+这个过程中可能会有`rebase conflict`，需要手动选择你到底要哪段代码。
+
+rebase 后，我们相当于是在最新的 main branch 上面做了修改，这也是使用 rebase 而不是`merge`的好处。
+
+## Push to GitHub
+
+- `git push -f origin my-feature`
+
+![Screenshot 2024-02-20 at 02 51 33](https://github.com/bjut-swift/swift-git/assets/101612750/32776ef6-663d-4f27-9a3a-425ab272f2f2)
+
+把 local git 里面的 branch push 到 GitHub 上，因为我们做了 rebase，所以 push 必须加上`-f`，which stands for `force`，强制 push
+
+## Pull request
+
+![Screenshot 2024-02-20 at 02 54 50](https://github.com/bjut-swift/swift-git/assets/101612750/06fcc95f-7a7a-4998-8523-4185e3caad06)
+
+- Squash and merge（仓库管理者操作）：
+
+![Screenshot 2024-02-20 at 02 55 43](https://github.com/bjut-swift/swift-git/assets/101612750/61279d81-0abe-41b3-80fa-9f2397d61978)
+
+> 所有改变变成了 update2 这个 commit
+
+Squash 就是把分支上的所有改变合并为一个 commit， 保证 main branch 的 commit history 尽可能简洁。（改变了 commit 的结构、数量和名字）
+
+然后可以在 GitHub 上 delete branch，但这次时候 local git 还有这个 branch。
+
+- `git checkout main`
+
+- `git branch -D my-feature`
+
+- `git pull origin main`，把最后的 squash & merge 后的更新同步到我的 local 的 main branch 和硬盘中。这时候 remote、local 和硬盘就又都一样了。
+
+![Screenshot 2024-02-20 at 03 01 37](https://github.com/bjut-swift/swift-git/assets/101612750/1f2d6535-d546-40c3-97d9-36f09fa86ce6)
+
+# 撤销文件修改
+
+也就是改了但是没`add`的时候。
+
+```zsh
+git restore <changed_file>
+```
+
+（在较新版本中）
+
+![Screenshot 2024-02-20 at 03 07 05](https://github.com/bjut-swift/swift-git/assets/101612750/4cca550f-125c-4c38-8195-f4ca169ea374)
+
+## 暂存区撤销
+
+这时候`git status`会看到绿色的文件
+
+![Screenshot 2024-02-20 at 03 09 44](https://github.com/bjut-swift/swift-git/assets/101612750/da1721b0-445d-48df-a66b-ad7b2248c93a)
+
+这样的操作比较安全，撤销的是`git add`的操作，不会改变硬盘上的源代码。
+
+如果你是还想把文件的修改也撤销了，那就用
+
+```zsh
+git checkout HEAD <changed_file>
+```
+
+`HEAD`表示最近的一次 commit，这个操作会丢失硬盘上的修改。
+
+## 撤销 commit
+
+### reset
+
+```zsh
+git reset --soft HEAD~1
+```
+
+波浪线后的数字就是撤回到前几个 commit 的意思。
+
+这个命令是让 local git 撤回到前一个 commit 的状态，硬盘和暂存区中不会发生变化，只是 local git 中的 commit 被撤销了。
+
+```zsh
+git reset HEAD~1
+# equivalent to
+git reset --mixed HEAD~1
+```
+
+这个操作会同时把 commit，和 add 都撤销，只保留硬盘上的修改。
+
+```zsh
+git reset --hard HEAD~1
+```
+
+那就是完整的恢复初始状态了，硬盘上的修改也恢复，可撤销但麻烦，慎用。
+
+### revert
+
+```zsh
+git revert HEAD
+```
+
+添加一个和之前 commit 相反效果的 commit
+
+![Screenshot 2024-02-20 at 03 21 26](https://github.com/bjut-swift/swift-git/assets/101612750/72386a9f-0ea2-4e8c-9f17-c5026bd503b6)
+
+相较于 reset，revert 的好处是可以相当于删除任意一个 commit 的 change：
+
+![Screenshot 2024-02-20 at 03 22 49](https://github.com/bjut-swift/swift-git/assets/101612750/24baec5c-c936-4bd3-af1c-2c0515c81945)
+
+一个更重要的好处是，当你 push 到 github 后，这个修改从本地到公共区域了，我们需要判断使用的分支是公有分支还是个人分支（公有分支：只要有不只你一个人用的就是公有，几乎所有 main 分支都是共有的）。对于公有分支，只能往前走，不能倒退。因为一旦做删除操作，别人的分支就乱套了。所以当我们的修改目标是公有分支的时候，就只能用`git revert`，**从结果上**撤销更改。
+
+如果是个人分支，那就可以使用 reset 和`-f push`：
+
+![Screenshot 2024-02-20 at 03 27 07](https://github.com/bjut-swift/swift-git/assets/101612750/78716586-7ca6-425e-aa60-9b34056df945)
+
+> 因为正常 push，对于远端会察觉你有缺少的 commit
+
+对于公有分支，绝对不要使用`-f`，个人分支的话可以让 commit 更加简洁来使用。
+
+# Angular 提交规范
+
+目前最受开发人员肯定的规范是前端框架 Angular 提出的[Angular 提交信息规范](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)
+
+这里只介绍使用频率最高的提交类型的介绍，其它详情请进入官方文档学习。
+
+## 提交类型
+
+提交类型指定为下面其中一个：
+
+`build`：对构建系统或者外部依赖项进行了修改
+
+`ci`：对 CI 配置文件或脚本进行了修改
+
+`docs`：对文档进行了修改
+
+`feat`：增加新的特征
+
+`fix`：修复 bug
+
+`pref`：提高性能的代码更改
+
+`refactor`：既不是修复 bug 也不是添加特征的代码重构
+
+`style`：不影响代码含义的修改，比如空格、格式化、缺失的分号等
+
+`test`：增加确实的测试或者矫正已存在的测试
+
+# 附：git 指令查询
+
+> 由 ChatGPT 总结
+
+## **初始化仓库与基本操作**
+
+1. `git init`  
+   初始化当前目录为 Git 仓库，创建一个 `.git` 隐藏文件夹保存版本记录。
+
+2. `git remote add origin <远程地址>`  
+   添加远程仓库地址，方便将本地项目与远程仓库关联。
+
+3. `git clone <远程地址>`  
+   克隆远程仓库到本地。
+
+---
+
+## **文件操作**
+
+1. `git add <文件名>` 或 `git add .`  
+   将指定文件或当前目录的更改添加到暂存区。
+
+2. `git commit -m "<提交信息>"`  
+   将暂存区的更改提交到本地分支，`-m` 用于添加简短的提交信息。
+
+3. `git diff`  
+   查看工作区和暂存区之间的差异。
+
+4. `git log`  
+   查看提交历史记录。
+
+5. `git reset --hard <提交ID>`  
+   回退到指定提交状态。
+
+---
+
+## **分支操作**
+
+1. `git branch <分支名>`  
+   创建新分支。
+
+2. `git checkout -b <分支名>`  
+   创建并切换到新分支。
+
+3. `git checkout <分支名>`  
+   切换到已有分支。
+
+4. `git branch -d <分支名>`  
+   删除本地分支。
+
+5. `git rebase <分支名>`  
+   将当前分支的提交应用到目标分支的最新状态上，清理分叉历史。
+
+   > **注意**：可能需要解决冲突。
+
+6. `git merge <分支名>`  
+   将目标分支合并到当前分支。
+
+7. `git branch -M <新分支名>`  
+   重命名当前分支为 `<新分支名>`。
+
+---
+
+## **远程操作**
+
+1. `git pull <远程主机名> <远程分支名>`  
+   从远程仓库拉取代码并合并到本地分支。
+
+2. `git fetch <远程主机名>`  
+   拉取远程分支最新代码到本地（但不合并）。
+
+3. `git push <远程主机名> <本地分支名>`  
+   将本地分支推送到远程仓库的同名分支。
+
+   > 使用 `-f` 参数可强制推送（谨慎操作）。
+
+4. `git remote -v`  
+   查看当前远程仓库地址。
+
+5. `git remote add upstream <远程地址>`  
+   添加上游代码仓库，方便与主项目保持同步。
+
+6. `git fetch upstream`  
+   拉取上游仓库的最新代码。
+
+7. `git merge upstream/main`  
+   将上游仓库的最新更改合并到本地分支。
+
+---
+
+## **清理与协作**
+
+1. `git push origin <分支名>`  
+   推送当前分支到远程仓库。
+
+2. `git push -u origin <分支名>`  
+   推送分支到远程仓库，并设置默认推送分支。
+
+3. `git branch -d <分支名>`  
+   删除本地已完成的分支。
+
+4. **Squash and Merge**  
+   远程项目维护者可通过 Pull Request 使用 Squash and Merge 合并多个提交为一个。
+
+---
+
+## **指令作用点评**
+
+1. **`git init`**  
+   初始化一个 Git 仓库，适合创建新项目。
+
+2. **`git add`**  
+   将更改加入暂存区，便于分阶段提交。
+
+3. **`git commit`**  
+   提交代码版本，是 Git 的核心功能之一。
+
+4. **`git diff`**  
+   查看代码修改详情，有助于开发者检查改动。
+
+5. **`git branch` 和 `git checkout`**  
+   分支操作提供了灵活的开发环境，便于多人协作。
+
+6. **`git merge` 和 `git rebase`**  
+   合并与整理分支历史，两者各有优劣：
+
+   - `merge` 保留分支历史，方便查看来源。
+   - `rebase` 清理历史，保持线性提交记录。
+
+7. **`git push` 和 `git pull`**  
+   远程协作的基础操作，需注意拉取前确保代码同步。
+
+8. **`git fetch` 和 `git merge`**  
+   分离拉取和合并操作，适合处理复杂协作场景。
+
+9. **`git reset --hard`**  
+   强制回退代码版本，使用前需谨慎，避免数据丢失。
+
+10. **`git log`**  
+    便于跟踪历史提交记录，有助于排查问题。
+
+---
