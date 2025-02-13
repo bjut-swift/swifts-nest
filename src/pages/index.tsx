@@ -362,6 +362,7 @@ export async function getStaticProps() {
   ]);
   const featuredShorts = getFeatured(shorts, [
     'tech/swift-git-guide',
+    'tech/swift-nextjs-guide',
     'writing-guide',
   ]);
 
