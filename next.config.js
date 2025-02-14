@@ -14,6 +14,8 @@ const nextConfig = {
   images: {
     domains: [
       'res.cloudinary.com',
+      'cdn.bjutswift.cn',
+      'raw.githubusercontent.com',
 
       // Spotify Album
       'i.scdn.co',

@@ -1,7 +1,7 @@
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
-    'scope-enum': [2, 'always', ['blog', 'proj', 'lib', 'package']],
+    'scope-enum': [2, 'always', ['blog', 'proj', 'lib', 'package', 'tutorial', 'post']],
     'type-enum': [
       2,
       'always',
@@ -18,7 +18,8 @@ module.exports = {
         'revert',
         'vercel',
         'lint',
-        'husky'
+        'husky',
+        'update',
       ],
     ],
   },

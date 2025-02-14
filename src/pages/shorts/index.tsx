@@ -101,7 +101,7 @@ export default function ShortsPage({
   return (
     <Layout>
       <Seo
-        templateTitle='Shorts'
+        templateTitle='教程'
         description="Short article that's not long enough to be a blog post, 
         usually comes from my personal notes."
       />
@@ -110,11 +110,10 @@ export default function ShortsPage({
         <section className={clsx(isLoaded && 'fade-in-start')}>
           <div className='layout py-12'>
             <h1 className='text-3xl md:text-5xl' data-fade='0'>
-              <Accent>Shorts</Accent>
+              <Accent>教程</Accent>
             </h1>
             <p className='mt-2 text-gray-600 dark:text-gray-300' data-fade='1'>
-              Short article that's not long enough to be a blog post, usually
-              comes from my personal notes.
+              短小精悍的教程，通常来自个人笔记和技术分享活动。
             </p>
             <StyledInput
               data-fade='2'

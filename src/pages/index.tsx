@@ -308,11 +308,10 @@ export default function IndexPage({
             >
               <article className='layout' data-fade='0'>
                 <h2 className='text-2xl md:text-4xl' id='library'>
-                  <Accent>Shorts</Accent>
+                  <Accent>教程</Accent>
                 </h2>
                 <p className='mt-2 text-gray-600 dark:text-gray-300'>
-                  Short article that's not long enough to be a blog post,
-                  usually comes from my personal notes.
+                  短小精悍的教程，通常来自个人笔记和技术分享活动。
                 </p>
                 <ul className='mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
                   {populatedShorts.map((short, i) => (
@@ -330,7 +329,7 @@ export default function IndexPage({
                     trackEvent('Home: See more shorts', { type: 'navigate' })
                   }
                 >
-                  See more shorts
+                  查看更多教程
                 </ButtonLink>
               </article>
             </section>
@@ -362,12 +361,9 @@ export async function getStaticProps() {
     'ppdbsumsel',
   ]);
   const featuredShorts = getFeatured(shorts, [
-    'react/absolute-import',
-    'auth-context',
-    'mac/zsh',
-    'react/jsx-one-parent',
-    'styling/margin-usage',
-    'uncategorized/search-removal',
+    'tech/swift-git-guide',
+    'tech/swift-nextjs-guide',
+    'writing-guide',
   ]);
 
   const introPosts = getFeatured(blogs, [

@@ -215,16 +215,69 @@ function sayHello() {
 
 ```
 // 基本用法
-![示例图片](https://cdn.bjutswift.cn/https://raw.githubusercontent.com/bjut-swift/BJUT-Helper/refs/heads/master/images/title.png)
+<NextImage
+  src="https://cdn.bjutswift.cn/https://raw.githubusercontent.com/bjut-swift/BJUT-Helper/refs/heads/master/images/title.png"
+  alt="示例图片"
+  width={800}
+  height={500}
+  useSkeleton
+  className="w-full rounded-lg shadow-lg my-4"
+/>
 ```
 
 </div>
 <div>
 
-![示例图片](https://cdn.bjutswift.cn/https://raw.githubusercontent.com/bjut-swift/BJUT-Helper/refs/heads/master/images/title.png)
+<NextImage
+  src='https://cdn.bjutswift.cn/https://raw.githubusercontent.com/bjut-swift/BJUT-Helper/refs/heads/master/images/title.png'
+  alt='示例图片'
+  width={800}
+  height={500}
+  useSkeleton
+  className='my-4 w-full rounded-lg shadow-lg'
+/>
 
 </div>
 </div>
+
+#### 并排插入两张图片
+
+使用 Tailwind CSS 的 grid 布局可以轻松实现图片并排显示：
+
+```mdx
+<div className='grid grid-cols-2 gap-4'>
+  <NextImage alt='左侧示例图片' />
+  <NextImage alt='右侧示例图片' />
+</div>
+```
+
+<div className="grid grid-cols-2 gap-4">
+
+<NextImage
+  src='https://cdn.bjutswift.cn/https://raw.githubusercontent.com/bjut-swift/BJUT-Helper/refs/heads/master/images/title.png'
+  alt='左侧示例图片'
+  width={800}
+  height={500}
+  useSkeleton
+  className='my-4 w-full rounded-lg shadow-lg'
+/>
+
+<NextImage
+  src='https://cdn.bjutswift.cn/https://raw.githubusercontent.com/bjut-swift/BJUT-Helper/refs/heads/master/images/title.png'
+  alt='右侧示例图片'
+  width={800}
+  height={500}
+  useSkeleton
+  className='my-4 w-full rounded-lg shadow-lg'
+/>
+
+</div>
+
+关键类名说明：
+
+- `grid`: 使用网格布局
+- `grid-cols-2`: 将容器分为两列
+- `gap-4`: 设置列间距为 1rem
 
 ## 总结
 

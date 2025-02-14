@@ -7,6 +7,7 @@ import { Pre } from '@/components/content/Pre';
 import SplitImage, { Split } from '@/components/content/SplitImage';
 import TweetCard from '@/components/content/TweetCard';
 import CloudinaryImg from '@/components/images/CloudinaryImg';
+import NextImage from '@/components/images/NextImage';
 import CustomLink from '@/components/links/CustomLink';
 import TechIcons from '@/components/TechIcons';
 
@@ -16,6 +17,7 @@ const MDXComponents = {
   pre: Pre,
   // code: CustomCode,
   CloudinaryImg,
+  NextImage,
   LiteYouTubeEmbed,
   SplitImage,
   Split,
