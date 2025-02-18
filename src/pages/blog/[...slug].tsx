@@ -29,6 +29,7 @@ import TableOfContents, {
   HeadingScrollSpy,
 } from '@/components/content/TableOfContents';
 import CloudinaryImg from '@/components/images/CloudinaryImg';
+import NextImage from '@/components/images/NextImage';
 import Layout from '@/components/layout/Layout';
 import CustomLink from '@/components/links/CustomLink';
 import ShareTweetButton from '@/components/links/ShareTweetButton';
@@ -38,7 +39,6 @@ import Tooltip from '@/components/Tooltip';
 import { Waline } from '@/components/Waline';
 
 import { BlogFrontmatter, BlogType } from '@/types/frontmatters';
-import NextImage from '@/components/images/NextImage';
 
 type SingleBlogPageProps = {
   recommendations: BlogFrontmatter[];
@@ -117,26 +117,29 @@ export default function SingleBlogPage({
         <section className=''>
           <div className='layout'>
             <div className='pb-4 dark:border-gray-600'>
-              {frontmatter.banner && !frontmatter.banner.includes('images')? (
-              <CloudinaryImg
-                publicId={`theodorusclarence/banner/${frontmatter.banner}`}
-                alt={`Photo from unsplash: ${frontmatter.banner}`}
-                width={1200}
-                height={(1200 * 2) / 5}
-                aspect={{ height: 2, width: 5 }}
-              />
-              ) : frontmatter.banner && frontmatter.banner.includes('images')? (
-                <div className="relative w-full overflow-hidden rounded-md" style={{ paddingTop: '40%' }}>
+              {frontmatter.banner && !frontmatter.banner.includes('images') ? (
+                <CloudinaryImg
+                  publicId={`theodorusclarence/banner/${frontmatter.banner}`}
+                  alt={`Photo from unsplash: ${frontmatter.banner}`}
+                  width={1200}
+                  height={(1200 * 2) / 5}
+                  aspect={{ height: 2, width: 5 }}
+                />
+              ) : frontmatter.banner &&
+                frontmatter.banner.includes('images') ? (
+                <div
+                  className='relative w-full overflow-hidden rounded-md'
+                  style={{ paddingTop: '40%' }}
+                >
                   <NextImage
                     src={frontmatter.banner}
                     width={1200}
                     height={(1200 * 2) / 5}
                     alt={`Photo from external link: ${frontmatter.banner}`}
-                    layout="fill"
-                    objectFit="cover"
+                    layout='fill'
+                    objectFit='cover'
                   />
                 </div>
-            
               ) : null}
 
               <h1 className='mt-4'>{frontmatter.title}</h1>

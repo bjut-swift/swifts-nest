@@ -6,10 +6,10 @@ import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi';
 import Accent from '@/components/Accent';
 import Tag from '@/components/content/Tag';
 import CloudinaryImg from '@/components/images/CloudinaryImg';
+import NextImage from '@/components/images/NextImage';
 import UnstyledLink from '@/components/links/UnstyledLink';
 
 import { BlogFrontmatter, InjectedMeta } from '@/types/frontmatters';
-import NextImage from '@/components/images/NextImage';
 
 type BlogCardProps = {
   post: BlogFrontmatter & InjectedMeta;
@@ -39,7 +39,7 @@ export default function BlogCard({
         href={`/blog/${post.slug}`}
       >
         <div className='relative'>
-        {post.banner && !post.banner.includes('images')? (
+          {post.banner && !post.banner.includes('images') ? (
             <CloudinaryImg
               noStyle
               className='pointer-events-none overflow-hidden rounded-t-md'
@@ -50,17 +50,20 @@ export default function BlogCard({
               aspect={{ height: 2, width: 5 }}
               preview={false}
             />
-          ) : post.banner && post.banner.includes('images')? (
-            <div className="relative w-full overflow-hidden rounded-t-md" style={{ paddingTop: '40%' }}>
-            <NextImage
-              src={post.banner}
-              width={1200}
-              height={(1200 * 2) / 5}
-              alt={`Photo from external link: ${post.banner}`}
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
+          ) : post.banner && post.banner.includes('images') ? (
+            <div
+              className='relative w-full overflow-hidden rounded-t-md'
+              style={{ paddingTop: '40%' }}
+            >
+              <NextImage
+                src={post.banner}
+                width={1200}
+                height={(1200 * 2) / 5}
+                alt={`Photo from external link: ${post.banner}`}
+                layout='fill'
+                objectFit='cover'
+              />
+            </div>
           ) : null}
           <div
             className={clsx(
