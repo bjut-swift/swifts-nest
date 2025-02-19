@@ -293,3 +293,193 @@ function sayHello() {
 现在你已经了解了如何写一篇规范的教程文章，开始创作你的第一篇教程吧！
 
 > 提示：第一次写作时可以参考这篇指南，熟悉后就能得心应手了。
+
+## 项目相关
+
+### Metadata
+- 项目元数据文档
+
+下面介绍多个项目的元数据，包括链接、视频的插入。元数据的结构设计使其易于集成到文档或项目管理工具中。
+
+- 
+```cpp
+---
+横幅图片: 'projects/hexcape/hexcape-banner_xdulxw'
+链接: 'https://hexcape.thcl.dev'
+YouTube视频: 'https://www.youtube.com/watch?v=oxaDSU1uNPc'
+---
+```
+
+下面是一些例子
+```cpp
+---
+title: 'Hexcape'
+description: 'A game that combines iOS and physical puzzle game, using 3D, 360 world view, and AR'
+category: 'Team of 6'
+publishedAt: '2022-12-21'
+techs: 'swift'
+banner: 'projects/hexcape/hexcape-banner_xdulxw'
+link: 'https://hexcape.thcl.dev'
+youtube: 'https://www.youtube.com/watch?v=oxaDSU1uNPc'
+---
+```
+
+<NextImage
+  src="https://cdn.bjutswift.cn/https://raw.githubusercontent.com/bjut-swift/swift-image-hosting/main/swift-nest/tutorials/writing-guide/image-20250218075631-fjdi2e6.png"
+  alt="示例图片"
+  width={800}
+  height={100}
+  useSkeleton
+  className="w-full rounded-lg shadow-lg my-4"
+/>
+
+```cpp
+---
+title: 'Notiolink'
+description: 'Self-hostable branded link shortener built with Next.js & Notion API'
+category: 'Personal Project'
+publishedAt: '2022-07-23'
+techs: 'nextjs,tailwindcss,notion'
+banner: 'projects/notiolink/notiolink_bjtkm5.png'
+github: 'https://github.com/theodorusclarence/notiolink'
+link: 'https://notiolink.thcl.dev'
+---
+
+```
+
+<NextImage
+  src="https://cdn.bjutswift.cn/https://raw.githubusercontent.com/bjut-swift/swift-image-hosting/main/swift-nest/tutorials/writing-guide/image-20250218075734-1r5hcwg.png"
+  alt="示例图片"
+  width={800}
+  height={100}
+  useSkeleton
+  className="w-full rounded-lg shadow-lg my-4"
+/>
+
+```cpp
+`<blockquote className='with-icons'>
+  ## clarence.link
+  <div className='not-prose mt-2'>
+    <TechIcons techs={['nextjs', 'notion']} />
+  </div>
+</blockquote>`
+```
+
+<blockquote className='with-icons'>
+  ## Tech Stack Used
+  <div className='not-prose mt-2'>
+    <TechIcons techs={['nextjs', 'tailwindcss', 'notion']} />
+  </div>
+</blockquote>
+
+
+
+
+### 小组件
+- GithubCard
+
+<NextImage
+  src="https://cdn.bjutswift.cn/https://raw.githubusercontent.com/bjut-swift/swift-image-hosting/main/swift-nest/tutorials/writing-guide/github.png"
+  alt="示例图片"
+  width={800}
+  height={350}
+  useSkeleton
+  className="w-full rounded-lg shadow-lg my-4"
+/>
+
+
+这个组件的主要作用是获取并显示一个 GitHub 仓库的信息。当组件渲染时，它会自动发起请求获取数据，并将结果存储在 repository 变量中，同时处理可能出现的错误。
+
+用法
+
+```c#
+> ## Try it out!
+
+Deploy one of your own!
+
+<GithubCard repo='theodorusclarence/notiolink' />
+```
+
+- TechIcons
+
+插入图标（icon）
+
+#### 用法
+
+```c#
+<blockquote className='with-icons'>
+  ## Tech Stack Used
+  <div className='not-prose mt-2'>
+    <TechIcons techs={['nextjs', 'tailwindcss', 'notion']} />
+  </div>
+</blockquote>
+```
+
+<blockquote className='with-icons'>
+  ## Tech Stack Used
+  <div className='not-prose mt-2'>
+    <TechIcons techs={['nextjs', 'tailwindcss', 'notion']} />
+  </div>
+</blockquote>
+
+- LiteYouTubeEmbed
+
+<NextImage
+  src="https://cdn.bjutswift.cn/https://raw.githubusercontent.com/bjut-swift/swift-image-hosting/main/swift-nest/tutorials/writing-guide/viedo.png"
+  alt="示例图片"
+  width={800}
+  height={600}
+  useSkeleton
+  className="w-full rounded-lg shadow-lg my-4"
+/>
+
+源代码如下
+
+```c#
+<LiteYouTubeEmbed
+  id='oxaDSU1uNPc'
+  poster='maxresdefault'
+  title='Hexcape Features'
+  noCookie={true}
+/>
+```
+
+<NextImage
+  src="https://cdn.bjutswift.cn/https://raw.githubusercontent.com/bjut-swift/swift-image-hosting/main/swift-nest/tutorials/writing-guide/youtube.png"
+  alt="示例图片"
+  width={800}
+  height={600}
+  useSkeleton
+  className="w-full rounded-lg shadow-lg my-4"
+/>
+
+源代码如下
+
+```c#
+> ## Demo Video
+
+<LiteYouTubeEmbed
+  id='NZf-xuB-Lxg'
+  poster='maxresdefault'
+  title='Voting Page Demo'
+  noCookie={true}
+/>
+
+```
+
+总结下来的用法：
+
+```c#
+  <h2>Hexcape Features</h2>
+      <LiteYouTubeEmbed
+        id='oxaDSU1uNPc'       // YouTube 视频的 ID
+        poster='maxresdefault' // 视频的封面图，可以使用 'maxresdefault' 作为默认值
+        title='Hexcape Features' // 视频的标题
+        noCookie={true}        // 使用 YouTube 的 no-cookie 模式
+      />
+    </div>
+```
+
+
+
+
