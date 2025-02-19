@@ -39,7 +39,8 @@ export default function BlogCard({
         href={`/blog/${post.slug}`}
       >
         <div className='relative'>
-          {post.banner && !post.banner.includes('https') ? (
+          {post.banner &&
+          !(post.banner.includes('https') || post.banner.includes('images')) ? (
             <CloudinaryImg
               noStyle
               className='pointer-events-none overflow-hidden rounded-t-md'
@@ -50,7 +51,9 @@ export default function BlogCard({
               aspect={{ height: 2, width: 5 }}
               preview={false}
             />
-          ) : post.banner && post.banner.includes('https') ? (
+          ) : post.banner &&
+            (post.banner.includes('https') ||
+              post.banner.includes('images')) ? (
             <div
               className='relative w-full overflow-hidden rounded-t-md'
               style={{ paddingTop: '40%' }}
