@@ -117,7 +117,7 @@ export default function SingleBlogPage({
         <section className=''>
           <div className='layout'>
             <div className='pb-4 dark:border-gray-600'>
-              {frontmatter.banner && !frontmatter.banner.includes('images') ? (
+              {frontmatter.banner && !frontmatter.banner.includes('https') ? (
                 <CloudinaryImg
                   publicId={`theodorusclarence/banner/${frontmatter.banner}`}
                   alt={`Photo from unsplash: ${frontmatter.banner}`}
@@ -125,8 +125,7 @@ export default function SingleBlogPage({
                   height={(1200 * 2) / 5}
                   aspect={{ height: 2, width: 5 }}
                 />
-              ) : frontmatter.banner &&
-                frontmatter.banner.includes('images') ? (
+              ) : frontmatter.banner && frontmatter.banner.includes('https') ? (
                 <div
                   className='relative w-full overflow-hidden rounded-md'
                   style={{ paddingTop: '40%' }}
