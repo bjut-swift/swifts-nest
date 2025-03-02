@@ -273,9 +273,7 @@ export default function IndexPage({
                 <h2 className='text-2xl md:text-4xl' id='projects'>
                   <Accent>Featured Projects</Accent>
                 </h2>
-                <p className='mt-2 text-gray-600 dark:text-gray-300'>
-                  Some projects that I'm proud of
-                </p>
+                <p className='mt-2 text-gray-600 dark:text-gray-300'></p>
                 <ul className='mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
                   {populatedProjects.map((project, i) => (
                     <ProjectCard
@@ -348,9 +346,9 @@ export async function getStaticProps() {
 
   const featuredPosts = getFeatured(blogs, ['2024-cs50x', '2023-code-journy']);
   const featuredProjects = getFeatured(projects, [
-    'hexcape',
-    'notiolink',
-    'ppdbsumsel',
+    'bjut_helperRM',
+    'bjut_latexRM',
+    'bjut_ppt_templeRM',
   ]);
   const featuredShorts = getFeatured(shorts, [
     'tech/swift-git-guide',
