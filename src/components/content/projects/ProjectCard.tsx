@@ -1,7 +1,6 @@
-import clsx from 'clsx';
 import * as React from 'react';
-
-import CloudinaryImg from '@/components/images/CloudinaryImg';
+import Image from 'next/image';
+import clsx from 'clsx';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import TechIcons, { TechListType } from '@/components/TechIcons';
 
@@ -36,14 +35,19 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
           <TechIcons techs={project.techs.split(',') as Array<TechListType>} />
         </div>
 
-        <CloudinaryImg
-          className='pointer-events-none mt-3 w-full'
-          publicId={`theodorusclarence/${project.banner}`}
-          alt={project.title}
-          width={1440}
-          height={792}
-          preview={false}
-        />
+        {/* 使用 next/image 组件加载图片 */}
+        <div className='pointer-events-none mt-3 w-full relative'>
+          <Image
+            src={project.banner}
+            alt={project.title}
+            layout='responsive'
+            width={1440}
+            height={792}
+            objectFit='cover'
+            placeholder='blur' // 可选：添加模糊占位符
+            blurDataURL='/path/to/blur-placeholder.jpg' // 可选：模糊占位符图片路径
+          />
+        </div>
 
         <p className='animated-underline mt-2 inline-block font-medium'>
           See more →
