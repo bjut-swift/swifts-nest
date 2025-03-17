@@ -1,6 +1,7 @@
-import * as React from 'react';
-import Image from 'next/image';
 import clsx from 'clsx';
+import Image from 'next/image';
+import * as React from 'react';
+
 import UnstyledLink from '@/components/links/UnstyledLink';
 import TechIcons, { TechListType } from '@/components/TechIcons';
 
@@ -36,7 +37,7 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
         </div>
 
         {/* 使用 next/image 组件加载图片 */}
-        <div className='pointer-events-none mt-3 w-full relative'>
+        <div className='pointer-events-none relative mt-3 w-full'>
           <Image
             src={project.banner}
             alt={project.title}

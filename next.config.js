@@ -40,16 +40,13 @@ const nextConfig = {
       },
     ];
   },
-  webpack: (
-      config,
-      _
-  ) => {
+  webpack: (config, _) => {
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     });
-    return config
-  }
+    return config;
+  },
 };
 
 module.exports = withRemoteRefresh(nextConfig);
