@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { format } from 'date-fns';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { ParsedUrlQuery } from 'querystring';
 import * as React from 'react';
@@ -29,7 +30,6 @@ import TableOfContents, {
   HeadingScrollSpy,
 } from '@/components/content/TableOfContents';
 import CloudinaryImg from '@/components/images/CloudinaryImg';
-import NextImage from '@/components/images/NextImage';
 import Layout from '@/components/layout/Layout';
 import CustomLink from '@/components/links/CustomLink';
 import ShareTweetButton from '@/components/links/ShareTweetButton';
@@ -136,7 +136,7 @@ export default function SingleBlogPage({
                   className='relative w-full overflow-hidden rounded-md'
                   style={{ paddingTop: '40%' }}
                 >
-                  <NextImage
+                  <Image
                     src={frontmatter.banner}
                     width={1200}
                     height={(1200 * 2) / 5}

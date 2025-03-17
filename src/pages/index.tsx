@@ -346,9 +346,9 @@ export async function getStaticProps() {
 
   const featuredPosts = getFeatured(blogs, ['2024-cs50x', '2023-code-journy']);
   const featuredProjects = getFeatured(projects, [
-    'bjut_helperRM',
-    'bjut_latexRM',
-    'bjut_ppt_templeRM',
+    'bjut-helper',
+    'bjut-latex',
+    'bjut-ppt-temple',
   ]);
   const featuredShorts = getFeatured(shorts, [
     'tech/swift-git-guide',

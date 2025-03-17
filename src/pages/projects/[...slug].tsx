@@ -1,5 +1,6 @@
 import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { ParsedUrlQuery } from 'querystring';
 import * as React from 'react';
@@ -16,7 +17,6 @@ import MDXComponents from '@/components/content/MDXComponents';
 import TableOfContents, {
   HeadingScrollSpy,
 } from '@/components/content/TableOfContents';
-import CloudinaryImg from '@/components/images/CloudinaryImg';
 import Layout from '@/components/layout/Layout';
 import CustomLink from '@/components/links/CustomLink';
 import Seo from '@/components/Seo';
@@ -68,12 +68,19 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
       <main>
         <section className=''>
           <div className='layout'>
-            <CloudinaryImg
-              publicId={`theodorusclarence/${frontmatter.banner}`}
-              alt={frontmatter.title}
-              width={1440}
-              height={792}
-            />
+            {frontmatter.banner && (
+              <div
+                className='relative w-full overflow-hidden rounded-md'
+                style={{ paddingTop: '40%' }}
+              >
+                <Image
+                  src={frontmatter.banner}
+                  alt={`Banner for ${frontmatter.title}`}
+                  layout='fill'
+                  objectFit='cover'
+                />
+              </div>
+            )}
 
             <h1 className='mt-4'>{frontmatter.title}</h1>
             <p className='mt-2 text-sm text-gray-600 dark:text-gray-300'>

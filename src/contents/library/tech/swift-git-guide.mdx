@@ -19,7 +19,7 @@ description: '根据b站up主「码农高天」的Git教学视频进行的总结
 
 ## Clone from remote
 
-<NextImage
+<Image
   src='https://cdn.bjutswift.cn/raw.githubusercontent.com/bjut-swift/swift-git/refs/heads/main/assets/1.png'
   alt='Clone from remote'
   width={800}
@@ -32,7 +32,7 @@ description: '根据b站up主「码农高天」的Git教学视频进行的总结
 
 硬盘并不在乎你的文件在哪个 branch，在你使用`checkout`切换 branch 后，git 会把这个 branch 上的所有源文件同步给硬盘。
 
-<NextImage
+<Image
   src='https://cdn.bjutswift.cn/raw.githubusercontent.com/bjut-swift/swift-git/refs/heads/main/assets/2.png'
   alt='Create feature branch'
   width={800}
@@ -43,7 +43,7 @@ description: '根据b站up主「码农高天」的Git教学视频进行的总结
 
 ## Check diff and Add
 
-<NextImage
+<Image
   src='https://cdn.bjutswift.cn/raw.githubusercontent.com/bjut-swift/swift-git/refs/heads/main/assets/3.png'
   alt='Check diff and Add'
   width={800}
@@ -56,7 +56,7 @@ description: '根据b站up主「码农高天」的Git教学视频进行的总结
 
 `git commit`将修改真正的放到 git 中，
 
-<NextImage
+<Image
   src='https://cdn.bjutswift.cn/raw.githubusercontent.com/bjut-swift/swift-git/refs/heads/main/assets/4.png'
   alt='Git commit'
   width={800}
@@ -69,7 +69,7 @@ description: '根据b站up主「码农高天」的Git教学视频进行的总结
 
 ## Tell the local git changes to GitHub
 
-<NextImage
+<Image
   src='https://cdn.bjutswift.cn/raw.githubusercontent.com/bjut-swift/swift-git/refs/heads/main/assets/5.png'
   alt='Push to GitHub'
   width={800}
@@ -85,7 +85,7 @@ description: '根据b站up主「码农高天」的Git教学视频进行的总结
 - `git checkout main`，此时 Disk 上的源代码还是 init 的状态，而不是我们修改后的状态
 - `git pull origin main`，同步 remote 的 main 到 local 的 main 中，这样 remote、local 和 Disk 的 main 就又都一样了。
 
-<NextImage
+<Image
   src='https://cdn.bjutswift.cn/raw.githubusercontent.com/bjut-swift/swift-git/refs/heads/main/assets/6.png'
   alt='Update main branch'
   width={800}
@@ -96,7 +96,7 @@ description: '根据b站up主「码农高天」的Git教学视频进行的总结
 
 - `git checkout my-feature`
 
-<NextImage
+<Image
   src='https://cdn.bjutswift.cn/raw.githubusercontent.com/bjut-swift/swift-git/refs/heads/main/assets/7.png'
   alt='Checkout feature branch'
   width={800}
@@ -107,7 +107,7 @@ description: '根据b站up主「码农高天」的Git教学视频进行的总结
 
 - `git rebase main`:
 
-<NextImage
+<Image
   src='https://cdn.bjutswift.cn/raw.githubusercontent.com/bjut-swift/swift-git/refs/heads/main/assets/8.png'
   alt='Git rebase'
   width={800}
@@ -126,7 +126,7 @@ rebase 后，我们相当于是在最新的 main branch 上面做了修改，这
 
 - `git push -f origin my-feature`
 
-<NextImage
+<Image
   src='https://cdn.bjutswift.cn/raw.githubusercontent.com/bjut-swift/swift-git/refs/heads/main/assets/9.png'
   alt='Force push'
   width={800}
@@ -139,7 +139,7 @@ rebase 后，我们相当于是在最新的 main branch 上面做了修改，这
 
 ## Pull request
 
-<NextImage
+<Image
   src='https://cdn.bjutswift.cn/raw.githubusercontent.com/bjut-swift/swift-git/refs/heads/main/assets/10.png'
   alt='Pull request'
   width={800}
@@ -150,7 +150,7 @@ rebase 后，我们相当于是在最新的 main branch 上面做了修改，这
 
 - Squash and merge（仓库管理者操作）：
 
-<NextImage
+<Image
   src='https://cdn.bjutswift.cn/raw.githubusercontent.com/bjut-swift/swift-git/refs/heads/main/assets/11.png'
   alt='Squash and merge'
   width={800}
@@ -171,7 +171,7 @@ Squash 就是把分支上的所有改变合并为一个 commit， 保证 main br
 
 - `git pull origin main`，把最后的 squash & merge 后的更新同步到我的 local 的 main branch 和硬盘中。这时候 remote、local 和硬盘就又都一样了。
 
-<NextImage
+<Image
   src='https://cdn.bjutswift.cn/raw.githubusercontent.com/bjut-swift/swift-git/refs/heads/main/assets/12.png'
   alt='Final sync'
   width={800}
@@ -190,7 +190,7 @@ git restore <changed_file>
 
 （在较新版本中）
 
-<NextImage
+<Image
   src='https://cdn.bjutswift.cn/raw.githubusercontent.com/bjut-swift/swift-git/refs/heads/main/assets/13.png'
   alt='Git restore'
   width={800}
@@ -203,7 +203,7 @@ git restore <changed_file>
 
 这时候`git status`会看到绿色的文件
 
-<NextImage
+<Image
   src='https://cdn.bjutswift.cn/raw.githubusercontent.com/bjut-swift/swift-git/refs/heads/main/assets/14.png'
   alt='Git status'
   width={800}
@@ -256,7 +256,7 @@ git revert HEAD
 
 添加一个和之前 commit 相反效果的 commit
 
-<NextImage
+<Image
   src='https://cdn.bjutswift.cn/raw.githubusercontent.com/bjut-swift/swift-git/refs/heads/main/assets/15.png'
   alt='Git revert'
   width={800}
@@ -267,7 +267,7 @@ git revert HEAD
 
 相较于 reset，revert 的好处是可以相当于删除任意一个 commit 的 change：
 
-<NextImage
+<Image
   src='https://cdn.bjutswift.cn/raw.githubusercontent.com/bjut-swift/swift-git/refs/heads/main/assets/16.png'
   alt='Git revert benefits'
   width={800}
@@ -280,7 +280,7 @@ git revert HEAD
 
 如果是个人分支，那就可以使用 reset 和`-f push`：
 
-<NextImage
+<Image
   src='https://cdn.bjutswift.cn/raw.githubusercontent.com/bjut-swift/swift-git/refs/heads/main/assets/17.png'
   alt='Force push on personal branch'
   width={800}

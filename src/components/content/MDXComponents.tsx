@@ -9,6 +9,7 @@ import TweetCard from '@/components/content/TweetCard';
 import FeishuDocEmbed from '@/components/FeishuDocEmbed';
 import CloudinaryImg from '@/components/images/CloudinaryImg';
 import NextImage from '@/components/images/NextImage';
+import LaTeX from '@/components/LaTeX';
 import CustomLink from '@/components/links/CustomLink';
 import TechIcons from '@/components/TechIcons';
 
@@ -27,6 +28,7 @@ const MDXComponents = {
   GithubCard,
   Quiz,
   FeishuDocEmbed,
+  LaTeX,
 };
 
 export default MDXComponents;

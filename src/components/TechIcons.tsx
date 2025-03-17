@@ -1,16 +1,20 @@
 import clsx from 'clsx';
 import * as React from 'react';
+import { FaMarkdown } from 'react-icons/fa';
 import { IoLogoVercel } from 'react-icons/io5';
+import { PiMicrosoftPowerpointLogoFill } from 'react-icons/pi';
 import {
   SiFirebase,
   SiGit,
   SiGoogleanalytics,
   SiJavascript,
+  SiLatex,
   SiMarkdown,
   SiMongodb,
   SiNextdotjs,
   SiNodedotjs,
   SiNotion,
+  SiOverleaf,
   SiPrettier,
   SiReact,
   SiRedux,
@@ -116,5 +120,21 @@ const techList = {
   swift: {
     icon: SiSwift,
     name: 'Swift',
+  },
+  latex: {
+    icon: SiLatex,
+    name: 'LaTeX',
+  },
+  overleaf: {
+    icon: SiOverleaf,
+    name: 'Overleaf',
+  },
+  powerpoint: {
+    icon: PiMicrosoftPowerpointLogoFill,
+    name: 'PowerPoint',
+  },
+  markdown: {
+    icon: FaMarkdown,
+    name: 'Markdown',
   },
 };
