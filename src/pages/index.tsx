@@ -186,7 +186,7 @@ export default function IndexPage({
                           <>
                             BJUT-SWIFT 是北京工业大学的学生技术社区，致力于
                             <strong>技术分享</strong>和<strong>知识传播</strong>
-                            ，帮助同学们在技术领域更好地成长。
+                            ， 帮助同学们在技术领域更好地成长。
                           </>
                         }
                       >
@@ -350,9 +350,9 @@ export async function getStaticProps() {
   const shorts = await getAllFilesFrontmatter('library');
 
   const featuredPosts = getFeatured(blogs, [
-    '2025-intern-interview',
     '2024-cs50x',
     '2023-code-journy',
+    '2025-intern-interview',
   ]);
   const featuredProjects = getFeatured(projects, [
     'bjut-helper',
@@ -366,10 +366,7 @@ export async function getStaticProps() {
     'writing-guide',
   ]);
 
-  const introPosts = getFeatured(blogs, [
-    '2025-intern-interview',
-    '2024-cs50x',
-  ]);
+  const introPosts = getFeatured(blogs, ['2024-cs50x', '2023-code-journy']);
 
   return {
     props: {

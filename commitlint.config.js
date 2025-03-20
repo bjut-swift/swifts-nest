@@ -24,7 +24,6 @@ module.exports = {
         'lint',
         'husky',
         'update',
-        'blog',
       ],
     ],
   },
