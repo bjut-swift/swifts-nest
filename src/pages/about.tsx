@@ -147,9 +147,9 @@ export default function AboutPage() {
         {/* 联系方式 - 暗色模式智能光效版 */}
         <section className='group relative py-20'>
           {/* 完全重新设计的光效系统 */}
-          <div className='absolute left-1/2 top-1/2 -z-10 h-[200%] w-[200%] -translate-x-1/2 -translate-y-1/2'>
+          <div className='absolute left-1/2 top-1/2 -z-10 max-h-[200%] max-w-[200%] -translate-x-1/2 -translate-y-1/2'>
             {/* 中心光晕 - 大范围发散 */}
-            <div className='absolute left-1/2 top-1/2 h-[60vh] w-[60vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-blue-500/5 via-cyan-400/5 to-purple-500/5 opacity-0 blur-[100px] transition-opacity duration-700 group-hover:opacity-100 dark:from-blue-500/20 dark:via-cyan-400/15 dark:to-purple-500/20'></div>
+            <div className='absolute left-1/2 top-1/2 max-h-[60vh] max-w-[60vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-blue-500/5 via-cyan-400/5 to-purple-500/5 opacity-0 blur-[100px] transition-opacity duration-700 group-hover:opacity-100 dark:from-blue-500/20 dark:via-cyan-400/15 dark:to-purple-500/20'></div>
 
             {/* 左上光晕 */}
             <div className='absolute left-[40%] top-[40%] h-[30vh] w-[30vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/5 opacity-0 blur-[80px] transition-opacity duration-700 group-hover:opacity-70 dark:bg-blue-500/15'></div>
