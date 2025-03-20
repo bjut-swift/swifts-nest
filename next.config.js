@@ -19,9 +19,14 @@ const nextConfig = {
       'scriptcat.org',
       'vuejs.org',
       'avatars.githubusercontent.com',
+      '*.feishupkg.com',
+      '*.feishu.cn',
       // Spotify Album
       'i.scdn.co',
     ],
+  },
+  timeouts: {
+    request: 15000,
   },
   async redirects() {
     return [

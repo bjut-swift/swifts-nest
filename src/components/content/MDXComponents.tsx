@@ -8,6 +8,7 @@ import GithubCard from '@/components/content/card/GithubCard';
 import { Pre } from '@/components/content/Pre';
 import SplitImage, { Split } from '@/components/content/SplitImage';
 import TweetCard from '@/components/content/TweetCard';
+import FeishuBaseEmbed from '@/components/FeishuBaseEmbed';
 import FeishuDocEmbed from '@/components/FeishuDocEmbed';
 import CloudinaryImg from '@/components/images/CloudinaryImg';
 import NextImage from '@/components/images/NextImage';
@@ -30,6 +31,7 @@ const MDXComponents = {
   GithubCard,
   Quiz,
   FeishuDocEmbed,
+  FeishuBaseEmbed,
   LaTeX,
   KeyInsight,
   InterviewHeader,
