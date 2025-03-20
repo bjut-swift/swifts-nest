@@ -210,14 +210,14 @@ export default function IndexPage({
                       <div className='group relative h-full w-full'>
                         <div className='absolute inset-0 z-10 transition-all duration-700 ease-in-out group-hover:z-0 group-hover:translate-x-[8%] group-hover:translate-y-[5%] group-hover:rotate-6 group-hover:opacity-90'>
                           <BlogCard
-                            className='h-full w-full rounded-xl shadow-lg transition-shadow duration-300 hover:shadow-xl'
+                            className='h-full w-[90%] rounded-xl shadow-lg transition-shadow duration-300 hover:shadow-xl'
                             post={populatedIntro[0]}
                           />
                         </div>
 
                         <div className='absolute inset-0 z-0 translate-x-[8%] translate-y-[5%] rotate-6 opacity-90 transition-all duration-700 ease-in-out group-hover:z-10 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rotate-0 group-hover:opacity-100'>
                           <BlogCard
-                            className='h-full w-full rounded-xl shadow-lg transition-shadow duration-300 hover:shadow-xl'
+                            className='h-full w-[90%] rounded-xl shadow-lg transition-shadow duration-300 hover:shadow-xl'
                             post={populatedIntro[1]}
                           />
                         </div>
