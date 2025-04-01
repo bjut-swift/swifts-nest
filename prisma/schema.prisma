@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -20,19 +17,17 @@ model ContentMeta {
 }
 
 model Like {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  sessionId String
-
+  id            Int          @id @default(autoincrement())
+  createdAt     DateTime     @default(now())
+  sessionId     String
   contentMetaId Int?
   ContentMeta   ContentMeta? @relation(fields: [contentMetaId], references: [id], onDelete: Cascade)
 }
 
 model View {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  sessionId String
-
+  id            Int          @id @default(autoincrement())
+  createdAt     DateTime     @default(now())
+  sessionId     String
   contentMetaId Int?
   ContentMeta   ContentMeta? @relation(fields: [contentMetaId], references: [id], onDelete: Cascade)
 }
