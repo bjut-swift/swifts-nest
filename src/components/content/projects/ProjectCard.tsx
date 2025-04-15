@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import Image from 'next/image';
 import * as React from 'react';
 
+import NextImage from '@/components/images/NextImage';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import TechIcons, { TechListType } from '@/components/TechIcons';
 
@@ -38,15 +38,10 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
 
         {/* 使用 next/image 组件加载图片 */}
         <div className='pointer-events-none relative mt-3 w-full'>
-          <Image
+          <NextImage
             src={project.banner}
             alt={project.title}
-            layout='responsive'
-            width={1440}
-            height={792}
             objectFit='cover'
-            placeholder='blur' // 可选：添加模糊占位符
-            blurDataURL='/path/to/blur-placeholder.jpg' // 可选：模糊占位符图片路径
           />
         </div>
 
