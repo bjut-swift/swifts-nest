@@ -47,3 +47,6 @@ rss.xml
 
 # scripts
 scripts/out
+
+#other
+bunfig.toml

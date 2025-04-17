@@ -175,8 +175,8 @@ export default function IndexPage({
                     <h2 className='text-4xl md:text-6xl'>
                       <Accent className='inline decoration-clone leading-snug dark:leading-none'>
                         探索技术，
-                        <br className='md:hidden' />
-                        <span className='md:ml-2'>分享知识</span>
+                        <br />
+                        分享知识
                       </Accent>
                     </h2>
                     <div className='mt-4 text-base text-gray-600 dark:text-gray-300 md:text-lg'>
