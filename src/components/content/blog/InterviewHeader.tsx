@@ -37,6 +37,7 @@ export function InterviewHeader({
           target='_blank'
           rel='noopener noreferrer'
           className='block'
+          legacyBehavior
         >
           {children}
         </Link>
@@ -55,7 +56,7 @@ export function InterviewHeader({
               <Image
                 src={authorAvatarUrl}
                 alt={`${author}的头像`}
-                className='object-cover'
+                className='not-prose'
                 width={64}
                 height={64}
               />
@@ -93,10 +94,8 @@ export function InterviewHeader({
           </div>
         </div>
       </div>
-
       {/* 分隔线 */}
       {interviewee && <div className='my-3 border-t border-gray-200' />}
-
       {/* 受访者信息 */}
       {interviewee && (
         <div className='flex items-start gap-3'>
@@ -106,7 +105,7 @@ export function InterviewHeader({
                 <Image
                   src={intervieweeAvatarUrl}
                   alt={`${interviewee}的头像`}
-                  className='object-cover'
+                  className='not-prose'
                   width={64}
                   height={64}
                 />

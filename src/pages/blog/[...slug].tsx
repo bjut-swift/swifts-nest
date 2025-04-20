@@ -111,7 +111,6 @@ export default function SingleBlogPage({
         tags={frontmatter.tags}
         author={frontmatter.author}
       />
-
       <main>
         <ReloadDevtool />
         <section className=''>
@@ -138,11 +137,12 @@ export default function SingleBlogPage({
                 >
                   <Image
                     src={frontmatter.banner}
-                    width={1200}
-                    height={(1200 * 2) / 5}
                     alt={`Photo from external link: ${frontmatter.banner}`}
-                    layout='fill'
-                    objectFit='cover'
+                    fill
+                    sizes='100vw'
+                    style={{
+                      objectFit: 'cover',
+                    }}
                   />
                 </div>
               ) : null}

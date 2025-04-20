@@ -37,12 +37,9 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
         </div>
 
         {/* 使用 next/image 组件加载图片 */}
-        <div className='pointer-events-none relative mt-3 w-full'>
-          <NextImage
-            src={project.banner}
-            alt={project.title}
-            objectFit='cover'
-          />
+        {/* 开启 fill 自填充属性的 Image，祖先元素需要有宽高 w-full aspect[2/1]，否则图片本身会没有宽高 */}
+        <div className='pointer-events-none relative mt-3 aspect-[2/1] w-full'>
+          <NextImage src={project.banner} alt={project.title} fill />
         </div>
 
         <p className='animated-underline mt-2 inline-block font-medium'>

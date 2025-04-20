@@ -64,7 +64,6 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
         description={frontmatter.description}
         date={new Date(frontmatter.publishedAt).toISOString()}
       />
-
       <main>
         <section className=''>
           <div className='layout'>
@@ -76,8 +75,11 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
                 <Image
                   src={frontmatter.banner}
                   alt={`Banner for ${frontmatter.title}`}
-                  layout='fill'
-                  objectFit='cover'
+                  fill
+                  sizes='100vw'
+                  style={{
+                    objectFit: 'cover',
+                  }}
                 />
               </div>
             )}

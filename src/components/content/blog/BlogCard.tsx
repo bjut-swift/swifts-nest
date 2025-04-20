@@ -61,8 +61,11 @@ export default function BlogCard({
               <Image
                 src={post.banner}
                 alt={`Photo from external link: ${post.banner}`}
-                layout='fill'
-                objectFit='cover'
+                fill
+                sizes='100vw'
+                style={{
+                  objectFit: 'cover',
+                }}
               />
             </div>
           ) : null}
