@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import { InterviewHeader } from '@/components/content/blog/InterviewHeader';
