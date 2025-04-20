@@ -13,7 +13,7 @@
         "@types/katex": "^0.16.7",
         "@types/react-katex": "^3.0.4",
         "@waline/client": "~3.3.0",
-        "axios": "^0.24.0",
+        "axios": "0.30.0",
         "caniuse-lite": "^1.0.30001706",
         "cloudinary-build-url": "^0.2.4",
         "clsx": "^1.2.1",
@@ -715,7 +715,7 @@
 
     "axe-core": ["axe-core@4.10.3", "https://registry.npmmirror.com/axe-core/-/axe-core-4.10.3.tgz", {}, "sha512-Xm7bpRXnDSX2YE2YFfBk2FnF0ep6tmG7xPh8iHee8MIcrgq762Nkce856dYtJYLkuIoYZvGfTs/PbZhideTcEg=="],
 
-    "axios": ["axios@0.24.0", "https://registry.npmmirror.com/axios/-/axios-0.24.0.tgz", { "dependencies": { "follow-redirects": "^1.14.4" } }, "sha512-Q6cWsys88HoPgAaFAVUb0WpPk0O8iTeisR9IMqy9G8AbO4NlpVknrnQS03zzF9PGAWgO3cgletO3VjV/P7VztA=="],
+    "axios": ["axios@0.30.0", "", { "dependencies": { "follow-redirects": "^1.15.4", "form-data": "^4.0.0", "proxy-from-env": "^1.1.0" } }, "sha512-Z4F3LjCgfjZz8BMYalWdMgAQUnEtKDmpwNHjh/C8pQZWde32TF64cqnSeyL3xD/aTIASRU30RHTNzRiV/NpGMg=="],
 
     "axobject-query": ["axobject-query@4.1.0", "https://registry.npmmirror.com/axobject-query/-/axobject-query-4.1.0.tgz", {}, "sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ=="],
 
@@ -1109,7 +1109,7 @@
 
     "forever-agent": ["forever-agent@0.6.1", "https://registry.npmmirror.com/forever-agent/-/forever-agent-0.6.1.tgz", {}, "sha512-j0KLYPhm6zeac4lz3oJ3o65qvgQCcPubiyotZrXqEaG4hNagNYO8qdlUrX5vwqv9ohqeT/Z3j6+yW067yWWdUw=="],
 
-    "form-data": ["form-data@2.3.3", "https://registry.npmmirror.com/form-data/-/form-data-2.3.3.tgz", { "dependencies": { "asynckit": "^0.4.0", "combined-stream": "^1.0.6", "mime-types": "^2.1.12" } }, "sha512-1lLKB2Mu3aGP1Q/2eCOx0fNbRMe7XdwktwOruhfqqd0rIJWwN4Dh+E3hrPSlDCXnSR7UtZ1N38rVXm+6+MEhJQ=="],
+    "form-data": ["form-data@4.0.2", "", { "dependencies": { "asynckit": "^0.4.0", "combined-stream": "^1.0.8", "es-set-tostringtag": "^2.1.0", "mime-types": "^2.1.12" } }, "sha512-hGfm/slu0ZabnNt4oaRZ6uREyfCj6P4fT/n6A1rGV+Z0VdGXjfOhVUpkn6qVQONHGIFwmveGXyDs75+nr6FM8w=="],
 
     "format": ["format@0.2.2", "https://registry.npmmirror.com/format/-/format-0.2.2.tgz", {}, "sha512-wzsgA6WOq+09wrU1tsJ09udeR/YZRaeArL9e1wPbFg3GG2yDnC2ldKpxs4xunpFF9DgqCqOIra3bc1HWrJ37Ww=="],
 
@@ -2275,6 +2275,8 @@
 
     "@commitlint/rules/execa": ["execa@5.1.1", "https://registry.npmmirror.com/execa/-/execa-5.1.1.tgz", { "dependencies": { "cross-spawn": "^7.0.3", "get-stream": "^6.0.0", "human-signals": "^2.1.0", "is-stream": "^2.0.0", "merge-stream": "^2.0.0", "npm-run-path": "^4.0.1", "onetime": "^5.1.2", "signal-exit": "^3.0.3", "strip-final-newline": "^2.0.0" } }, "sha512-8uSpZZocAZRBAPIEINJj3Lo9HyGitllczc27Eh5YYojjMFMn8yHMDMaUHE2Jqfq05D/wucwI4JGURyXt1vchyg=="],
 
+    "@cypress/request/form-data": ["form-data@2.3.3", "https://registry.npmmirror.com/form-data/-/form-data-2.3.3.tgz", { "dependencies": { "asynckit": "^0.4.0", "combined-stream": "^1.0.6", "mime-types": "^2.1.12" } }, "sha512-1lLKB2Mu3aGP1Q/2eCOx0fNbRMe7XdwktwOruhfqqd0rIJWwN4Dh+E3hrPSlDCXnSR7UtZ1N38rVXm+6+MEhJQ=="],
+
     "@cypress/xvfb/debug": ["debug@3.2.7", "https://registry.npmmirror.com/debug/-/debug-3.2.7.tgz", { "dependencies": { "ms": "^2.1.1" } }, "sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ=="],
 
     "@endemolshinegroup/cosmiconfig-typescript-loader/ts-node": ["ts-node@9.1.1", "https://registry.npmmirror.com/ts-node/-/ts-node-9.1.1.tgz", { "dependencies": { "arg": "^4.1.0", "create-require": "^1.1.0", "diff": "^4.0.1", "make-error": "^1.1.1", "source-map-support": "^0.5.17", "yn": "3.1.1" }, "peerDependencies": { "typescript": ">=2.7" }, "bin": { "ts-node": "dist/bin.js", "ts-script": "dist/bin-script-deprecated.js", "ts-node-script": "dist/bin-script.js", "ts-node-transpile-only": "dist/bin-transpile.js" } }, "sha512-hPlt7ZACERQGf03M253ytLY3dHbGNGrAq9qIHWUY9XHYl1z7wYngSr3OQ5xmui8o2AaxsONxIzjafLUiWBo1Fg=="],
@@ -2314,6 +2316,8 @@
     "@vue/compiler-sfc/estree-walker": ["estree-walker@2.0.2", "https://registry.npmmirror.com/estree-walker/-/estree-walker-2.0.2.tgz", {}, "sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w=="],
 
     "ansi-escapes/type-fest": ["type-fest@0.21.3", "https://registry.npmmirror.com/type-fest/-/type-fest-0.21.3.tgz", {}, "sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w=="],
+
+    "axios/proxy-from-env": ["proxy-from-env@1.1.0", "", {}, "sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg=="],
 
     "babel-plugin-polyfill-corejs2/semver": ["semver@6.3.1", "https://registry.npmmirror.com/semver/-/semver-6.3.1.tgz", { "bin": { "semver": "bin/semver.js" } }, "sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA=="],
 
