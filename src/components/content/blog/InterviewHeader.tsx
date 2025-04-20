@@ -56,13 +56,9 @@ export function InterviewHeader({
               <Image
                 src={authorAvatarUrl}
                 alt={`${author}的头像`}
-                className='object-cover'
+                className='not-prose'
                 width={64}
                 height={64}
-                style={{
-                  maxWidth: '100%',
-                  height: 'auto',
-                }}
               />
             ) : (
               <svg
@@ -109,13 +105,9 @@ export function InterviewHeader({
                 <Image
                   src={intervieweeAvatarUrl}
                   alt={`${interviewee}的头像`}
-                  className='object-cover'
+                  className='not-prose'
                   width={64}
                   height={64}
-                  style={{
-                    maxWidth: '100%',
-                    height: 'auto',
-                  }}
                 />
               ) : (
                 <svg

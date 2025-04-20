@@ -137,8 +137,6 @@ export default function SingleBlogPage({
                 >
                   <Image
                     src={frontmatter.banner}
-                    width={1200}
-                    height={(1200 * 2) / 5}
                     alt={`Photo from external link: ${frontmatter.banner}`}
                     fill
                     sizes='100vw'
