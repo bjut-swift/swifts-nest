@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { format } from 'date-fns';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import * as React from 'react';
 import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi';
 
@@ -61,8 +61,11 @@ export default function BlogCard({
               <Image
                 src={post.banner}
                 alt={`Photo from external link: ${post.banner}`}
-                layout='fill'
-                objectFit='cover'
+                fill
+                sizes='100vw'
+                style={{
+                  objectFit: 'cover',
+                }}
               />
             </div>
           ) : null}

@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { format } from 'date-fns';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { ParsedUrlQuery } from 'querystring';
 import * as React from 'react';
@@ -111,7 +111,6 @@ export default function SingleBlogPage({
         tags={frontmatter.tags}
         author={frontmatter.author}
       />
-
       <main>
         <ReloadDevtool />
         <section className=''>
@@ -141,8 +140,11 @@ export default function SingleBlogPage({
                     width={1200}
                     height={(1200 * 2) / 5}
                     alt={`Photo from external link: ${frontmatter.banner}`}
-                    layout='fill'
-                    objectFit='cover'
+                    fill
+                    sizes='100vw'
+                    style={{
+                      objectFit: 'cover',
+                    }}
                   />
                 </div>
               ) : null}

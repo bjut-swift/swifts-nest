@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import Image, { ImageProps } from 'next/legacy/image';
+import Image, { ImageProps } from 'next/image';
 import * as React from 'react';
 
 type ImgElementStyle = NonNullable<JSX.IntrinsicElements['img']['style']>;
@@ -58,6 +58,10 @@ export default function NextImage({
         alt={alt}
         onLoadingComplete={() => setStatus('complete')}
         {...rest}
+        style={{
+          maxWidth: '100%',
+          height: 'auto',
+        }}
       />
     </figure>
   );

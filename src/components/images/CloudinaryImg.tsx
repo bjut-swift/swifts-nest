@@ -1,6 +1,6 @@
 import { buildUrl } from 'cloudinary-build-url';
 import clsx from 'clsx';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import * as React from 'react';
 import Lightbox from 'react-image-lightbox';
 
@@ -116,6 +116,10 @@ export default function CloudinaryImg({
             src={url}
             alt={alt}
             title={title || alt}
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+            }}
           />
         </div>
       </div>

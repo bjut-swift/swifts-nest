@@ -1,4 +1,4 @@
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import Link from 'next/link';
 import * as React from 'react';
 
@@ -59,6 +59,10 @@ export function InterviewHeader({
                 className='object-cover'
                 width={64}
                 height={64}
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                }}
               />
             ) : (
               <svg
@@ -94,10 +98,8 @@ export function InterviewHeader({
           </div>
         </div>
       </div>
-
       {/* 分隔线 */}
       {interviewee && <div className='my-3 border-t border-gray-200' />}
-
       {/* 受访者信息 */}
       {interviewee && (
         <div className='flex items-start gap-3'>
@@ -110,6 +112,10 @@ export function InterviewHeader({
                   className='object-cover'
                   width={64}
                   height={64}
+                  style={{
+                    maxWidth: '100%',
+                    height: 'auto',
+                  }}
                 />
               ) : (
                 <svg
