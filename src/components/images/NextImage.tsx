@@ -2,8 +2,6 @@ import clsx from 'clsx';
 import Image, { ImageProps } from 'next/image';
 import * as React from 'react';
 
-type ImgElementStyle = NonNullable<JSX.IntrinsicElements['img']['style']>;
-
 type NextImageProps = {
   useSkeleton?: boolean;
   imgClassName?: string;
@@ -11,7 +9,6 @@ type NextImageProps = {
   alt: string;
   width?: string | number;
   height?: string | number;
-  objectFit?: ImgElementStyle['objectFit'];
 } & ImageProps;
 
 /**
@@ -28,17 +25,25 @@ export default function NextImage({
   className,
   imgClassName,
   blurClassName,
-  objectFit,
   ...rest
 }: NextImageProps) {
   const [status, setStatus] = React.useState(
     useSkeleton ? 'loading' : 'complete'
   );
+  // 1.图片不定宽高，外层容器需要有宽高
+  // <div className={'w-full h-8'}/>
+  //  <NextImage fill useSkeleton ..../>
+  // </div>
+
+  // 2.图片定宽高
+  // <NextImage width={720} height={360} useSkeleton ..../>
+  // <NextImage className={'w-16'} useSkeleton ..../>
+
   const widthIsSet = className?.includes('w-') ?? false;
 
   return (
     <figure
-      style={!widthIsSet ? { width: `${width}px` } : undefined}
+      style={!widthIsSet && width ? { width: `${width}px` } : undefined}
       className={className}
     >
       <Image
@@ -46,22 +51,15 @@ export default function NextImage({
           imgClassName,
           blurClassName,
           // text-gray to hide alt text
-          //'bg-gray-400 text-gray-400 ',
           status === 'loading' &&
             clsx('animate-pulse', 'bg-gray-400 text-gray-400 ')
         )}
         src={src}
-        width={width || '1440'}
-        height={height || '720'}
-        // width，height uncertain，use objectFit
-        objectFit={objectFit}
+        width={width}
+        height={height}
         alt={alt}
         onLoadingComplete={() => setStatus('complete')}
         {...rest}
-        style={{
-          maxWidth: '100%',
-          height: 'auto',
-        }}
       />
     </figure>
   );
