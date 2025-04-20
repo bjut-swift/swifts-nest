@@ -29,7 +29,7 @@
     "@types/katex": "^0.16.7",
     "@types/react-katex": "^3.0.4",
     "@waline/client": "~3.3.0",
-    "axios": "^0.24.0",
+    "axios": "0.30.0",
     "caniuse-lite": "^1.0.30001706",
     "cloudinary-build-url": "^0.2.4",
     "clsx": "^1.2.1",
