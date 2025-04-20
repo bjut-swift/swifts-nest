@@ -37,6 +37,7 @@ export function InterviewHeader({
           target='_blank'
           rel='noopener noreferrer'
           className='block'
+          legacyBehavior
         >
           {children}
         </Link>
