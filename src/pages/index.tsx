@@ -364,6 +364,7 @@ export async function getStaticProps() {
   const shorts = await getAllFilesFrontmatter('library');
 
   const featuredPosts = getFeatured(blogs, [
+    '2025-datawhale-ai+x',
     '2025-intern-interview',
     '2024-cs50x',
     '2023-code-journy',
@@ -381,8 +382,9 @@ export async function getStaticProps() {
   ]);
 
   const introPosts = getFeatured(blogs, [
+    '2025-datawhale-ai+x',
     '2025-intern-interview',
-    '2024-cs50x',
+    // '2024-cs50x',
   ]);
 
   return {
