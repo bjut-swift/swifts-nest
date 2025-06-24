@@ -12,17 +12,45 @@ const nextConfig = {
     dirs: ['src'],
   },
   images: {
-    domains: [
-      'res.cloudinary.com',
-      'cdn.bjutswift.cn',
-      'raw.githubusercontent.com',
-      'scriptcat.org',
-      'vuejs.org',
-      'avatars.githubusercontent.com',
-      '*.feishupkg.com',
-      '*.feishu.cn',
-      // Spotify Album
-      'i.scdn.co',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.bjutswift.cn',
+      },
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'scriptcat.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'vuejs.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.feishupkg.com',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.feishu.cn',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.scdn.co',
+      },
     ],
   },
   async redirects() {
