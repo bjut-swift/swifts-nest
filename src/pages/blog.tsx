@@ -136,7 +136,7 @@ export default function IndexPage({
               className='mt-2 flex flex-wrap items-baseline justify-start gap-2 text-sm text-gray-600 dark:text-gray-300'
               data-fade='3'
             >
-              <span className='font-medium'>Choose topic:</span>
+              <span className='font-medium'>筛选主题：</span>
               <SkipNavTag>
                 {tags.map((tag) => (
                   <Tag
