@@ -53,7 +53,7 @@
     "react-tippy": "^1.4.0",
     "react-twitter-widgets": "^1.11.0",
     "rehype-pretty-code": "^0.10.1",
-    "shiki": "^0.14.5",
+    "shiki": "^3.8.1",
     "tailwind-merge": "^1.14.0",
     "zod": "^3.22.4"
   },
