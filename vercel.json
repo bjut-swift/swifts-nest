@@ -15,5 +15,5 @@
       "source": "/bjut-cs/:path*",
       "destination": "https://bjut-swift.github.io/BJUT-CS/:path*"
     }
-  ],
+  ]
 }
