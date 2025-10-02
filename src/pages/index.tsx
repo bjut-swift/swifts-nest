@@ -374,6 +374,7 @@ export async function getStaticProps() {
     'bjut-latex',
     'bjut-ppt-temple',
     'bjut-chaoxing',
+    'bjut-cs',
   ]);
   const featuredShorts = getFeatured(shorts, [
     'tech/swift-git-guide',

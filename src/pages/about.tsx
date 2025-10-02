@@ -99,6 +99,26 @@ export default function AboutPage() {
                 <div className='group rounded-2xl bg-white/70 p-6 backdrop-blur-sm transition-all duration-300 hover:shadow-xl dark:bg-gray-800/70'>
                   <h4 className='flex items-center gap-3 text-2xl font-semibold'>
                     <span className='rounded-xl bg-blue-100 p-3 transition-transform group-hover:scale-110 dark:bg-blue-900/30'>
+                      💻
+                    </span>
+                    <CustomLink
+                      href='https://bjutswift.cn/bjut-cs'
+                      className='text-blue-600 dark:text-blue-400'
+                    >
+                      BJUT-CS
+                    </CustomLink>
+                  </h4>
+                  <p className='mt-4 text-gray-600 dark:text-gray-300'>
+                    北京工业大学 CS 相关知识库与经验分享。
+                    <br />
+                    受浙江大学和清华大学相关项目启发创立，作为 BJUT-Helper
+                    的拓展项目，专为计算机相关专业的学习资源进行收录。
+                  </p>
+                </div>
+
+                <div className='group rounded-2xl bg-white/70 p-6 backdrop-blur-sm transition-all duration-300 hover:shadow-xl dark:bg-gray-800/70'>
+                  <h4 className='flex items-center gap-3 text-2xl font-semibold'>
+                    <span className='rounded-xl bg-blue-100 p-3 transition-transform group-hover:scale-110 dark:bg-blue-900/30'>
                       🎨
                     </span>
                     <CustomLink
@@ -113,13 +133,15 @@ export default function AboutPage() {
                     <CustomLink href='https://www.bjut.edu.cn/dxwh/gdbs1.htm'>
                       北京工业大学视觉形象识别系统
                     </CustomLink>
-                    ，设计了这款PPT模版，欢迎北工大学子前来下载使用。提供4:3和16:9两种大小。
+                    ，设计了这款 PPT 模版，欢迎北工大学子前来下载使用。提供 4:3
+                    和 16:9 两种大小。
                     <br />
                     同时，在{' '}
                     <code className='rounded bg-gray-200 px-1 dark:bg-gray-700'>
-                      \BJUT矢量图
+                      \BJUT 矢量图
                     </code>{' '}
-                    路径下提供了包括校训、校标、校徽等在内的BJUT的svg素材，可以二次开发使用。
+                    路径下提供了包括校训、校标、校徽等在内的 BJUT 的 svg
+                    素材，可以二次开发使用。
                   </p>
                 </div>
 
