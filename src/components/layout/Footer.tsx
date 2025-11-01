@@ -81,14 +81,14 @@ function SocialLinks() {
                 ? 'Click the mail logo to copy '
                 : 'Copied to clipboard 🥳'}
               <Accent className='inline-block font-medium'>
-                bjut.swift@gmail.com
+                bjutswift.cn@gmail.com
               </Accent>
             </div>
           }
         >
           <button
             onClick={() => {
-              copy('bjut.swift@gmail.com').then(() => {
+              copy('bjutswift.cn@gmail.com').then(() => {
                 setCopyStatus('copied');
                 setTimeout(() => setCopyStatus('idle'), 1500);
               });
