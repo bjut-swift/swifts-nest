@@ -68,7 +68,12 @@ export default function BlogCard({
                 }}
               />
             </div>
-          ) : null}
+          ) : (
+            <div
+              className='relative w-full overflow-hidden rounded-t-md bg-gradient-to-br from-primary-300/40 via-primary-400/30 to-primary-500/40 dark:from-primary-400/20 dark:via-primary-500/20 dark:to-primary-300/20'
+              style={{ paddingTop: '40%' }}
+            />
+          )}
           <div
             className={clsx(
               'absolute bottom-0 w-full px-4 py-2',
