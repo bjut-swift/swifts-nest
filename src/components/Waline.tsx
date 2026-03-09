@@ -33,6 +33,7 @@ export const Waline = ({ path, serverURL, dark, ...rest }: WalineOptions) => {
       walineInstanceRef.current?.destroy();
       walineInstanceRef.current = null;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- dark is handled by a separate effect; rest is destructured remnant and should not trigger re-init
   }, [path, serverURL]);
 
   useEffect(() => {
