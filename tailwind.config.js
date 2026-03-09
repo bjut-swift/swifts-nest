@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        primary: ['Inter', ...fontFamily.sans],
+        primary: ['Inter', 'Noto Sans SC', ...fontFamily.sans],
       },
       colors: {
         primary: {
