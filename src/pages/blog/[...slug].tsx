@@ -272,7 +272,7 @@ export default function SingleBlogPage({
             <figure className='mt-12'>
               <Waline
                 path={frontmatter.slug}
-                serverURL='comment.bjutswift.cn'
+                serverURL='https://comment.bjutswift.cn'
                 dark={theme === 'dark'}
                 // 其他你需要的 Waline 配置项
               />
