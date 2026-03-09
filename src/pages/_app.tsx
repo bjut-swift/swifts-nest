@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
-import Router from 'next/router';
+import Router, { useRouter } from 'next/router';
 import { useRemoteRefresh } from 'next-remote-refresh/hook';
 import { ThemeProvider } from 'next-themes';
 import nProgress from 'nprogress';
@@ -35,6 +35,23 @@ Router.events.on('routeChangeComplete', nProgress.done);
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const [transitioning, setTransitioning] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleStart = () => setTransitioning(true);
+    const handleComplete = () => setTransitioning(false);
+
+    router.events.on('routeChangeStart', handleStart);
+    router.events.on('routeChangeComplete', handleComplete);
+    router.events.on('routeChangeError', handleComplete);
+    return () => {
+      router.events.off('routeChangeStart', handleStart);
+      router.events.off('routeChangeComplete', handleComplete);
+      router.events.off('routeChangeError', handleComplete);
+    };
+  }, [router]);
+
   React.useEffect(() => {
     // Don't increment views if not on main domain
     if (
@@ -55,7 +72,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute='class' defaultTheme='dark' enableSystem={false}>
       <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
+        <div
+          className={`transition-opacity duration-200 ${
+            transitioning ? 'opacity-0' : 'opacity-100'
+          }`}
+        >
+          <Component {...pageProps} />
+        </div>
         <ReactQueryDevtools />
       </QueryClientProvider>
     </ThemeProvider>
