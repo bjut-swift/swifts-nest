@@ -6,7 +6,8 @@ import { openGraph } from '@/lib/helper.client';
 const defaultMeta = {
   title: 'BJUT SWIFT',
   siteName: 'bjutswift.cn',
-  description: 'BJUT SWIFT官网',
+  description:
+    'BJUT SWIFT 官网 — 工大学子共建的技术共享平台，分享课程资源、项目经验与技术教程。',
   url: 'https://bjutswift.cn',
   image: 'https://bjutswift.cn/favicon/large-og.jpg',
   type: 'website',
@@ -63,7 +64,7 @@ export default function Seo(props: SeoProps) {
       <meta name='image' property='og:image' content={meta.image} />
       {/* Twitter */}
       <meta name='twitter:card' content='summary_large_image' />
-      <meta name='twitter:site' content='@th_clarence' />
+      <meta name='twitter:site' content='@bjutswift' />
       <meta name='twitter:title' content={meta.title} />
       <meta name='twitter:description' content={meta.description} />
       <meta name='twitter:image' content={meta.image} />
@@ -75,11 +76,7 @@ export default function Seo(props: SeoProps) {
             property='og:publish_date'
             content={meta.date}
           />
-          <meta
-            name='author'
-            property='article:author'
-            content='Theodorus Clarence'
-          />
+          <meta name='author' property='article:author' content='BJUT SWIFT' />
         </>
       )}
       {meta.isBlog && (
@@ -95,7 +92,7 @@ export default function Seo(props: SeoProps) {
               author: [
                 {
                   '@type': 'Person',
-                  name: 'Theodorus Clarence',
+                  name: 'BJUT SWIFT',
                 },
               ],
               image: meta.image,
