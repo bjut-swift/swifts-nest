@@ -251,30 +251,32 @@ export default function IndexPage({
               className={clsx('py-20', inView && 'fade-in-start')}
             >
               <article className='layout' data-fade='0'>
-                <h2 className='text-2xl md:text-4xl' id='blog'>
-                  <Accent>专栏分享</Accent>
-                </h2>
-                <p className='mt-2 text-gray-600 dark:text-gray-300'>
-                  我们想传的更远的一些声音。
-                </p>
-                <ul className='mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
-                  {populatedPosts.map((post, i) => (
-                    <BlogCard
-                      key={post.slug}
-                      post={post}
-                      className={clsx(i > 2 && 'hidden sm:block')}
-                    />
-                  ))}
-                </ul>
-                <ButtonLink
-                  className='mt-4'
-                  href='/blog'
-                  onClick={() =>
-                    trackEvent('Home: See more post', { type: 'navigate' })
-                  }
-                >
-                  查看更多专栏
-                </ButtonLink>
+                <div className='rounded-xl bg-gray-50 p-6 dark:bg-gray-900/50 md:p-10'>
+                  <h2 className='text-2xl md:text-4xl' id='blog'>
+                    <Accent>专栏分享</Accent>
+                  </h2>
+                  <p className='mt-2 text-gray-600 dark:text-gray-300'>
+                    我们想传的更远的一些声音。
+                  </p>
+                  <ul className='mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
+                    {populatedPosts.map((post, i) => (
+                      <BlogCard
+                        key={post.slug}
+                        post={post}
+                        className={clsx(i > 2 && 'hidden sm:block')}
+                      />
+                    ))}
+                  </ul>
+                  <ButtonLink
+                    className='mt-6'
+                    href='/blog'
+                    onClick={() =>
+                      trackEvent('Home: See more post', { type: 'navigate' })
+                    }
+                  >
+                    查看更多专栏
+                  </ButtonLink>
+                </div>
               </article>
             </section>
           )}
@@ -287,13 +289,15 @@ export default function IndexPage({
               className={clsx('py-20', inView && 'fade-in-start')}
             >
               <article className='layout' data-fade='0'>
-                <h2 className='text-2xl md:text-4xl' id='projects'>
-                  <Accent>已有项目</Accent>
-                </h2>
-                <p className='mt-2 text-gray-600 dark:text-gray-300'>
-                  正在发展中，欢迎任何同学参与建设。
-                </p>
-                <ul className='mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
+                <div className='border-l-4 border-primary-400 pl-6 dark:border-primary-300'>
+                  <h2 className='text-2xl md:text-4xl' id='projects'>
+                    <Accent>已有项目</Accent>
+                  </h2>
+                  <p className='mt-2 text-gray-600 dark:text-gray-300'>
+                    正在发展中，欢迎任何同学参与建设。
+                  </p>
+                </div>
+                <ul className='mt-6 grid gap-6 sm:grid-cols-2'>
                   {populatedProjects.map((project, i) => (
                     <ProjectCard
                       key={project.slug}
@@ -303,7 +307,7 @@ export default function IndexPage({
                   ))}
                 </ul>
                 <ButtonLink
-                  className='mt-4'
+                  className='mt-6'
                   href='/projects'
                   onClick={() =>
                     trackEvent('Home: See more project', { type: 'navigate' })
@@ -329,17 +333,20 @@ export default function IndexPage({
                 <p className='mt-2 text-gray-600 dark:text-gray-300'>
                   短小精悍的教程，通常来自个人笔记和技术分享活动。
                 </p>
-                <ul className='mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
+                <ul className='mt-4 flex flex-col gap-3'>
                   {populatedShorts.map((short, i) => (
                     <ShortsCard
                       key={short.slug}
                       short={short}
-                      className={clsx(i > 2 && 'hidden sm:block')}
+                      className={clsx(
+                        i > 2 && 'hidden sm:flex',
+                        '!h-auto sm:!flex sm:flex-row sm:items-center'
+                      )}
                     />
                   ))}
                 </ul>
                 <ButtonLink
-                  className='mt-4'
+                  className='mt-6'
                   href='/shorts'
                   onClick={() =>
                     trackEvent('Home: See more shorts', { type: 'navigate' })
