@@ -78,9 +78,7 @@ export default function SingleShortPage({ code, frontmatter }: LibraryType) {
               <div className='mt-2 flex items-center justify-start gap-3 text-sm font-medium text-gray-600 dark:text-gray-300'>
                 <div className='flex items-center gap-1'>
                   <HiOutlineEye className='inline-block text-base' />
-                  <Accent>
-                    {meta?.views?.toLocaleString() ?? '–––'} views
-                  </Accent>
+                  <Accent>{meta?.views?.toLocaleString() ?? '–––'} 浏览</Accent>
                 </div>
               </div>
               <div className='mt-2 flex flex-wrap gap-x-1 gap-y-1 text-sm text-black dark:text-gray-100'>

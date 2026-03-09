@@ -29,7 +29,7 @@ export default function StatisticsPage() {
   const blogColumns: ColumnDef<(typeof blogs)[number]>[] = [
     {
       accessorKey: 'slug',
-      header: 'Slug',
+      header: '路径',
       cell: ({ row }) => (
         <UnstyledLink
           className='font-medium'
@@ -39,12 +39,12 @@ export default function StatisticsPage() {
           {row.original.slug}
         </UnstyledLink>
       ),
-      footer: 'Total',
+      footer: '合计',
       sortDescFirst: true,
     },
     {
       accessorKey: 'views',
-      header: 'Total Views',
+      header: '总浏览',
       cell: ({ row }) => row.original.views.toLocaleString(),
       footer: ({ table }) =>
         table
@@ -57,7 +57,7 @@ export default function StatisticsPage() {
     },
     {
       accessorKey: 'webViews',
-      header: 'Web Views',
+      header: '网页浏览',
       cell: ({ row }) => row.original.webViews.toLocaleString(),
       footer: ({ table }) =>
         table
@@ -86,7 +86,7 @@ export default function StatisticsPage() {
     },
     {
       accessorKey: 'likes',
-      header: 'Likes',
+      header: '喜欢',
       cell: ({ row }) => row.original.likes.toLocaleString(),
       footer: ({ table }) =>
         table
@@ -105,7 +105,7 @@ export default function StatisticsPage() {
   const projectColumns: ColumnDef<(typeof projects)[number]>[] = [
     {
       accessorKey: 'slug',
-      header: 'Slug',
+      header: '路径',
       cell: ({ row }) => (
         <UnstyledLink
           className='font-medium'
@@ -115,12 +115,12 @@ export default function StatisticsPage() {
           {row.original.slug}
         </UnstyledLink>
       ),
-      footer: 'Total',
+      footer: '合计',
       sortDescFirst: true,
     },
     {
       accessorKey: 'views',
-      header: 'Total Views',
+      header: '总浏览',
       cell: ({ row }) => row.original.views.toLocaleString(),
       footer: ({ table }) =>
         table
@@ -133,7 +133,7 @@ export default function StatisticsPage() {
     },
     {
       accessorKey: 'likes',
-      header: 'Likes',
+      header: '喜欢',
       cell: ({ row }) => row.original.likes.toLocaleString(),
       footer: ({ table }) =>
         table
@@ -152,7 +152,7 @@ export default function StatisticsPage() {
   const shortsColumns: ColumnDef<(typeof shorts)[number]>[] = [
     {
       accessorKey: 'slug',
-      header: 'Slug',
+      header: '路径',
       cell: ({ row }) => (
         <UnstyledLink
           className='font-medium'
@@ -162,12 +162,12 @@ export default function StatisticsPage() {
           {row.original.slug}
         </UnstyledLink>
       ),
-      footer: 'Total',
+      footer: '合计',
       sortDescFirst: true,
     },
     {
       accessorKey: 'views',
-      header: 'Total Views',
+      header: '总浏览',
       cell: ({ row }) => row.original.views.toLocaleString(),
       footer: ({ table }) =>
         table
@@ -180,7 +180,7 @@ export default function StatisticsPage() {
     },
     {
       accessorKey: 'likes',
-      header: 'Likes',
+      header: '喜欢',
       cell: ({ row }) => row.original.likes.toLocaleString(),
       footer: ({ table }) =>
         table
@@ -197,13 +197,13 @@ export default function StatisticsPage() {
   //#region  //*=========== Statistic Cards ===========
   const statCards = [
     {
-      title: 'Blog',
+      title: '专栏',
       count: blogs.length,
       views: blogs.reduce((sum, blog) => sum + blog.views, 0).toLocaleString(),
       likes: blogs.reduce((sum, blog) => sum + blog.likes, 0).toLocaleString(),
     },
     {
-      title: 'Projects',
+      title: '项目',
       count: projects.length,
       views: projects
         .reduce((sum, project) => sum + project.views, 0)
@@ -213,7 +213,7 @@ export default function StatisticsPage() {
         .toLocaleString(),
     },
     {
-      title: 'Shorts',
+      title: '教程',
       count: shorts.length,
       views: shorts
         .reduce((sum, short) => sum + short.views, 0)
@@ -228,14 +228,14 @@ export default function StatisticsPage() {
   return (
     <Layout>
       <Seo
-        templateTitle='Statistics'
-        description='Metadata statistics of bjutswift.cn blogs, projects and libraries.'
+        templateTitle='统计信息'
+        description='bjutswift.cn 专栏、项目和教程的统计数据。'
       />
 
       <main>
         <section className=''>
           <div className='layout py-12'>
-            <h1>Statistics</h1>
+            <h1>统计信息</h1>
 
             <div className='mt-4 grid gap-6 sm:grid-cols-2 md:grid-cols-3'>
               {statCards.map((stat) => (
@@ -254,19 +254,19 @@ export default function StatisticsPage() {
                         {stat.count ?? 0}
                       </span>{' '}
                       <span className='text-xs font-medium uppercase tracking-wider'>
-                        posts
+                        篇
                       </span>
                     </p>
                     <p className='text-gray-800 dark:text-gray-200'>
                       <span className='h4 font-semibold'>{stat.views}</span>{' '}
                       <span className='text-xs font-medium uppercase tracking-wider'>
-                        views
+                        浏览
                       </span>
                     </p>
                     <p className='text-gray-800 dark:text-gray-200'>
                       <span className='h4 font-semibold'>{stat.likes}</span>{' '}
                       <span className='text-xs font-medium uppercase tracking-wider'>
-                        likes
+                        喜欢
                       </span>
                     </p>
                   </div>
@@ -274,7 +274,7 @@ export default function StatisticsPage() {
               ))}
             </div>
 
-            <h2 className='h3 mt-8'>Blog</h2>
+            <h2 className='h3 mt-8'>专栏</h2>
             {blogs && (
               <Table
                 withFilter
@@ -285,7 +285,7 @@ export default function StatisticsPage() {
               />
             )}
 
-            <h2 className='h3 mt-8'>Projects</h2>
+            <h2 className='h3 mt-8'>项目</h2>
             {projects && (
               <Table
                 withFilter
@@ -296,7 +296,7 @@ export default function StatisticsPage() {
               />
             )}
 
-            <h2 className='h3 mt-8'>Shorts</h2>
+            <h2 className='h3 mt-8'>教程</h2>
             {shorts && (
               <Table
                 withFilter

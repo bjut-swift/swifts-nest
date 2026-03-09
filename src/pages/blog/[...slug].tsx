@@ -192,7 +192,7 @@ export default function SingleBlogPage({
                   <Tooltip
                     tipChildren={
                       <>
-                        {meta.devtoViews.toLocaleString()} views on{' '}
+                        {meta.devtoViews.toLocaleString()} 浏览于{' '}
                         <CustomLink href='https://dev.to/theodorusclarence'>
                           dev.to
                         </CustomLink>
@@ -203,7 +203,7 @@ export default function SingleBlogPage({
                     <div className='flex items-center gap-1'>
                       <HiOutlineEye className='inline-block text-base' />
                       <Accent>
-                        {meta?.views?.toLocaleString() ?? '–––'} views
+                        {meta?.views?.toLocaleString() ?? '–––'} 浏览
                       </Accent>
                     </div>
                   </Tooltip>
@@ -211,7 +211,7 @@ export default function SingleBlogPage({
                   <div className='flex items-center gap-1'>
                     <HiOutlineEye className='inline-block text-base' />
                     <Accent>
-                      {meta?.views?.toLocaleString() ?? '–––'} views
+                      {meta?.views?.toLocaleString() ?? '–––'} 浏览
                     </Accent>
                   </div>
                 )}

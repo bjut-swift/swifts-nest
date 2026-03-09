@@ -24,12 +24,12 @@ import { BlogFrontmatter, InjectedMeta } from '@/types/frontmatters';
 const sortOptions: Array<SortOption> = [
   {
     id: 'date',
-    name: 'Sort by date',
+    name: '按日期排序',
     icon: HiCalendar,
   },
   {
     id: 'views',
-    name: 'Sort by views',
+    name: '按浏览量排序',
     icon: HiEye,
   },
 ];
@@ -127,7 +127,7 @@ export default function IndexPage({
             <StyledInput
               data-fade='2'
               className='mt-4'
-              placeholder='Search...'
+              placeholder='搜索...'
               onChange={handleSearch}
               value={search}
               type='text'

@@ -95,14 +95,14 @@ export default function BlogCard({
             </div>
             <div className='flex items-center gap-1'>
               <HiOutlineEye className='inline-block text-base' />
-              <Accent>{post?.views?.toLocaleString() ?? '–––'} views</Accent>
+              <Accent>{post?.views?.toLocaleString() ?? '–––'} 浏览</Accent>
             </div>
           </div>
           <p className='mb-2 mt-4 text-sm text-gray-600 dark:text-gray-300'>
             <span className='font-bold text-gray-800 dark:text-gray-100'>
               {format(
                 new Date(post.lastUpdated ?? post.publishedAt),
-                'MMMM dd, yyyy'
+                'yyyy-MM-dd'
               )}
             </span>
           </p>

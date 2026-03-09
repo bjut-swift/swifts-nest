@@ -54,11 +54,11 @@ export default function ShortsCard({
           <div className='mt-4 flex items-center justify-start gap-3 text-sm font-medium text-gray-600 dark:text-gray-300'>
             <div className='flex items-center gap-1'>
               <HiOutlineEye className='inline-block text-base' />
-              <Accent>{short?.views?.toLocaleString() ?? '–––'} views</Accent>
+              <Accent>{short?.views?.toLocaleString() ?? '–––'} 浏览</Accent>
             </div>
             <div className='flex items-center gap-1'>
               <GiTechnoHeart className='inline-block text-base' />
-              <Accent>{short?.likes ?? '–––'} likes</Accent>
+              <Accent>{short?.likes ?? '–––'} 喜欢</Accent>
             </div>
           </div>
 
