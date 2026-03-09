@@ -11,7 +11,12 @@ const nextConfig = {
   eslint: {
     dirs: ['src'],
   },
+  experimental: {
+    optimizePackageImports: ['react-icons', 'date-fns', 'lodash', '@tanstack/react-query'],
+  },
+  compress: true,
   images: {
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',

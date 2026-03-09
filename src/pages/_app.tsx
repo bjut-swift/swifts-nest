@@ -1,23 +1,32 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { AppProps } from 'next/app';
+import dynamic from 'next/dynamic';
 import Router from 'next/router';
 import { useRemoteRefresh } from 'next-remote-refresh/hook';
 import { ThemeProvider } from 'next-themes';
 import nProgress from 'nprogress';
 import * as React from 'react';
 
-import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 import 'react-tippy/dist/tippy.css';
 import '@/styles/globals.css';
 import '@/styles/carbon.css';
 import '@/styles/mdx.css';
 import '@/styles/nprogress.css';
-import 'katex/dist/katex.min.css';
 
 import { getFromLocalStorage } from '@/lib/helper.client';
 
 import { blockDomainMeta } from '@/constants/env';
+
+const ReactQueryDevtools =
+  process.env.NODE_ENV === 'development'
+    ? dynamic(
+        () =>
+          import('@tanstack/react-query-devtools').then(
+            (mod) => mod.ReactQueryDevtools
+          ),
+        { ssr: false }
+      )
+    : () => null;
 
 Router.events.on('routeChangeStart', nProgress.start);
 Router.events.on('routeChangeError', nProgress.done);

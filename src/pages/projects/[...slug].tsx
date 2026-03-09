@@ -1,5 +1,6 @@
 import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { ParsedUrlQuery } from 'querystring';
@@ -20,7 +21,10 @@ import TableOfContents, {
 import Layout from '@/components/layout/Layout';
 import CustomLink from '@/components/links/CustomLink';
 import Seo from '@/components/Seo';
-import { Waline } from '@/components/Waline';
+const Waline = dynamic(
+  () => import('@/components/Waline').then((mod) => mod.Waline),
+  { ssr: false }
+);
 
 import { ProjectType } from '@/types/frontmatters';
 

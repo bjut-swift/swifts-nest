@@ -6,7 +6,6 @@ import { trackEvent } from '@/lib/analytics';
 import useLoaded from '@/hooks/useLoaded';
 
 import Accent from '@/components/Accent';
-import FeishuDocEmbed from '@/components/FeishuDocEmbed';
 import CloudinaryImg from '@/components/images/CloudinaryImg';
 import LaTeX from '@/components/LaTeX';
 import Layout from '@/components/layout/Layout';

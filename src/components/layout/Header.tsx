@@ -21,10 +21,17 @@ export default function Header({ large = false }: HeaderProps) {
   //#region  //*=========== Scroll Shadow ===========
   const [onTop, setOnTop] = React.useState<boolean>(true);
   React.useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setOnTop(window.pageYOffset === 0);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setOnTop(window.pageYOffset === 0);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };

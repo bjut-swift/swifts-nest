@@ -10,9 +10,7 @@ export default function useLoaded() {
     if (preloaded) {
       setIsLoaded(true);
     } else {
-      setTimeout(() => {
-        setIsLoaded(true);
-      }, 200);
+      setIsLoaded(true);
     }
   }, [preloaded]);
 

@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
@@ -8,9 +9,14 @@ import GithubCard from '@/components/content/card/GithubCard';
 import { Pre } from '@/components/content/Pre';
 import SplitImage, { Split } from '@/components/content/SplitImage';
 import TweetCard from '@/components/content/TweetCard';
-import FeishuBaseEmbed from '@/components/FeishuBaseEmbed';
-import FeishuDocEmbed from '@/components/FeishuDocEmbed';
 import CloudinaryImg from '@/components/images/CloudinaryImg';
+
+const FeishuBaseEmbed = dynamic(() => import('@/components/FeishuBaseEmbed'), {
+  ssr: false,
+});
+const FeishuDocEmbed = dynamic(() => import('@/components/FeishuDocEmbed'), {
+  ssr: false,
+});
 import NextImage from '@/components/images/NextImage';
 import LaTeX from '@/components/LaTeX';
 import CustomLink from '@/components/links/CustomLink';

@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { format } from 'date-fns';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { ParsedUrlQuery } from 'querystring';
@@ -21,9 +22,6 @@ import useInjectContentMeta from '@/hooks/useInjectContentMeta';
 import useScrollSpy from '@/hooks/useScrollspy';
 
 import Accent from '@/components/Accent';
-import BlogCard from '@/components/content/blog/BlogCard';
-import SubscribeCard from '@/components/content/blog/SubscribeCard';
-import LikeButton from '@/components/content/LikeButton';
 import MDXComponents from '@/components/content/MDXComponents';
 import ReloadDevtool from '@/components/content/ReloadDevtool';
 import TableOfContents, {
@@ -32,11 +30,22 @@ import TableOfContents, {
 import CloudinaryImg from '@/components/images/CloudinaryImg';
 import Layout from '@/components/layout/Layout';
 import CustomLink from '@/components/links/CustomLink';
-import ShareBlogButton from '@/components/links/ShareBlogButton';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 import Tooltip from '@/components/Tooltip';
-import { Waline } from '@/components/Waline';
+
+const BlogCard = dynamic(() => import('@/components/content/blog/BlogCard'));
+const SubscribeCard = dynamic(
+  () => import('@/components/content/blog/SubscribeCard')
+);
+const LikeButton = dynamic(() => import('@/components/content/LikeButton'));
+const ShareBlogButton = dynamic(
+  () => import('@/components/links/ShareBlogButton')
+);
+const Waline = dynamic(
+  () => import('@/components/Waline').then((mod) => mod.Waline),
+  { ssr: false }
+);
 
 import { BlogFrontmatter, BlogType } from '@/types/frontmatters';
 

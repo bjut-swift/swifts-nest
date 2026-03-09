@@ -1,8 +1,12 @@
 import { buildUrl } from 'cloudinary-build-url';
 import clsx from 'clsx';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import * as React from 'react';
-import Lightbox from 'react-image-lightbox';
+
+const Lightbox = dynamic(() => import('react-image-lightbox'), {
+  ssr: false,
+});
 
 import 'react-image-lightbox/style.css';
 
@@ -116,7 +120,6 @@ export default function CloudinaryImg({
                 ? (RESIZE_MAX_WIDTH * Number(height)) / Number(width)
                 : Number(height)
             }
-            unoptimized
             src={url}
             alt={alt}
             title={title || alt}
