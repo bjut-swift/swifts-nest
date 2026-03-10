@@ -4,6 +4,7 @@ import UnstyledLink, { UnstyledLinkProps } from './UnstyledLink';
 
 enum ButtonVariant {
   'default',
+  'primary',
 }
 
 export type ButtonLinkProps = {
@@ -30,6 +31,8 @@ export default function ButtonLink({
         {
           'bg-white text-gray-800 disabled:bg-gray-200 dark:bg-dark dark:text-gray-100 dark:disabled:bg-gray-700':
             variant === 'default',
+          'border-primary-300 bg-primary-300 text-white hover:bg-primary-300/90 dark:border-primary-300 dark:bg-primary-300 dark:text-white dark:hover:bg-primary-300/90':
+            variant === 'primary',
         },
         className
       )}

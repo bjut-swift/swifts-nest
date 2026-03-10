@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       fontFamily: {
         primary: ['Inter', 'Noto Sans SC', ...fontFamily.sans],
+        display: ['"Space Grotesk"', 'Inter', 'Noto Sans SC', ...fontFamily.sans],
       },
       colors: {
         primary: {

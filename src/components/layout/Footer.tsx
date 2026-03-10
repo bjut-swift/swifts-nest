@@ -16,15 +16,15 @@ import { feedbackFlag } from '@/constants/env';
 export default function Footer() {
   return (
     <footer className='mt-4 pb-2'>
-      <main className='layout border-t pt-6 dark:border-gray-600'>
+      <main className='layout border-t border-primary-300/20 pt-10 dark:border-primary-300/10'>
         {/* Three-column layout */}
         <div className='grid grid-cols-1 gap-8 md:grid-cols-3'>
           {/* Column 1: Branding */}
           <div>
-            <p className='text-lg font-bold text-gray-800 dark:text-gray-100'>
+            <p className='font-display text-2xl font-bold tracking-tight text-gray-800 dark:text-gray-100 md:text-3xl'>
               BJUT SWIFT
             </p>
-            <p className='mt-2 text-sm text-gray-600 dark:text-gray-300'>
+            <p className='mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300'>
               Sharing Wisdom, Innovation & Futuristic Technologies —
               工大学子共建的技术共享平台
             </p>
@@ -84,7 +84,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className='mt-8 border-t pt-4 dark:border-gray-600'>
+        <div className='mt-8 border-t border-primary-300/20 pt-4 dark:border-primary-300/10'>
           <p className='text-center text-sm text-gray-600 dark:text-gray-300'>
             © BJUT SWIFT {new Date().getFullYear()}
             {feedbackFlag && (

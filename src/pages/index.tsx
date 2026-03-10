@@ -45,41 +45,42 @@ export default function IndexPage({
       <main>
         <section
           className={clsx(
-            'min-h-main -mt-20 mb-20 flex flex-col justify-center',
+            'min-h-main relative -mt-20 flex flex-col justify-center overflow-hidden',
             isLoaded && 'fade-in-start'
           )}
         >
-          <article className='layout'>
-            <h2 className='text-2xl md:text-4xl 2xl:text-5xl' data-fade='1'>
-              Hi!
-            </h2>
+          {/* Ambient warm glow */}
+          <div
+            className='pointer-events-none absolute -right-[15%] top-[15%] h-[50vh] w-[50vh] rounded-full bg-primary-300/[0.06] blur-[100px] dark:bg-primary-300/[0.03]'
+            aria-hidden='true'
+          />
+          <article className='layout relative z-10'>
             <h1
-              className='mt-1 text-3xl md:text-5xl 2xl:text-6xl'
-              data-fade='2'
+              className='font-display text-[clamp(3.5rem,12vw,11rem)] font-bold leading-[0.85] tracking-tighter'
+              data-fade='1'
             >
-              We are{' '}
-              <Accent className='bg-gradient-to-r from-blue-800 to-purple-600 bg-clip-text text-transparent'>
-                BJUT-SWIFT
-              </Accent>
+              <span className='block'>BJUT-</span>
+              <span className='block text-primary-500 dark:text-primary-300'>
+                SWIFT
+              </span>
             </h1>
             <p
-              className='mt-2 max-w-4xl text-sm leading-relaxed text-gray-700 dark:text-gray-200 md:mt-3 md:text-base 2xl:text-lg'
+              className='mt-6 max-w-lg text-xs font-medium uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 md:mt-8 md:text-sm'
               data-fade='2'
             >
-              Sharing Wisdom, Innovation & Futuristic Technologies (S.W.I.F.T.)
+              Sharing Wisdom, Innovation & Futuristic Technologies
             </p>
             <p
               className={clsx(
-                'mt-4 max-w-4xl text-gray-700 dark:text-gray-200 md:mt-6',
+                'mt-8 max-w-xl text-gray-700 dark:text-gray-300 md:mt-10',
                 'md:text-lg 2xl:text-xl'
               )}
               data-fade='3'
             >
               我们需要你们的力量，欢迎联系以加入组织、申请立项、反馈意见。
             </p>
-
             <p
-              className='mt-3 max-w-4xl leading-relaxed text-gray-700 dark:text-gray-200 md:mt-4 md:text-lg 2xl:text-xl'
+              className='mt-3 max-w-xl leading-relaxed text-gray-700 dark:text-gray-300 md:text-lg 2xl:text-xl'
               data-fade='4'
             >
               欢迎来我们的 <CustomLink href='/guestbook'>留言簿</CustomLink>{' '}
@@ -87,19 +88,11 @@ export default function IndexPage({
             </p>
             <div
               data-fade='5'
-              className='mt-8 flex flex-wrap gap-4 md:!text-lg'
+              className='mt-10 flex flex-wrap gap-4 md:mt-12 md:!text-lg'
             >
-              <div className='group relative'>
-                <div
-                  className={clsx(
-                    'absolute -inset-0.5 animate-tilt rounded blur',
-                    'bg-gradient-to-r from-primary-300 to-primary-400',
-                    'dark:from-primary-200 dark:via-primary-300',
-                    'opacity-75 transition duration-1000 group-hover:opacity-100 group-hover:duration-200'
-                  )}
-                />
-                <ButtonLink href='#intro'>我们的工作</ButtonLink>
-              </div>
+              <ButtonLink href='#intro' variant='primary'>
+                我们的工作
+              </ButtonLink>
               <ButtonLink href='/about'>了解 BJUT-SWIFT</ButtonLink>
             </div>
             <div
@@ -121,7 +114,7 @@ export default function IndexPage({
                 <Lark
                   height={16}
                   width={16}
-                  className='shrink-0 transition-colors group-hover:text-[#1da1f2]'
+                  className='shrink-0 transition-colors group-hover:text-primary-300'
                 />
                 <span>飞书问卷</span>
               </UnstyledLink>
@@ -150,34 +143,43 @@ export default function IndexPage({
               'hover:text-primary-300 focus-visible:text-primary-300'
             )}
           >
-            <IoArrowDownOutline className='h-8 w-8 animate-bounce md:h-10 md:w-10' />
+            <IoArrowDownOutline className='h-8 w-8 animate-float md:h-10 md:w-10' />
           </UnstyledLink>
           <TC
             className={clsx(
               'absolute bottom-0 right-6',
               'translate-y-[37%] transform-gpu',
               'w-[calc(100%-3rem)] md:w-[600px] 2xl:w-[900px]',
-              'z-[-1] opacity-70 dark:opacity-30'
+              'z-[-1] opacity-40 dark:opacity-20'
             )}
           />
         </section>
+
+        {/* Section divider */}
+        <div className='h-px bg-gradient-to-r from-transparent via-primary-300/20 to-transparent' />
 
         <InView triggerOnce rootMargin='-40% 0px'>
           {({ ref, inView }) => (
             <section
               ref={ref}
               id='intro'
-              className={clsx('py-20', inView && 'fade-in-start')}
+              className={clsx(
+                'bg-primary-200/40 py-28 dark:bg-white/[0.02]',
+                inView && 'fade-in-start'
+              )}
             >
               <article className='layout' data-fade='0'>
-                <div className='flex flex-col md:flex-row md:items-center md:gap-8'>
+                <div className='flex flex-col md:flex-row md:items-center md:gap-12'>
                   <div className='w-full md:w-1/2'>
-                    <h2 className='text-4xl md:text-6xl'>
-                      <Accent className='inline decoration-clone leading-snug dark:leading-none'>
-                        探索技术，
-                        <br />
+                    <span className='mb-3 block font-display text-xs font-medium tracking-[0.3em] text-primary-400 dark:text-primary-300'>
+                      01
+                    </span>
+                    <h2 className='text-4xl font-bold tracking-tight md:text-6xl 2xl:text-7xl'>
+                      探索技术，
+                      <br />
+                      <span className='text-primary-500 dark:text-primary-300'>
                         分享知识
-                      </Accent>
+                      </span>
                     </h2>
                     <div className='mt-4 text-base text-gray-600 dark:text-gray-300 md:text-lg'>
                       <Tooltip
@@ -248,35 +250,39 @@ export default function IndexPage({
           {({ ref, inView }) => (
             <section
               ref={ref}
-              className={clsx('py-20', inView && 'fade-in-start')}
+              className={clsx('py-24', inView && 'fade-in-start')}
             >
               <article className='layout' data-fade='0'>
-                <div className='rounded-xl bg-gray-50 p-6 dark:bg-gray-900/50 md:p-10'>
-                  <h2 className='text-2xl md:text-4xl' id='blog'>
-                    <Accent>专栏分享</Accent>
-                  </h2>
-                  <p className='mt-2 text-gray-600 dark:text-gray-300'>
-                    我们想传的更远的一些声音。
-                  </p>
-                  <ul className='mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
-                    {populatedPosts.map((post, i) => (
-                      <BlogCard
-                        key={post.slug}
-                        post={post}
-                        className={clsx(i > 2 && 'hidden sm:block')}
-                      />
-                    ))}
-                  </ul>
-                  <ButtonLink
-                    className='mt-6'
-                    href='/blog'
-                    onClick={() =>
-                      trackEvent('Home: See more post', { type: 'navigate' })
-                    }
-                  >
-                    查看更多专栏
-                  </ButtonLink>
-                </div>
+                <span className='mb-3 block font-display text-xs font-medium tracking-[0.3em] text-primary-400 dark:text-primary-300'>
+                  02
+                </span>
+                <h2 className='text-2xl md:text-4xl' id='blog'>
+                  <Accent>专栏分享</Accent>
+                </h2>
+                <p className='mt-2 text-gray-600 dark:text-gray-300'>
+                  我们想传的更远的一些声音。
+                </p>
+                <ul className='mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
+                  {populatedPosts.map((post, i) => (
+                    <BlogCard
+                      key={post.slug}
+                      post={post}
+                      className={clsx(
+                        i === 0 && 'sm:col-span-2',
+                        i > 2 && 'hidden sm:block'
+                      )}
+                    />
+                  ))}
+                </ul>
+                <ButtonLink
+                  className='mt-8'
+                  href='/blog'
+                  onClick={() =>
+                    trackEvent('Home: See more post', { type: 'navigate' })
+                  }
+                >
+                  查看更多专栏
+                </ButtonLink>
               </article>
             </section>
           )}
@@ -286,18 +292,22 @@ export default function IndexPage({
           {({ ref, inView }) => (
             <section
               ref={ref}
-              className={clsx('py-20', inView && 'fade-in-start')}
+              className={clsx(
+                'bg-primary-200/40 py-24 dark:bg-white/[0.02]',
+                inView && 'fade-in-start'
+              )}
             >
               <article className='layout' data-fade='0'>
-                <div className='border-l-4 border-primary-400 pl-6 dark:border-primary-300'>
-                  <h2 className='text-2xl md:text-4xl' id='projects'>
-                    <Accent>已有项目</Accent>
-                  </h2>
-                  <p className='mt-2 text-gray-600 dark:text-gray-300'>
-                    正在发展中，欢迎任何同学参与建设。
-                  </p>
-                </div>
-                <ul className='mt-6 grid gap-6 sm:grid-cols-2'>
+                <span className='mb-3 block font-display text-xs font-medium tracking-[0.3em] text-primary-400 dark:text-primary-300'>
+                  03
+                </span>
+                <h2 className='text-2xl md:text-4xl' id='projects'>
+                  <Accent>已有项目</Accent>
+                </h2>
+                <p className='mt-2 text-gray-600 dark:text-gray-300'>
+                  正在发展中，欢迎任何同学参与建设。
+                </p>
+                <ul className='mt-8 grid gap-6 sm:grid-cols-2'>
                   {populatedProjects.map((project, i) => (
                     <ProjectCard
                       key={project.slug}
@@ -307,7 +317,7 @@ export default function IndexPage({
                   ))}
                 </ul>
                 <ButtonLink
-                  className='mt-6'
+                  className='mt-8'
                   href='/projects'
                   onClick={() =>
                     trackEvent('Home: See more project', { type: 'navigate' })
@@ -324,16 +334,19 @@ export default function IndexPage({
           {({ ref, inView }) => (
             <section
               ref={ref}
-              className={clsx('py-20', inView && 'fade-in-start')}
+              className={clsx('py-24', inView && 'fade-in-start')}
             >
               <article className='layout' data-fade='0'>
+                <span className='mb-3 block font-display text-xs font-medium tracking-[0.3em] text-primary-400 dark:text-primary-300'>
+                  04
+                </span>
                 <h2 className='text-2xl md:text-4xl' id='library'>
                   <Accent>教程</Accent>
                 </h2>
                 <p className='mt-2 text-gray-600 dark:text-gray-300'>
                   短小精悍的教程，通常来自个人笔记和技术分享活动。
                 </p>
-                <ul className='mt-4 flex flex-col gap-3'>
+                <ul className='mt-6 flex flex-col gap-3'>
                   {populatedShorts.map((short, i) => (
                     <ShortsCard
                       key={short.slug}
@@ -346,7 +359,7 @@ export default function IndexPage({
                   ))}
                 </ul>
                 <ButtonLink
-                  className='mt-6'
+                  className='mt-8'
                   href='/shorts'
                   onClick={() =>
                     trackEvent('Home: See more shorts', { type: 'navigate' })

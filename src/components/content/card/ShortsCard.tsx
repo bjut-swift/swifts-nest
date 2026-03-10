@@ -61,10 +61,6 @@ export default function ShortsCard({
               <Accent>{short?.likes ?? '–––'} 喜欢</Accent>
             </div>
           </div>
-
-          {/* <p className='mt-4 text-sm text-gray-600 dark:text-gray-300'>
-            {short.description}
-          </p> */}
         </div>
       </UnstyledLink>
     </li>
