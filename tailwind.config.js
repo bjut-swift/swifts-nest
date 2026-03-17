@@ -49,12 +49,17 @@ module.exports = {
             transform: 'rotate(-0.5deg)',
           },
         },
+        'pulse-slow': {
+          '0%, 100%': { opacity: '0.4' },
+          '50%': { opacity: '0.7' },
+        },
       },
       animation: {
         flicker: 'flicker 3s linear infinite',
         tilt: 'tilt 10s infinite linear',
         sparkle: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         float: 'float 6s ease-in-out infinite',
+        'pulse-slow': 'pulse-slow 8s ease-in-out infinite',
       },
       typography: {
         DEFAULT: {

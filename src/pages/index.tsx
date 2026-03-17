@@ -15,12 +15,12 @@ import Accent from '@/components/Accent';
 import BlogCard from '@/components/content/blog/BlogCard';
 import ShortsCard from '@/components/content/card/ShortsCard';
 import ProjectCard from '@/components/content/projects/ProjectCard';
+import HeroBird from '@/components/HeroBird';
 import Layout from '@/components/layout/Layout';
 import ButtonLink from '@/components/links/ButtonLink';
 import CustomLink from '@/components/links/CustomLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
-import TC from '@/components/TC';
 import Tooltip from '@/components/Tooltip';
 
 import Lark from '/public/images/Lark.svg';
@@ -45,7 +45,7 @@ export default function IndexPage({
       <main>
         <section
           className={clsx(
-            'min-h-main relative -mt-20 flex flex-col justify-center overflow-hidden',
+            'min-h-main relative -mt-20 flex flex-col justify-center',
             isLoaded && 'fade-in-start'
           )}
         >
@@ -61,7 +61,7 @@ export default function IndexPage({
             >
               <span className='block'>BJUT-</span>
               <span className='block text-primary-500 dark:text-primary-300'>
-                SWIFT
+                SWI<span className='tracking-[-0.01em]'>FT</span>
               </span>
             </h1>
             <p
@@ -145,18 +145,16 @@ export default function IndexPage({
           >
             <IoArrowDownOutline className='h-8 w-8 animate-float md:h-10 md:w-10' />
           </UnstyledLink>
-          <TC
+          <HeroBird
             className={clsx(
-              'absolute bottom-0 right-6',
-              'translate-y-[37%] transform-gpu',
-              'w-[calc(100%-3rem)] md:w-[600px] 2xl:w-[900px]',
-              'z-[-1] opacity-40 dark:opacity-20'
+              'absolute right-[8%] top-[10%]',
+              'transform-gpu',
+              'h-[60vh] w-auto md:h-[75vh] 2xl:h-[85vh]',
+              'z-0 opacity-[0.07] dark:opacity-[0.05]',
+              'animate-float'
             )}
           />
         </section>
-
-        {/* Section divider */}
-        <div className='h-px bg-gradient-to-r from-transparent via-primary-300/20 to-transparent' />
 
         <InView triggerOnce rootMargin='-40% 0px' fallbackInView>
           {({ ref, inView }) => (
@@ -164,7 +162,7 @@ export default function IndexPage({
               ref={ref}
               id='intro'
               className={clsx(
-                'bg-primary-200/40 py-28 dark:bg-white/[0.02]',
+                'border-t border-primary-300/10 bg-primary-200/40 py-28 dark:bg-white/[0.02]',
                 inView && 'fade-in-start'
               )}
             >
