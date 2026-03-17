@@ -194,7 +194,7 @@ const projects = [
   {
     icon: '💻',
     title: 'BJUT-CS',
-    href: 'https://bjutswift.cn/bjut-cs',
+    href: 'https://www.bjutswift.cn/bjut-cs',
     description:
       '北京工业大学 CS 相关知识库与经验分享。受浙江大学和清华大学相关项目启发创立，作为 BJUT-Helper 的拓展项目，专为计算机相关专业的学习资源进行收录。',
   },

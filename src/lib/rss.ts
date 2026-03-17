@@ -6,7 +6,7 @@ import { getAllFilesFrontmatter } from '@/lib/mdx.server';
 export async function getRssXml() {
   const frontmatters = await getAllFilesFrontmatter('blog');
 
-  const blogUrl = 'https://bjutswift.cn/blog';
+  const blogUrl = 'https://www.bjutswift.cn/blog';
 
   const itemXml = frontmatters
     .filter((fm) => !fm.slug.startsWith('id-'))
@@ -31,7 +31,7 @@ export async function getRssXml() {
         <title>BJUT SWIFT Homepage</title>
         <link>${blogUrl}</link>
         <description>BJUT SWIFT's Official Website</description>
-        <language>en</language>
+        <language>zh-CN</language>
         <ttl>40</ttl>
         ${itemXml.join('\n')}
       </channel>

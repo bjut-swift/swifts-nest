@@ -113,9 +113,12 @@ export default function SingleBlogPage({
         description={frontmatter.description}
         isBlog
         banner={OG_BANNER_LINK}
-        date={new Date(
-          frontmatter.lastUpdated ?? frontmatter.publishedAt
-        ).toISOString()}
+        date={new Date(frontmatter.publishedAt).toISOString()}
+        lastUpdated={
+          frontmatter.lastUpdated
+            ? new Date(frontmatter.lastUpdated).toISOString()
+            : undefined
+        }
         canonical={frontmatter.repost}
         tags={frontmatter.tags}
         author={frontmatter.author}
@@ -248,7 +251,7 @@ export default function SingleBlogPage({
 
             <ShareBlogButton
               className='mt-12'
-              url={`https://bjutswift.cn/blog/${frontmatter.slug}`}
+              url={`https://www.bjutswift.cn/blog/${frontmatter.slug}`}
               title={frontmatter.title}
             />
 

@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
+import { Noto_Sans_SC, Space_Grotesk } from 'next/font/google';
 import Router, { useRouter } from 'next/router';
 import { useRemoteRefresh } from 'next-remote-refresh/hook';
 import { ThemeProvider } from 'next-themes';
@@ -12,6 +13,20 @@ import '@/styles/globals.css';
 import '@/styles/carbon.css';
 import '@/styles/mdx.css';
 import '@/styles/nprogress.css';
+
+const notoSansSC = Noto_Sans_SC({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  display: 'swap',
+  variable: '--font-noto-sans-sc',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-space-grotesk',
+});
 
 import { getFromLocalStorage } from '@/lib/helper.client';
 
@@ -56,7 +71,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     // Don't increment views if not on main domain
     if (
       window.location.host !==
-        (process.env.NEXT_PUBLIC_BLOCK_DOMAIN_WHITELIST || 'bjutswift.cn') &&
+        (process.env.NEXT_PUBLIC_BLOCK_DOMAIN_WHITELIST ||
+          'www.bjutswift.cn') &&
       blockDomainMeta
     ) {
       if (getFromLocalStorage('incrementMetaFlag') !== 'false') {
@@ -70,18 +86,20 @@ function MyApp({ Component, pageProps }: AppProps) {
   useRemoteRefresh();
 
   return (
-    <ThemeProvider attribute='class' defaultTheme='dark' enableSystem={false}>
-      <QueryClientProvider client={queryClient}>
-        <div
-          className={`transition-opacity duration-200 ${
-            transitioning ? 'opacity-0' : 'opacity-100'
-          }`}
-        >
-          <Component {...pageProps} />
-        </div>
-        <ReactQueryDevtools />
-      </QueryClientProvider>
-    </ThemeProvider>
+    <div className={`${notoSansSC.variable} ${spaceGrotesk.variable}`}>
+      <ThemeProvider attribute='class' defaultTheme='dark' enableSystem={false}>
+        <QueryClientProvider client={queryClient}>
+          <div
+            className={`transition-opacity duration-200 ${
+              transitioning ? 'opacity-0' : 'opacity-100'
+            }`}
+          >
+            <Component {...pageProps} />
+          </div>
+          <ReactQueryDevtools />
+        </QueryClientProvider>
+      </ThemeProvider>
+    </div>
   );
 }
 

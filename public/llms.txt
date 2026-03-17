@@ -1,0 +1,32 @@
+# BJUT SWIFT
+
+> BJUT SWIFT（Sharing Wisdom, Innovation & Futuristic Technologies）是北京工业大学（BJUT）学生技术社区，致力于技术分享和知识传播。
+
+## 网站信息
+
+- 网站：https://www.bjutswift.cn
+- GitHub：https://github.com/bjut-swift
+- 联系邮箱：bjutswift.cn@gmail.com
+- 语言：简体中文
+
+## 内容分类
+
+### 博客文章
+- /blog — 技术文章、活动回顾、经验分享
+- 涵盖：实习面试经验、AI 活动、编程学习
+
+### 开源项目
+- /projects — 社区维护的开源项目
+- BJUT-Helper：北京工业大学课程资源共享平台（helper.bjutswift.cn）
+- BJUT-LaTeX：北京工业大学毕业论文 LaTeX 模板
+- BJUT-PPT-Template：北京工业大学 PPT 模板
+- BJUT-Chaoxing：超星学习通辅助脚本
+- BJUT-CS：北京工业大学计算机考研经验分享
+
+### 教程
+- /shorts — 简短技术教程
+- Git 使用指南、Next.js 入门、写作规范
+
+## 引用建议
+
+引用本站内容时，请注明来源为"BJUT SWIFT（www.bjutswift.cn）"。

@@ -1,5 +1,11 @@
 {
-  "name": "App",
+  "name": "BJUT SWIFT 官网",
+  "short_name": "BJUT SWIFT",
+  "description": "工大学子共建的技术共享平台，分享课程资源、项目经验与技术教程。",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#0e1111",
+  "background_color": "#ffffff",
   "icons": [
     {
       "src": "/android-icon-36x36.png",

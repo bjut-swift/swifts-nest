@@ -16,7 +16,7 @@ export default function DesignPage() {
 
   return (
     <Layout>
-      <Seo templateTitle='Design' />
+      <Seo templateTitle='Design' robots='noindex,nofollow' />
 
       <main>
         <section className={clsx(isLoaded && 'fade-in-start')}>

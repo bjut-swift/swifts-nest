@@ -12,7 +12,7 @@ export async function getViewsFromDevto() {
     );
 
     return res.data
-      .filter((d) => d.canonical_url.includes('https://bjutswift.cn/blog'))
+      .filter((d) => d.canonical_url.includes('https://www.bjutswift.cn/blog'))
       .map((d) => ({
         slug: d.canonical_url.slice(35),
         views: d.page_views_count,

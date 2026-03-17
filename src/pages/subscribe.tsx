@@ -9,8 +9,8 @@ export default function SubscribePage() {
   return (
     <Layout>
       <Seo
-        templateTitle='Subscribe'
-        description='Get notified every time there is a new post through your email.'
+        templateTitle='订阅'
+        description='通过邮件订阅，第一时间获取最新文章推送。'
       />
 
       <main>

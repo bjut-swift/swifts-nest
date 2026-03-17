@@ -8,8 +8,8 @@ const defaultMeta = {
   siteName: 'bjutswift.cn',
   description:
     'BJUT SWIFT 官网 — 工大学子共建的技术共享平台，分享课程资源、项目经验与技术教程。',
-  url: 'https://bjutswift.cn',
-  image: 'https://bjutswift.cn/favicon/large-og.jpg',
+  url: 'https://www.bjutswift.cn',
+  image: 'https://www.bjutswift.cn/favicon/large-og.jpg',
   type: 'website',
   robots: 'follow, index',
   author: 'BJUT SWIFT',
@@ -17,6 +17,7 @@ const defaultMeta = {
 
 type SeoProps = {
   date?: string;
+  lastUpdated?: string;
   templateTitle?: string;
   isBlog?: boolean;
   banner?: string;
@@ -57,7 +58,7 @@ export default function Seo(props: SeoProps) {
         href={meta.canonical ? meta.canonical : `${meta.url}${router.asPath}`}
       />
       {/* Open Graph */}
-      <meta property='og:type' content={meta.type} />
+      <meta property='og:type' content={props.isBlog ? 'article' : meta.type} />
       <meta property='og:site_name' content={meta.siteName} />
       <meta property='og:description' content={meta.description} />
       <meta property='og:title' content={meta.title} />
@@ -76,9 +77,20 @@ export default function Seo(props: SeoProps) {
             property='og:publish_date'
             content={meta.date}
           />
-          <meta name='author' property='article:author' content='BJUT SWIFT' />
+          {props.lastUpdated && (
+            <meta
+              property='article:modified_time'
+              content={props.lastUpdated}
+            />
+          )}
+          <meta
+            name='author'
+            property='article:author'
+            content={meta.author || defaultMeta.author}
+          />
         </>
       )}
+      {/* BlogPosting structured data */}
       {meta.isBlog && (
         <script
           key='structured-data'
@@ -87,17 +99,68 @@ export default function Seo(props: SeoProps) {
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'BlogPosting',
-              headline: meta.title,
+              headline: props.templateTitle || meta.title,
               description: meta.description,
-              author: [
-                {
-                  '@type': 'Person',
-                  name: 'BJUT SWIFT',
+              author: props.author
+                ? [{ '@type': 'Person', name: props.author }]
+                : [
+                    {
+                      '@type': 'Organization',
+                      name: 'BJUT SWIFT',
+                      url: 'https://www.bjutswift.cn',
+                    },
+                  ],
+              publisher: {
+                '@type': 'Organization',
+                name: 'BJUT SWIFT',
+                url: 'https://www.bjutswift.cn',
+                logo: {
+                  '@type': 'ImageObject',
+                  url: 'https://www.bjutswift.cn/favicon/apple-icon-180x180.png',
                 },
-              ],
+              },
               image: meta.image,
               datePublished: meta.date,
+              ...(props.lastUpdated && { dateModified: props.lastUpdated }),
+              mainEntityOfPage: {
+                '@type': 'WebPage',
+                '@id': `${meta.url}${router.asPath}`,
+              },
             }),
+          }}
+        />
+      )}
+      {/* Organization + WebSite structured data (non-blog pages) */}
+      {!meta.isBlog && router.asPath === '/' && (
+        <script
+          key='org-structured-data'
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                '@context': 'https://schema.org',
+                '@type': 'Organization',
+                name: 'BJUT SWIFT',
+                url: 'https://www.bjutswift.cn',
+                logo: 'https://www.bjutswift.cn/favicon/apple-icon-180x180.png',
+                description:
+                  'BJUT SWIFT（Sharing Wisdom, Innovation & Futuristic Technologies）是北京工业大学学生技术社区，致力于技术分享和知识传播。',
+                sameAs: ['https://github.com/bjut-swift'],
+                contactPoint: {
+                  '@type': 'ContactPoint',
+                  email: 'bjutswift.cn@gmail.com',
+                  contactType: 'customer service',
+                },
+              },
+              {
+                '@context': 'https://schema.org',
+                '@type': 'WebSite',
+                name: 'BJUT SWIFT',
+                url: 'https://www.bjutswift.cn',
+                description:
+                  'BJUT SWIFT 官网 — 工大学子共建的技术共享平台，分享课程资源、项目经验与技术教程。',
+              },
+            ]),
           }}
         />
       )}

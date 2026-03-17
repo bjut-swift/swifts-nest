@@ -158,7 +158,7 @@ export default function IndexPage({
         {/* Section divider */}
         <div className='h-px bg-gradient-to-r from-transparent via-primary-300/20 to-transparent' />
 
-        <InView triggerOnce rootMargin='-40% 0px'>
+        <InView triggerOnce rootMargin='-40% 0px' fallbackInView>
           {({ ref, inView }) => (
             <section
               ref={ref}
@@ -246,7 +246,7 @@ export default function IndexPage({
           )}
         </InView>
 
-        <InView triggerOnce rootMargin='-40% 0px'>
+        <InView triggerOnce rootMargin='-40% 0px' fallbackInView>
           {({ ref, inView }) => (
             <section
               ref={ref}
@@ -288,7 +288,7 @@ export default function IndexPage({
           )}
         </InView>
 
-        <InView triggerOnce rootMargin='-40% 0px'>
+        <InView triggerOnce rootMargin='-40% 0px' fallbackInView>
           {({ ref, inView }) => (
             <section
               ref={ref}
@@ -330,7 +330,7 @@ export default function IndexPage({
           )}
         </InView>
 
-        <InView triggerOnce rootMargin='-40% 0px'>
+        <InView triggerOnce rootMargin='-40% 0px' fallbackInView>
           {({ ref, inView }) => (
             <section
               ref={ref}

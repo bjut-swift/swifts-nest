@@ -9,8 +9,8 @@ export default function GuestbookPage() {
   return (
     <Layout>
       <Seo
-        templateTitle='Guestbook'
-        description='Leave whatever you like to say—message, appreciation, suggestions.'
+        templateTitle='留言簿'
+        description='欢迎留下任何想说的话——留言、感谢、建议。'
       />
 
       <main>

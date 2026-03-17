@@ -23,22 +23,13 @@ class MyDocument extends Document {
             type='font/woff2'
             crossOrigin='anonymous'
           />
-          <link rel='preconnect' href='https://fonts.googleapis.com' />
-          <link
-            rel='preconnect'
-            href='https://fonts.gstatic.com'
-            crossOrigin='anonymous'
-          />
-          <link
-            href='https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap'
-            rel='stylesheet'
-          />
+          <meta name='viewport' content='width=device-width, initial-scale=1' />
           <script
             async
             defer
             data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID || ''}
             src='https://umami.thcl.dev/script.js'
-            data-domains='bjutswift.cn'
+            data-domains='bjutswift.cn,www.bjutswift.cn'
           />
         </Head>
         <body className='bg-white antialiased transition-colors dark:bg-dark dark:text-white'>

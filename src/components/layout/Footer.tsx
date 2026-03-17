@@ -206,7 +206,7 @@ const communityColumn: {
     tooltip: 'RSS 订阅',
   },
   {
-    href: 'https://bjutswift.cn/rss.xml',
+    href: 'https://www.bjutswift.cn/rss.xml',
     text: 'RSS',
     tooltip: '添加 BJUT SWIFT 博客到你的订阅源',
   },
