@@ -87,6 +87,13 @@ export default function Footer() {
         <div className='mt-8 border-t border-primary-300/20 pt-4 dark:border-primary-300/10'>
           <p className='text-center text-sm text-gray-600 dark:text-gray-300'>
             © BJUT SWIFT {new Date().getFullYear()}
+            {' • '}
+            <UnstyledLink
+              href='/privacy'
+              className='animated-underline rounded-sm font-medium hover:text-gray-800 focus:outline-none focus-visible:ring focus-visible:ring-primary-300 dark:hover:text-gray-100'
+            >
+              隐私政策
+            </UnstyledLink>
             {feedbackFlag && (
               <>
                 {' • '}
