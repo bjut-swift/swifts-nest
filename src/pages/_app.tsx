@@ -8,7 +8,6 @@ import { ThemeProvider } from 'next-themes';
 import nProgress from 'nprogress';
 import * as React from 'react';
 
-import 'react-tippy/dist/tippy.css';
 import '@/styles/globals.css';
 import '@/styles/carbon.css';
 import '@/styles/mdx.css';

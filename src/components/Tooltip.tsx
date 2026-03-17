@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import * as React from 'react';
 import { Tooltip as TippyTooltip, TooltipProps } from 'react-tippy';
 
+import 'react-tippy/dist/tippy.css';
+
 type TooltipTextProps = {
   tipChildren?: React.ReactNode;
   children?: React.ReactNode;

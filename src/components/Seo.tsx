@@ -26,6 +26,16 @@ type SeoProps = {
   author?: string;
 } & Partial<typeof defaultMeta>;
 
+const breadcrumbLabels: Record<string, string> = {
+  blog: '专栏分享',
+  projects: '已有项目',
+  shorts: '教程',
+  about: '关于',
+  guestbook: '留言簿',
+  subscribe: '订阅',
+  statistics: '统计信息',
+};
+
 export default function Seo(props: SeoProps) {
   const router = useRouter();
   const meta = {
@@ -35,6 +45,32 @@ export default function Seo(props: SeoProps) {
   meta['title'] = props.templateTitle
     ? `${props.templateTitle} | ${meta.siteName}`
     : meta.title;
+
+  // Build BreadcrumbList from URL path
+  const pathSegments = router.asPath.split('?')[0].split('/').filter(Boolean);
+  const breadcrumbItems: { name: string; url: string }[] = [];
+  if (pathSegments.length > 0) {
+    breadcrumbItems.push({ name: '首页', url: meta.url });
+    if (pathSegments.length === 1) {
+      breadcrumbItems.push({
+        name:
+          breadcrumbLabels[pathSegments[0]] ||
+          props.templateTitle ||
+          pathSegments[0],
+        url: `${meta.url}/${pathSegments[0]}`,
+      });
+    } else if (pathSegments.length >= 2) {
+      const category = pathSegments[0];
+      breadcrumbItems.push({
+        name: breadcrumbLabels[category] || category,
+        url: `${meta.url}/${category}`,
+      });
+      breadcrumbItems.push({
+        name: props.templateTitle || pathSegments.slice(1).join('/'),
+        url: `${meta.url}${router.asPath.split('?')[0]}`,
+      });
+    }
+  }
 
   // Use siteName if there is templateTitle
   // but show full title if there is none
@@ -161,6 +197,26 @@ export default function Seo(props: SeoProps) {
                   'BJUT SWIFT 官网 — 工大学子共建的技术共享平台，分享课程资源、项目经验与技术教程。',
               },
             ]),
+          }}
+        />
+      )}
+
+      {/* BreadcrumbList structured data */}
+      {breadcrumbItems.length > 1 && (
+        <script
+          key='breadcrumb-structured-data'
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: breadcrumbItems.map((item, i) => ({
+                '@type': 'ListItem',
+                position: i + 1,
+                name: item.name,
+                item: item.url,
+              })),
+            }),
           }}
         />
       )}
