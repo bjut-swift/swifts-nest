@@ -14,7 +14,7 @@ export async function getViewsFromDevto() {
     return res.data
       .filter((d) => d.canonical_url.includes('https://www.bjutswift.cn/blog'))
       .map((d) => ({
-        slug: d.canonical_url.slice(35),
+        slug: d.canonical_url.split('/blog/')[1] ?? '',
         views: d.page_views_count,
       }));
   } catch (error) {

@@ -28,9 +28,9 @@ export async function getRssXml() {
   return `
     <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:blogChannel="${blogUrl}">
       <channel>
-        <title>BJUT SWIFT Homepage</title>
+        <title>BJUT SWIFT 专栏</title>
         <link>${blogUrl}</link>
-        <description>BJUT SWIFT's Official Website</description>
+        <description>BJUT SWIFT 官网 — 工大学子共建的技术共享平台</description>
         <language>zh-CN</language>
         <ttl>40</ttl>
         ${itemXml.join('\n')}

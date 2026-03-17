@@ -17,7 +17,7 @@ export default function GuestbookPage() {
         <section className=''>
           <div className='layout py-20'>
             <h1>
-              <Accent>Guestbook</Accent>
+              <Accent>留言簿</Accent>
             </h1>
             <p className='mt-2 text-gray-700 dark:text-gray-200'>
               这是一个留言簿，欢迎您留下任何想说的话—信息、感谢、建议。

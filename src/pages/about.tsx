@@ -16,8 +16,8 @@ export default function AboutPage() {
   return (
     <Layout>
       <Seo
-        templateTitle='About'
-        description='Sharing Wisdom, Innovation & Futuristic Technologies (S.W.I.F.T.)'
+        templateTitle='关于'
+        description='BJUT SWIFT（Sharing Wisdom, Innovation & Futuristic Technologies）是北京工业大学学生技术社区，致力于技术分享和知识传播。'
       />
 
       <main>
@@ -59,7 +59,7 @@ export default function AboutPage() {
         <div className='h-px bg-gradient-to-r from-transparent via-primary-300/20 to-transparent' />
 
         {/* Core Projects */}
-        <InView triggerOnce rootMargin='-40% 0px'>
+        <InView triggerOnce rootMargin='-40% 0px' fallbackInView>
           {({ ref, inView }) => (
             <section
               ref={ref}
@@ -105,7 +105,7 @@ export default function AboutPage() {
         </InView>
 
         {/* Join Us */}
-        <InView triggerOnce rootMargin='-40% 0px'>
+        <InView triggerOnce rootMargin='-40% 0px' fallbackInView>
           {({ ref, inView }) => (
             <section
               ref={ref}
@@ -155,7 +155,7 @@ export default function AboutPage() {
         </InView>
 
         {/* Tech Stack */}
-        <InView triggerOnce rootMargin='-40% 0px'>
+        <InView triggerOnce rootMargin='-40% 0px' fallbackInView>
           {({ ref, inView }) => (
             <section
               ref={ref}

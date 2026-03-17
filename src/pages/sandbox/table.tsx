@@ -31,7 +31,7 @@ export default function TablePage() {
 
   return (
     <Layout>
-      <Seo templateTitle='Table' />
+      <Seo templateTitle='Table' robots='noindex,nofollow' />
 
       <main>
         <section className=''>
