@@ -257,3 +257,56 @@ export async function getStats(): Promise<FeiyueStats> {
     gpa_distribution,
   };
 }
+
+export type SearchEntry = {
+  type: 'applicant' | 'program' | 'school';
+  title: string;
+  subtitle: string;
+  href: string;
+};
+
+export async function getSearchIndex(): Promise<SearchEntry[]> {
+  const applicants = await getAllApplicants();
+  const programs = await getAllPrograms();
+  const entries: SearchEntry[] = [];
+
+  for (const a of applicants) {
+    const dest = a.applications.find((app) => app.final);
+    entries.push({
+      type: 'applicant',
+      title: a.anonymous ? '匿名' : a.name,
+      subtitle: [
+        a.undergraduate.major,
+        ...a.directions,
+        dest ? `→ ${dest.program} @ ${dest.school}` : '',
+      ]
+        .filter(Boolean)
+        .join(' · '),
+      href: `/feiyue/applicant/${a.id}`,
+    });
+  }
+
+  for (const p of programs) {
+    entries.push({
+      type: 'program',
+      title: `${p.program} (${p.degree})`,
+      subtitle: `${p.school} · ${p.total_count} 条申请`,
+      href: `/feiyue/program/${p.slug}`,
+    });
+  }
+
+  const schoolMap = new Map<string, number>();
+  for (const p of programs) {
+    schoolMap.set(p.school, (schoolMap.get(p.school) || 0) + p.total_count);
+  }
+  Array.from(schoolMap.entries()).forEach(([school, count]) => {
+    entries.push({
+      type: 'school',
+      title: school,
+      subtitle: `${count} 条申请`,
+      href: `/feiyue/program#school-${school}`,
+    });
+  });
+
+  return entries;
+}

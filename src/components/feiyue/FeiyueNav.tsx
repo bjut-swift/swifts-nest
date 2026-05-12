@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 
+import FeiyueSearch from '@/components/feiyue/FeiyueSearch';
 import UnstyledLink from '@/components/links/UnstyledLink';
 
 const navItems = [
@@ -22,21 +23,24 @@ export default function FeiyueNav() {
   };
 
   return (
-    <nav className='flex flex-wrap gap-2'>
-      {navItems.map(({ href, label }) => (
-        <UnstyledLink
-          key={href}
-          href={href}
-          className={clsx(
-            'rounded-lg border px-4 py-2 text-sm font-medium transition-colors',
-            isActive(href)
-              ? 'border-primary-400 bg-primary-400/10 text-primary-500 dark:border-primary-300 dark:text-primary-300'
-              : 'border-gray-200 text-gray-600 hover:border-primary-300 hover:text-primary-500 dark:border-gray-700 dark:text-gray-400 dark:hover:border-primary-300 dark:hover:text-primary-300'
-          )}
-        >
-          {label}
-        </UnstyledLink>
-      ))}
+    <nav className='flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center'>
+      <div className='flex flex-wrap gap-2'>
+        {navItems.map(({ href, label }) => (
+          <UnstyledLink
+            key={href}
+            href={href}
+            className={clsx(
+              'rounded-lg border px-4 py-2 text-sm font-medium transition-colors',
+              isActive(href)
+                ? 'border-primary-400 bg-primary-400/10 text-primary-500 dark:border-primary-300 dark:text-primary-300'
+                : 'border-gray-200 text-gray-600 hover:border-primary-300 hover:text-primary-500 dark:border-gray-700 dark:text-gray-400 dark:hover:border-primary-300 dark:hover:text-primary-300'
+            )}
+          >
+            {label}
+          </UnstyledLink>
+        ))}
+      </div>
+      <FeiyueSearch />
     </nav>
   );
 }

@@ -1,11 +1,14 @@
 import clsx from 'clsx';
+import { writeFileSync } from 'fs';
 import { InferGetStaticPropsType } from 'next';
+import { join } from 'path';
 import * as React from 'react';
 
 import {
   getAllDirections,
   getAllMajors,
   getApplicantsByTerm,
+  getSearchIndex,
 } from '@/lib/feiyue.server';
 import useLoaded from '@/hooks/useLoaded';
 
@@ -247,6 +250,12 @@ export async function getStaticProps() {
   const applicantsByTerm = await getApplicantsByTerm();
   const allMajors = await getAllMajors();
   const allDirections = await getAllDirections();
+
+  const searchIndex = await getSearchIndex();
+  writeFileSync(
+    join(process.cwd(), 'public', 'feiyue-search-index.json'),
+    JSON.stringify(searchIndex)
+  );
 
   return {
     props: {
