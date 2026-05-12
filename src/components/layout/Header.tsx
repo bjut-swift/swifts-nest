@@ -212,5 +212,6 @@ const links = [
   { href: '/blog', label: '分享' },
   { href: '/projects', label: '项目' },
   { href: '/shorts', label: '教程' },
+  { href: '/feiyue', label: '飞跃' },
   { href: '/about', label: '关于' },
 ];

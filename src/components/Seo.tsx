@@ -30,6 +30,7 @@ const breadcrumbLabels: Record<string, string> = {
   blog: '专栏分享',
   projects: '已有项目',
   shorts: '教程',
+  feiyue: '飞跃手册',
   about: '关于',
   guestbook: '留言簿',
   subscribe: '订阅',

@@ -50,10 +50,12 @@
     "react-intersection-observer": "^8.34.0",
     "react-katex": "^3.1.0",
     "react-lite-youtube-embed": "^2.3.52",
+    "react-markdown": "^10.1.0",
     "react-tippy": "^1.4.0",
     "react-twitter-widgets": "^1.11.0",
     "rehype-pretty-code": "^0.10.1",
     "shiki": "^0.14.5",
+    "style-to-object": "^1.0.14",
     "tailwind-merge": "^1.14.0",
     "zod": "^3.25.76"
   },
