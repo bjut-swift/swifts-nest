@@ -5,15 +5,7 @@ export type ApplicationResult =
   | 'pending'
   | 'waitlist';
 
-export type DegreeType =
-  | 'MSc'
-  | 'MPhil'
-  | 'MRes'
-  | 'PhD'
-  | 'MA'
-  | 'MEng'
-  | 'MBA'
-  | 'Other';
+export type DegreeType = string;
 
 export type Undergraduate = {
   major: string;

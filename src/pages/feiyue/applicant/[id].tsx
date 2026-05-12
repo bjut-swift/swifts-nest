@@ -1,13 +1,13 @@
 import { ColumnDef } from '@tanstack/react-table';
 import clsx from 'clsx';
-import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import * as React from 'react';
+import Markdown from 'react-markdown';
 
 import {
   getAllApplicants,
   getApplicantById,
-  getApplicantStory,
+  getApplicantStoryContent,
 } from '@/lib/feiyue.server';
 import useLoaded from '@/hooks/useLoaded';
 
@@ -24,7 +24,7 @@ import { Applicant, ApplicationRecord } from '@/types/feiyue';
 
 type PageProps = {
   applicant: Applicant;
-  storyCode: string | null;
+  storyContent: string | null;
 };
 
 const columns: ColumnDef<ApplicationRecord>[] = [
@@ -75,13 +75,9 @@ const columns: ColumnDef<ApplicationRecord>[] = [
 
 export default function ApplicantPage({
   applicant,
-  storyCode,
+  storyContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const isLoaded = useLoaded();
-  const StoryComponent = React.useMemo(
-    () => (storyCode ? getMDXComponent(storyCode) : null),
-    [storyCode]
-  );
 
   const displayName = applicant.anonymous ? '匿名' : applicant.name;
 
@@ -138,7 +134,7 @@ export default function ApplicantPage({
               </div>
             )}
 
-            {StoryComponent && (
+            {storyContent && (
               <>
                 <h2
                   className='mt-12 text-xl font-bold text-gray-900 dark:text-gray-100'
@@ -153,7 +149,7 @@ export default function ApplicantPage({
                   )}
                   data-fade='6'
                 >
-                  <StoryComponent />
+                  <Markdown>{storyContent}</Markdown>
                 </article>
               </>
             )}
@@ -177,12 +173,12 @@ export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
   const applicant = await getApplicantById(id);
   if (!applicant) return { notFound: true };
 
-  const story = await getApplicantStory(id);
+  const storyContent = await getApplicantStoryContent(id);
 
   return {
     props: {
       applicant,
-      storyCode: story?.code ?? null,
+      storyContent,
     },
   };
 };

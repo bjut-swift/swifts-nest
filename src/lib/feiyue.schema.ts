@@ -8,38 +8,27 @@ const applicationResultSchema = z.enum([
   'waitlist',
 ]);
 
-const degreeTypeSchema = z.enum([
-  'MSc',
-  'MPhil',
-  'MRes',
-  'PhD',
-  'MA',
-  'MEng',
-  'MBA',
-  'Other',
-]);
-
 const undergraduateSchema = z.object({
   major: z.string().min(1),
-  gpa: z.number().optional(),
-  gpa_scale: z.number().default(4.0).optional(),
+  gpa: z.coerce.number().optional(),
+  gpa_scale: z.coerce.number().default(4.0).optional(),
   ranking: z.string().optional(),
 });
 
 const scoresSchema = z
   .object({
-    toefl: z.number().nullable().optional(),
-    ielts: z.number().nullable().optional(),
-    gre: z.number().nullable().optional(),
-    gmat: z.number().nullable().optional(),
-    duolingo: z.number().nullable().optional(),
+    toefl: z.coerce.number().nullable().optional(),
+    ielts: z.coerce.number().nullable().optional(),
+    gre: z.coerce.number().nullable().optional(),
+    gmat: z.coerce.number().nullable().optional(),
+    duolingo: z.coerce.number().nullable().optional(),
   })
   .default({});
 
 const applicationRecordSchema = z.object({
   school: z.string().min(1),
   program: z.string().min(1),
-  degree: degreeTypeSchema,
+  degree: z.string().min(1),
   term: z.string().min(1),
   result: applicationResultSchema,
   final: z.boolean().default(false),
@@ -55,7 +44,13 @@ export const applicantSchema = z.object({
   scores: scoresSchema,
   directions: z.array(z.string()).default([]),
   contact: z.string().optional(),
-  homepage: z.string().optional(),
+  homepage: z
+    .string()
+    .refine(
+      (v) => !v || /^https?:\/\/|^mailto:/.test(v),
+      'homepage must start with http://, https://, or mailto:'
+    )
+    .optional(),
   offers: z.array(z.string()).optional(),
   applications: z.array(applicationRecordSchema).min(1),
   tags: z.array(z.string()).default([]),

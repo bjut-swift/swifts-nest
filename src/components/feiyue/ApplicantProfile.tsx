@@ -75,17 +75,18 @@ export default function ApplicantProfile({ applicant }: ApplicantProfileProps) {
               {applicant.contact}
             </span>
           )}
-          {applicant.homepage && (
-            <span>
-              <b className='text-gray-800 dark:text-gray-200'>主页：</b>
-              <UnstyledLink
-                href={applicant.homepage}
-                className='text-primary-400 hover:text-primary-500'
-              >
-                {applicant.homepage}
-              </UnstyledLink>
-            </span>
-          )}
+          {applicant.homepage &&
+            /^https?:\/\/|^mailto:/.test(applicant.homepage) && (
+              <span>
+                <b className='text-gray-800 dark:text-gray-200'>主页：</b>
+                <UnstyledLink
+                  href={applicant.homepage}
+                  className='text-primary-400 hover:text-primary-500'
+                >
+                  {applicant.homepage}
+                </UnstyledLink>
+              </span>
+            )}
           {applicant.offers && applicant.offers.length > 0 && (
             <span>
               <b className='text-gray-800 dark:text-gray-200'>可提供的帮助：</b>

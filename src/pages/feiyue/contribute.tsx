@@ -140,46 +140,54 @@ function splitComma(s: string): string[] {
     .filter(Boolean);
 }
 
+function yamlStr(s: string): string {
+  // eslint-disable-next-line no-useless-escape
+  if (/[:#\[\]{}&*!|>'"%@`]/.test(s) || s.trim() !== s) {
+    return `"${s.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
+  }
+  return s;
+}
+
 function generateMarkdown(form: FormData, id: string): string {
   const lines: string[] = ['---'];
-  lines.push(`id: ${id}`);
-  lines.push(`name: ${form.name}`);
+  lines.push(`id: ${yamlStr(id)}`);
+  lines.push(`name: ${yamlStr(form.name)}`);
   if (form.anonymous) lines.push('anonymous: true');
   lines.push('undergraduate:');
-  lines.push(`  major: ${form.major}`);
-  if (form.gpa) lines.push(`  gpa: ${form.gpa}`);
-  if (form.ranking) lines.push(`  ranking: "${form.ranking}"`);
+  lines.push(`  major: ${yamlStr(form.major)}`);
+  if (form.gpa) lines.push(`  gpa: ${parseFloat(form.gpa) || 0}`);
+  if (form.ranking) lines.push(`  ranking: ${yamlStr(form.ranking)}`);
   const hasScores = form.toefl || form.ielts || form.gre || form.gmat;
   if (hasScores) {
     lines.push('scores:');
-    if (form.toefl) lines.push(`  toefl: ${form.toefl}`);
-    if (form.ielts) lines.push(`  ielts: ${form.ielts}`);
-    if (form.gre) lines.push(`  gre: ${form.gre}`);
-    if (form.gmat) lines.push(`  gmat: ${form.gmat}`);
+    if (form.toefl) lines.push(`  toefl: ${parseInt(form.toefl) || 0}`);
+    if (form.ielts) lines.push(`  ielts: ${parseFloat(form.ielts) || 0}`);
+    if (form.gre) lines.push(`  gre: ${parseInt(form.gre) || 0}`);
+    if (form.gmat) lines.push(`  gmat: ${parseInt(form.gmat) || 0}`);
   }
   if (form.directions.trim())
     lines.push(`directions: [${splitComma(form.directions).join(', ')}]`);
-  if (form.contact.trim()) lines.push(`contact: ${form.contact}`);
-  if (form.homepage.trim()) lines.push(`homepage: ${form.homepage}`);
+  if (form.contact.trim()) lines.push(`contact: ${yamlStr(form.contact)}`);
+  if (form.homepage.trim()) lines.push(`homepage: ${yamlStr(form.homepage)}`);
   if (form.offers.trim())
     lines.push(`offers: [${splitComma(form.offers).join(', ')}]`);
   if (form.tags.trim())
     lines.push(`tags: [${splitComma(form.tags).join(', ')}]`);
   lines.push('applications:');
   for (const app of form.applications) {
-    lines.push(`  - school: ${app.school}`);
-    lines.push(`    program: ${app.program}`);
+    lines.push(`  - school: ${yamlStr(app.school)}`);
+    lines.push(`    program: ${yamlStr(app.program)}`);
     const deg =
       app.degree === 'Other' && app.degreeCustom.trim()
         ? app.degreeCustom.trim()
         : app.degree;
-    lines.push(`    degree: ${deg}`);
-    lines.push(`    term: ${app.term}`);
+    lines.push(`    degree: ${yamlStr(deg)}`);
+    lines.push(`    term: ${yamlStr(app.term)}`);
     lines.push(`    result: ${app.result}`);
     lines.push(`    final: ${app.final}`);
     if (app.scholarship.trim())
-      lines.push(`    scholarship: ${app.scholarship}`);
-    if (app.note.trim()) lines.push(`    note: ${app.note}`);
+      lines.push(`    scholarship: ${yamlStr(app.scholarship)}`);
+    if (app.note.trim()) lines.push(`    note: ${yamlStr(app.note)}`);
   }
   lines.push('---');
   if (form.summary.trim()) {

@@ -1,11 +1,6 @@
 import { existsSync, readdirSync, readFileSync } from 'fs';
 import matter from 'gray-matter';
-import { bundleMDX } from 'mdx-bundler';
 import { join } from 'path';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypePrettyCode from 'rehype-pretty-code';
-import rehypeSlug from 'rehype-slug';
-import remarkGfm from 'remark-gfm';
 
 import { generateProgramSlug } from '@/lib/feiyue.client';
 import { applicantSchema } from '@/lib/feiyue.schema';
@@ -184,33 +179,14 @@ export async function getAllDirections(): Promise<
   return dirMap;
 }
 
-export async function getApplicantStory(
+export async function getApplicantStoryContent(
   id: string
-): Promise<{ code: string } | null> {
+): Promise<string | null> {
   const filePath = join(FEIYUE_DIR, `${id}.md`);
   if (!existsSync(filePath)) return null;
 
   const { content } = parseApplicantFile(filePath);
-  if (!content) return null;
-
-  const { code } = await bundleMDX({
-    source: content,
-    mdxOptions(options) {
-      options.remarkPlugins = [...(options?.remarkPlugins ?? []), remarkGfm];
-      options.rehypePlugins = [
-        ...(options?.rehypePlugins ?? []),
-        rehypeSlug,
-        () => rehypePrettyCode({ theme: 'css-variables' }),
-        [
-          rehypeAutolinkHeadings,
-          { properties: { className: ['hash-anchor'] } },
-        ],
-      ];
-      return options;
-    },
-  });
-
-  return { code };
+  return content || null;
 }
 
 export async function getStats(): Promise<FeiyueStats> {
