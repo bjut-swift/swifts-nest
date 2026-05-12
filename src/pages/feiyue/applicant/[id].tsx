@@ -13,6 +13,7 @@ import useLoaded from '@/hooks/useLoaded';
 
 import Accent from '@/components/Accent';
 import ApplicantProfile from '@/components/feiyue/ApplicantProfile';
+import FeiyueGiscus from '@/components/feiyue/FeiyueGiscus';
 import FeiyueNav from '@/components/feiyue/FeiyueNav';
 import ResultBadge from '@/components/feiyue/ResultBadge';
 import Layout from '@/components/layout/Layout';
@@ -153,6 +154,10 @@ export default function ApplicantPage({
                 </article>
               </>
             )}
+
+            <div className='mt-12' data-fade='7'>
+              <FeiyueGiscus />
+            </div>
           </div>
         </section>
       </main>
