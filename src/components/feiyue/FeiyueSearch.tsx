@@ -28,7 +28,7 @@ export default function FeiyueSearch() {
   const ref = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
-    fetch('/feiyue-search-index.json')
+    fetch('/api/feiyue-search')
       .then((r) => r.json())
       .then(setSearchIndex)
       .catch(() => undefined);

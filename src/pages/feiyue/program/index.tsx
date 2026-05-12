@@ -21,7 +21,7 @@ export default function ProgramIndexPage({
   const isLoaded = useLoaded();
 
   const scrollTo = (school: string) => {
-    const el = document.getElementById(`school-${school}`);
+    const el = document.getElementById(`school-${encodeURIComponent(school)}`);
     el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
@@ -66,7 +66,7 @@ export default function ProgramIndexPage({
               {/* Main content */}
               <div className='min-w-0 flex-1 space-y-8'>
                 {schoolEntries.map(({ school, programs }) => (
-                  <div key={school} id={`school-${school}`}>
+                  <div key={school} id={`school-${encodeURIComponent(school)}`}>
                     <h2 className='text-xl font-bold text-gray-900 dark:text-gray-100'>
                       {school}
                     </h2>

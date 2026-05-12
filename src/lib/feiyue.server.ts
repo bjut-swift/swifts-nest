@@ -304,7 +304,7 @@ export async function getSearchIndex(): Promise<SearchEntry[]> {
       type: 'school',
       title: school,
       subtitle: `${count} 条申请`,
-      href: `/feiyue/program#school-${school}`,
+      href: `/feiyue/program#school-${encodeURIComponent(school)}`,
     });
   });
 

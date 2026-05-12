@@ -48,8 +48,5 @@ rss.xml
 # scripts
 scripts/out
 
-# feiyue
-public/feiyue-search-index.json
-
 #other
 bunfig.toml
