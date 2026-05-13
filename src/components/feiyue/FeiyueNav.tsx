@@ -23,8 +23,8 @@ export default function FeiyueNav() {
   };
 
   return (
-    <nav className='flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center'>
-      <div className='flex flex-wrap gap-2'>
+    <div className='space-y-3'>
+      <nav className='flex flex-wrap gap-2'>
         {navItems.map(({ href, label }) => (
           <UnstyledLink
             key={href}
@@ -39,8 +39,8 @@ export default function FeiyueNav() {
             {label}
           </UnstyledLink>
         ))}
-      </div>
+      </nav>
       <FeiyueSearch />
-    </nav>
+    </div>
   );
 }

@@ -8,6 +8,7 @@ type SearchEntry = {
   type: 'applicant' | 'program' | 'school';
   title: string;
   subtitle: string;
+  aliases: string;
   href: string;
 };
 
@@ -39,6 +40,7 @@ export default function FeiyueSearch() {
       new Fuse(searchIndex, {
         keys: [
           { name: 'title', weight: 2 },
+          { name: 'aliases', weight: 2 },
           { name: 'subtitle', weight: 1 },
         ],
         threshold: 0.4,
@@ -103,7 +105,7 @@ export default function FeiyueSearch() {
       {open && results.length > 0 && (
         <div
           className={clsx(
-            'absolute z-20 mt-1 w-full overflow-hidden rounded-md border shadow-lg',
+            'absolute z-50 mt-1 max-h-80 w-full overflow-y-auto rounded-md border shadow-lg',
             'border-gray-200 bg-white dark:border-gray-700 dark:bg-dark'
           )}
         >
@@ -143,7 +145,7 @@ export default function FeiyueSearch() {
       {open && query.trim() && results.length === 0 && (
         <div
           className={clsx(
-            'absolute z-20 mt-1 w-full rounded-md border p-3 text-center text-sm',
+            'absolute z-50 mt-1 w-full rounded-md border p-3 text-center text-sm',
             'border-gray-200 bg-white text-gray-500 dark:border-gray-700 dark:bg-dark dark:text-gray-400'
           )}
         >

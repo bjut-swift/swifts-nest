@@ -3,7 +3,11 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import * as React from 'react';
 
 import { generateProgramSlug } from '@/lib/feiyue.client';
-import { getAllApplicants, getAllMajors } from '@/lib/feiyue.server';
+import {
+  getAllApplicants,
+  getAllMajors,
+  getSchoolShortName,
+} from '@/lib/feiyue.server';
 import useLoaded from '@/hooks/useLoaded';
 
 import FeiyueNav from '@/components/feiyue/FeiyueNav';
@@ -276,7 +280,9 @@ export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
       name: a.anonymous ? '匿名' : a.name,
       major: a.undergraduate.major,
       directions: a.directions,
-      destination: dest ? `${dest.program} @ ${dest.school}` : null,
+      destination: dest
+        ? `${dest.program} @ ${getSchoolShortName(dest.school)}`
+        : null,
       destination_slug: dest
         ? generateProgramSlug(dest.school, dest.program, dest.degree)
         : null,

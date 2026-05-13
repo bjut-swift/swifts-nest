@@ -155,7 +155,28 @@ export default function ApplicantPage({
               </>
             )}
 
-            <div className='mt-12' data-fade='7'>
+            <div
+              className='mt-12 rounded-lg border border-dashed border-gray-300 p-4 text-center text-sm text-gray-500 dark:border-gray-700 dark:text-gray-400'
+              data-fade='7'
+            >
+              发现信息有误？欢迎在下方评论区指正，或前往{' '}
+              <UnstyledLink
+                href='https://github.com/bjut-swift/swifts-nest/issues'
+                className='text-primary-400 hover:text-primary-500'
+              >
+                GitHub Issues
+              </UnstyledLink>{' '}
+              反馈，也欢迎直接{' '}
+              <UnstyledLink
+                href='https://github.com/bjut-swift/swifts-nest/pulls'
+                className='text-primary-400 hover:text-primary-500'
+              >
+                发 PR
+              </UnstyledLink>{' '}
+              修正。
+            </div>
+
+            <div className='mt-6' data-fade='8'>
               <FeiyueGiscus />
             </div>
           </div>
