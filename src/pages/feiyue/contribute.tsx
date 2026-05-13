@@ -321,6 +321,18 @@ export default function ContributePage({
 
   const openGitHub = () => window.open(buildGitHubUrl(id, markdown), '_blank');
 
+  const sendEmail = () => {
+    const subject = encodeURIComponent(`飞跃手册投稿：${id}`);
+    const body = encodeURIComponent(
+      `Hi BJUT SWIFT，\n\n以下是我的飞跃手册投稿，请帮忙代为提交（匿名）。\n\n` +
+        `--- 请将以下内容保存为 ${id}.md ---\n\n` +
+        markdown
+    );
+    window.open(
+      `mailto:bjutswift.cn@gmail.com?subject=${subject}&body=${body}`
+    );
+  };
+
   return (
     <Layout>
       <Seo
@@ -696,6 +708,18 @@ export default function ContributePage({
                   )}
                 >
                   提交到 GitHub →
+                </button>
+                <button
+                  onClick={sendEmail}
+                  disabled={errors.length > 0}
+                  className={clsx(
+                    'rounded-md border px-6 py-2 text-sm font-medium',
+                    errors.length > 0
+                      ? 'cursor-not-allowed border-gray-200 text-gray-400 dark:border-gray-700'
+                      : 'border-gray-300 text-gray-700 hover:border-primary-400 hover:text-primary-500 dark:border-gray-600 dark:text-gray-300'
+                  )}
+                >
+                  邮件匿名投稿
                 </button>
                 <button
                   onClick={download}
