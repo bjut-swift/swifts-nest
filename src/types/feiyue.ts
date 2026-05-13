@@ -69,8 +69,8 @@ export type Datapoint = {
   applicant_id: string;
   applicant_name: string;
   applicant_major: string;
-  applicant_gpa?: number;
-  applicant_gpa_scale?: number;
+  applicant_gpa?: number | null;
+  applicant_gpa_scale?: number | null;
   program_slug: string;
 };
 
