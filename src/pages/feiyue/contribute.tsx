@@ -30,6 +30,7 @@ const RESULT_OPTIONS: ApplicationResult[] = [
   'withdraw',
   'pending',
   'waitlist',
+  'unknown',
 ];
 
 const SUMMARY_DEFAULT = `## 背景

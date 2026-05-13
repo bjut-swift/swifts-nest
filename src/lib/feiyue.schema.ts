@@ -6,6 +6,7 @@ const applicationResultSchema = z.enum([
   'withdraw',
   'pending',
   'waitlist',
+  'unknown',
 ]);
 
 const undergraduateSchema = z.object({

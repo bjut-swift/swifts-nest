@@ -51,6 +51,12 @@ const RESULT_MAP: Record<ApplicationResult, ResultDisplay> = {
     colorClass: 'text-blue-600 dark:text-blue-400',
     bgClass: 'bg-blue-100 dark:bg-blue-900/30',
   },
+  unknown: {
+    emoji: '⚪',
+    label: 'Unknown',
+    colorClass: 'text-gray-600 dark:text-gray-400',
+    bgClass: 'bg-gray-100 dark:bg-gray-800',
+  },
 };
 
 export function getResultDisplay(result: ApplicationResult): ResultDisplay {

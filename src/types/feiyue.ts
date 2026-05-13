@@ -3,7 +3,8 @@ export type ApplicationResult =
   | 'reject'
   | 'withdraw'
   | 'pending'
-  | 'waitlist';
+  | 'waitlist'
+  | 'unknown';
 
 export type DegreeType = string;
 

@@ -13,6 +13,19 @@ export default function ResultBadge({
   result,
   isFinal = false,
 }: ResultBadgeProps) {
+  if (isFinal) {
+    return (
+      <span
+        className={clsx(
+          'inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium',
+          'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300'
+        )}
+      >
+        ✅ Chosen
+      </span>
+    );
+  }
+
   const { emoji, label, colorClass, bgClass } = getResultDisplay(result);
 
   return (
@@ -23,7 +36,7 @@ export default function ResultBadge({
         bgClass
       )}
     >
-      {isFinal ? '⭐' : emoji} {label}
+      {emoji} {label}
     </span>
   );
 }
