@@ -207,11 +207,11 @@
     @apply min-h-[calc(100vh-82px)];
   }
   .accent {
-    @apply dark:from-primary-300 dark:to-primary-400 dark:bg-linear-to-tr dark:bg-clip-text dark:text-transparent;
+    @apply dark:from-primary-300 dark:to-primary-400 dark:bg-linear-to-tr/srgb dark:bg-clip-text dark:text-transparent;
   }
 
   .accent-highlight {
-    @apply bg-primary-300/50 dark:from-primary-300 dark:to-primary-400 dark:bg-linear-to-tr dark:bg-clip-text dark:text-transparent;
+    @apply bg-primary-300/50 dark:from-primary-300 dark:to-primary-400 dark:bg-linear-to-tr/srgb dark:bg-clip-text dark:text-transparent;
   }
 }
 

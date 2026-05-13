@@ -17,7 +17,7 @@ export default function CustomLink({
         className,
       )}
     >
-      <span className='dark:from-primary-300 dark:to-primary-400 dark:bg-linear-to-tr dark:bg-clip-text dark:text-transparent'>
+      <span className='dark:from-primary-300 dark:to-primary-400 dark:bg-linear-to-tr/srgb dark:bg-clip-text dark:text-transparent'>
         {children}
       </span>
     </UnstyledLink>

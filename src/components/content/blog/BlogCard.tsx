@@ -70,7 +70,7 @@ export default function BlogCard({
             </div>
           ) : (
             <div
-              className='from-primary-300/40 via-primary-400/30 to-primary-500/40 dark:from-primary-400/20 dark:via-primary-500/20 dark:to-primary-300/20 relative w-full overflow-hidden rounded-t-md bg-linear-to-br'
+              className='from-primary-300/40 via-primary-400/30 to-primary-500/40 dark:from-primary-400/20 dark:via-primary-500/20 dark:to-primary-300/20 relative w-full overflow-hidden rounded-t-md bg-linear-to-br/srgb'
               style={{ paddingTop: '40%' }}
             />
           )}

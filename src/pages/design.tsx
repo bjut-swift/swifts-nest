@@ -92,6 +92,6 @@ const THEME_COLORS = [
   {
     title: 'Gradient',
     subTitle: '#00e0f3 to #00bfff',
-    colorClassName: 'bg-linear-to-tr from-primary-300 to-primary-500',
+    colorClassName: 'bg-linear-to-tr/srgb from-primary-300 to-primary-500',
   },
 ];

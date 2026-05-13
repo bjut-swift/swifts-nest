@@ -1,22 +1,44 @@
 <div align="center">
-  <h1>BJUT-SWIFT</h1>
-  <p>Official Website</p>
+  <h1>BJUT SWIFT</h1>
+  <p>北京工业大学 SWIFT 学生组织官网</p>
+  <a href="https://www.bjutswift.cn">www.bjutswift.cn</a>
 </div>
 
 [<img src="https://devin.ai/assets/askdeepwiki.png" alt="Ask DeepWiki" height="20"/>](https://deepwiki.com/bjut-swift/swifts-nest)
-<img src="https://img.shields.io/badge/🚧-Under%20Construction-yellow" alt="Under Construction" height="20"/>
 
-In development 🏗️
+工大学子共建的技术共享平台，分享课程资源、项目经验与技术教程。
+
+## 飞跃手册
+
+保研和留学申请的一手数据，来自学长学姐的真实记录。按专业、项目、申请方向筛选，也可以直接搜索。统计页汇总了各届申请去向和录取分布。
+
+想贡献自己的申请记录，填一份数据模板提交 PR 就行。
+
+## 其他功能
+
+- **专栏** - 技术文章、面试经验、课程心得
+- **项目展示** - 社团开源项目（BJUT-Helper 课程资源库、LaTeX 模板等）
+- **技术速查** - Git、Next.js 等常用工具的速查指南
+- **留言板** / **统计**
+
+## 技术栈
+
+Next.js 16 (Turbopack) / React 19 / Tailwind CSS 4 / Prisma / TypeScript
+
+## 本地开发
+
+```bash
+bun install
+bun dev
+```
+
+需要数据库功能的话，把 `.env.example` 复制为 `.env` 并填入 PostgreSQL 连接串。
 
 ## Contributing
 
-We welcome contributions! Please read the [CONTRIBUTING.md](CONTRIBUTING.md) file for details.
+欢迎参与贡献，详见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## Acknowledgements
 
-- <img src="https://bun.sh/logo.svg" alt="Bun logo" width="128" height="128"/>
-
-- [<img alt="Next.js" src="https://nextjs.org/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1714730590%2Ffront%2Fnextjs%2Fuwu%2Fnext-uwu-logo.png&w=1080&q=75" height="128">](https://nextjs.org/)
-
-
-- This project is built upon [theodorusclarence.com](https://github.com/theodorusclarence/theodorusclarence.com).
+- 基于 [theodorusclarence.com](https://github.com/theodorusclarence/theodorusclarence.com) 开发
+- [Next.js](https://nextjs.org/) / [Bun](https://bun.sh/)

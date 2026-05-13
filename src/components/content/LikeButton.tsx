@@ -37,7 +37,7 @@ export default function LikeButton({ slug }: { slug: string }) {
           'mt-1 text-lg font-medium',
           likesByUser === null || likesByUser === 0
             ? 'text-gray-400 dark:text-gray-500'
-            : 'bg-primary-300/50 dark:from-primary-300 dark:to-primary-400 transition-colors dark:bg-linear-to-tr dark:bg-clip-text dark:text-transparent',
+            : 'bg-primary-300/50 dark:from-primary-300 dark:to-primary-400 transition-colors dark:bg-linear-to-tr/srgb dark:bg-clip-text dark:text-transparent',
         )}
       >
         {isLoading ? <span>...</span> : <span>{contentLikes}</span>}
