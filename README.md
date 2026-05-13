@@ -12,7 +12,7 @@
 
 保研和留学申请的一手数据，来自学长学姐的真实记录。按专业、项目、申请方向筛选，也可以直接搜索。[统计页](https://www.bjutswift.cn/feiyue/stats)汇总了各届申请去向和录取分布。
 
-想贡献自己的申请记录，填一份数据模板提交 PR 就行。
+想贡献自己的申请记录？[在线填写](https://www.bjutswift.cn/feiyue/contribute)即可，支持匿名。
 
 ## 其他功能
 
