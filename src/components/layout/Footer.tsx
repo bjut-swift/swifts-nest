@@ -36,7 +36,7 @@ export default function Footer() {
             <ul className='mt-2 space-y-2'>
               {linkColumn.map(({ href, text, tooltip }) => (
                 <li key={href}>
-                  <Tooltip interactive={false} tipChildren={tooltip}>
+                  <Tooltip tipChildren={tooltip}>
                     <UnstyledLink
                       className='animated-underline focus-visible:ring-primary-300 rounded-xs text-sm font-medium text-gray-600 focus:outline-hidden focus-visible:ring-3 dark:text-gray-200'
                       href={href}
@@ -58,7 +58,7 @@ export default function Footer() {
             <ul className='mt-2 space-y-2'>
               {communityColumn.map(({ href, text, tooltip }) => (
                 <li key={href}>
-                  <Tooltip interactive={false} tipChildren={tooltip}>
+                  <Tooltip tipChildren={tooltip}>
                     <UnstyledLink
                       className='animated-underline focus-visible:ring-primary-300 rounded-xs text-sm font-medium text-gray-600 focus:outline-hidden focus-visible:ring-3 dark:text-gray-200'
                       href={href}
@@ -122,18 +122,15 @@ function SocialLinks() {
     <div className='mt-2 flex space-x-4'>
       <div className='flex items-center justify-center'>
         <Tooltip
-          trigger='mouseenter'
-          hideOnClick={false}
-          interactive
-          html={
-            <div className='dark:bg-dark inline-block rounded-md border bg-white p-2 text-gray-600 shadow-md dark:border-gray-600 dark:text-gray-200'>
+          tipChildren={
+            <>
               {copyStatus === 'idle'
                 ? '点击邮件图标复制 '
                 : '已复制到剪贴板 🥳'}
               <Accent className='inline-block font-medium'>
                 bjutswift.cn@gmail.com
               </Accent>
-            </div>
+            </>
           }
         >
           <button
@@ -150,11 +147,7 @@ function SocialLinks() {
         </Tooltip>
       </div>
       {socials.map((social) => (
-        <Tooltip
-          interactive={false}
-          key={social.href}
-          tipChildren={social.text}
-        >
+        <Tooltip key={social.href} tipChildren={social.text}>
           <UnstyledLink
             className='focus-visible:ring-primary-300 inline-flex items-center justify-center rounded-xs focus:outline-hidden focus-visible:ring-3'
             href={social.href}

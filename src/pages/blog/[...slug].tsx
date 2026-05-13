@@ -201,7 +201,6 @@ export default function SingleBlogPage({
                         </CustomLink>
                       </>
                     }
-                    position='bottom'
                   >
                     <div className='flex items-center gap-1'>
                       <HiOutlineEye className='inline-block text-base' />

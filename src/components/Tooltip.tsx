@@ -1,8 +1,8 @@
+import Tippy from '@tippyjs/react';
 import clsx from 'clsx';
 import * as React from 'react';
-import { Tooltip as TippyTooltip, TooltipProps } from 'react-tippy';
 
-import 'react-tippy/dist/tippy.css';
+import 'tippy.js/dist/tippy.css';
 
 type TooltipTextProps = {
   tipChildren?: React.ReactNode;
@@ -10,8 +10,7 @@ type TooltipTextProps = {
   className?: string;
   spanClassName?: string;
   withUnderline?: boolean;
-} & TooltipProps &
-  Omit<React.ComponentPropsWithoutRef<'div'>, 'children' | 'className'>;
+};
 
 export default function Tooltip({
   tipChildren,
@@ -19,13 +18,11 @@ export default function Tooltip({
   className,
   spanClassName,
   withUnderline = false,
-  ...rest
 }: TooltipTextProps) {
   return (
-    <TippyTooltip
-      trigger='mouseenter'
+    <Tippy
       interactive
-      html={
+      content={
         <div
           className={clsx(
             className,
@@ -36,7 +33,6 @@ export default function Tooltip({
           {tipChildren}
         </div>
       }
-      {...rest}
     >
       {withUnderline ? (
         <span
@@ -46,8 +42,8 @@ export default function Tooltip({
           {children}
         </span>
       ) : (
-        <>{children}</>
+        <span>{children}</span>
       )}
-    </TippyTooltip>
+    </Tippy>
   );
 }
