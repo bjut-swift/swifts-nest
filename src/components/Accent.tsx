@@ -9,7 +9,7 @@ export default function Accent({ children, className }: AccentType) {
       className={clsx(
         'transition-colors',
         'from-primary-300/40 via-primary-300/30 to-primary-400/30 bg-linear-to-tr/srgb',
-        'dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent',
+        'dark:from-primary-300 dark:via-primary-400 dark:to-primary-400 dark:bg-linear-to-tr/srgb dark:bg-clip-text dark:text-transparent',
         className,
       )}
     >

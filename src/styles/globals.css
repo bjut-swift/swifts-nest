@@ -129,6 +129,16 @@
     --clr-primary-300: rgb(var(--tw-clr-primary-300)); /* Aquablue */
     --clr-primary-400: rgb(var(--tw-clr-primary-400)); /* Zima #5BC2E7 */
     --clr-primary-500: rgb(var(--tw-clr-primary-500)); /* Klein #0031AD */
+
+    --hero-bird-start: 0 47 167;
+    --hero-bird-mid: 30 80 190;
+    --hero-bird-end: 91 194 231;
+  }
+
+  .dark {
+    --hero-bird-start: 91 194 231;
+    --hero-bird-mid: 212 242 231;
+    --hero-bird-end: 0 47 167;
   }
 }
 

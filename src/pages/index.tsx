@@ -59,7 +59,7 @@ export default function IndexPage({
               className='font-display text-[clamp(3.5rem,12vw,11rem)] leading-[0.85] font-bold tracking-tighter'
               data-fade='1'
             >
-              <span className='block'>BJUT-</span>
+              <span className='block'>BJUT</span>
               <span className='text-primary-500 dark:text-primary-300 block'>
                 SWI<span className='tracking-[-0.01em]'>FT</span>
               </span>
@@ -150,7 +150,7 @@ export default function IndexPage({
               'absolute top-[10%] right-[8%]',
               'transform-gpu',
               'h-[60vh] w-auto md:h-[75vh] 2xl:h-[85vh]',
-              'z-0 opacity-[0.07] dark:opacity-[0.05]',
+              'z-0 opacity-[0.20] dark:opacity-[0.08]',
               'animate-float',
             )}
           />
