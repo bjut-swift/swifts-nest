@@ -22,7 +22,7 @@ useEffect(() => {
     const results = nrpData.filter(
       (data) =>
         data.nrp.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        data.name.toLowerCase().includes(searchTerm.toLowerCase())
+        data.name.toLowerCase().includes(searchTerm.toLowerCase()),
     );
     setFilteredList(results);
   }, 200);

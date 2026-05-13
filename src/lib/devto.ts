@@ -8,7 +8,7 @@ export async function getViewsFromDevto() {
         headers: {
           'api-key': process.env.DEVTO_KEY as string,
         },
-      }
+      },
     );
 
     return res.data

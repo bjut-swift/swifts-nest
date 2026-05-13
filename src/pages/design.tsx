@@ -33,7 +33,7 @@ export default function DesignPage() {
               data-fade='2'
               className={clsx(
                 'mt-8 rounded p-4',
-                'border-2 border-dashed border-gray-300 dark:border-gray-600 '
+                'border-2 border-dashed border-gray-300 dark:border-gray-600',
               )}
             >
               <div className='flex items-end justify-between'>

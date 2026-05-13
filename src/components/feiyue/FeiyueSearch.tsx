@@ -46,7 +46,7 @@ export default function FeiyueSearch() {
         threshold: 0.4,
         includeScore: true,
       }),
-    [searchIndex]
+    [searchIndex],
   );
 
   const results = React.useMemo(() => {
@@ -97,7 +97,7 @@ export default function FeiyueSearch() {
             'w-full rounded-md py-2 pl-9 pr-3 text-sm',
             'border border-gray-300 dark:border-gray-600',
             'bg-white dark:bg-dark',
-            'focus:border-primary-300 focus:outline-none focus:ring-0 dark:focus:border-primary-300'
+            'focus:border-primary-300 focus:outline-none focus:ring-0 dark:focus:border-primary-300',
           )}
         />
       </div>
@@ -106,7 +106,7 @@ export default function FeiyueSearch() {
         <div
           className={clsx(
             'absolute z-50 mt-1 max-h-80 w-full overflow-y-auto rounded-md border shadow-lg',
-            'border-gray-200 bg-white dark:border-gray-700 dark:bg-dark'
+            'border-gray-200 bg-white dark:border-gray-700 dark:bg-dark',
           )}
         >
           {(['applicant', 'program', 'school'] as const).map((type) => {
@@ -125,7 +125,7 @@ export default function FeiyueSearch() {
                     onClick={() => navigate(item.href)}
                     className={clsx(
                       'flex w-full flex-col px-3 py-2 text-left',
-                      'hover:bg-primary-300/10 dark:hover:bg-primary-300/5'
+                      'hover:bg-primary-300/10 dark:hover:bg-primary-300/5',
                     )}
                   >
                     <span className='text-sm font-medium text-gray-900 dark:text-gray-100'>
@@ -146,7 +146,7 @@ export default function FeiyueSearch() {
         <div
           className={clsx(
             'absolute z-50 mt-1 w-full rounded-md border p-3 text-center text-sm',
-            'border-gray-200 bg-white text-gray-500 dark:border-gray-700 dark:bg-dark dark:text-gray-400'
+            'border-gray-200 bg-white text-gray-500 dark:border-gray-700 dark:bg-dark dark:text-gray-400',
           )}
         >
           未找到相关结果

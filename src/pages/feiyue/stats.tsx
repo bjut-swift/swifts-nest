@@ -94,16 +94,16 @@ export default function FeiyueStatsPage({
         meta: { align: 'right' },
       },
     ],
-    []
+    [],
   );
 
   const termEntries = Object.entries(stats.by_term).sort(([a], [b]) =>
-    b.localeCompare(a)
+    b.localeCompare(a),
   );
 
   const maxGpaCount = Math.max(
     ...stats.gpa_distribution.map((d) => d.count),
-    1
+    1,
   );
 
   return (

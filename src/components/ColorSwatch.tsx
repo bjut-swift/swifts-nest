@@ -22,7 +22,7 @@ export default function ColorSwatch({
           'shadow-sm dark:shadow-none',
           'border border-gray-300 dark:border-gray-600',
           'shrink-0',
-          colorClassName
+          colorClassName,
         )}
       />
       <div className='flex flex-col'>

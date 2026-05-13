@@ -46,7 +46,7 @@ export default function IndexPage({
         <section
           className={clsx(
             'min-h-main relative -mt-20 flex flex-col justify-center',
-            isLoaded && 'fade-in-start'
+            isLoaded && 'fade-in-start',
           )}
         >
           {/* Ambient warm glow */}
@@ -73,7 +73,7 @@ export default function IndexPage({
             <p
               className={clsx(
                 'mt-8 max-w-xl text-gray-700 dark:text-gray-300 md:mt-10',
-                'md:text-lg 2xl:text-xl'
+                'md:text-lg 2xl:text-xl',
               )}
               data-fade='3'
             >
@@ -105,7 +105,7 @@ export default function IndexPage({
                   'inline-flex items-center gap-1 text-sm font-medium md:text-base',
                   'group text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white',
                   'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
-                  'transition-colors'
+                  'transition-colors',
                 )}
                 onClick={() => {
                   trackEvent('Social Link: Lark', { type: 'link' });
@@ -124,7 +124,7 @@ export default function IndexPage({
                   'inline-flex items-center gap-1 text-sm font-medium md:text-base',
                   'text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white',
                   'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
-                  'transition-colors'
+                  'transition-colors',
                 )}
                 onClick={() => {
                   trackEvent('Social Link: Github', { type: 'link' });
@@ -140,7 +140,7 @@ export default function IndexPage({
             className={clsx(
               'absolute bottom-2 left-1/2 -translate-x-1/2 md:bottom-10',
               'cursor-pointer rounded-md transition-colors',
-              'hover:text-primary-300 focus-visible:text-primary-300'
+              'hover:text-primary-300 focus-visible:text-primary-300',
             )}
           >
             <IoArrowDownOutline className='h-8 w-8 animate-float md:h-10 md:w-10' />
@@ -151,7 +151,7 @@ export default function IndexPage({
               'transform-gpu',
               'h-[60vh] w-auto md:h-[75vh] 2xl:h-[85vh]',
               'z-0 opacity-[0.07] dark:opacity-[0.05]',
-              'animate-float'
+              'animate-float',
             )}
           />
         </section>
@@ -163,7 +163,7 @@ export default function IndexPage({
               id='intro'
               className={clsx(
                 'border-t border-primary-300/10 bg-primary-200/40 py-28 dark:bg-white/[0.02]',
-                inView && 'fade-in-start'
+                inView && 'fade-in-start',
               )}
             >
               <article className='layout' data-fade='0'>
@@ -212,7 +212,7 @@ export default function IndexPage({
                           className={clsx(
                             'absolute inset-0 z-10 transition-all duration-700 ease-in-out',
                             'w-[90%] sm:w-[90%]',
-                            'group-hover:z-0 group-hover:translate-x-[8%] group-hover:translate-y-[5%] group-hover:rotate-6 group-hover:opacity-90'
+                            'group-hover:z-0 group-hover:translate-x-[8%] group-hover:translate-y-[5%] group-hover:rotate-6 group-hover:opacity-90',
                           )}
                         >
                           <BlogCard
@@ -227,7 +227,7 @@ export default function IndexPage({
                             'w-[90%] sm:w-[90%]',
                             'translate-x-[8%] translate-y-[5%] rotate-6 opacity-90',
                             'transition-all duration-700 ease-in-out',
-                            'group-hover:z-10 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rotate-0 group-hover:opacity-100'
+                            'group-hover:z-10 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rotate-0 group-hover:opacity-100',
                           )}
                         >
                           <BlogCard
@@ -267,7 +267,7 @@ export default function IndexPage({
                       post={post}
                       className={clsx(
                         i === 0 && 'sm:col-span-2',
-                        i > 2 && 'hidden sm:block'
+                        i > 2 && 'hidden sm:block',
                       )}
                     />
                   ))}
@@ -292,7 +292,7 @@ export default function IndexPage({
               ref={ref}
               className={clsx(
                 'bg-primary-200/40 py-24 dark:bg-white/[0.02]',
-                inView && 'fade-in-start'
+                inView && 'fade-in-start',
               )}
             >
               <article className='layout' data-fade='0'>
@@ -351,7 +351,7 @@ export default function IndexPage({
                       short={short}
                       className={clsx(
                         i > 2 && 'hidden sm:flex',
-                        '!h-auto sm:!flex sm:flex-row sm:items-center'
+                        '!h-auto sm:!flex sm:flex-row sm:items-center',
                       )}
                     />
                   ))}

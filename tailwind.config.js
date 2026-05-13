@@ -10,7 +10,12 @@ module.exports = {
     extend: {
       fontFamily: {
         primary: ['Inter', 'var(--font-noto-sans-sc)', ...fontFamily.sans],
-        display: ['var(--font-space-grotesk)', 'Inter', 'var(--font-noto-sans-sc)', ...fontFamily.sans],
+        display: [
+          'var(--font-space-grotesk)',
+          'Inter',
+          'var(--font-noto-sans-sc)',
+          ...fontFamily.sans,
+        ],
       },
       colors: {
         primary: {

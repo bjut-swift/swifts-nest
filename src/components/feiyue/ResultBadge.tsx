@@ -18,7 +18,7 @@ export default function ResultBadge({
       <span
         className={clsx(
           'inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium',
-          'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300'
+          'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300',
         )}
       >
         ✅ Chosen
@@ -33,7 +33,7 @@ export default function ResultBadge({
       className={clsx(
         'inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium',
         colorClass,
-        bgClass
+        bgClass,
       )}
     >
       {emoji} {label}

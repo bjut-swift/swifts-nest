@@ -36,9 +36,9 @@ const ReactQueryDevtools =
     ? dynamic(
         () =>
           import('@tanstack/react-query-devtools').then(
-            (mod) => mod.ReactQueryDevtools
+            (mod) => mod.ReactQueryDevtools,
           ),
-        { ssr: false }
+        { ssr: false },
       )
     : () => null;
 

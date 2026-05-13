@@ -3,7 +3,7 @@ import { ContentMeta } from '@/types/meta';
 
 export function pickContentMeta<T extends ContentType>(
   data: Array<ContentMeta> | undefined,
-  type: T
+  type: T,
 ): Array<ContentMeta> {
   return (
     data

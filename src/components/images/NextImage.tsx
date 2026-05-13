@@ -28,7 +28,7 @@ export default function NextImage({
   ...rest
 }: NextImageProps) {
   const [status, setStatus] = React.useState(
-    useSkeleton ? 'loading' : 'complete'
+    useSkeleton ? 'loading' : 'complete',
   );
   // 1.图片不定宽高，外层容器需要有宽高
   // <div className={'w-full h-8'}/>
@@ -52,7 +52,7 @@ export default function NextImage({
           blurClassName,
           // text-gray to hide alt text
           status === 'loading' &&
-            clsx('animate-pulse', 'bg-gray-400 text-gray-400 ')
+            clsx('animate-pulse', 'bg-gray-400 text-gray-400'),
         )}
         src={src}
         width={width}

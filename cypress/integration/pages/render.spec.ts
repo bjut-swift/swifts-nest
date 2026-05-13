@@ -3,7 +3,7 @@ import { beforeEach, cy, describe, it } from 'local-cypress';
 describe('All Page', () => {
   beforeEach(() => {
     cy.window().then((win) =>
-      win.localStorage.setItem('umami.disabled', 'true')
+      win.localStorage.setItem('umami.disabled', 'true'),
     );
   });
 

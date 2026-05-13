@@ -37,7 +37,7 @@ export default function LikeButton({ slug }: { slug: string }) {
           'mt-1 text-lg font-medium',
           likesByUser === null || likesByUser === 0
             ? 'text-gray-400 dark:text-gray-500'
-            : 'bg-primary-300/50 transition-colors dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent'
+            : 'bg-primary-300/50 transition-colors dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent',
         )}
       >
         {isLoading ? <span>...</span> : <span>{contentLikes}</span>}
@@ -58,7 +58,7 @@ function LikeButtonHeart({ likes }: { likes: number }) {
         <div
           className={clsx(
             'absolute w-full opacity-0',
-            likes === 5 && 'emoji-animate'
+            likes === 5 && 'emoji-animate',
           )}
         >
           🥳
@@ -111,7 +111,7 @@ function LikeButtonHeart({ likes }: { likes: number }) {
             fill='currentColor'
             className={clsx(
               'dark:text-gray-600',
-              likes === 5 ? 'text-white' : 'text-gray-400'
+              likes === 5 ? 'text-white' : 'text-gray-400',
             )}
           />
 

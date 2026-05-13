@@ -45,7 +45,7 @@ export default function TFoot<T extends RowData>({
                 >
                   {flexRender(
                     footer.column.columnDef.footer,
-                    footer.getContext()
+                    footer.getContext(),
                   )}
                 </div>
               )}

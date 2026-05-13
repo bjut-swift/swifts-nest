@@ -35,7 +35,7 @@ export function Pre({
       <div
         className={clsx(
           'opacity-0 transition focus-within:opacity-100 group-hover:opacity-100',
-          'absolute right-0 top-0 z-10 m-[11px] flex gap-1'
+          'absolute right-0 top-0 z-10 m-[11px] flex gap-1',
         )}
       >
         <button

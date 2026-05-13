@@ -63,23 +63,23 @@ export default function THead<T extends RowData>({
                   !header.column.getIsSorted() ? (
                     <VscTriangleDown
                       className={clsx(
-                        'w-3 rotate-180 fill-transparent group-hover:fill-gray-400'
+                        'w-3 rotate-180 fill-transparent group-hover:fill-gray-400',
                       )}
                     />
                   ) : (
-                    {
+                    ({
                       asc: (
                         <VscTriangleDown className='w-3 rotate-180 fill-gray-700 dark:fill-gray-200' />
                       ),
                       desc: (
                         <VscTriangleDown className='w-3 fill-gray-700 dark:fill-gray-200' />
                       ),
-                    }[header.column.getIsSorted() as string] ?? null
+                    }[header.column.getIsSorted() as string] ?? null)
                   )}
                   <p>
                     {flexRender(
                       header.column.columnDef.header,
-                      header.getContext()
+                      header.getContext(),
                     )}
                   </p>
                 </div>

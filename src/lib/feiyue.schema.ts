@@ -48,7 +48,7 @@ export const applicantSchema = z.object({
     .string()
     .refine(
       (v) => !v || /^https?:\/\/|^mailto:/.test(v),
-      'homepage must start with http://, https://, or mailto:'
+      'homepage must start with http://, https://, or mailto:',
     )
     .optional(),
   offers: z.array(z.string()).optional(),

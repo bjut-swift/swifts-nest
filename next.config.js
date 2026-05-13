@@ -12,7 +12,12 @@ const nextConfig = {
     dirs: ['src'],
   },
   experimental: {
-    optimizePackageImports: ['react-icons', 'date-fns', 'lodash', '@tanstack/react-query'],
+    optimizePackageImports: [
+      'react-icons',
+      'date-fns',
+      'lodash',
+      '@tanstack/react-query',
+    ],
   },
   compress: true,
   images: {

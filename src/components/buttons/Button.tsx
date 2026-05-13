@@ -40,14 +40,14 @@ export default function Button({
         'disabled:transform-none disabled:cursor-not-allowed',
         isLoading &&
           'relative !cursor-wait !text-transparent transition-none hover:!text-transparent',
-        className
+        className,
       )}
     >
       {isLoading && (
         <div
           className={clsx(
             'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2',
-            'text-black dark:text-white'
+            'text-black dark:text-white',
           )}
         >
           <ImSpinner2 className='animate-spin' />

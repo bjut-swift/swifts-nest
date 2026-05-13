@@ -21,7 +21,7 @@ export default function TBody<T extends RowData>({
     <tbody
       className={clsxm(
         'divide-y divide-gray-200 bg-white dark:divide-gray-800',
-        className
+        className,
       )}
       {...rest}
     >
@@ -51,7 +51,7 @@ export default function TBody<T extends RowData>({
             className={clsxm(
               index % 2 === 0
                 ? 'bg-white dark:bg-dark'
-                : 'bg-gray-50 dark:bg-gray-800'
+                : 'bg-gray-50 dark:bg-gray-800',
             )}
           >
             {row.getVisibleCells().map((cell) => (

@@ -21,7 +21,7 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
         'transition duration-100',
         'motion-reduce:hover:scale-100',
         'animate-shadow',
-        className
+        className,
       )}
     >
       <UnstyledLink

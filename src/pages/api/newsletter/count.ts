@@ -11,7 +11,7 @@ export default function count(req: NextApiRequest, res: NextApiResponse) {
             'Content-Type': 'application/json',
             Authorization: `Token ${process.env.REVUE_TOKEN}`,
           },
-        }
+        },
       )
       .then((response) => {
         const count = response.data.length;
@@ -19,7 +19,7 @@ export default function count(req: NextApiRequest, res: NextApiResponse) {
         // Cache for an hour
         res.setHeader(
           'Cache-Control',
-          'public, s-maxage=3600, stale-while-revalidate=60'
+          'public, s-maxage=3600, stale-while-revalidate=60',
         );
         return res.status(200).json({ count });
       })

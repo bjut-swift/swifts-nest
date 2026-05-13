@@ -11,7 +11,7 @@ export default function TweetCard({ tweetId, className }: TweetCardProps) {
     /** Adding width 99% because iframe cuts border
      * @see https://stackoverflow.com/questions/20039576/show-right-border-on-inner-iframe-which-is-being-cut-off-on-100-width/20039683
      */
-    <div className={clsx('not-prose w-[99%] ', className)}>
+    <div className={clsx('not-prose w-[99%]', className)}>
       <Tweet tweetId={tweetId} />
     </div>
   );
