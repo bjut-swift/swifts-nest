@@ -40,8 +40,8 @@ export default function FeiyuePage({
         if (majorFilter && a.major !== majorFilter) return false;
         if (directionFilter && !a.directions.includes(directionFilter))
           return false;
-        if (search) {
-          const q = search.toLowerCase();
+        if (search.trim()) {
+          const q = search.trim().toLowerCase();
           return (
             a.name.toLowerCase().includes(q) ||
             a.major.toLowerCase().includes(q) ||

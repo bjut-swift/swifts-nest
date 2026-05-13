@@ -127,6 +127,11 @@ function getValidationErrors(form: FormData): string[] {
   }
   const finals = form.applications.filter((a) => a.final);
   if (finals.length > 1) errors.push('最终去向只能有一条');
+  if (form.gpa && toNum(form.gpa) === null) errors.push('GPA 格式不正确');
+  if (form.toefl && toNum(form.toefl) === null) errors.push('TOEFL 格式不正确');
+  if (form.ielts && toNum(form.ielts) === null) errors.push('IELTS 格式不正确');
+  if (form.gre && toNum(form.gre) === null) errors.push('GRE 格式不正确');
+  if (form.gmat && toNum(form.gmat) === null) errors.push('GMAT 格式不正确');
   if (!form.summary.trim() || form.summary.trim() === SUMMARY_DEFAULT.trim())
     errors.push('申请总结未填写（请替换模板中的括号内容）');
   return errors;
@@ -141,11 +146,16 @@ function splitComma(s: string): string[] {
 }
 
 function yamlStr(s: string): string {
-  // eslint-disable-next-line no-useless-escape
-  if (/[:#\[\]{}&*!|>'"%@`]/.test(s) || s.trim() !== s) {
-    return `"${s.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
-  }
-  return s;
+  return `"${s.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
+}
+
+function yamlListStr(items: string[]): string {
+  return `[${items.map((i) => yamlStr(i)).join(', ')}]`;
+}
+
+function toNum(s: string): number | null {
+  const n = parseFloat(s);
+  return Number.isFinite(n) ? n : null;
 }
 
 function generateMarkdown(form: FormData, id: string): string {
@@ -155,24 +165,30 @@ function generateMarkdown(form: FormData, id: string): string {
   if (form.anonymous) lines.push('anonymous: true');
   lines.push('undergraduate:');
   lines.push(`  major: ${yamlStr(form.major)}`);
-  if (form.gpa) lines.push(`  gpa: ${parseFloat(form.gpa) || 0}`);
+  const gpa = toNum(form.gpa);
+  if (gpa !== null) lines.push(`  gpa: ${gpa}`);
   if (form.ranking) lines.push(`  ranking: ${yamlStr(form.ranking)}`);
-  const hasScores = form.toefl || form.ielts || form.gre || form.gmat;
-  if (hasScores) {
+  const scoreFields = [
+    ['toefl', form.toefl],
+    ['ielts', form.ielts],
+    ['gre', form.gre],
+    ['gmat', form.gmat],
+  ] as const;
+  const validScores = scoreFields.filter(([, v]) => toNum(v) !== null);
+  if (validScores.length > 0) {
     lines.push('scores:');
-    if (form.toefl) lines.push(`  toefl: ${parseInt(form.toefl) || 0}`);
-    if (form.ielts) lines.push(`  ielts: ${parseFloat(form.ielts) || 0}`);
-    if (form.gre) lines.push(`  gre: ${parseInt(form.gre) || 0}`);
-    if (form.gmat) lines.push(`  gmat: ${parseInt(form.gmat) || 0}`);
+    for (const [key, val] of validScores) {
+      lines.push(`  ${key}: ${toNum(val)}`);
+    }
   }
   if (form.directions.trim())
-    lines.push(`directions: [${splitComma(form.directions).join(', ')}]`);
+    lines.push(`directions: ${yamlListStr(splitComma(form.directions))}`);
   if (form.contact.trim()) lines.push(`contact: ${yamlStr(form.contact)}`);
   if (form.homepage.trim()) lines.push(`homepage: ${yamlStr(form.homepage)}`);
   if (form.offers.trim())
-    lines.push(`offers: [${splitComma(form.offers).join(', ')}]`);
+    lines.push(`offers: ${yamlListStr(splitComma(form.offers))}`);
   if (form.tags.trim())
-    lines.push(`tags: [${splitComma(form.tags).join(', ')}]`);
+    lines.push(`tags: ${yamlListStr(splitComma(form.tags))}`);
   lines.push('applications:');
   for (const app of form.applications) {
     lines.push(`  - school: ${yamlStr(app.school)}`);
@@ -214,7 +230,17 @@ export default function ContributePage({
     if (typeof window === 'undefined') return { ...defaultForm };
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) return JSON.parse(saved) as FormData;
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        return {
+          ...defaultForm,
+          ...parsed,
+          applications:
+            Array.isArray(parsed.applications) && parsed.applications.length > 0
+              ? parsed.applications
+              : defaultForm.applications,
+        };
+      }
     } catch {
       /* ignore */
     }
@@ -641,19 +667,22 @@ export default function ContributePage({
                 </div>
               )}
 
-              {/* Quick summary of what will be submitted */}
-              <div className='mb-4 flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400'>
-                <span>{form.anonymous ? '匿名' : form.name || '?'}</span>
-                <span>{form.major || '?'}</span>
-                <span>{form.applications.length} 条申请</span>
-                {form.applications
-                  .filter((a) => a.final)
-                  .map((a) => (
-                    <span key='dest'>
-                      → {a.program} @ {a.school}
-                    </span>
-                  ))}
-              </div>
+              {/* Quick summary — only show when there's meaningful data */}
+              {form.name && form.major && (
+                <div className='mb-4 flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400'>
+                  <span>
+                    {form.anonymous ? '匿名' : form.name} · {form.major}
+                  </span>
+                  <span>{form.applications.length} 条申请</span>
+                  {form.applications
+                    .filter((a) => a.final && a.program && a.school)
+                    .map((a) => (
+                      <span key='dest'>
+                        → {a.program} @ {a.school}
+                      </span>
+                    ))}
+                </div>
+              )}
 
               <div className='flex flex-wrap gap-3'>
                 <button
