@@ -11,7 +11,7 @@ type ApplicantProfileProps = {
 
 export default function ApplicantProfile({ applicant }: ApplicantProfileProps) {
   const { undergraduate, scores, directions, tags } = applicant;
-  const displayName = applicant.anonymous ? '匿名' : applicant.name;
+  const displayName = applicant.name;
   const destination = applicant.applications.find((a) => a.final);
 
   return (

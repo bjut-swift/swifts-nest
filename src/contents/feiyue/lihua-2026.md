@@ -1,7 +1,6 @@
 ---
 id: lihua-2026
 name: '[示例] 李华'
-anonymous: false
 undergraduate:
   major: 计算机科学与技术
   gpa: 3.7

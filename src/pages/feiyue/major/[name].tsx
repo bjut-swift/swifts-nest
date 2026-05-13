@@ -277,7 +277,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
     const term = a.applications[0]?.term || '';
     const summary: ApplicantSummary = {
       id: a.id,
-      name: a.anonymous ? '匿名' : a.name,
+      name: a.name,
       major: a.undergraduate.major,
       directions: a.directions,
       destination: dest

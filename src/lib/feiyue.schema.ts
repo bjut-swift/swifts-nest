@@ -40,7 +40,6 @@ const applicationRecordSchema = z.object({
 export const applicantSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),
-  anonymous: z.boolean().default(false),
   undergraduate: undergraduateSchema,
   scores: scoresSchema,
   directions: z.array(z.string()).default([]),

@@ -51,7 +51,7 @@ function buildApplicantSummary(applicant: Applicant): ApplicantSummary {
   const dest = applicant.applications.find((a) => a.final);
   return {
     id: applicant.id,
-    name: applicant.anonymous ? '匿名' : applicant.name,
+    name: applicant.name,
     major: applicant.undergraduate.major,
     directions: applicant.directions,
     destination: dest
@@ -435,7 +435,7 @@ export async function getSearchIndex(): Promise<SearchEntry[]> {
     const schoolAliases = schools.map(getSchoolAliases).filter(Boolean);
     entries.push({
       type: 'applicant',
-      title: a.anonymous ? '匿名' : a.name,
+      title: a.name,
       subtitle: [
         a.undergraduate.major,
         ...a.directions,

@@ -61,7 +61,6 @@ type AppEntry = {
 
 type FormData = {
   name: string;
-  anonymous: boolean;
   major: string;
   gpa: string;
   gpa_scale: string;
@@ -93,7 +92,6 @@ const emptyApp: AppEntry = {
 
 const defaultForm: FormData = {
   name: '',
-  anonymous: false,
   major: '',
   gpa: '',
   gpa_scale: '4.0',
@@ -163,7 +161,6 @@ function generateMarkdown(form: FormData, id: string): string {
   const lines: string[] = ['---'];
   lines.push(`id: ${yamlStr(id)}`);
   lines.push(`name: ${yamlStr(form.name)}`);
-  if (form.anonymous) lines.push('anonymous: true');
   lines.push('undergraduate:');
   lines.push(`  major: ${yamlStr(form.major)}`);
   const gpa = toNum(form.gpa);
@@ -366,14 +363,9 @@ export default function ContributePage({
                 <p className='text-xs text-gray-400'>
                   文件名：<code>{id}.md</code>
                 </p>
-                <label className='flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400'>
-                  <input
-                    type='checkbox'
-                    checked={form.anonymous}
-                    onChange={(e) => updateField('anonymous', e.target.checked)}
-                  />
-                  匿名显示
-                </label>
+                <p className='text-xs text-gray-400'>
+                  想匿名？名字填昵称或"匿名"即可。
+                </p>
               </Collapsible>
 
               <Collapsible title='本科信息'>
@@ -684,7 +676,7 @@ export default function ContributePage({
               {form.name && form.major && (
                 <div className='mb-4 flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400'>
                   <span>
-                    {form.anonymous ? '匿名' : form.name} · {form.major}
+                    {form.name} · {form.major}
                   </span>
                   <span>{form.applications.length} 条申请</span>
                   {form.applications

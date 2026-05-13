@@ -1,7 +1,6 @@
 ---
 id: zhaoli-2025
 name: '[示例] 赵丽'
-anonymous: true
 undergraduate:
   major: 信息安全
   gpa: 3.85

@@ -37,7 +37,6 @@ export type ApplicationRecord = {
 export type Applicant = {
   id: string;
   name: string;
-  anonymous: boolean;
   undergraduate: Undergraduate;
   scores: Scores;
   directions: string[];

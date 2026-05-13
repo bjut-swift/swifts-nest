@@ -80,7 +80,7 @@ export default function ApplicantPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const isLoaded = useLoaded();
 
-  const displayName = applicant.anonymous ? '匿名' : applicant.name;
+  const displayName = applicant.name;
 
   const extras = applicant.applications.filter((a) => a.scholarship || a.note);
 
