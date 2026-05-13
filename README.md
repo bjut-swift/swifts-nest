@@ -16,9 +16,29 @@
 
 ## 其他功能
 
-- **[专栏](https://www.bjutswift.cn/blog)** - 技术文章、面试经验、课程心得
-- **[项目展示](https://www.bjutswift.cn/projects)** - 开源项目（BJUT-Helper 课程资源库、LaTeX 模板等）
-- **[技术速查](https://www.bjutswift.cn/shorts)** - Git、Next.js 等常用工具的速查指南
+### [专栏](https://www.bjutswift.cn/blog)
+
+- [Code Journey | 编程之旅](https://www.bjutswift.cn/blog/2023-code-journy)
+- [CS50x 组队学习活动](https://www.bjutswift.cn/blog/2024-cs50x)
+- [在 AI 的热风里，我们想做一点实在的事](https://www.bjutswift.cn/blog/2025-datawhale-ai+x)
+- [人在工大，想找实习](https://www.bjutswift.cn/blog/2025-intern-interview)
+
+### [项目展示](https://www.bjutswift.cn/projects)
+
+- [BJUT-Helper](https://www.bjutswift.cn/projects/bjut-helper) - 课程资源库
+- [BJUT-LaTeX-Template](https://www.bjutswift.cn/projects/bjut-latex) - LaTeX 模板
+- [BJUT-PPT-Template](https://www.bjutswift.cn/projects/bjut-ppt-temple) - PPT 模板
+- [BJUT-CS](https://www.bjutswift.cn/projects/bjut-cs) - 计算机学院资源
+- [BJUT-Chaoxing](https://www.bjutswift.cn/projects/bjut-chaoxing) - 超星助手
+
+### [技术速查](https://www.bjutswift.cn/shorts)
+
+- [Git 速成指南](https://www.bjutswift.cn/shorts/tech/swift-git-guide)
+- [Next.js 指南](https://www.bjutswift.cn/shorts/tech/swift-nextjs-guide)
+- [BJUT-SWIFT 发文指南](https://www.bjutswift.cn/shorts/writing-guide)
+
+### 更多
+
 - **[留言板](https://www.bjutswift.cn/guestbook)** / **[统计](https://www.bjutswift.cn/statistics)**
 
 ## 技术栈
