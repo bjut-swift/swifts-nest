@@ -26,7 +26,7 @@ export function Pre({
       ref={preRef}
       className={clsxm([
         'group relative',
-        // 'whitespace-pre-wrap break-words',
+        // 'whitespace-pre-wrap wrap-break-word',
         className,
       ])}
       data-word-wrap={shouldWrap}
@@ -34,8 +34,8 @@ export function Pre({
       {children}
       <div
         className={clsx(
-          'opacity-0 transition focus-within:opacity-100 group-hover:opacity-100',
-          'absolute right-0 top-0 z-10 m-[11px] flex gap-1',
+          'opacity-0 transition group-hover:opacity-100 focus-within:opacity-100',
+          'absolute top-0 right-0 z-10 m-[11px] flex gap-1',
         )}
       >
         <button
@@ -43,7 +43,7 @@ export function Pre({
           title='Wrap code'
           className={clsx([
             'md:hidden',
-            'rounded p-1 text-lg transition-colors md:block',
+            'rounded-sm p-1 text-lg transition-colors md:block',
             'border border-gray-300 dark:border-gray-600',
             'text-gray-700 dark:text-gray-300',
             'bg-[#f2f7fc] hover:bg-gray-100 dark:bg-[#22272e] dark:hover:bg-gray-700',
@@ -60,7 +60,7 @@ export function Pre({
           }}
           title='Copy code'
           className={clsx([
-            'rounded p-1 text-lg transition-colors md:block',
+            'rounded-sm p-1 text-lg transition-colors md:block',
             'border border-gray-300 dark:border-gray-600',
             'text-gray-700 dark:text-gray-300',
             'bg-[#f2f7fc] hover:bg-gray-100 dark:bg-[#22272e] dark:hover:bg-gray-700',

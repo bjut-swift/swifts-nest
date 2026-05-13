@@ -52,7 +52,7 @@ export default function MajorDetailPage(
         <section className={clsx(isLoaded && 'fade-in-start')}>
           <div className='layout py-12'>
             <h1
-              className='text-2xl font-bold text-gray-900 dark:text-gray-100 md:text-4xl'
+              className='text-2xl font-bold text-gray-900 md:text-4xl dark:text-gray-100'
               data-fade='0'
             >
               {props.name}
@@ -96,7 +96,7 @@ export default function MajorDetailPage(
                         >
                           {p.name}
                         </UnstyledLink>
-                        <span className='rounded bg-gray-100 px-1.5 py-0.5 text-xs text-gray-500 dark:bg-gray-800 dark:text-gray-400'>
+                        <span className='rounded-sm bg-gray-100 px-1.5 py-0.5 text-xs text-gray-500 dark:bg-gray-800 dark:text-gray-400'>
                           {p.degree}
                         </span>
                       </div>
@@ -124,7 +124,7 @@ export default function MajorDetailPage(
                   </h3>
                   <div className='-mx-4 mt-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
                     <div className='inline-block min-w-full align-middle md:px-6 lg:px-8'>
-                      <div className='overflow-hidden ring-1 ring-black ring-opacity-5 dark:ring-gray-800 md:rounded-lg'>
+                      <div className='ring-opacity-5 overflow-hidden ring-1 ring-black md:rounded-lg dark:ring-gray-800'>
                         <table className='min-w-full divide-y divide-gray-200 dark:divide-gray-800'>
                           <thead className='bg-gray-50 dark:bg-gray-700'>
                             <tr>
@@ -133,13 +133,13 @@ export default function MajorDetailPage(
                               <Th>去向</Th>
                             </tr>
                           </thead>
-                          <tbody className='divide-y divide-gray-200 bg-white dark:divide-gray-800 dark:bg-dark'>
+                          <tbody className='dark:bg-dark divide-y divide-gray-200 bg-white dark:divide-gray-800'>
                             {props.applicants_by_term[term].map((a) => (
                               <tr key={a.id}>
                                 <Td>
                                   <UnstyledLink
                                     href={`/feiyue/applicant/${a.id}`}
-                                    className='animated-underline font-medium text-primary-400 hover:text-primary-500'
+                                    className='animated-underline text-primary-400 hover:text-primary-500 font-medium'
                                   >
                                     {a.name}
                                   </UnstyledLink>
@@ -149,7 +149,7 @@ export default function MajorDetailPage(
                                     {a.directions.map((d) => (
                                       <span
                                         key={d}
-                                        className='rounded bg-gray-100 px-1.5 py-0.5 text-xs dark:bg-gray-800'
+                                        className='rounded-sm bg-gray-100 px-1.5 py-0.5 text-xs dark:bg-gray-800'
                                       >
                                         {d}
                                       </span>
@@ -187,7 +187,7 @@ export default function MajorDetailPage(
 
 function Th({ children }: { children: React.ReactNode }) {
   return (
-    <th className='px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-200'>
+    <th className='px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-gray-200'>
       {children}
     </th>
   );
@@ -195,7 +195,7 @@ function Th({ children }: { children: React.ReactNode }) {
 
 function Td({ children }: { children: React.ReactNode }) {
   return (
-    <td className='whitespace-nowrap px-6 py-4 text-sm text-gray-700 dark:text-gray-300'>
+    <td className='px-6 py-4 text-sm whitespace-nowrap text-gray-700 dark:text-gray-300'>
       {children}
     </td>
   );

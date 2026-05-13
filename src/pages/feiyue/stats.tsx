@@ -60,7 +60,7 @@ export default function FeiyueStatsPage({
         cell: ({ row }) => (
           <UnstyledLink
             href={`/feiyue/program/${row.original.slug}`}
-            className='font-medium text-primary-400 hover:text-primary-500'
+            className='text-primary-400 hover:text-primary-500 font-medium'
           >
             {row.original.program}
           </UnstyledLink>
@@ -201,7 +201,7 @@ export default function FeiyueStatsPage({
                   </span>
                   <div className='flex-1'>
                     <div
-                      className='h-6 rounded bg-primary-400/60 dark:bg-primary-300/40'
+                      className='bg-primary-400/60 dark:bg-primary-300/40 h-6 rounded-sm'
                       style={{
                         width:
                           maxGpaCount > 0

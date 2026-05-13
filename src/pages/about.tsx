@@ -27,13 +27,13 @@ export default function AboutPage() {
         >
           <article className='layout'>
             <span
-              className='font-display text-xs font-medium uppercase tracking-[0.3em] text-primary-400 dark:text-primary-300'
+              className='font-display text-primary-400 dark:text-primary-300 text-xs font-medium tracking-[0.3em] uppercase'
               data-fade='0'
             >
               关于
             </span>
             <h1
-              className='mt-3 font-display text-[clamp(3rem,10vw,8rem)] font-bold leading-[0.85] tracking-tighter'
+              className='font-display mt-3 text-[clamp(3rem,10vw,8rem)] leading-[0.85] font-bold tracking-tighter'
               data-fade='1'
             >
               BJUT{' '}
@@ -42,7 +42,7 @@ export default function AboutPage() {
               </span>
             </h1>
             <p
-              className='mt-8 max-w-xl text-lg leading-relaxed text-gray-600 dark:text-gray-300 md:text-xl'
+              className='mt-8 max-w-xl text-lg leading-relaxed text-gray-600 md:text-xl dark:text-gray-300'
               data-fade='2'
             >
               工大学子共建的
@@ -56,7 +56,7 @@ export default function AboutPage() {
         </section>
 
         {/* Divider */}
-        <div className='h-px bg-gradient-to-r from-transparent via-primary-300/20 to-transparent' />
+        <div className='via-primary-300/20 h-px bg-linear-to-r from-transparent to-transparent' />
 
         {/* Core Projects */}
         <InView triggerOnce rootMargin='-40% 0px' fallbackInView>
@@ -64,12 +64,12 @@ export default function AboutPage() {
             <section
               ref={ref}
               className={clsx(
-                'bg-primary-200/40 py-28 dark:bg-white/[0.02]',
+                'bg-primary-200/40 py-28 dark:bg-white/2',
                 inView && 'fade-in-start',
               )}
             >
               <article className='layout' data-fade='0'>
-                <span className='mb-3 block font-display text-xs font-medium tracking-[0.3em] text-primary-400 dark:text-primary-300'>
+                <span className='font-display text-primary-400 dark:text-primary-300 mb-3 block text-xs font-medium tracking-[0.3em]'>
                   01
                 </span>
                 <h2 className='text-2xl font-bold md:text-4xl'>
@@ -81,19 +81,19 @@ export default function AboutPage() {
                     <div
                       key={project.title}
                       className={clsx(
-                        'group rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-600 dark:bg-dark',
+                        'group dark:bg-dark rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-600',
                         'transition-shadow duration-200 hover:shadow-lg',
                       )}
                     >
                       <h4 className='flex items-center gap-3 text-xl font-semibold md:text-2xl'>
-                        <span className='rounded-lg bg-primary-300/30 p-2.5 text-lg transition-transform duration-200 group-hover:scale-110 dark:bg-primary-400/10'>
+                        <span className='bg-primary-300/30 dark:bg-primary-400/10 rounded-lg p-2.5 text-lg transition-transform duration-200 group-hover:scale-110'>
                           {project.icon}
                         </span>
                         <CustomLink href={project.href}>
                           {project.title}
                         </CustomLink>
                       </h4>
-                      <p className='mt-4 text-sm leading-relaxed text-gray-600 dark:text-gray-300 md:text-base'>
+                      <p className='mt-4 text-sm leading-relaxed text-gray-600 md:text-base dark:text-gray-300'>
                         {project.description}
                       </p>
                     </div>
@@ -112,7 +112,7 @@ export default function AboutPage() {
               className={clsx('py-24', inView && 'fade-in-start')}
             >
               <article className='layout' data-fade='0'>
-                <span className='mb-3 block font-display text-xs font-medium tracking-[0.3em] text-primary-400 dark:text-primary-300'>
+                <span className='font-display text-primary-400 dark:text-primary-300 mb-3 block text-xs font-medium tracking-[0.3em]'>
                   02
                 </span>
                 <h2 className='text-2xl font-bold md:text-4xl'>
@@ -128,8 +128,8 @@ export default function AboutPage() {
                   href='mailto:bjutswift.cn@gmail.com'
                   className={clsx(
                     'mt-8 inline-flex items-center gap-3 rounded-xl px-6 py-3',
-                    'bg-gradient-to-r from-primary-500 to-primary-400',
-                    'font-semibold text-white shadow-sm',
+                    'from-primary-500 to-primary-400 bg-linear-to-r',
+                    'font-semibold text-white shadow-xs',
                     'scale-100 hover:scale-[1.03] active:scale-[0.97] motion-safe:transform-gpu',
                     'transition duration-200',
                   )}
@@ -160,12 +160,12 @@ export default function AboutPage() {
             <section
               ref={ref}
               className={clsx(
-                'bg-primary-200/40 py-24 dark:bg-white/[0.02]',
+                'bg-primary-200/40 py-24 dark:bg-white/2',
                 inView && 'fade-in-start',
               )}
             >
               <article className='layout' data-fade='0'>
-                <span className='mb-3 block font-display text-xs font-medium tracking-[0.3em] text-primary-400 dark:text-primary-300'>
+                <span className='font-display text-primary-400 dark:text-primary-300 mb-3 block text-xs font-medium tracking-[0.3em]'>
                   03
                 </span>
                 <h2 className='text-2xl font-bold md:text-4xl'>

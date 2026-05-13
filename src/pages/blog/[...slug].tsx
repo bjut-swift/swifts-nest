@@ -176,9 +176,9 @@ export default function SingleBlogPage({
                   <UnstyledLink
                     href={COMMIT_HISTORY_LINK}
                     className={clsx(
-                      'inline-flex items-center gap-1 rounded-sm font-medium',
-                      'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-primary-300',
-                      'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
+                      'inline-flex items-center gap-1 rounded-xs font-medium',
+                      'dark:hover:text-primary-300 text-gray-600 hover:text-gray-900 dark:text-gray-300',
+                      'focus-visible:ring-primary-300 focus:outline-hidden focus-visible:ring-3',
                     )}
                   >
                     <MdHistory className='text-lg' />
@@ -223,8 +223,8 @@ export default function SingleBlogPage({
 
             <hr className='dark:border-gray-600' />
 
-            <section className='lg:grid lg:grid-cols-[auto,250px] lg:gap-8'>
-              <article className='mdx prose mx-auto mt-4 w-full transition-colors dark:prose-invert'>
+            <section className='lg:grid lg:grid-cols-[auto_250px] lg:gap-8'>
+              <article className='mdx prose dark:prose-invert mx-auto mt-4 w-full transition-colors'>
                 <Component
                   components={
                     {

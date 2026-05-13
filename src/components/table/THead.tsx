@@ -32,7 +32,7 @@ export default function THead<T extends RowData>({
               key={header.id}
               scope='col'
               className={clsxm([
-                'group px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-200',
+                'group px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-gray-200',
                 !omitSort && header.column.getCanSort() ? 'pl-4' : 'pl-[30px]',
               ])}
             >

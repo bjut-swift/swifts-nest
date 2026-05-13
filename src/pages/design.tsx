@@ -32,7 +32,7 @@ export default function DesignPage() {
             <div
               data-fade='2'
               className={clsx(
-                'mt-8 rounded p-4',
+                'mt-8 rounded-sm p-4',
                 'border-2 border-dashed border-gray-300 dark:border-gray-600',
               )}
             >
@@ -92,6 +92,6 @@ const THEME_COLORS = [
   {
     title: 'Gradient',
     subTitle: '#00e0f3 to #00bfff',
-    colorClassName: 'bg-gradient-to-tr from-primary-300 to-primary-500',
+    colorClassName: 'bg-linear-to-tr from-primary-300 to-primary-500',
   },
 ];

@@ -42,12 +42,12 @@ export default function Filter<T extends RowData>({
           setFilter(String(e.target.value));
         }}
         className={clsx(
-          'w-full rounded-md dark:bg-dark sm:max-w-xs',
+          'dark:bg-dark w-full rounded-md sm:max-w-xs',
           'px-4 py-2 pl-9',
           'placeholder-gray-400',
           'text-sm md:text-base',
           'border border-gray-300 dark:border-gray-600',
-          'focus:border-primary-300 focus:outline-none dark:focus:border-primary-300',
+          'focus:border-primary-300 dark:focus:border-primary-300 focus:outline-hidden',
           'focus:ring-0',
         )}
         placeholder='Search...'

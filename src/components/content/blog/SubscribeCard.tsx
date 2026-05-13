@@ -16,7 +16,9 @@ export default function SubscribeCard({
   description,
 }: SubscribeCardProps) {
   return (
-    <div className={clsx('rounded border p-4 dark:border-gray-600', className)}>
+    <div
+      className={clsx('rounded-sm border p-4 dark:border-gray-600', className)}
+    >
       <h3>
         <Accent>{title ?? 'RSS 订阅'}</Accent>
       </h3>

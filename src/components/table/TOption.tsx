@@ -27,9 +27,9 @@ export default function TOption({
       <select
         className={clsxm(
           'text-typo-secondary block rounded-md px-8 text-sm font-semibold',
-          'border-none outline-none focus:border-none focus:outline-none focus:ring-0',
-          'h-[2.25rem] py-0 md:h-[2.5rem]',
-          'focus-visible:ring focus-visible:ring-primary-400',
+          'border-none outline-hidden focus:border-none focus:ring-0 focus:outline-hidden',
+          'h-9 py-0 md:h-10',
+          'focus-visible:ring-primary-400 focus-visible:ring-3',
           'active:bg-primary-100 disabled:bg-primary-100',
         )}
         value={value}

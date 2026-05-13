@@ -11,7 +11,7 @@ export default function HeroBird({
       {...rest}
     >
       {/* Outer glow layer */}
-      <div className='absolute inset-0 animate-pulse-slow blur-[80px]'>
+      <div className='animate-pulse-slow absolute inset-0 blur-[80px]'>
         <svg
           viewBox='0 0 600 682'
           fill='none'

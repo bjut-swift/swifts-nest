@@ -83,7 +83,7 @@ export default function FeiyueSearch() {
   return (
     <div ref={ref} className='relative w-full max-w-sm'>
       <div className='relative'>
-        <FiSearch className='absolute left-3 top-1/2 -translate-y-1/2 text-gray-400' />
+        <FiSearch className='absolute top-1/2 left-3 -translate-y-1/2 text-gray-400' />
         <input
           type='text'
           value={query}
@@ -94,10 +94,10 @@ export default function FeiyueSearch() {
           onFocus={() => query.trim() && setOpen(true)}
           placeholder='搜索申请人、项目、学校...'
           className={clsx(
-            'w-full rounded-md py-2 pl-9 pr-3 text-sm',
+            'w-full rounded-md py-2 pr-3 pl-9 text-sm',
             'border border-gray-300 dark:border-gray-600',
-            'bg-white dark:bg-dark',
-            'focus:border-primary-300 focus:outline-none focus:ring-0 dark:focus:border-primary-300',
+            'dark:bg-dark bg-white',
+            'focus:border-primary-300 dark:focus:border-primary-300 focus:ring-0 focus:outline-hidden',
           )}
         />
       </div>
@@ -106,7 +106,7 @@ export default function FeiyueSearch() {
         <div
           className={clsx(
             'absolute z-50 mt-1 max-h-80 w-full overflow-y-auto rounded-md border shadow-lg',
-            'border-gray-200 bg-white dark:border-gray-700 dark:bg-dark',
+            'dark:bg-dark border-gray-200 bg-white dark:border-gray-700',
           )}
         >
           {(['applicant', 'program', 'school'] as const).map((type) => {
@@ -146,7 +146,7 @@ export default function FeiyueSearch() {
         <div
           className={clsx(
             'absolute z-50 mt-1 w-full rounded-md border p-3 text-center text-sm',
-            'border-gray-200 bg-white text-gray-500 dark:border-gray-700 dark:bg-dark dark:text-gray-400',
+            'dark:bg-dark border-gray-200 bg-white text-gray-500 dark:border-gray-700 dark:text-gray-400',
           )}
         >
           未找到相关结果

@@ -32,7 +32,7 @@ class MyDocument extends Document {
             data-domains='bjutswift.cn,www.bjutswift.cn'
           />
         </Head>
-        <body className='bg-white antialiased transition-colors dark:bg-dark dark:text-white'>
+        <body className='dark:bg-dark bg-white antialiased transition-colors dark:text-white'>
           <Main />
           <NextScript />
         </body>

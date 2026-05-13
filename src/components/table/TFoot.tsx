@@ -28,7 +28,7 @@ export default function TFoot<T extends RowData>({
               key={footer.id}
               scope='col'
               className={clsxm([
-                'group px-6 py-3 text-left text-sm font-medium uppercase tracking-wider text-gray-500 dark:text-gray-200',
+                'group px-6 py-3 text-left text-sm font-medium tracking-wider text-gray-500 uppercase dark:text-gray-200',
                 'pl-[30px]',
               ])}
             >

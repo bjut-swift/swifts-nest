@@ -77,19 +77,19 @@ export default function Header({ large = false }: HeaderProps) {
     <header
       className={clsx(
         'sticky top-0 z-50 transition-shadow',
-        !onTop && 'shadow-sm',
+        !onTop && 'shadow-xs',
       )}
     >
       {/* Skip Navigation */}
       <a
         href='#skip-nav'
         className={clsx(
-          'rounded-sm p-2 transition',
+          'rounded-xs p-2 transition',
           'font-medium text-black dark:text-white',
-          'bg-white dark:bg-dark',
+          'dark:bg-dark bg-white',
           'group dark:hover:text-primary-300',
-          'focus:outline-none focus:ring focus:ring-primary-300',
-          'absolute left-4 top-4',
+          'focus:ring-primary-300 focus:ring-3 focus:outline-hidden',
+          'absolute top-4 left-4',
           '-translate-y-16 focus:translate-y-0',
         )}
       >
@@ -97,16 +97,16 @@ export default function Header({ large = false }: HeaderProps) {
       </a>
 
       {/* Gradient List */}
-      <div className='h-[3px] bg-gradient-to-r from-primary-300 via-primary-400 to-primary-300' />
+      <div className='from-primary-300 via-primary-400 to-primary-300 h-[3px] bg-linear-to-r' />
 
       <div
         ref={mobileMenuRef}
-        className='bg-white transition-colors dark:bg-dark dark:text-white'
+        className='dark:bg-dark bg-white transition-colors dark:text-white'
       >
         <nav
           className={clsx(
             'layout flex items-center justify-between py-4',
-            large && 'lg:max-w-[68rem]',
+            large && 'lg:max-w-272',
           )}
         >
           {/* Desktop nav links (hidden on mobile) */}
@@ -116,10 +116,10 @@ export default function Header({ large = false }: HeaderProps) {
                 <UnstyledLink
                   href={href}
                   className={clsx(
-                    'rounded-sm py-2 transition-colors',
+                    'rounded-xs py-2 transition-colors',
                     'font-medium text-black dark:text-white',
                     'group dark:hover:text-primary-300',
-                    'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
+                    'focus-visible:ring-primary-300 focus:outline-hidden focus-visible:ring-3',
                   )}
                 >
                   <span
@@ -127,7 +127,7 @@ export default function Header({ large = false }: HeaderProps) {
                       'transition-colors',
                       'bg-primary-300/0 group-hover:bg-primary-300/20 dark:group-hover:bg-primary-300/0',
                       href === baseRoute &&
-                        '!bg-primary-300/50 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent',
+                        'bg-primary-300/50! dark:from-primary-300 dark:to-primary-400 dark:bg-linear-to-tr dark:bg-clip-text dark:text-transparent',
                     )}
                   >
                     {label}
@@ -140,9 +140,9 @@ export default function Header({ large = false }: HeaderProps) {
           {/* Mobile hamburger button (visible below md) */}
           <button
             className={clsx(
-              'rounded-sm p-2 md:hidden',
+              'rounded-xs p-2 md:hidden',
               'font-medium text-black dark:text-white',
-              'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
+              'focus-visible:ring-primary-300 focus:outline-hidden focus-visible:ring-3',
               'hover:bg-primary-300/20 dark:hover:bg-primary-300/10',
               'transition-colors',
             )}
@@ -171,7 +171,7 @@ export default function Header({ large = false }: HeaderProps) {
           leaveFrom='opacity-100 translate-y-0'
           leaveTo='opacity-0 -translate-y-2'
         >
-          <div className='border-t border-gray-200 dark:border-gray-700 md:hidden'>
+          <div className='border-t border-gray-200 md:hidden dark:border-gray-700'>
             <ul className='layout flex flex-col space-y-1 py-4'>
               {links.map(({ href, label }) => (
                 <li key={`mobile-${href}${label}`}>
@@ -179,11 +179,11 @@ export default function Header({ large = false }: HeaderProps) {
                     href={href}
                     onClick={() => setMobileMenuOpen(false)}
                     className={clsx(
-                      'block rounded-sm px-3 py-2 transition-colors',
+                      'block rounded-xs px-3 py-2 transition-colors',
                       'font-medium text-black dark:text-white',
                       'group dark:hover:text-primary-300',
                       'hover:bg-primary-300/10',
-                      'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
+                      'focus-visible:ring-primary-300 focus:outline-hidden focus-visible:ring-3',
                     )}
                   >
                     <span
@@ -191,7 +191,7 @@ export default function Header({ large = false }: HeaderProps) {
                         'transition-colors',
                         'bg-primary-300/0 group-hover:bg-primary-300/20 dark:group-hover:bg-primary-300/0',
                         href === baseRoute &&
-                          '!bg-primary-300/50 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent',
+                          'bg-primary-300/50! dark:from-primary-300 dark:to-primary-400 dark:bg-linear-to-tr dark:bg-clip-text dark:text-transparent',
                       )}
                     >
                       {label}

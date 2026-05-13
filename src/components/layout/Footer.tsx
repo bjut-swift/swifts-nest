@@ -16,12 +16,12 @@ import { feedbackFlag } from '@/constants/env';
 export default function Footer() {
   return (
     <footer className='mt-4 pb-2'>
-      <main className='layout border-t border-primary-300/20 pt-10 dark:border-primary-300/10'>
+      <main className='layout border-primary-300/20 dark:border-primary-300/10 border-t pt-10'>
         {/* Three-column layout */}
         <div className='grid grid-cols-1 gap-8 md:grid-cols-3'>
           {/* Column 1: Branding */}
           <div>
-            <p className='font-display text-2xl font-bold tracking-tight text-gray-800 dark:text-gray-100 md:text-3xl'>
+            <p className='font-display text-2xl font-bold tracking-tight text-gray-800 md:text-3xl dark:text-gray-100'>
               BJUT SWIFT
             </p>
             <p className='mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300'>
@@ -38,7 +38,7 @@ export default function Footer() {
                 <li key={href}>
                   <Tooltip interactive={false} tipChildren={tooltip}>
                     <UnstyledLink
-                      className='animated-underline rounded-sm text-sm font-medium text-gray-600 focus:outline-none focus-visible:ring focus-visible:ring-primary-300 dark:text-gray-200'
+                      className='animated-underline focus-visible:ring-primary-300 rounded-xs text-sm font-medium text-gray-600 focus:outline-hidden focus-visible:ring-3 dark:text-gray-200'
                       href={href}
                       onClick={() => {
                         trackEvent(`Footer Link: ${text}`, { type: 'link' });
@@ -60,7 +60,7 @@ export default function Footer() {
                 <li key={href}>
                   <Tooltip interactive={false} tipChildren={tooltip}>
                     <UnstyledLink
-                      className='animated-underline rounded-sm text-sm font-medium text-gray-600 focus:outline-none focus-visible:ring focus-visible:ring-primary-300 dark:text-gray-200'
+                      className='animated-underline focus-visible:ring-primary-300 rounded-xs text-sm font-medium text-gray-600 focus:outline-hidden focus-visible:ring-3 dark:text-gray-200'
                       href={href}
                       onClick={() => {
                         trackEvent(`Footer Link: ${text}`, { type: 'link' });
@@ -84,13 +84,13 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className='mt-8 border-t border-primary-300/20 pt-4 dark:border-primary-300/10'>
+        <div className='border-primary-300/20 dark:border-primary-300/10 mt-8 border-t pt-4'>
           <p className='text-center text-sm text-gray-600 dark:text-gray-300'>
             © BJUT SWIFT {new Date().getFullYear()}
             {' • '}
             <UnstyledLink
               href='/privacy'
-              className='animated-underline rounded-sm font-medium hover:text-gray-800 focus:outline-none focus-visible:ring focus-visible:ring-primary-300 dark:hover:text-gray-100'
+              className='animated-underline focus-visible:ring-primary-300 rounded-xs font-medium hover:text-gray-800 focus:outline-hidden focus-visible:ring-3 dark:hover:text-gray-100'
             >
               隐私政策
             </UnstyledLink>
@@ -100,7 +100,7 @@ export default function Footer() {
                 <FeedbackFish
                   projectId={process.env.NEXT_PUBLIC_FEEDBACK_FISH_ID || ''}
                 >
-                  <button className='rounded-sm hover:text-gray-800 focus:outline-none focus-visible:ring focus-visible:ring-primary-300 dark:hover:text-gray-100'>
+                  <button className='focus-visible:ring-primary-300 rounded-xs hover:text-gray-800 focus:outline-hidden focus-visible:ring-3 dark:hover:text-gray-100'>
                     有反馈？
                   </button>
                 </FeedbackFish>
@@ -126,7 +126,7 @@ function SocialLinks() {
           hideOnClick={false}
           interactive
           html={
-            <div className='inline-block rounded-md border bg-white p-2 text-gray-600 shadow-md dark:border-gray-600 dark:bg-dark dark:text-gray-200'>
+            <div className='dark:bg-dark inline-block rounded-md border bg-white p-2 text-gray-600 shadow-md dark:border-gray-600 dark:text-gray-200'>
               {copyStatus === 'idle'
                 ? '点击邮件图标复制 '
                 : '已复制到剪贴板 🥳'}
@@ -143,9 +143,9 @@ function SocialLinks() {
                 setTimeout(() => setCopyStatus('idle'), 1500);
               });
             }}
-            className='rounded-sm align-middle focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
+            className='focus-visible:ring-primary-300 rounded-xs align-middle focus:outline-hidden focus-visible:ring-3'
           >
-            <FiMail className='h-7 w-7 align-middle text-gray-600 hover:text-primary-300 dark:text-gray-300 dark:hover:text-primary-300' />
+            <FiMail className='hover:text-primary-300 dark:hover:text-primary-300 h-7 w-7 align-middle text-gray-600 dark:text-gray-300' />
           </button>
         </Tooltip>
       </div>
@@ -156,13 +156,13 @@ function SocialLinks() {
           tipChildren={social.text}
         >
           <UnstyledLink
-            className='inline-flex items-center justify-center rounded-sm focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
+            className='focus-visible:ring-primary-300 inline-flex items-center justify-center rounded-xs focus:outline-hidden focus-visible:ring-3'
             href={social.href}
             onClick={() => {
               trackEvent(`Footer Link: ${social.id}`, { type: 'link' });
             }}
           >
-            <social.icon className='my-auto h-6 w-6 align-middle text-gray-600 transition-colors hover:text-primary-300 dark:text-gray-300 dark:hover:text-primary-300' />
+            <social.icon className='hover:text-primary-300 dark:hover:text-primary-300 my-auto h-6 w-6 align-middle text-gray-600 transition-colors dark:text-gray-300' />
           </UnstyledLink>
         </Tooltip>
       ))}

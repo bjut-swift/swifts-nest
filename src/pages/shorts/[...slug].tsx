@@ -96,8 +96,8 @@ export default function SingleShortPage({ code, frontmatter }: LibraryType) {
 
             <hr className='dark:border-gray-600' />
 
-            <section className='lg:grid lg:grid-cols-[auto,250px] lg:gap-8'>
-              <article className='mdx prose mx-auto mt-4 w-full transition-colors dark:prose-invert'>
+            <section className='lg:grid lg:grid-cols-[auto_250px] lg:gap-8'>
+              <article className='mdx prose dark:prose-invert mx-auto mt-4 w-full transition-colors'>
                 <Component
                   components={
                     {

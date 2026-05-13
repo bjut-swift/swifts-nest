@@ -437,13 +437,13 @@ export default function ContributePage({
                       placeholder='计算机科学与技术'
                     />
                     {showMajorList && (
-                      <ul className='absolute z-10 mt-1 max-h-40 w-full overflow-auto rounded-md border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-dark'>
+                      <ul className='dark:bg-dark absolute z-10 mt-1 max-h-40 w-full overflow-auto rounded-md border border-gray-200 bg-white shadow-lg dark:border-gray-700'>
                         {majorSuggestions.map((m) => (
                           <li key={m}>
                             <button
                               type='button'
                               onClick={() => selectMajor(m)}
-                              className='w-full px-3 py-2 text-left text-sm hover:bg-primary-300/10'
+                              className='hover:bg-primary-300/10 w-full px-3 py-2 text-left text-sm'
                             >
                               {m}
                             </button>
@@ -704,7 +704,7 @@ export default function ContributePage({
                 ))}
                 <button
                   onClick={addApp}
-                  className='mt-2 rounded-md border border-dashed border-gray-300 px-4 py-2 text-sm text-gray-600 hover:border-primary-400 hover:text-primary-500 dark:border-gray-600 dark:text-gray-400'
+                  className='hover:border-primary-400 hover:text-primary-500 mt-2 rounded-md border border-dashed border-gray-300 px-4 py-2 text-sm text-gray-600 dark:border-gray-600 dark:text-gray-400'
                 >
                   + 添加申请记录
                 </button>
@@ -727,9 +727,9 @@ export default function ContributePage({
                     value={form.summary}
                     onChange={(e) => updateField('summary', e.target.value)}
                     className={clsx(
-                      'h-[32rem] w-full resize-y rounded-md dark:bg-dark',
+                      'dark:bg-dark h-128 w-full resize-y rounded-md',
                       'border border-gray-300 dark:border-gray-600',
-                      'focus:border-primary-300 focus:outline-none focus:ring-0 dark:focus:border-primary-300',
+                      'focus:border-primary-300 dark:focus:border-primary-300 focus:ring-0 focus:outline-hidden',
                       'font-mono text-sm',
                     )}
                   />
@@ -738,8 +738,8 @@ export default function ContributePage({
                   <p className='mb-1 text-xs font-medium text-gray-500'>预览</p>
                   <div
                     className={clsx(
-                      'h-[32rem] overflow-auto rounded-md border border-gray-200 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-900',
-                      'prose prose-sm max-w-none dark:prose-invert',
+                      'h-128 overflow-auto rounded-md border border-gray-200 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-900',
+                      'prose prose-sm dark:prose-invert max-w-none',
                       'prose-headings:text-gray-900 dark:prose-headings:text-gray-100',
                     )}
                   >
@@ -757,7 +757,7 @@ export default function ContributePage({
 
             {/* Errors + Actions */}
             <div
-              className='mt-8 rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-dark'
+              className='dark:bg-dark mt-8 rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-700'
               data-fade='5'
             >
               {errors.length > 0 && (
@@ -798,7 +798,7 @@ export default function ContributePage({
                     'rounded-md px-6 py-2 text-sm font-medium',
                     errors.length > 0
                       ? 'cursor-not-allowed bg-gray-200 text-gray-400 dark:bg-gray-700'
-                      : 'bg-primary-400 text-white hover:bg-primary-500',
+                      : 'bg-primary-400 hover:bg-primary-500 text-white',
                   )}
                 >
                   提交到 GitHub →
@@ -810,7 +810,7 @@ export default function ContributePage({
                     'rounded-md border px-6 py-2 text-sm font-medium',
                     errors.length > 0
                       ? 'cursor-not-allowed border-gray-200 text-gray-400 dark:border-gray-700'
-                      : 'border-gray-300 text-gray-700 hover:border-primary-400 hover:text-primary-500 dark:border-gray-600 dark:text-gray-300',
+                      : 'hover:border-primary-400 hover:text-primary-500 border-gray-300 text-gray-700 dark:border-gray-600 dark:text-gray-300',
                   )}
                 >
                   邮件匿名投稿
@@ -822,7 +822,7 @@ export default function ContributePage({
                     'rounded-md border px-6 py-2 text-sm font-medium',
                     errors.length > 0
                       ? 'cursor-not-allowed border-gray-200 text-gray-400 dark:border-gray-700'
-                      : 'border-gray-300 text-gray-700 hover:border-primary-400 hover:text-primary-500 dark:border-gray-600 dark:text-gray-300',
+                      : 'hover:border-primary-400 hover:text-primary-500 border-gray-300 text-gray-700 dark:border-gray-600 dark:text-gray-300',
                   )}
                 >
                   下载 .md
@@ -837,7 +837,7 @@ export default function ContributePage({
                   <summary className='cursor-pointer text-xs text-gray-400'>
                     查看原始 Markdown
                   </summary>
-                  <pre className='mt-2 max-h-48 overflow-auto rounded bg-gray-50 p-2 text-xs dark:bg-gray-900'>
+                  <pre className='mt-2 max-h-48 overflow-auto rounded-sm bg-gray-50 p-2 text-xs dark:bg-gray-900'>
                     {markdown}
                   </pre>
                 </details>
@@ -853,7 +853,7 @@ export default function ContributePage({
 const selectClass = clsx(
   'w-full rounded-md dark:bg-dark',
   'border border-gray-300 dark:border-gray-600',
-  'focus:border-primary-300 focus:outline-none focus:ring-0 dark:focus:border-primary-300',
+  'focus:border-primary-300 focus:outline-hidden focus:ring-0 dark:focus:border-primary-300',
   'text-sm',
 );
 
@@ -887,7 +887,7 @@ function Collapsible({
         </span>
       </button>
       {open && (
-        <div className='space-y-3 border-t border-gray-100 px-4 pb-4 pt-3 dark:border-gray-800'>
+        <div className='space-y-3 border-t border-gray-100 px-4 pt-3 pb-4 dark:border-gray-800'>
           {children}
         </div>
       )}
@@ -945,9 +945,9 @@ function Input({
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
       className={clsx(
-        'w-full rounded-md dark:bg-dark',
+        'dark:bg-dark w-full rounded-md',
         'border border-gray-300 dark:border-gray-600',
-        'focus:border-primary-300 focus:outline-none focus:ring-0 dark:focus:border-primary-300',
+        'focus:border-primary-300 dark:focus:border-primary-300 focus:ring-0 focus:outline-hidden',
         'text-sm',
       )}
     />
@@ -997,14 +997,14 @@ function AutocompleteInput({
         onFocus={() => setOpen(true)}
         placeholder={placeholder}
         className={clsx(
-          'w-full rounded-md dark:bg-dark',
+          'dark:bg-dark w-full rounded-md',
           'border border-gray-300 dark:border-gray-600',
-          'focus:border-primary-300 focus:outline-none focus:ring-0 dark:focus:border-primary-300',
+          'focus:border-primary-300 dark:focus:border-primary-300 focus:ring-0 focus:outline-hidden',
           'text-sm',
         )}
       />
       {open && filtered.length > 0 && (
-        <ul className='absolute z-20 mt-1 max-h-48 w-full overflow-auto rounded-md border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-dark'>
+        <ul className='dark:bg-dark absolute z-20 mt-1 max-h-48 w-full overflow-auto rounded-md border border-gray-200 bg-white shadow-lg dark:border-gray-700'>
           {filtered.map((o) => (
             <li key={o.label}>
               <button
@@ -1013,7 +1013,7 @@ function AutocompleteInput({
                   onChange(o.label);
                   setOpen(false);
                 }}
-                className='w-full px-3 py-2 text-left text-sm hover:bg-primary-300/10'
+                className='hover:bg-primary-300/10 w-full px-3 py-2 text-left text-sm'
               >
                 <span className='font-medium'>{o.label}</span>
                 {o.searchText !== o.label && (
@@ -1048,9 +1048,9 @@ function CommaInput({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         className={clsx(
-          'w-full rounded-md dark:bg-dark',
+          'dark:bg-dark w-full rounded-md',
           'border dark:border-gray-600',
-          'focus:border-primary-300 focus:outline-none focus:ring-0 dark:focus:border-primary-300',
+          'focus:border-primary-300 dark:focus:border-primary-300 focus:ring-0 focus:outline-hidden',
           'text-sm',
           hasCnComma ? 'border-yellow-400' : 'border-gray-300',
         )}

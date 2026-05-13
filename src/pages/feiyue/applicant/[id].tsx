@@ -145,7 +145,7 @@ export default function ApplicantPage({
                 </h2>
                 <article
                   className={clsx(
-                    'prose mt-4 dark:prose-invert',
+                    'prose dark:prose-invert mt-4',
                     'prose-headings:text-gray-900 dark:prose-headings:text-gray-100',
                   )}
                   data-fade='6'

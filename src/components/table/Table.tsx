@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-types */
 import {
   ColumnDef,
   getCoreRowModel,
@@ -72,7 +71,7 @@ export default function Table<T extends object>({
       {withFilter && <Filter table={table} />}
       <div className='-mx-4 -my-2 mt-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
         <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:px-8'>
-          <div className='overflow-hidden ring-1 ring-black ring-opacity-5 dark:ring-gray-800 md:rounded-lg'>
+          <div className='ring-opacity-5 overflow-hidden ring-1 ring-black md:rounded-lg dark:ring-gray-800'>
             <table className='min-w-full divide-y divide-gray-200 dark:divide-gray-800'>
               <THead table={table} omitSort={omitSort} />
               <TBody table={table} />
@@ -86,7 +85,7 @@ export default function Table<T extends object>({
           <button
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
-            className='rounded border border-gray-300 px-3 py-1.5 transition-colors hover:border-primary-300 hover:text-primary-500 disabled:cursor-not-allowed disabled:opacity-40 dark:border-gray-600'
+            className='hover:border-primary-300 hover:text-primary-500 rounded-sm border border-gray-300 px-3 py-1.5 transition-colors disabled:cursor-not-allowed disabled:opacity-40 dark:border-gray-600'
           >
             上一页
           </button>
@@ -97,7 +96,7 @@ export default function Table<T extends object>({
           <button
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
-            className='rounded border border-gray-300 px-3 py-1.5 transition-colors hover:border-primary-300 hover:text-primary-500 disabled:cursor-not-allowed disabled:opacity-40 dark:border-gray-600'
+            className='hover:border-primary-300 hover:text-primary-500 rounded-sm border border-gray-300 px-3 py-1.5 transition-colors disabled:cursor-not-allowed disabled:opacity-40 dark:border-gray-600'
           >
             下一页
           </button>

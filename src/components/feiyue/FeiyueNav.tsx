@@ -34,7 +34,7 @@ export default function FeiyueNav({
         {navGroups.map((group, gi) => (
           <div key={gi} className='contents'>
             {gi > 0 && (
-              <span className='hidden h-5 border-l border-gray-300 dark:border-gray-600 sm:inline-block' />
+              <span className='hidden h-5 border-l border-gray-300 sm:inline-block dark:border-gray-600' />
             )}
             {group.map(({ href, label }) => {
               const isContribute = href === '/feiyue/contribute';
@@ -48,8 +48,8 @@ export default function FeiyueNav({
                     active
                       ? 'border-primary-400 bg-primary-400/10 text-primary-500 dark:border-primary-300 dark:text-primary-300'
                       : isContribute
-                        ? 'border-primary-400 bg-primary-400 text-white hover:bg-primary-500 dark:border-primary-300 dark:bg-primary-300 dark:text-gray-900 dark:hover:bg-primary-200'
-                        : 'border-gray-200 text-gray-600 hover:border-primary-300 hover:text-primary-500 dark:border-gray-700 dark:text-gray-400 dark:hover:border-primary-300 dark:hover:text-primary-300',
+                        ? 'border-primary-400 bg-primary-400 hover:bg-primary-500 dark:border-primary-300 dark:bg-primary-300 dark:hover:bg-primary-200 text-white dark:text-gray-900'
+                        : 'hover:border-primary-300 hover:text-primary-500 dark:hover:border-primary-300 dark:hover:text-primary-300 border-gray-200 text-gray-600 dark:border-gray-700 dark:text-gray-400',
                   )}
                 >
                   {label}

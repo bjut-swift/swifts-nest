@@ -22,7 +22,7 @@ export default function ShortsCard({
   return (
     <li
       className={clsx([
-        'ring-vis-0 h-full rounded-md bg-white dark:bg-dark',
+        'ring-vis-0 dark:bg-dark h-full rounded-md bg-white',
         'border dark:border-gray-600',
         'scale-100 hover:scale-[1.04] active:scale-[0.97] motion-safe:transform-gpu',
         'transition duration-100',
@@ -33,7 +33,7 @@ export default function ShortsCard({
     >
       <UnstyledLink
         href={`/shorts/${short.slug}`}
-        className='block h-full rounded-md focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
+        className='focus-visible:ring-primary-300 block h-full rounded-md focus:outline-hidden focus-visible:ring-3'
       >
         <div className='p-4'>
           <h4 className='font-semibold tracking-tight text-gray-800 dark:text-gray-100'>

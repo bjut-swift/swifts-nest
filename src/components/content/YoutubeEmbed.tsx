@@ -40,7 +40,7 @@ export default function YoutubeEmbed({
   ...rest
 }: YoutubeEmbedProps) {
   return (
-    <figure className={clsx('rounded shadow-lg', className)}>
+    <figure className={clsx('rounded-sm shadow-lg', className)}>
       <LiteYoutubeEmbed {...rest} noCookie={true} />
     </figure>
   );

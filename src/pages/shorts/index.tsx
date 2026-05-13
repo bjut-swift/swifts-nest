@@ -141,7 +141,7 @@ export default function ShortsPage({
               </SkipNavTag>
             </div>
             <div
-              className='relative z-10 mt-4 flex flex-col items-end gap-4 text-gray-600 dark:text-gray-300 md:mt-8'
+              className='relative z-10 mt-4 flex flex-col items-end gap-4 text-gray-600 md:mt-8 dark:text-gray-300'
               data-fade='4'
             >
               <SortListbox

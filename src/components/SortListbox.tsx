@@ -27,8 +27,8 @@ export default function SortListbox({
         <div className='relative'>
           <Listbox.Button
             className={clsx(
-              'w-full rounded-md bg-white py-2 pl-3 pr-10 text-left font-medium dark:bg-dark sm:text-sm',
-              'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
+              'dark:bg-dark w-full rounded-md bg-white py-2 pr-10 pl-3 text-left font-medium sm:text-sm',
+              'focus-visible:ring-primary-300 focus:outline-hidden focus-visible:ring-3',
               'border border-gray-300 dark:border-gray-600',
               'scale-100 transform-gpu hover:scale-[1.03] active:scale-[0.97]',
               'transition duration-100',
@@ -54,13 +54,13 @@ export default function SortListbox({
             leaveFrom='opacity-100'
             leaveTo='opacity-0'
           >
-            <Listbox.Options className='absolute mt-1 max-h-60 w-full overflow-auto rounded-md border border-gray-300 bg-white py-1 text-base shadow-lg focus:outline-none dark:border-gray-600 dark:bg-dark dark:shadow-none sm:text-sm'>
+            <Listbox.Options className='dark:bg-dark absolute mt-1 max-h-60 w-full overflow-auto rounded-md border border-gray-300 bg-white py-1 text-base shadow-lg focus:outline-hidden sm:text-sm dark:border-gray-600 dark:shadow-none'>
               {options.map((opt) => (
                 <Listbox.Option
                   key={opt.id}
                   className={({ active }) =>
                     clsx(
-                      'relative select-none py-2 pl-10 pr-4',
+                      'relative py-2 pr-4 pl-10 select-none',
                       active
                         ? 'bg-primary-300/10 dark:bg-primary-300/25'
                         : 'text-gray-700 dark:text-gray-300',
@@ -81,7 +81,7 @@ export default function SortListbox({
                       {selected ? (
                         <span
                           className={clsx(
-                            'absolute inset-y-0 left-0 flex items-center pl-3 text-primary-500 dark:text-primary-300',
+                            'text-primary-500 dark:text-primary-300 absolute inset-y-0 left-0 flex items-center pl-3',
                           )}
                         >
                           <HiCheck className='h-5 w-5' aria-hidden='true' />

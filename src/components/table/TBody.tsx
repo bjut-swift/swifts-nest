@@ -29,7 +29,7 @@ export default function TBody<T extends RowData>({
         <tr className='animate-pulse bg-gray-50 dark:bg-gray-800'>
           <td
             colSpan={table.getAllColumns().length}
-            className='whitespace-nowrap px-6 py-4 text-center text-sm text-gray-700 dark:text-gray-100'
+            className='px-6 py-4 text-center text-sm whitespace-nowrap text-gray-700 dark:text-gray-100'
           >
             <span>Memuat data...</span>
           </td>
@@ -39,7 +39,7 @@ export default function TBody<T extends RowData>({
         <tr className='bg-gray-50 dark:bg-gray-800'>
           <td
             colSpan={table.getAllColumns().length}
-            className='whitespace-nowrap px-6 py-4 text-center text-sm text-gray-700 dark:text-gray-100'
+            className='px-6 py-4 text-center text-sm whitespace-nowrap text-gray-700 dark:text-gray-100'
           >
             <span>Data tidak ditemukan</span>
           </td>
@@ -50,7 +50,7 @@ export default function TBody<T extends RowData>({
             key={row.id}
             className={clsxm(
               index % 2 === 0
-                ? 'bg-white dark:bg-dark'
+                ? 'dark:bg-dark bg-white'
                 : 'bg-gray-50 dark:bg-gray-800',
             )}
           >
