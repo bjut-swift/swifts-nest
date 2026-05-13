@@ -71,7 +71,7 @@ export default function FeiyuePage({
     <Layout>
       <Seo
         templateTitle='飞跃手册'
-        description='北京工业大学学生留学申请数据库——记录每一份申请，照亮每一段旅程。'
+        description='收集并展示北京工业大学学生出国申请案例，帮助同学们了解往届学长学姐的申请情况，为自己的申请提供参考。'
       />
 
       <main>
@@ -81,7 +81,7 @@ export default function FeiyuePage({
               <Accent>飞跃手册</Accent>
             </h1>
             <p className='mt-2 text-gray-600 dark:text-gray-300' data-fade='1'>
-              北京工业大学学生留学申请数据库——记录每一份申请，照亮每一段旅程。
+              收集并展示北京工业大学学生出国申请案例，帮助同学们了解往届学长学姐的申请情况，为自己的申请提供参考。
             </p>
 
             <div className='mt-6' data-fade='2'>

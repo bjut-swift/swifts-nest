@@ -1,6 +1,6 @@
 ---
 id: lihua-2026
-name: 李华
+name: '[示例] 李华'
 anonymous: false
 undergraduate:
   major: 计算机科学与技术
@@ -11,9 +11,7 @@ scores:
   toefl: 105
   gre: 325
 directions: [CS, AI]
-contact: lihua@example.com
-homepage: https://github.com/lihua
-offers: [选校咨询, 文书修改, 随便聊聊]
+offers: [选校咨询, 随便聊聊]
 tags: [港新, 欧陆]
 applications:
   - school: The University of Hong Kong

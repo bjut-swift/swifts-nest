@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { InferGetStaticPropsType } from 'next';
 import * as React from 'react';
 
-import { getProgramsBySchool } from '@/lib/feiyue.server';
+import { getProgramsBySchool, getSchoolShortName } from '@/lib/feiyue.server';
 import useLoaded from '@/hooks/useLoaded';
 
 import Accent from '@/components/Accent';
@@ -13,17 +13,25 @@ import Seo from '@/components/Seo';
 
 import { ProgramSummary } from '@/types/feiyue';
 
-type SchoolEntry = { school: string; programs: ProgramSummary[] };
+type SchoolEntry = {
+  school: string;
+  shortName: string;
+  programs: ProgramSummary[];
+};
 
 export default function ProgramIndexPage({
   schoolEntries,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const isLoaded = useLoaded();
+  const [showFull, setShowFull] = React.useState(false);
 
   const scrollTo = (school: string) => {
     const el = document.getElementById(`school-${encodeURIComponent(school)}`);
     el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
+
+  const displayName = (entry: SchoolEntry) =>
+    showFull ? entry.school : entry.shortName;
 
   return (
     <Layout>
@@ -39,24 +47,39 @@ export default function ProgramIndexPage({
               <FeiyueNav />
             </div>
 
-            <h1 className='mt-4 text-3xl md:text-5xl' data-fade='1'>
-              <Accent>按项目查看</Accent>
-            </h1>
+            <div
+              className='mt-4 flex items-center justify-between'
+              data-fade='1'
+            >
+              <h1 className='text-3xl md:text-5xl'>
+                <Accent>按项目查看</Accent>
+              </h1>
+              <button
+                onClick={() => setShowFull((p) => !p)}
+                className={clsx(
+                  'rounded-md border px-3 py-1.5 text-xs font-medium transition-colors',
+                  'border-gray-300 text-gray-600 hover:border-primary-300 hover:text-primary-500',
+                  'dark:border-gray-600 dark:text-gray-400 dark:hover:border-primary-300 dark:hover:text-primary-300'
+                )}
+              >
+                {showFull ? '显示缩写' : '显示全名'}
+              </button>
+            </div>
 
             <div className='mt-6 flex flex-col gap-8 lg:flex-row' data-fade='2'>
-              {/* Sidebar: school directory */}
+              {/* Sidebar */}
               <aside className='lg:sticky lg:top-24 lg:h-fit lg:w-48 lg:shrink-0'>
                 <p className='text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400'>
                   目录
                 </p>
                 <ul className='mt-2 space-y-1 text-sm'>
-                  {schoolEntries.map(({ school }) => (
-                    <li key={school}>
+                  {schoolEntries.map((entry) => (
+                    <li key={entry.school}>
                       <button
-                        onClick={() => scrollTo(school)}
+                        onClick={() => scrollTo(entry.school)}
                         className='text-left text-gray-600 hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-300'
                       >
-                        {school}
+                        {displayName(entry)}
                       </button>
                     </li>
                   ))}
@@ -65,13 +88,21 @@ export default function ProgramIndexPage({
 
               {/* Main content */}
               <div className='min-w-0 flex-1 space-y-8'>
-                {schoolEntries.map(({ school, programs }) => (
-                  <div key={school} id={`school-${encodeURIComponent(school)}`}>
+                {schoolEntries.map((entry) => (
+                  <div
+                    key={entry.school}
+                    id={`school-${encodeURIComponent(entry.school)}`}
+                  >
                     <h2 className='text-xl font-bold text-gray-900 dark:text-gray-100'>
-                      {school}
+                      {displayName(entry)}
+                      {!showFull && entry.shortName !== entry.school && (
+                        <span className='ml-2 text-sm font-normal text-gray-400'>
+                          {entry.school}
+                        </span>
+                      )}
                     </h2>
                     <ul className='mt-3 space-y-2'>
-                      {programs.map((p) => (
+                      {entry.programs.map((p) => (
                         <li
                           key={p.slug}
                           className='flex items-center justify-between'
@@ -106,8 +137,12 @@ export async function getStaticProps() {
   const bySchool = await getProgramsBySchool();
 
   const schoolEntries: SchoolEntry[] = Object.entries(bySchool)
-    .map(([school, programs]) => ({ school, programs }))
-    .sort((a, b) => a.school.localeCompare(b.school));
+    .map(([school, programs]) => ({
+      school,
+      shortName: getSchoolShortName(school),
+      programs,
+    }))
+    .sort((a, b) => a.shortName.localeCompare(b.shortName));
 
   return { props: { schoolEntries } };
 }

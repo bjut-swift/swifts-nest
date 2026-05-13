@@ -1,6 +1,6 @@
 ---
 id: wangming-2026
-name: 王明
+name: '[示例] 王明'
 anonymous: false
 undergraduate:
   major: 软件工程
