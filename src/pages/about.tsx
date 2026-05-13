@@ -127,28 +127,24 @@ export default function AboutPage() {
                 <a
                   href='mailto:bjutswift.cn@gmail.com'
                   className={clsx(
-                    'mt-8 inline-flex items-center gap-3 rounded-xl px-6 py-3',
-                    'from-primary-500 to-primary-400 bg-linear-to-r',
-                    'font-semibold text-white shadow-xs',
-                    'scale-100 hover:scale-[1.03] active:scale-[0.97] motion-safe:transform-gpu',
-                    'transition duration-200',
+                    'animated-underline mt-8 inline-flex items-center gap-2',
+                    'text-gray-600 dark:text-gray-300',
+                    'transition-colors hover:text-gray-900 dark:hover:text-white',
                   )}
                 >
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    viewBox='0 0 24 24'
-                    fill='currentColor'
-                    className='h-5 w-5 text-white/70'
-                  >
-                    <path d='M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z' />
-                    <path d='M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z' />
-                  </svg>
-                  bjutswift.cn@gmail.com
+                  <span className='bg-primary-300/20 dark:bg-primary-400/10 rounded-lg p-2'>
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      viewBox='0 0 24 24'
+                      fill='currentColor'
+                      className='text-primary-500 dark:text-primary-400 h-4 w-4'
+                    >
+                      <path d='M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z' />
+                      <path d='M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z' />
+                    </svg>
+                  </span>
+                  <span className='font-medium'>bjutswift.cn@gmail.com</span>
                 </a>
-
-                <p className='mt-4 text-sm text-gray-500 dark:text-gray-400'>
-                  期待与你共同打造校园技术生态
-                </p>
               </article>
             </section>
           )}
