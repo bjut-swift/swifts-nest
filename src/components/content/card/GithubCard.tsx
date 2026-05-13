@@ -31,7 +31,7 @@ export default function GithubCard({ repo, className }: GithubCardProps) {
           'scale-100 transform-gpu hover:scale-[1.02] active:scale-[0.97]',
           'transition duration-100',
           'animate-shadow',
-          className
+          className,
         )}
       >
         <div className='flex items-center gap-2 text-sm md:text-base'>
@@ -62,7 +62,7 @@ export default function GithubCard({ repo, className }: GithubCardProps) {
         'not-prose px-4 py-3',
         'rounded-lg border border-gray-300 dark:border-gray-600',
         'animate-pulse bg-gray-300 dark:bg-gray-600',
-        'h-[111px] animate-pulse'
+        'h-[111px] animate-pulse',
       )}
     />
   );

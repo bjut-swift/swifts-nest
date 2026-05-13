@@ -30,7 +30,7 @@ export async function getAllApplicants(): Promise<Applicant[]> {
   if (!existsSync(FEIYUE_DIR)) return [];
 
   const files = readdirSync(FEIYUE_DIR).filter(
-    (f) => f.endsWith('.md') && !f.startsWith('_')
+    (f) => f.endsWith('.md') && !f.startsWith('_'),
   );
 
   return files.map((file) => {
@@ -97,7 +97,7 @@ export async function getAllDatapoints(): Promise<Datapoint[]> {
       applicant_gpa: applicant.undergraduate.gpa ?? null,
       applicant_gpa_scale: applicant.undergraduate.gpa_scale ?? null,
       program_slug: generateProgramSlug(app.school, app.program, app.degree),
-    }))
+    })),
   );
 }
 
@@ -112,7 +112,7 @@ export async function getAllPrograms(): Promise<ProgramSummary[]> {
   }
 
   const entries: Array<[string, Datapoint[]]> = Array.from(
-    programMap.entries()
+    programMap.entries(),
   );
   return entries.map(([slug, dps]) => ({
     slug,
@@ -184,7 +184,7 @@ export async function getAllDirections(): Promise<
 }
 
 export async function getApplicantStoryContent(
-  id: string
+  id: string,
 ): Promise<string | null> {
   const filePath = join(FEIYUE_DIR, `${id}.md`);
   if (!existsSync(filePath)) return null;

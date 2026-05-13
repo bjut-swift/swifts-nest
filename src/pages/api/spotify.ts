@@ -40,7 +40,7 @@ const getAccessToken = async () => {
         Authorization: `Basic ${token}`,
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-    }
+    },
   );
 
   return res.data.access_token;
@@ -58,7 +58,7 @@ export const getNowPlaying = async () => {
 
 export default async function spotify(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   if (req.method === 'GET') {
     const response = await getNowPlaying();
@@ -71,7 +71,7 @@ export default async function spotify(
       //? s-maxage=180 because song usually lasts 3 minutes
       res.setHeader(
         'Cache-Control',
-        'public, s-maxage=180, stale-while-revalidate=90'
+        'public, s-maxage=180, stale-while-revalidate=90',
       );
       return res.status(200).json({ isPlaying: false });
     }
@@ -89,7 +89,7 @@ export default async function spotify(
 
     res.setHeader(
       'Cache-Control',
-      'public, s-maxage=180, stale-while-revalidate=90'
+      'public, s-maxage=180, stale-while-revalidate=90',
     );
     return res.status(200).json(data);
   }

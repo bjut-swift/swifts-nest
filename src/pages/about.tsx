@@ -65,7 +65,7 @@ export default function AboutPage() {
               ref={ref}
               className={clsx(
                 'bg-primary-200/40 py-28 dark:bg-white/[0.02]',
-                inView && 'fade-in-start'
+                inView && 'fade-in-start',
               )}
             >
               <article className='layout' data-fade='0'>
@@ -82,7 +82,7 @@ export default function AboutPage() {
                       key={project.title}
                       className={clsx(
                         'group rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-600 dark:bg-dark',
-                        'transition-shadow duration-200 hover:shadow-lg'
+                        'transition-shadow duration-200 hover:shadow-lg',
                       )}
                     >
                       <h4 className='flex items-center gap-3 text-xl font-semibold md:text-2xl'>
@@ -131,7 +131,7 @@ export default function AboutPage() {
                     'bg-gradient-to-r from-primary-500 to-primary-400',
                     'font-semibold text-white shadow-sm',
                     'scale-100 hover:scale-[1.03] active:scale-[0.97] motion-safe:transform-gpu',
-                    'transition duration-200'
+                    'transition duration-200',
                   )}
                 >
                   <svg
@@ -161,7 +161,7 @@ export default function AboutPage() {
               ref={ref}
               className={clsx(
                 'bg-primary-200/40 py-24 dark:bg-white/[0.02]',
-                inView && 'fade-in-start'
+                inView && 'fade-in-start',
               )}
             >
               <article className='layout' data-fade='0'>

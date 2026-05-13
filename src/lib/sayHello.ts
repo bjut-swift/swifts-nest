@@ -12,7 +12,7 @@ export default function sayHello() {
     'color: #4ee6a8;',
     'color: #4ee5ac;',
     'color: #4ee5b4;',
-    'color: #4ee2d9;'
+    'color: #4ee2d9;',
   );
 
   console.log(
@@ -21,6 +21,6 @@ export default function sayHello() {
       '%c别忘了给它点个🌟',
     'font-family: Inter, sans-serif; font-size: 1.2rem; font-weight: 500;',
     'font-family: Inter, sans-serif; font-size: 1.2rem; font-weight: 500; color: #4ee5ae;',
-    'font-family: Inter, sans-serif; font-size: 1.2rem; font-weight: 500;'
+    'font-family: Inter, sans-serif; font-size: 1.2rem; font-weight: 500;',
   );
 }

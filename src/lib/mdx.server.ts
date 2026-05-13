@@ -23,8 +23,8 @@ export async function getFileSlugArray(type: ContentType) {
         path
           .replace(join(process.cwd(), 'src', 'contents', type) + '/', '')
           .replace('.mdx', '')
-          .split('/')
-      )
+          .split('/'),
+      ),
   );
 }
 
@@ -32,11 +32,11 @@ export async function getFileBySlug(type: ContentType, slug: string) {
   const source = slug
     ? readFileSync(
         join(process.cwd(), 'src', 'contents', type, `${slug}.mdx`),
-        'utf8'
+        'utf8',
       )
     : readFileSync(
         join(process.cwd(), 'src', 'contents', `${type}.mdx`),
-        'utf8'
+        'utf8',
       );
 
   const { code, frontmatter } = await bundleMDX({
@@ -124,7 +124,7 @@ export async function getRecommendations(currSlug: string) {
 
   // Find with similar tags
   const _recommendations = otherFms.filter((op) =>
-    op.tags.split(',').some((p) => currentFm?.tags.split(',').includes(p))
+    op.tags.split(',').some((p) => currentFm?.tags.split(',').includes(p)),
   );
   const recommendations = sortByDate(_recommendations);
 
@@ -135,7 +135,7 @@ export async function getRecommendations(currSlug: string) {
       : [
           ...recommendations,
           ...otherFms.filter(
-            (fm) => !recommendations.some((r) => r.slug === fm.slug)
+            (fm) => !recommendations.some((r) => r.slug === fm.slug),
           ),
         ];
 
@@ -148,10 +148,10 @@ export async function getRecommendations(currSlug: string) {
  */
 export function getFeatured<T extends Frontmatter>(
   contents: Array<T>,
-  features: string[]
+  features: string[],
 ) {
   // override as T because there is no typechecking on the features array
   return features.map(
-    (feat) => contents.find((content) => content.slug === feat) as T
+    (feat) => contents.find((content) => content.slug === feat) as T,
   );
 }

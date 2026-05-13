@@ -295,7 +295,7 @@ export default function ContributePage({
         label: s.name,
         searchText: `${s.name} ${s.aliases}`,
       })),
-    [schools]
+    [schools],
   );
 
   const programOptions = React.useMemo(
@@ -304,7 +304,7 @@ export default function ContributePage({
         label: p,
         searchText: p,
       })),
-    [existingPrograms]
+    [existingPrograms],
   );
 
   React.useEffect(() => {
@@ -326,7 +326,7 @@ export default function ContributePage({
 
   const updateField = <K extends keyof FormData>(
     key: K,
-    value: FormData[K]
+    value: FormData[K],
   ) => {
     setForm((prev) => ({ ...prev, [key]: value }));
   };
@@ -383,10 +383,10 @@ export default function ContributePage({
     const body = encodeURIComponent(
       `Hi BJUT SWIFT，\n\n以下是我的飞跃手册投稿，请帮忙代为提交（匿名）。\n\n` +
         `--- 请将以下内容保存为 ${id}.md ---\n\n` +
-        markdown
+        markdown,
     );
     window.open(
-      `mailto:bjutswift.cn@gmail.com?subject=${subject}&body=${body}`
+      `mailto:bjutswift.cn@gmail.com?subject=${subject}&body=${body}`,
     );
   };
 
@@ -730,7 +730,7 @@ export default function ContributePage({
                       'h-[32rem] w-full resize-y rounded-md dark:bg-dark',
                       'border border-gray-300 dark:border-gray-600',
                       'focus:border-primary-300 focus:outline-none focus:ring-0 dark:focus:border-primary-300',
-                      'font-mono text-sm'
+                      'font-mono text-sm',
                     )}
                   />
                 </div>
@@ -740,7 +740,7 @@ export default function ContributePage({
                     className={clsx(
                       'h-[32rem] overflow-auto rounded-md border border-gray-200 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-900',
                       'prose prose-sm max-w-none dark:prose-invert',
-                      'prose-headings:text-gray-900 dark:prose-headings:text-gray-100'
+                      'prose-headings:text-gray-900 dark:prose-headings:text-gray-100',
                     )}
                   >
                     {form.summary.trim() ? (
@@ -798,7 +798,7 @@ export default function ContributePage({
                     'rounded-md px-6 py-2 text-sm font-medium',
                     errors.length > 0
                       ? 'cursor-not-allowed bg-gray-200 text-gray-400 dark:bg-gray-700'
-                      : 'bg-primary-400 text-white hover:bg-primary-500'
+                      : 'bg-primary-400 text-white hover:bg-primary-500',
                   )}
                 >
                   提交到 GitHub →
@@ -810,7 +810,7 @@ export default function ContributePage({
                     'rounded-md border px-6 py-2 text-sm font-medium',
                     errors.length > 0
                       ? 'cursor-not-allowed border-gray-200 text-gray-400 dark:border-gray-700'
-                      : 'border-gray-300 text-gray-700 hover:border-primary-400 hover:text-primary-500 dark:border-gray-600 dark:text-gray-300'
+                      : 'border-gray-300 text-gray-700 hover:border-primary-400 hover:text-primary-500 dark:border-gray-600 dark:text-gray-300',
                   )}
                 >
                   邮件匿名投稿
@@ -822,7 +822,7 @@ export default function ContributePage({
                     'rounded-md border px-6 py-2 text-sm font-medium',
                     errors.length > 0
                       ? 'cursor-not-allowed border-gray-200 text-gray-400 dark:border-gray-700'
-                      : 'border-gray-300 text-gray-700 hover:border-primary-400 hover:text-primary-500 dark:border-gray-600 dark:text-gray-300'
+                      : 'border-gray-300 text-gray-700 hover:border-primary-400 hover:text-primary-500 dark:border-gray-600 dark:text-gray-300',
                   )}
                 >
                   下载 .md
@@ -854,7 +854,7 @@ const selectClass = clsx(
   'w-full rounded-md dark:bg-dark',
   'border border-gray-300 dark:border-gray-600',
   'focus:border-primary-300 focus:outline-none focus:ring-0 dark:focus:border-primary-300',
-  'text-sm'
+  'text-sm',
 );
 
 function Collapsible({
@@ -880,7 +880,7 @@ function Collapsible({
         <span
           className={clsx(
             'text-gray-400 transition-transform',
-            open && 'rotate-180'
+            open && 'rotate-180',
           )}
         >
           ▾
@@ -948,7 +948,7 @@ function Input({
         'w-full rounded-md dark:bg-dark',
         'border border-gray-300 dark:border-gray-600',
         'focus:border-primary-300 focus:outline-none focus:ring-0 dark:focus:border-primary-300',
-        'text-sm'
+        'text-sm',
       )}
     />
   );
@@ -1000,7 +1000,7 @@ function AutocompleteInput({
           'w-full rounded-md dark:bg-dark',
           'border border-gray-300 dark:border-gray-600',
           'focus:border-primary-300 focus:outline-none focus:ring-0 dark:focus:border-primary-300',
-          'text-sm'
+          'text-sm',
         )}
       />
       {open && filtered.length > 0 && (
@@ -1052,7 +1052,7 @@ function CommaInput({
           'border dark:border-gray-600',
           'focus:border-primary-300 focus:outline-none focus:ring-0 dark:focus:border-primary-300',
           'text-sm',
-          hasCnComma ? 'border-yellow-400' : 'border-gray-300'
+          hasCnComma ? 'border-yellow-400' : 'border-gray-300',
         )}
       />
       {hasCnComma && (
@@ -1069,7 +1069,7 @@ export async function getStaticProps() {
   const applicants = await getAllApplicants();
 
   const schools: SchoolOption[] = Object.entries(SCHOOL_ALIASES).map(
-    ([name, aliases]) => ({ name, aliases })
+    ([name, aliases]) => ({ name, aliases }),
   );
 
   const programSet = new Set<string>();

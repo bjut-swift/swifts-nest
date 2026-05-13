@@ -17,7 +17,7 @@ export default function ApplicantProfile({ applicant }: ApplicantProfileProps) {
   return (
     <div
       className={clsx(
-        'rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-dark'
+        'rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-dark',
       )}
     >
       <div className='flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between'>
@@ -46,7 +46,7 @@ export default function ApplicantProfile({ applicant }: ApplicantProfileProps) {
               key={dir}
               className={clsx(
                 'rounded-full px-2.5 py-0.5 text-xs font-medium',
-                'text-primary-600 bg-primary-300/20 dark:bg-primary-300/10 dark:text-primary-300'
+                'text-primary-600 bg-primary-300/20 dark:bg-primary-300/10 dark:text-primary-300',
               )}
             >
               {dir}
@@ -57,7 +57,7 @@ export default function ApplicantProfile({ applicant }: ApplicantProfileProps) {
               key={tag}
               className={clsx(
                 'rounded-full px-2.5 py-0.5 text-xs font-medium',
-                'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300'
+                'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300',
               )}
             >
               {tag}

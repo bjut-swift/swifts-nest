@@ -8,7 +8,7 @@ import { prismaClient } from '@/lib/prisma.client';
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   const slug = z.string().parse(req.query.slug);
   const sessionId = getSessionId(req);

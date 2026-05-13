@@ -45,7 +45,7 @@ export default function Quiz(props: QuizType) {
                     selectedOption && optionStatus === 'correct',
                   'bg-red-300 text-gray-800 dark:bg-red-400':
                     selectedOption === answerIndex && optionStatus === 'wrong',
-                }
+                },
               )}
             >
               <>{answer.option}</>
@@ -69,7 +69,7 @@ export default function Quiz(props: QuizType) {
       <div
         className={clsx(
           'absolute left-4 top-0 rounded-b-md px-2 py-1',
-          'border border-t-0 dark:border-gray-600'
+          'border border-t-0 dark:border-gray-600',
         )}
       >
         <Accent>pop quiz!</Accent>

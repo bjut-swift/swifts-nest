@@ -10,7 +10,7 @@ export default function StatsCard({ label, value, subtitle }: StatsCardProps) {
   return (
     <div
       className={clsx(
-        'rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-dark'
+        'rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-dark',
       )}
     >
       <dt className='text-sm text-gray-500 dark:text-gray-400'>{label}</dt>

@@ -36,7 +36,7 @@ type PageProps = {
 };
 
 export default function MajorDetailPage(
-  props: InferGetStaticPropsType<typeof getStaticProps>
+  props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
   const isLoaded = useLoaded();
   const terms = Object.keys(props.applicants_by_term).sort().reverse();
@@ -213,7 +213,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
   const name = params?.name as string;
   const allApplicants = await getAllApplicants();
   const majorApplicants = allApplicants.filter(
-    (a) => a.undergraduate.major === name
+    (a) => a.undergraduate.major === name,
   );
 
   if (majorApplicants.length === 0) return { notFound: true };
@@ -263,7 +263,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
 
   const totalApplications = majorApplicants.reduce(
     (sum, a) => sum + a.applications.length,
-    0
+    0,
   );
   const avg_applications =
     majorApplicants.length > 0

@@ -16,7 +16,7 @@ const select = '(.*)';
  */
 const CLOUDINARY_REGEXP = new RegExp(
   `<CloudinaryImg${dotAll}publicId=${quote}${select}${quote}${dotAll}alt=${quote}${select}${quote}${dotAll}/>`,
-  'g'
+  'g',
 );
 
 /**
@@ -24,7 +24,7 @@ const CLOUDINARY_REGEXP = new RegExp(
  */
 const GITHUB_REGEXP = new RegExp(
   `<GithubCard${dotAll}repo=${quote}${select}${quote}${dotAll}/>`,
-  'g'
+  'g',
 );
 
 /**
@@ -32,7 +32,7 @@ const GITHUB_REGEXP = new RegExp(
  */
 const YOUTUBE_REGEXP = new RegExp(
   `<LiteYouTubeEmbed${dotAll}id=${quote}${select}${quote}${dotAll}/>`,
-  'g'
+  'g',
 );
 
 /**
@@ -40,7 +40,7 @@ const YOUTUBE_REGEXP = new RegExp(
  */
 const TWEET_REGEXP = new RegExp(
   `<TweetCard${dotAll}tweetIdd=${quote}${select}${quote}${dotAll}/>`,
-  'g'
+  'g',
 );
 //#endregion  //*======== Regex Constants ===========
 
@@ -87,11 +87,11 @@ const devto = () => {
     parsedContent = content;
     parsedContent = parsedContent.replace(
       CLOUDINARY_REGEXP,
-      '![$2](https://res.cloudinary.com/theodorusclarence/image/upload/q_auto,f_auto/$1)'
+      '![$2](https://res.cloudinary.com/theodorusclarence/image/upload/q_auto,f_auto/$1)',
     );
     parsedContent = parsedContent.replace(
       GITHUB_REGEXP,
-      '{% github $1 no-readme %}'
+      '{% github $1 no-readme %}',
     );
     parsedContent = parsedContent.replace(YOUTUBE_REGEXP, '{% youtube $1 %}');
     parsedContent = parsedContent.replace(TWEET_REGEXP, '{% twitter $1 %}');
@@ -122,19 +122,19 @@ const hashnode = () => {
 
     parsedContent = parsedContent.replace(
       CLOUDINARY_REGEXP,
-      '![$2](https://res.cloudinary.com/theodorusclarence/image/upload/q_auto,f_auto/$1)'
+      '![$2](https://res.cloudinary.com/theodorusclarence/image/upload/q_auto,f_auto/$1)',
     );
     parsedContent = parsedContent.replace(
       GITHUB_REGEXP,
-      '%[https://github.com/$1]'
+      '%[https://github.com/$1]',
     );
     parsedContent = parsedContent.replace(
       YOUTUBE_REGEXP,
-      '%[https://www.youtube.com/watch?v=$1]'
+      '%[https://www.youtube.com/watch?v=$1]',
     );
     parsedContent = parsedContent.replace(
       TWEET_REGEXP,
-      '%[https://twitter.com/1475685363003768836]'
+      '%[https://twitter.com/1475685363003768836]',
     );
     // Change tsx to ts
     parsedContent = parsedContent.replace(/```tsx/g, '```ts');
@@ -164,7 +164,7 @@ const getOgImage = () => {
     const { data: frontmatter } = matter(content);
     const bannerLink = `https://res.cloudinary.com/theodorusclarence/image/upload/f_auto,c_fill,ar_4:5,w_1200/theodorusclarence/banner/${frontmatter.banner}`;
     const ogLink = `https://og.clarence.link/api/blog?templateTitle=${encodeURIComponent(
-      frontmatter.title
+      frontmatter.title,
     )}&banner=${encodeURIComponent(bannerLink)}`;
     const image_path = join(outPath, 'og_image.png');
     axios({
@@ -180,7 +180,7 @@ const getOgImage = () => {
               resolve();
             })
             .on('error', (e) => reject(e));
-        })
+        }),
     );
   });
 };

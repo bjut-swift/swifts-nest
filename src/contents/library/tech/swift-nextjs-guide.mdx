@@ -524,7 +524,7 @@ export function GET(request: NextRequest, { params }: Props) {}
 
 export function GET(
   request: NextRequest,
-  { params }: { params: { id: number } }
+  { params }: { params: { id: number } },
 ) {}
 ```
 
@@ -535,7 +535,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export function GET(
   request: NextRequest,
-  { params }: { params: { id: number } }
+  { params }: { params: { id: number } },
 ) {
   if (params.id > 10)
     return NextResponse.json({ error: 'User Not Found!' }, { status: 404 });
@@ -580,7 +580,7 @@ export async function POST(request: NextRequest) {
 // PUT for replacing object, PATCH for updating 1 or more properties
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: number } }
+  { params }: { params: { id: number } },
 ) {
   // Validate the request body
   const body = await request.json();
@@ -599,7 +599,7 @@ export async function PUT(
 ```tsx
 export function DELETE(
   request: NextRequest,
-  { params }: { params: { id: number } }
+  { params }: { params: { id: number } },
 ) {
   if (params.id > 10)
     return NextResponse.json({ error: 'User Not Found!' }, { status: 404 });

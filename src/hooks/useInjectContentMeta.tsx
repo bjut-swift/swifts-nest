@@ -15,7 +15,7 @@ import {
 
 export default function useInjectContentMeta<T extends ContentType>(
   type: T,
-  frontmatter: Array<PickFrontmatter<T>>
+  frontmatter: Array<PickFrontmatter<T>>,
 ) {
   const { data: contentMeta, error } = useQuery({
     queryKey: ['contents'],
@@ -25,24 +25,24 @@ export default function useInjectContentMeta<T extends ContentType>(
   const isLoading = !error && !contentMeta;
   const meta = React.useMemo(
     () => pickContentMeta(contentMeta, type),
-    [contentMeta, type]
+    [contentMeta, type],
   );
 
   type PopulatedContent = Array<PickFrontmatter<T> & InjectedMeta>;
 
   const [populatedContent, setPopulatedContent] =
     React.useState<PopulatedContent>(
-      () => [...frontmatter] as PopulatedContent
+      () => [...frontmatter] as PopulatedContent,
     );
 
   React.useEffect(() => {
     if (meta) {
       const mapped = frontmatter.map((fm) => {
         const views = meta.find(
-          (meta) => meta.slug.replace('|', '/') === cleanBlogPrefix(fm.slug)
+          (meta) => meta.slug.replace('|', '/') === cleanBlogPrefix(fm.slug),
         )?.views;
         const likes = meta.find(
-          (meta) => meta.slug.replace('|', '/') === cleanBlogPrefix(fm.slug)
+          (meta) => meta.slug.replace('|', '/') === cleanBlogPrefix(fm.slug),
         )?.likes;
         return { ...fm, views, likes };
       });

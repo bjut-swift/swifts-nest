@@ -19,7 +19,7 @@ export default function ThemeButton({ className, ...rest }: ThemeButtonProps) {
         'hover:border-primary-300 hover:text-primary-300 dark:hover:border-primary-300 dark:hover:text-primary-300',
         'focus-visible:border-primary-300 focus-visible:text-primary-300 dark:focus-visible:border-primary-300 dark:focus-visible:text-primary-300',
         'text-lg md:text-xl',
-        className
+        className,
       )}
       {...rest}
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}

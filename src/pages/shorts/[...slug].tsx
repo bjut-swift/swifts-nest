@@ -22,7 +22,7 @@ import CustomLink from '@/components/links/CustomLink';
 import Seo from '@/components/Seo';
 const Waline = dynamic(
   () => import('@/components/Waline').then((mod) => mod.Waline),
-  { ssr: false }
+  { ssr: false },
 );
 
 import { LibraryType } from '@/types/frontmatters';

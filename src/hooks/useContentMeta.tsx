@@ -13,7 +13,7 @@ import { ContentMeta, SingleContentMeta } from '@/types/meta';
 
 export default function useContentMeta(
   slug: string,
-  { runIncrement = false }: { runIncrement?: boolean } = {}
+  { runIncrement = false }: { runIncrement?: boolean } = {},
 ) {
   //#region  //*=========== Get Content Cache ===========
   const queryClient = useQueryClient();
@@ -57,7 +57,7 @@ export default function useContentMeta(
               ...prev,
               contentViews: prev.contentViews + 1,
             }
-          : undefined
+          : undefined,
       );
       const previousAllMeta = queryClient.getQueryData<Array<ContentMeta>>([
         'contents',
@@ -70,20 +70,20 @@ export default function useContentMeta(
                     ...meta,
                     views: meta.views + 1,
                   }
-                : meta
+                : meta,
             )
-          : undefined
+          : undefined,
       );
       return { previousSingleMeta, previousAllMeta };
     },
     onError: (_err, _variables, context) => {
       queryClient.setQueryData<SingleContentMeta>(
         ['contents', slug],
-        context?.previousSingleMeta
+        context?.previousSingleMeta,
       );
       queryClient.setQueryData<Array<ContentMeta>>(
         ['contents'],
-        context?.previousAllMeta
+        context?.previousAllMeta,
       );
     },
     onSettled: () => {
@@ -112,7 +112,7 @@ export default function useContentMeta(
               contentLikes: prev.contentLikes + 1,
               likesByUser: (prev.likesByUser || 0) + 1,
             }
-          : undefined
+          : undefined,
       );
       const previousAllMeta = queryClient.getQueryData<Array<ContentMeta>>([
         'contents',
@@ -125,20 +125,20 @@ export default function useContentMeta(
                     ...meta,
                     likes: meta.likes + 1,
                   }
-                : meta
+                : meta,
             )
-          : undefined
+          : undefined,
       );
       return { previousSingleMeta, previousAllMeta };
     },
     onError: (_err, _variables, context) => {
       queryClient.setQueryData<SingleContentMeta>(
         ['contents', slug],
-        context?.previousSingleMeta
+        context?.previousSingleMeta,
       );
       queryClient.setQueryData<Array<ContentMeta>>(
         ['contents'],
-        context?.previousAllMeta
+        context?.previousAllMeta,
       );
     },
     onSettled: () => {

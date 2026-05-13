@@ -48,7 +48,7 @@ export default function Filter<T extends RowData>({
           'text-sm md:text-base',
           'border border-gray-300 dark:border-gray-600',
           'focus:border-primary-300 focus:outline-none dark:focus:border-primary-300',
-          'focus:ring-0'
+          'focus:ring-0',
         )}
         placeholder='Search...'
       />

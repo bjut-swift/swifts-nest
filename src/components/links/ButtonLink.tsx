@@ -34,7 +34,7 @@ export default function ButtonLink({
           'border-primary-300 bg-primary-300 text-dark hover:bg-primary-300/90 dark:border-primary-300 dark:bg-primary-300 dark:text-dark dark:hover:bg-primary-300/90':
             variant === 'primary',
         },
-        className
+        className,
       )}
     >
       {children}

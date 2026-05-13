@@ -1,4 +1,4 @@
-import format from 'date-fns/format';
+import { format } from 'date-fns';
 import fs from 'fs';
 
 import { getAllFilesFrontmatter } from '@/lib/mdx.server';
@@ -19,10 +19,10 @@ export async function getRssXml() {
       <guid>${blogUrl}/${slug}</guid>
       <pubDate>${format(
         new Date(lastUpdated ?? publishedAt),
-        'yyyy-MM-dd'
+        'yyyy-MM-dd',
       )}</pubDate>
     </item>
-    `.trim()
+    `.trim(),
     );
 
   return `

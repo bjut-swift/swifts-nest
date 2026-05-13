@@ -30,7 +30,7 @@ export default function Tooltip({
           className={clsx(
             className,
             'inline-block rounded-md bg-white p-2 text-gray-600 shadow-md dark:bg-dark dark:text-gray-200',
-            'border dark:border-gray-600 '
+            'border dark:border-gray-600',
           )}
         >
           {tipChildren}

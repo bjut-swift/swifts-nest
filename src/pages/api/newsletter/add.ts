@@ -5,7 +5,7 @@ import { z } from 'zod';
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   if (req.method === 'POST') {
     const email = z.string().email().parse(req.body.email);
@@ -19,7 +19,7 @@ export default async function handler(
             'Content-Type': 'application/json',
             Authorization: `Token ${process.env.REVUE_TOKEN}`,
           },
-        }
+        },
       );
 
       return res.status(200).json({ success: response.data });

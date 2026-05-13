@@ -41,7 +41,7 @@ export default function ShortsPage({
   //#region  //*=========== Search ===========
   const [search, setSearch] = React.useState<string>('');
   const [filtered, setFiltered] = React.useState<Array<LibraryFrontmatter>>(
-    () => [...snippets]
+    () => [...snippets],
   );
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -57,7 +57,7 @@ export default function ShortsPage({
         search
           .toLowerCase()
           .split(' ')
-          .every((tag) => snippet.tags.includes(tag))
+          .every((tag) => snippet.tags.includes(tag)),
     );
 
     if (sortOrder.id === 'date') {
@@ -78,7 +78,7 @@ export default function ShortsPage({
         s
           .split(' ')
           .filter((t) => t !== tag)
-          ?.join(' ')
+          ?.join(' '),
       );
     } else {
       // append tag

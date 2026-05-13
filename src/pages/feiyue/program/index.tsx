@@ -52,7 +52,7 @@ export default function ProgramIndexPage({
                 className={clsx(
                   'rounded-md border px-3 py-1.5 text-xs font-medium transition-colors',
                   'border-gray-300 text-gray-600 hover:border-primary-300 hover:text-primary-500',
-                  'dark:border-gray-600 dark:text-gray-400 dark:hover:border-primary-300 dark:hover:text-primary-300'
+                  'dark:border-gray-600 dark:text-gray-400 dark:hover:border-primary-300 dark:hover:text-primary-300',
                 )}
               >
                 {showFull ? '显示缩写' : '显示全名'}

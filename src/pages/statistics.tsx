@@ -244,7 +244,7 @@ export default function StatisticsPage() {
                   className={clsx(
                     'space-y-2 text-center',
                     'rounded-md bg-gray-50 p-6 shadow-sm dark:bg-gray-800',
-                    'border border-gray-300 dark:border-gray-600'
+                    'border border-gray-300 dark:border-gray-600',
                   )}
                 >
                   <h3>{stat.title}</h3>

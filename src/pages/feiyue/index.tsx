@@ -88,7 +88,7 @@ export default function FeiyuePage({
 
   const totalCount = Object.values(filteredByTerm).reduce(
     (sum, arr) => sum + arr.length,
-    0
+    0,
   );
 
   const toggleMajor = (m: string) =>

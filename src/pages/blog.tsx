@@ -40,7 +40,7 @@ export default function IndexPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   /** Lazy init from session storage to preserve preference on revisit */
   const [sortOrder, setSortOrder] = React.useState<SortOption>(
-    () => sortOptions[Number(getFromSessionStorage('blog-sort')) || 0]
+    () => sortOptions[Number(getFromSessionStorage('blog-sort')) || 0],
   );
   // const [isEnglish] = React.useState<boolean>(true);
   const isLoaded = useLoaded();
@@ -66,7 +66,7 @@ export default function IndexPage({
         search
           .toLowerCase()
           .split(' ')
-          .every((tag) => post.tags.includes(tag))
+          .every((tag) => post.tags.includes(tag)),
     );
 
     if (sortOrder.id === 'date') {
@@ -91,7 +91,7 @@ export default function IndexPage({
         s
           .split(' ')
           .filter((t) => t !== tag)
-          ?.join(' ')
+          ?.join(' '),
       );
     } else {
       // append tag

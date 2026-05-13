@@ -8,7 +8,7 @@ import {
 export function generateProgramSlug(
   school: string,
   program: string,
-  degree: string
+  degree: string,
 ): string {
   return [school, program, degree]
     .join('-')
@@ -69,7 +69,7 @@ export function getResultDisplay(result: ApplicationResult): ResultDisplay {
 }
 
 export function computeStatsFromDatapoints(
-  datapoints: Datapoint[]
+  datapoints: Datapoint[],
 ): FeiyueStats {
   const applicantIds = new Set(datapoints.map((d) => d.applicant_id));
   const schools = new Set(datapoints.map((d) => d.school));
@@ -144,7 +144,7 @@ export function computeStatsFromDatapoints(
       admit_count: dps.filter((d) => d.result === 'admit').length,
       reject_count: dps.filter((d) => d.result === 'reject').length,
       total_count: dps.length,
-    })
+    }),
   );
 
   const top_programs = [...programs]

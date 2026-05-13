@@ -217,7 +217,7 @@ But you can use your own theme as well by passing the theme JSON:
 // ESM
 const options = {
   theme: JSON.parse(
-    readFileSync(new URL('./themes/theme.json', import.meta.url))
+    readFileSync(new URL('./themes/theme.json', import.meta.url)),
   ),
 };
 ```
@@ -226,7 +226,7 @@ const options = {
 // CJS
 const options = {
   theme: JSON.parse(
-    fs.readFileSync(require.resolve('./themes/dark.json'), 'utf-8')
+    fs.readFileSync(require.resolve('./themes/dark.json'), 'utf-8'),
   ),
 };
 ```

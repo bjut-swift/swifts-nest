@@ -36,15 +36,15 @@ import Tooltip from '@/components/Tooltip';
 
 const BlogCard = dynamic(() => import('@/components/content/blog/BlogCard'));
 const SubscribeCard = dynamic(
-  () => import('@/components/content/blog/SubscribeCard')
+  () => import('@/components/content/blog/SubscribeCard'),
 );
 const LikeButton = dynamic(() => import('@/components/content/LikeButton'));
 const ShareBlogButton = dynamic(
-  () => import('@/components/links/ShareBlogButton')
+  () => import('@/components/links/ShareBlogButton'),
 );
 const Waline = dynamic(
   () => import('@/components/Waline').then((mod) => mod.Waline),
-  { ssr: false }
+  { ssr: false },
 );
 
 import { BlogFrontmatter, BlogType } from '@/types/frontmatters';
@@ -62,7 +62,7 @@ export default function SingleBlogPage({
 
   const populatedRecommendations = useInjectContentMeta(
     'blog',
-    recommendations
+    recommendations,
   );
 
   //#region  //*=========== Link Constants ===========
@@ -178,7 +178,7 @@ export default function SingleBlogPage({
                     className={clsx(
                       'inline-flex items-center gap-1 rounded-sm font-medium',
                       'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-primary-300',
-                      'focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
+                      'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
                     )}
                   >
                     <MdHistory className='text-lg' />

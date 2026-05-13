@@ -11,7 +11,7 @@ import {
 
 export function sortDateFn<T extends FrontmatterWithDate>(
   contentA: T,
-  contentB: T
+  contentB: T,
 ) {
   // Safely parse dates by ensuring proper format
   const getDateValue = (content: T) => {
@@ -38,7 +38,7 @@ export function sortTitleFn<T extends Frontmatter>(contentA: T, contentB: T) {
 
 export function sortByTitle<T extends Array<Frontmatter>>(contents: T): T {
   return contents.sort((a, b) =>
-    a.title > b.title ? 1 : b.title > a.title ? -1 : 0
+    a.title > b.title ? 1 : b.title > a.title ? -1 : 0,
   );
 }
 
@@ -48,7 +48,7 @@ export function sortByTitle<T extends Array<Frontmatter>>(contents: T): T {
 export function getTags<T extends Array<FrontmatterWithTags>>(contents: T) {
   const tags = contents.reduce(
     (accTags: string[], content) => [...accTags, ...content.tags.split(',')],
-    []
+    [],
   );
 
   return map(sortBy(toPairs(countBy(tags)), 1), 0).reverse();
