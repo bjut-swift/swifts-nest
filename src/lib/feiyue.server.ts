@@ -89,11 +89,13 @@ export async function getAllDatapoints(): Promise<Datapoint[]> {
   return applicants.flatMap((applicant) =>
     applicant.applications.map((app) => ({
       ...app,
+      scholarship: app.scholarship ?? null,
+      note: app.note ?? null,
       applicant_id: applicant.id,
       applicant_name: applicant.name,
       applicant_major: applicant.undergraduate.major,
-      applicant_gpa: applicant.undergraduate.gpa,
-      applicant_gpa_scale: applicant.undergraduate.gpa_scale,
+      applicant_gpa: applicant.undergraduate.gpa ?? null,
+      applicant_gpa_scale: applicant.undergraduate.gpa_scale ?? null,
       program_slug: generateProgramSlug(app.school, app.program, app.degree),
     }))
   );
