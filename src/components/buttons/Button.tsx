@@ -2,13 +2,9 @@ import clsx from 'clsx';
 import * as React from 'react';
 import { ImSpinner2 } from 'react-icons/im';
 
-enum ButtonVariant {
-  'default',
-}
-
 type ButtonProps = {
   isLoading?: boolean;
-  variant?: keyof typeof ButtonVariant;
+  variant?: 'default';
 } & React.ComponentPropsWithoutRef<'button'>;
 
 export default function Button({

@@ -1,5 +1,4 @@
-const EVENT_TYPE = ['link', 'navigate', 'recommend'] as const;
-type EventType = (typeof EVENT_TYPE)[number];
+type EventType = 'link' | 'navigate' | 'recommend';
 
 type TrackEvent = (
   event_name: string,

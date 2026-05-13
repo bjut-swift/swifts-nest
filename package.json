@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "eslint src --fix && bun format",
-    "lint:strict": "eslint --max-warnings=25 src",
+    "lint:strict": "eslint --max-warnings=0 src",
     "typecheck": "tsc --noEmit --incremental false",
     "format": "prettier -w .",
     "format:check": "prettier -c .",
@@ -108,7 +108,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --max-warnings=25",
+      "eslint --max-warnings=0",
       "prettier -w"
     ],
     "src/**/*.{json,css,scss,md,mdx}": [
