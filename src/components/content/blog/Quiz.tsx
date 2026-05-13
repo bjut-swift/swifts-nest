@@ -14,7 +14,7 @@ export default function Quiz(props: QuizType) {
   };
 
   return (
-    <div className='prose relative mt-8 w-full !max-w-none rounded border p-4 pt-8 dark:prose-invert dark:border-gray-600'>
+    <div className='prose dark:prose-invert relative mt-8 w-full max-w-none! rounded-sm border p-4 pt-8 dark:border-gray-600'>
       <div className='text-center'>
         <h4 className='text-lg md:text-xl'>{props.question}</h4>
         {props.description && (
@@ -50,9 +50,9 @@ export default function Quiz(props: QuizType) {
             >
               <>{answer.option}</>
               {selectedOption && optionStatus === 'correct' ? (
-                <HiOutlineCheckCircle className='absolute right-4 top-1/2 block -translate-y-1/2 text-xl text-white' />
+                <HiOutlineCheckCircle className='absolute top-1/2 right-4 block -translate-y-1/2 text-xl text-white' />
               ) : selectedOption === answerIndex ? (
-                <HiOutlineXCircle className='absolute right-4 top-1/2 block -translate-y-1/2 text-xl text-white' />
+                <HiOutlineXCircle className='absolute top-1/2 right-4 block -translate-y-1/2 text-xl text-white' />
               ) : null}
             </button>
           );
@@ -68,7 +68,7 @@ export default function Quiz(props: QuizType) {
       )}
       <div
         className={clsx(
-          'absolute left-4 top-0 rounded-b-md px-2 py-1',
+          'absolute top-0 left-4 rounded-b-md px-2 py-1',
           'border border-t-0 dark:border-gray-600',
         )}
       >

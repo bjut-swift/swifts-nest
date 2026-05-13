@@ -26,7 +26,7 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
     >
       <UnstyledLink
         href={`/projects/${project.slug}`}
-        className='flex h-full flex-col items-start rounded-md p-4 focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
+        className='focus-visible:ring-primary-300 flex h-full flex-col items-start rounded-md p-4 focus:outline-hidden focus-visible:ring-3'
       >
         <h4>{project.title}</h4>
         <p className='mb-auto text-sm text-gray-700 dark:text-gray-300'>
@@ -38,7 +38,7 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
 
         {/* 使用 next/image 组件加载图片 */}
         {/* 开启 fill 自填充属性的 Image，祖先元素需要有宽高 w-full aspect[2/1]，否则图片本身会没有宽高 */}
-        <div className='pointer-events-none relative mt-3 aspect-[2/1] w-full'>
+        <div className='pointer-events-none relative mt-3 aspect-2/1 w-full'>
           <NextImage src={project.banner} alt={project.title} fill />
         </div>
 

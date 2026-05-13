@@ -23,7 +23,7 @@ import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 import Tooltip from '@/components/Tooltip';
 
-import Lark from '/public/images/Lark.svg';
+import Lark from '../../public/images/Lark.svg';
 
 export default function IndexPage({
   featuredPosts,
@@ -51,28 +51,28 @@ export default function IndexPage({
         >
           {/* Ambient warm glow */}
           <div
-            className='pointer-events-none absolute -right-[15%] top-[15%] h-[50vh] w-[50vh] rounded-full bg-primary-300/[0.06] blur-[100px] dark:bg-primary-300/[0.03]'
+            className='bg-primary-300/6 dark:bg-primary-300/3 pointer-events-none absolute top-[15%] right-[-15%] h-[50vh] w-[50vh] rounded-full blur-[100px]'
             aria-hidden='true'
           />
           <article className='layout relative z-10'>
             <h1
-              className='font-display text-[clamp(3.5rem,12vw,11rem)] font-bold leading-[0.85] tracking-tighter'
+              className='font-display text-[clamp(3.5rem,12vw,11rem)] leading-[0.85] font-bold tracking-tighter'
               data-fade='1'
             >
               <span className='block'>BJUT-</span>
-              <span className='block text-primary-500 dark:text-primary-300'>
+              <span className='text-primary-500 dark:text-primary-300 block'>
                 SWI<span className='tracking-[-0.01em]'>FT</span>
               </span>
             </h1>
             <p
-              className='mt-6 max-w-lg text-xs font-medium uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 md:mt-8 md:text-sm'
+              className='mt-6 max-w-lg text-xs font-medium tracking-[0.2em] text-gray-500 uppercase md:mt-8 md:text-sm dark:text-gray-400'
               data-fade='2'
             >
               Sharing Wisdom, Innovation & Futuristic Technologies
             </p>
             <p
               className={clsx(
-                'mt-8 max-w-xl text-gray-700 dark:text-gray-300 md:mt-10',
+                'mt-8 max-w-xl text-gray-700 md:mt-10 dark:text-gray-300',
                 'md:text-lg 2xl:text-xl',
               )}
               data-fade='3'
@@ -80,7 +80,7 @@ export default function IndexPage({
               我们需要你们的力量，欢迎联系以加入组织、申请立项、反馈意见。
             </p>
             <p
-              className='mt-3 max-w-xl leading-relaxed text-gray-700 dark:text-gray-300 md:text-lg 2xl:text-xl'
+              className='mt-3 max-w-xl leading-relaxed text-gray-700 md:text-lg 2xl:text-xl dark:text-gray-300'
               data-fade='4'
             >
               欢迎来我们的 <CustomLink href='/guestbook'>留言簿</CustomLink>{' '}
@@ -88,7 +88,7 @@ export default function IndexPage({
             </p>
             <div
               data-fade='5'
-              className='mt-10 flex flex-wrap gap-4 md:mt-12 md:!text-lg'
+              className='mt-10 flex flex-wrap gap-4 md:mt-12 md:text-lg!'
             >
               <ButtonLink href='#intro' variant='primary'>
                 我们的工作
@@ -104,7 +104,7 @@ export default function IndexPage({
                 className={clsx(
                   'inline-flex items-center gap-1 text-sm font-medium md:text-base',
                   'group text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white',
-                  'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
+                  'focus-visible:ring-primary-300 focus:outline-hidden focus-visible:ring-3',
                   'transition-colors',
                 )}
                 onClick={() => {
@@ -114,7 +114,7 @@ export default function IndexPage({
                 <Lark
                   height={16}
                   width={16}
-                  className='shrink-0 transition-colors group-hover:text-primary-300'
+                  className='group-hover:text-primary-300 shrink-0 transition-colors'
                 />
                 <span>飞书问卷</span>
               </UnstyledLink>
@@ -123,7 +123,7 @@ export default function IndexPage({
                 className={clsx(
                   'inline-flex items-center gap-1 text-sm font-medium md:text-base',
                   'text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white',
-                  'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
+                  'focus-visible:ring-primary-300 focus:outline-hidden focus-visible:ring-3',
                   'transition-colors',
                 )}
                 onClick={() => {
@@ -143,11 +143,11 @@ export default function IndexPage({
               'hover:text-primary-300 focus-visible:text-primary-300',
             )}
           >
-            <IoArrowDownOutline className='h-8 w-8 animate-float md:h-10 md:w-10' />
+            <IoArrowDownOutline className='animate-float h-8 w-8 md:h-10 md:w-10' />
           </UnstyledLink>
           <HeroBird
             className={clsx(
-              'absolute right-[8%] top-[10%]',
+              'absolute top-[10%] right-[8%]',
               'transform-gpu',
               'h-[60vh] w-auto md:h-[75vh] 2xl:h-[85vh]',
               'z-0 opacity-[0.07] dark:opacity-[0.05]',
@@ -162,14 +162,14 @@ export default function IndexPage({
               ref={ref}
               id='intro'
               className={clsx(
-                'border-t border-primary-300/10 bg-primary-200/40 py-28 dark:bg-white/[0.02]',
+                'border-primary-300/10 bg-primary-200/40 border-t py-28 dark:bg-white/2',
                 inView && 'fade-in-start',
               )}
             >
               <article className='layout' data-fade='0'>
                 <div className='flex flex-col md:flex-row md:items-center md:gap-12'>
                   <div className='w-full md:w-1/2'>
-                    <span className='mb-3 block font-display text-xs font-medium tracking-[0.3em] text-primary-400 dark:text-primary-300'>
+                    <span className='font-display text-primary-400 dark:text-primary-300 mb-3 block text-xs font-medium tracking-[0.3em]'>
                       01
                     </span>
                     <h2 className='text-4xl font-bold tracking-tight md:text-6xl 2xl:text-7xl'>
@@ -179,7 +179,7 @@ export default function IndexPage({
                         分享知识
                       </span>
                     </h2>
-                    <div className='mt-4 text-base text-gray-600 dark:text-gray-300 md:text-lg'>
+                    <div className='mt-4 text-base text-gray-600 md:text-lg dark:text-gray-300'>
                       <Tooltip
                         withUnderline
                         tipChildren={
@@ -251,7 +251,7 @@ export default function IndexPage({
               className={clsx('py-24', inView && 'fade-in-start')}
             >
               <article className='layout' data-fade='0'>
-                <span className='mb-3 block font-display text-xs font-medium tracking-[0.3em] text-primary-400 dark:text-primary-300'>
+                <span className='font-display text-primary-400 dark:text-primary-300 mb-3 block text-xs font-medium tracking-[0.3em]'>
                   02
                 </span>
                 <h2 className='text-2xl md:text-4xl' id='blog'>
@@ -291,12 +291,12 @@ export default function IndexPage({
             <section
               ref={ref}
               className={clsx(
-                'bg-primary-200/40 py-24 dark:bg-white/[0.02]',
+                'bg-primary-200/40 py-24 dark:bg-white/2',
                 inView && 'fade-in-start',
               )}
             >
               <article className='layout' data-fade='0'>
-                <span className='mb-3 block font-display text-xs font-medium tracking-[0.3em] text-primary-400 dark:text-primary-300'>
+                <span className='font-display text-primary-400 dark:text-primary-300 mb-3 block text-xs font-medium tracking-[0.3em]'>
                   03
                 </span>
                 <h2 className='text-2xl md:text-4xl' id='projects'>
@@ -335,7 +335,7 @@ export default function IndexPage({
               className={clsx('py-24', inView && 'fade-in-start')}
             >
               <article className='layout' data-fade='0'>
-                <span className='mb-3 block font-display text-xs font-medium tracking-[0.3em] text-primary-400 dark:text-primary-300'>
+                <span className='font-display text-primary-400 dark:text-primary-300 mb-3 block text-xs font-medium tracking-[0.3em]'>
                   04
                 </span>
                 <h2 className='text-2xl md:text-4xl' id='library'>
@@ -351,7 +351,7 @@ export default function IndexPage({
                       short={short}
                       className={clsx(
                         i > 2 && 'hidden sm:flex',
-                        '!h-auto sm:!flex sm:flex-row sm:items-center',
+                        'h-auto! sm:flex! sm:flex-row sm:items-center',
                       )}
                     />
                   ))}

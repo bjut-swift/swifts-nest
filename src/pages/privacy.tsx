@@ -31,7 +31,7 @@ export default function PrivacyPage() {
             </p>
 
             <article
-              className='prose mt-8 max-w-none dark:prose-invert'
+              className='prose dark:prose-invert mt-8 max-w-none'
               data-fade='2'
             >
               <p>

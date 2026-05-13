@@ -44,7 +44,7 @@ export default function MajorIndexPage({
                 >
                   <UnstyledLink
                     href={`/feiyue/major/${major.name}`}
-                    className='text-lg text-primary-400 hover:text-primary-500'
+                    className='text-primary-400 hover:text-primary-500 text-lg'
                   >
                     {major.name}
                   </UnstyledLink>

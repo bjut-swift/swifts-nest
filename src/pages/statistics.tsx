@@ -243,7 +243,7 @@ export default function StatisticsPage() {
                   key={stat.title}
                   className={clsx(
                     'space-y-2 text-center',
-                    'rounded-md bg-gray-50 p-6 shadow-sm dark:bg-gray-800',
+                    'rounded-md bg-gray-50 p-6 shadow-xs dark:bg-gray-800',
                     'border border-gray-300 dark:border-gray-600',
                   )}
                 >
@@ -253,19 +253,19 @@ export default function StatisticsPage() {
                       <span className='h4 font-semibold'>
                         {stat.count ?? 0}
                       </span>{' '}
-                      <span className='text-xs font-medium uppercase tracking-wider'>
+                      <span className='text-xs font-medium tracking-wider uppercase'>
                         篇
                       </span>
                     </p>
                     <p className='text-gray-800 dark:text-gray-200'>
                       <span className='h4 font-semibold'>{stat.views}</span>{' '}
-                      <span className='text-xs font-medium uppercase tracking-wider'>
+                      <span className='text-xs font-medium tracking-wider uppercase'>
                         浏览
                       </span>
                     </p>
                     <p className='text-gray-800 dark:text-gray-200'>
                       <span className='h4 font-semibold'>{stat.likes}</span>{' '}
-                      <span className='text-xs font-medium uppercase tracking-wider'>
+                      <span className='text-xs font-medium tracking-wider uppercase'>
                         喜欢
                       </span>
                     </p>

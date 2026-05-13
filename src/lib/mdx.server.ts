@@ -7,6 +7,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
+import { createCssVariablesTheme } from 'shiki';
 
 import { sortByDate } from '@/lib/mdx.client';
 
@@ -46,10 +47,7 @@ export async function getFileBySlug(type: ContentType, slug: string) {
       options.rehypePlugins = [
         ...(options?.rehypePlugins ?? []),
         rehypeSlug,
-        () =>
-          rehypePrettyCode({
-            theme: 'css-variables',
-          }),
+        [rehypePrettyCode, { theme: createCssVariablesTheme() }] as never,
         [
           rehypeAutolinkHeadings,
           {

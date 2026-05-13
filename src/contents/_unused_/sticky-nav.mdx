@@ -55,8 +55,8 @@ export default function Nav() {
         onTop ? '' : 'shadow-sm'
       } sticky top-0 z-10 transition-shadow`}
     >
-      <div className='from-accent-100 to-accent-300 via-accent-200 h-2 bg-gradient-to-tr'></div>
-      <nav className='bg-white transition-colors dark:bg-dark'>
+      <div className='from-accent-100 to-accent-300 via-accent-200 h-2 bg-linear-to-tr'></div>
+      <nav className='dark:bg-dark bg-white transition-colors'>
         <ul className='mx-auto flex max-w-4xl items-center justify-between p-4 px-4'>
           <ul className='flex items-center justify-between space-x-4'>
             {links.map(({ href, label }) => (

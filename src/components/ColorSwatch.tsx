@@ -18,8 +18,8 @@ export default function ColorSwatch({
     <div className={clsx('mt-4 flex items-center gap-2', className)} {...rest}>
       <div
         className={clsx(
-          'h-10 w-10 rounded',
-          'shadow-sm dark:shadow-none',
+          'h-10 w-10 rounded-sm',
+          'shadow-xs dark:shadow-none',
           'border border-gray-300 dark:border-gray-600',
           'shrink-0',
           colorClassName,

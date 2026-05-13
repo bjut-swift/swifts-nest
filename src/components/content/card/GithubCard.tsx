@@ -25,7 +25,7 @@ export default function GithubCard({ repo, className }: GithubCardProps) {
       <UnstyledLink
         href={repository.html_url}
         className={clsx(
-          '!block max-w-xl',
+          'block! max-w-xl',
           'not-prose px-4 py-3',
           'rounded-lg border border-gray-300 dark:border-gray-600',
           'scale-100 transform-gpu hover:scale-[1.02] active:scale-[0.97]',
@@ -36,7 +36,7 @@ export default function GithubCard({ repo, className }: GithubCardProps) {
       >
         <div className='flex items-center gap-2 text-sm md:text-base'>
           <SiGithub className='ml-0.5 shrink-0 text-[1.2em]' />
-          <Accent className={clsx('truncate overflow-ellipsis font-semibold')}>
+          <Accent className={clsx('truncate font-semibold text-ellipsis')}>
             {repository.full_name}
           </Accent>
         </div>
@@ -58,7 +58,7 @@ export default function GithubCard({ repo, className }: GithubCardProps) {
   ) : (
     <div
       className={clsx(
-        'mx-auto !block max-w-xl',
+        'mx-auto block! max-w-xl',
         'not-prose px-4 py-3',
         'rounded-lg border border-gray-300 dark:border-gray-600',
         'animate-pulse bg-gray-300 dark:bg-gray-600',

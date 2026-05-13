@@ -17,7 +17,7 @@ export default function ApplicantProfile({ applicant }: ApplicantProfileProps) {
   return (
     <div
       className={clsx(
-        'rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-dark',
+        'dark:bg-dark rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-700',
       )}
     >
       <div className='flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between'>

@@ -9,5 +9,5 @@ export default function SplitImage({
 }
 
 export function Split({ children }: { children: React.ReactNode }) {
-  return <div className='!mb-0 flex flex-col space-y-4'>{children}</div>;
+  return <div className='mb-0! flex flex-col space-y-4'>{children}</div>;
 }

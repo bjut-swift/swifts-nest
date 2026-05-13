@@ -64,7 +64,7 @@ export default function AreaPage({
 
                   <div className='-mx-4 mt-3 overflow-x-auto sm:-mx-6 lg:-mx-8'>
                     <div className='inline-block min-w-full align-middle md:px-6 lg:px-8'>
-                      <div className='overflow-hidden ring-1 ring-black ring-opacity-5 dark:ring-gray-800 md:rounded-lg'>
+                      <div className='ring-opacity-5 overflow-hidden ring-1 ring-black md:rounded-lg dark:ring-gray-800'>
                         <table className='min-w-full divide-y divide-gray-200 dark:divide-gray-800'>
                           <thead className='bg-gray-50 dark:bg-gray-700'>
                             <tr>
@@ -74,13 +74,13 @@ export default function AreaPage({
                               <Th>去向</Th>
                             </tr>
                           </thead>
-                          <tbody className='divide-y divide-gray-200 bg-white dark:divide-gray-800 dark:bg-dark'>
+                          <tbody className='dark:bg-dark divide-y divide-gray-200 bg-white dark:divide-gray-800'>
                             {applicants.map((a) => (
                               <tr key={a.id}>
                                 <Td>
                                   <UnstyledLink
                                     href={`/feiyue/applicant/${a.id}`}
-                                    className='animated-underline font-medium text-primary-400 hover:text-primary-500'
+                                    className='animated-underline text-primary-400 hover:text-primary-500 font-medium'
                                   >
                                     {a.name}
                                   </UnstyledLink>
@@ -118,7 +118,7 @@ export default function AreaPage({
 
 function Th({ children }: { children: React.ReactNode }) {
   return (
-    <th className='px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-200'>
+    <th className='px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-gray-200'>
       {children}
     </th>
   );
@@ -126,7 +126,7 @@ function Th({ children }: { children: React.ReactNode }) {
 
 function Td({ children }: { children: React.ReactNode }) {
   return (
-    <td className='whitespace-nowrap px-6 py-4 text-sm text-gray-700 dark:text-gray-300'>
+    <td className='px-6 py-4 text-sm whitespace-nowrap text-gray-700 dark:text-gray-300'>
       {children}
     </td>
   );

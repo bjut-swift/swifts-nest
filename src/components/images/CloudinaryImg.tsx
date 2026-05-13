@@ -75,7 +75,7 @@ export default function CloudinaryImg({
   return (
     <figure
       className={clsx(className, {
-        'overflow-hidden rounded shadow dark:shadow-none': !noStyle,
+        'overflow-hidden rounded-sm shadow-sm dark:shadow-none': !noStyle,
         'mx-auto w-full': mdx && +width <= 800,
       })}
       style={{
@@ -108,7 +108,7 @@ export default function CloudinaryImg({
             background-size: 100%;
           }
         `}</style>
-        <div className='absolute left-0 top-0'>
+        <div className='absolute top-0 left-0'>
           <Image
             width={
               resizedToMaxWidth

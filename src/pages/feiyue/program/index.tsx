@@ -51,8 +51,8 @@ export default function ProgramIndexPage({
                 onClick={() => setShowFull((p) => !p)}
                 className={clsx(
                   'rounded-md border px-3 py-1.5 text-xs font-medium transition-colors',
-                  'border-gray-300 text-gray-600 hover:border-primary-300 hover:text-primary-500',
-                  'dark:border-gray-600 dark:text-gray-400 dark:hover:border-primary-300 dark:hover:text-primary-300',
+                  'hover:border-primary-300 hover:text-primary-500 border-gray-300 text-gray-600',
+                  'dark:hover:border-primary-300 dark:hover:text-primary-300 dark:border-gray-600 dark:text-gray-400',
                 )}
               >
                 {showFull ? '显示缩写' : '显示全名'}
@@ -66,7 +66,7 @@ export default function ProgramIndexPage({
             <div className='mt-6 flex flex-col gap-8 lg:flex-row' data-fade='2'>
               {/* Sidebar */}
               <aside className='lg:sticky lg:top-24 lg:h-fit lg:w-48 lg:shrink-0'>
-                <p className='text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400'>
+                <p className='text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-gray-400'>
                   目录
                 </p>
                 <ul className='mt-2 space-y-1 text-sm'>
@@ -74,7 +74,7 @@ export default function ProgramIndexPage({
                     <li key={entry.school}>
                       <button
                         onClick={() => scrollTo(entry.school)}
-                        className='text-left text-gray-600 hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-300'
+                        className='hover:text-primary-500 dark:hover:text-primary-300 text-left text-gray-600 dark:text-gray-400'
                       >
                         {displayName(entry)}
                       </button>
@@ -109,7 +109,7 @@ export default function ProgramIndexPage({
                             className='text-primary-400 hover:text-primary-500'
                           >
                             {p.program}
-                            <span className='ml-1.5 rounded bg-gray-100 px-1.5 py-0.5 text-xs text-gray-500 dark:bg-gray-800 dark:text-gray-400'>
+                            <span className='ml-1.5 rounded-sm bg-gray-100 px-1.5 py-0.5 text-xs text-gray-500 dark:bg-gray-800 dark:text-gray-400'>
                               {p.degree}
                             </span>
                           </UnstyledLink>

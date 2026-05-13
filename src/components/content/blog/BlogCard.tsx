@@ -25,7 +25,7 @@ export default function BlogCard({
   return (
     <li
       className={clsx(
-        'w-full rounded-md border border-gray-300 bg-white dark:border-gray-600 dark:bg-dark',
+        'dark:bg-dark w-full rounded-md border border-gray-300 bg-white dark:border-gray-600',
         'scale-100 hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu',
         'transition duration-100',
         'motion-reduce:hover:scale-100',
@@ -35,7 +35,7 @@ export default function BlogCard({
       onClick={onClick}
     >
       <UnstyledLink
-        className='block h-full rounded-md focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
+        className='focus-visible:ring-primary-300 block h-full rounded-md focus:outline-hidden focus-visible:ring-3'
         href={`/blog/${post.slug}`}
       >
         <div className='relative'>
@@ -70,7 +70,7 @@ export default function BlogCard({
             </div>
           ) : (
             <div
-              className='relative w-full overflow-hidden rounded-t-md bg-gradient-to-br from-primary-300/40 via-primary-400/30 to-primary-500/40 dark:from-primary-400/20 dark:via-primary-500/20 dark:to-primary-300/20'
+              className='from-primary-300/40 via-primary-400/30 to-primary-500/40 dark:from-primary-400/20 dark:via-primary-500/20 dark:to-primary-300/20 relative w-full overflow-hidden rounded-t-md bg-linear-to-br'
               style={{ paddingTop: '40%' }}
             />
           )}
@@ -103,7 +103,7 @@ export default function BlogCard({
               <Accent>{post?.views?.toLocaleString() ?? '–––'} 浏览</Accent>
             </div>
           </div>
-          <p className='mb-2 mt-4 text-sm text-gray-600 dark:text-gray-300'>
+          <p className='mt-4 mb-2 text-sm text-gray-600 dark:text-gray-300'>
             <span className='font-bold text-gray-800 dark:text-gray-100'>
               {format(
                 new Date(post.lastUpdated ?? post.publishedAt),

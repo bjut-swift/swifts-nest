@@ -8,9 +8,6 @@ const withRemoteRefresh = require('next-remote-refresh')({
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  eslint: {
-    dirs: ['src'],
-  },
   experimental: {
     optimizePackageImports: [
       'react-icons',
@@ -82,6 +79,14 @@ const nextConfig = {
         permanent: true,
       },
     ];
+  },
+  turbopack: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
+      },
+    },
   },
   webpack: (config, _) => {
     config.module.rules.push({

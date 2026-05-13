@@ -29,7 +29,7 @@ export default function Tooltip({
         <div
           className={clsx(
             className,
-            'inline-block rounded-md bg-white p-2 text-gray-600 shadow-md dark:bg-dark dark:text-gray-200',
+            'dark:bg-dark inline-block rounded-md bg-white p-2 text-gray-600 shadow-md dark:text-gray-200',
             'border dark:border-gray-600',
           )}
         >

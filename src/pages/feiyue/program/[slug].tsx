@@ -28,7 +28,7 @@ const columns: ColumnDef<Datapoint>[] = [
     cell: ({ row }) => (
       <UnstyledLink
         href={`/feiyue/applicant/${row.original.applicant_id}`}
-        className='font-medium text-primary-400 hover:text-primary-500'
+        className='text-primary-400 hover:text-primary-500 font-medium'
       >
         {row.original.applicant_name}
       </UnstyledLink>
@@ -72,7 +72,7 @@ export default function ProgramPage({
         <section className={clsx(isLoaded && 'fade-in-start')}>
           <div className='layout py-12'>
             <h1
-              className='text-2xl font-bold text-gray-900 dark:text-gray-100 md:text-4xl'
+              className='text-2xl font-bold text-gray-900 md:text-4xl dark:text-gray-100'
               data-fade='0'
             >
               <Accent>{program.program}</Accent>

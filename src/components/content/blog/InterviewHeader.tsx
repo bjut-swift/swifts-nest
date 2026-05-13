@@ -47,11 +47,11 @@ export function InterviewHeader({
   };
 
   return (
-    <div className='my-4 rounded-lg bg-gradient-to-r from-gray-50 to-gray-100 p-4 shadow-sm'>
+    <div className='my-4 rounded-lg bg-linear-to-r from-gray-50 to-gray-100 p-4 shadow-xs'>
       {/* 作者信息 */}
       <div className='flex items-start gap-3'>
         <AvatarWrapper href={authorHomepage}>
-          <div className='relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border-2 border-gray-200 bg-white shadow-sm transition-colors hover:border-blue-300 sm:h-16 sm:w-16'>
+          <div className='relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-gray-200 bg-white shadow-xs transition-colors hover:border-blue-300 sm:h-16 sm:w-16'>
             {authorAvatarUrl ? (
               <Image
                 src={authorAvatarUrl}
@@ -69,7 +69,7 @@ export function InterviewHeader({
                 strokeWidth='1.5'
                 strokeLinecap='round'
                 strokeLinejoin='round'
-                className='absolute left-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 transform text-gray-400 sm:h-8 sm:w-8'
+                className='absolute top-1/2 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 transform text-gray-400 sm:h-8 sm:w-8'
               >
                 <path d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2' />
                 <circle cx='12' cy='7' r='4' />
@@ -100,7 +100,7 @@ export function InterviewHeader({
       {interviewee && (
         <div className='flex items-start gap-3'>
           <AvatarWrapper href={intervieweeHomepage}>
-            <div className='relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border-2 border-gray-200 bg-white shadow-sm transition-colors hover:border-blue-300 sm:h-16 sm:w-16'>
+            <div className='relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-gray-200 bg-white shadow-xs transition-colors hover:border-blue-300 sm:h-16 sm:w-16'>
               {intervieweeAvatarUrl ? (
                 <Image
                   src={intervieweeAvatarUrl}
@@ -118,7 +118,7 @@ export function InterviewHeader({
                   strokeWidth='1.5'
                   strokeLinecap='round'
                   strokeLinejoin='round'
-                  className='absolute left-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 transform text-gray-400 sm:h-8 sm:w-8'
+                  className='absolute top-1/2 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 transform text-gray-400 sm:h-8 sm:w-8'
                 >
                   <path d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2' />
                   <circle cx='12' cy='7' r='4' />

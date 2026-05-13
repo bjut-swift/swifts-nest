@@ -165,8 +165,8 @@ export default function SingleProjectPage({ code, frontmatter }: ProjectType) {
 
             <hr className='mt-4 dark:border-gray-600' />
 
-            <section className='lg:grid lg:grid-cols-[auto,250px] lg:gap-8'>
-              <article className='mdx projects prose mx-auto w-full transition-colors dark:prose-invert'>
+            <section className='lg:grid lg:grid-cols-[auto_250px] lg:gap-8'>
+              <article className='mdx projects prose dark:prose-invert mx-auto w-full transition-colors'>
                 <Component
                   components={
                     {
