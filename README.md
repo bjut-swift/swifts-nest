@@ -8,18 +8,18 @@
 
 工大学子共建的技术共享平台，分享课程资源、项目经验与技术教程。
 
-## 飞跃手册
+## [飞跃手册](https://www.bjutswift.cn/feiyue)
 
-保研和留学申请的一手数据，来自学长学姐的真实记录。按专业、项目、申请方向筛选，也可以直接搜索。统计页汇总了各届申请去向和录取分布。
+保研和留学申请的一手数据，来自学长学姐的真实记录。按专业、项目、申请方向筛选，也可以直接搜索。[统计页](https://www.bjutswift.cn/feiyue/stats)汇总了各届申请去向和录取分布。
 
 想贡献自己的申请记录，填一份数据模板提交 PR 就行。
 
 ## 其他功能
 
-- **专栏** - 技术文章、面试经验、课程心得
-- **项目展示** - 开源项目（BJUT-Helper 课程资源库、LaTeX 模板等）
-- **技术速查** - Git、Next.js 等常用工具的速查指南
-- **留言板** / **统计**
+- **[专栏](https://www.bjutswift.cn/blog)** - 技术文章、面试经验、课程心得
+- **[项目展示](https://www.bjutswift.cn/projects)** - 开源项目（BJUT-Helper 课程资源库、LaTeX 模板等）
+- **[技术速查](https://www.bjutswift.cn/shorts)** - Git、Next.js 等常用工具的速查指南
+- **[留言板](https://www.bjutswift.cn/guestbook)** / **[统计](https://www.bjutswift.cn/statistics)**
 
 ## 技术栈
 
