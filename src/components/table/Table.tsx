@@ -3,7 +3,9 @@ import {
   ColumnDef,
   getCoreRowModel,
   getFilteredRowModel,
+  getPaginationRowModel,
   getSortedRowModel,
+  PaginationState,
   SortingState,
   useReactTable,
 } from '@tanstack/react-table';
@@ -22,6 +24,8 @@ type TableProps<T extends object> = {
   omitSort?: boolean;
   withFilter?: boolean;
   withFooter?: boolean;
+  withPagination?: boolean;
+  pageSize?: number;
 } & React.ComponentPropsWithoutRef<'div'>;
 
 export default function Table<T extends object>({
@@ -31,10 +35,16 @@ export default function Table<T extends object>({
   omitSort = false,
   withFilter = false,
   withFooter = false,
+  withPagination = false,
+  pageSize = 20,
   ...rest
 }: TableProps<T>) {
   const [globalFilter, setGlobalFilter] = React.useState('');
   const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [pagination, setPagination] = React.useState<PaginationState>({
+    pageIndex: 0,
+    pageSize,
+  });
 
   const table = useReactTable({
     data,
@@ -42,6 +52,7 @@ export default function Table<T extends object>({
     state: {
       globalFilter,
       sorting,
+      ...(withPagination && { pagination }),
     },
     defaultColumn: {
       minSize: 0,
@@ -49,9 +60,11 @@ export default function Table<T extends object>({
     },
     onGlobalFilterChange: setGlobalFilter,
     onSortingChange: setSorting,
+    ...(withPagination && { onPaginationChange: setPagination }),
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getSortedRowModel: getSortedRowModel(),
+    ...(withPagination && { getPaginationRowModel: getPaginationRowModel() }),
   });
 
   return (
@@ -68,6 +81,28 @@ export default function Table<T extends object>({
           </div>
         </div>
       </div>
+      {withPagination && table.getPageCount() > 1 && (
+        <div className='mt-4 flex items-center justify-between text-sm text-gray-600 dark:text-gray-400'>
+          <button
+            onClick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}
+            className='rounded border border-gray-300 px-3 py-1.5 transition-colors hover:border-primary-300 hover:text-primary-500 disabled:cursor-not-allowed disabled:opacity-40 dark:border-gray-600'
+          >
+            上一页
+          </button>
+          <span>
+            第 {table.getState().pagination.pageIndex + 1} /{' '}
+            {table.getPageCount()} 页
+          </span>
+          <button
+            onClick={() => table.nextPage()}
+            disabled={!table.getCanNextPage()}
+            className='rounded border border-gray-300 px-3 py-1.5 transition-colors hover:border-primary-300 hover:text-primary-500 disabled:cursor-not-allowed disabled:opacity-40 dark:border-gray-600'
+          >
+            下一页
+          </button>
+        </div>
+      )}
     </div>
   );
 }

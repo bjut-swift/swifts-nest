@@ -3,10 +3,12 @@ import clsx from 'clsx';
 import { InferGetStaticPropsType } from 'next';
 import * as React from 'react';
 
-import { getStats } from '@/lib/feiyue.server';
+import { computeStatsFromDatapoints } from '@/lib/feiyue.client';
+import { getAllDatapoints, getStats } from '@/lib/feiyue.server';
 import useLoaded from '@/hooks/useLoaded';
 
 import Accent from '@/components/Accent';
+import Tag from '@/components/content/Tag';
 import FeiyueNav from '@/components/feiyue/FeiyueNav';
 import StatsCard from '@/components/feiyue/StatsCard';
 import Layout from '@/components/layout/Layout';
@@ -14,12 +16,41 @@ import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 import Table from '@/components/table/Table';
 
-import { FeiyueStats, ProgramSummary } from '@/types/feiyue';
+import { Datapoint, FeiyueStats, ProgramSummary } from '@/types/feiyue';
 
 export default function FeiyueStatsPage({
-  stats,
+  stats: precomputedStats,
+  allDatapoints,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const isLoaded = useLoaded();
+  const [termFilter, setTermFilter] = React.useState('');
+
+  const allYears = React.useMemo(() => {
+    const years = new Set<number>();
+    for (const dp of allDatapoints) {
+      const y = parseInt(dp.term.split(' ')[0], 10);
+      if (!isNaN(y)) years.add(y);
+    }
+    return Array.from(years).sort((a, b) => b - a);
+  }, [allDatapoints]);
+
+  const currentYear = new Date().getFullYear();
+
+  const stats: FeiyueStats = React.useMemo(() => {
+    if (!termFilter) return precomputedStats;
+
+    const filtered = allDatapoints.filter((dp) => {
+      const year = parseInt(dp.term.split(' ')[0], 10);
+      if (termFilter === 'recent-1') return year >= currentYear;
+      if (termFilter === 'recent-3') return year >= currentYear - 2;
+      return dp.term.startsWith(termFilter);
+    });
+
+    return computeStatsFromDatapoints(filtered);
+  }, [precomputedStats, allDatapoints, termFilter, currentYear]);
+
+  const toggleTerm = (t: string) =>
+    setTermFilter((prev) => (prev === t ? '' : t));
 
   const programColumns = React.useMemo<ColumnDef<ProgramSummary>[]>(
     () => [
@@ -70,7 +101,10 @@ export default function FeiyueStatsPage({
     b.localeCompare(a)
   );
 
-  const maxGpaCount = Math.max(...stats.gpa_distribution.map((d) => d.count));
+  const maxGpaCount = Math.max(
+    ...stats.gpa_distribution.map((d) => d.count),
+    1
+  );
 
   return (
     <Layout>
@@ -82,18 +116,37 @@ export default function FeiyueStatsPage({
       <main>
         <section className={clsx(isLoaded && 'fade-in-start')}>
           <div className='layout py-12'>
-            <div data-fade='0'>
+            <h1 className='text-3xl md:text-5xl' data-fade='0'>
+              <Accent>飞跃统计</Accent>
+            </h1>
+
+            <div className='mt-4' data-fade='1'>
               <FeiyueNav />
             </div>
 
-            <h1 className='mt-4 text-3xl md:text-5xl' data-fade='1'>
-              <Accent>飞跃统计</Accent>
-            </h1>
+            {/* Term filter */}
+            <div
+              className='mt-6 flex flex-wrap items-baseline gap-2 text-sm text-gray-600 dark:text-gray-300'
+              data-fade='2'
+            >
+              <span className='font-medium'>学期：</span>
+              <Tag onClick={() => toggleTerm('recent-1')}>
+                {termFilter === 'recent-1' ? <Accent>近一年</Accent> : '近一年'}
+              </Tag>
+              <Tag onClick={() => toggleTerm('recent-3')}>
+                {termFilter === 'recent-3' ? <Accent>近三年</Accent> : '近三年'}
+              </Tag>
+              {allYears.map((y) => (
+                <Tag key={y} onClick={() => toggleTerm(String(y))}>
+                  {termFilter === String(y) ? <Accent>{y}</Accent> : String(y)}
+                </Tag>
+              ))}
+            </div>
 
             {/* Overview cards */}
             <div
               className='mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4'
-              data-fade='2'
+              data-fade='3'
             >
               <StatsCard label='申请人数' value={stats.total_applicants} />
               <StatsCard label='申请总数' value={stats.total_applications} />
@@ -108,13 +161,13 @@ export default function FeiyueStatsPage({
             {/* Per-term breakdown */}
             <h2
               className='mt-10 text-xl font-bold text-gray-900 dark:text-gray-100'
-              data-fade='3'
+              data-fade='4'
             >
               各学期统计
             </h2>
             <div
               className='mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'
-              data-fade='4'
+              data-fade='5'
             >
               {termEntries.map(([term, data]) => (
                 <div
@@ -136,11 +189,11 @@ export default function FeiyueStatsPage({
             {/* GPA distribution */}
             <h2
               className='mt-10 text-xl font-bold text-gray-900 dark:text-gray-100'
-              data-fade='5'
+              data-fade='6'
             >
               GPA 分布
             </h2>
-            <div className='mt-4 space-y-3' data-fade='6'>
+            <div className='mt-4 space-y-3' data-fade='7'>
               {stats.gpa_distribution.map((d) => (
                 <div key={d.range} className='flex items-center gap-3'>
                   <span className='w-16 text-right text-sm text-gray-600 dark:text-gray-400'>
@@ -168,15 +221,17 @@ export default function FeiyueStatsPage({
             {/* Top programs */}
             <h2
               className='mt-10 text-xl font-bold text-gray-900 dark:text-gray-100'
-              data-fade='7'
+              data-fade='8'
             >
               热门项目
             </h2>
-            <div data-fade='8'>
+            <div data-fade='9'>
               <Table
                 className='mt-4'
                 data={stats.top_programs}
                 columns={programColumns}
+                withPagination
+                pageSize={10}
               />
             </div>
           </div>
@@ -188,5 +243,6 @@ export default function FeiyueStatsPage({
 
 export async function getStaticProps() {
   const stats: FeiyueStats = await getStats();
-  return { props: { stats } };
+  const allDatapoints: Datapoint[] = await getAllDatapoints();
+  return { props: { stats, allDatapoints } };
 }

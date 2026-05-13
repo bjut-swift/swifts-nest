@@ -29,13 +29,34 @@ export default function FeiyuePage({
   const [search, setSearch] = React.useState('');
   const [majorFilter, setMajorFilter] = React.useState('');
   const [directionFilter, setDirectionFilter] = React.useState('');
+  const [termFilter, setTermFilter] = React.useState('');
 
   const terms = Object.keys(applicantsByTerm).sort().reverse();
+
+  const allYears = React.useMemo(() => {
+    const years = new Set<number>();
+    for (const term of terms) {
+      const y = parseInt(term.split(' ')[0], 10);
+      if (!isNaN(y)) years.add(y);
+    }
+    return Array.from(years).sort((a, b) => b - a);
+  }, [terms]);
+
+  const currentYear = new Date().getFullYear();
+
+  const matchesTerm = (term: string) => {
+    if (!termFilter) return true;
+    const year = parseInt(term.split(' ')[0], 10);
+    if (termFilter === 'recent-1') return year >= currentYear;
+    if (termFilter === 'recent-3') return year >= currentYear - 2;
+    return term.startsWith(termFilter);
+  };
 
   const filteredByTerm = React.useMemo(() => {
     const result: Record<string, ApplicantSummary[]> = {};
 
     for (const term of terms) {
+      if (!matchesTerm(term)) continue;
       const filtered = applicantsByTerm[term].filter((a) => {
         if (majorFilter && a.major !== majorFilter) return false;
         if (directionFilter && !a.directions.includes(directionFilter))
@@ -55,7 +76,15 @@ export default function FeiyuePage({
     }
 
     return result;
-  }, [applicantsByTerm, terms, search, majorFilter, directionFilter]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    applicantsByTerm,
+    terms,
+    search,
+    majorFilter,
+    directionFilter,
+    termFilter,
+  ]);
 
   const totalCount = Object.values(filteredByTerm).reduce(
     (sum, arr) => sum + arr.length,
@@ -66,26 +95,28 @@ export default function FeiyuePage({
     setMajorFilter((prev) => (prev === m ? '' : m));
   const toggleDirection = (d: string) =>
     setDirectionFilter((prev) => (prev === d ? '' : d));
+  const toggleTerm = (t: string) =>
+    setTermFilter((prev) => (prev === t ? '' : t));
 
   return (
     <Layout>
       <Seo
         templateTitle='飞跃手册'
-        description='收集并展示北京工业大学学生出国申请案例，帮助同学们了解往届学长学姐的申请情况，为自己的申请提供参考。'
+        description='北京工业大学飞跃手册 — 一份由工大学子共建的留学申请经验手册，了解学长学姐的申请背景、选校策略和最终去向。'
       />
 
       <main>
         <section className={clsx(isLoaded && 'fade-in-start')}>
           <div className='layout py-12'>
             <h1 className='text-3xl md:text-5xl' data-fade='0'>
-              <Accent>飞跃手册</Accent>
+              <Accent>北京工业大学飞跃手册</Accent>
             </h1>
             <p className='mt-2 text-gray-600 dark:text-gray-300' data-fade='1'>
-              收集并展示北京工业大学学生出国申请案例，帮助同学们了解往届学长学姐的申请情况，为自己的申请提供参考。
+              欢迎！这是一份由工大学子共建的留学申请经验手册，希望能为申请各阶段中的你提供帮助和参考。在这里，你可以了解到学长学姐们的申请背景、选校策略和最终去向。
             </p>
 
             <div className='mt-6' data-fade='2'>
-              <FeiyueNav />
+              <FeiyueNav hideSearch />
             </div>
 
             <StyledInput
@@ -117,6 +148,24 @@ export default function FeiyuePage({
               {directions.map((d) => (
                 <Tag key={d} onClick={() => toggleDirection(d)}>
                   {directionFilter === d ? <Accent>{d}</Accent> : d}
+                </Tag>
+              ))}
+            </div>
+
+            <div
+              className='mt-2 flex flex-wrap items-baseline justify-start gap-2 text-sm text-gray-600 dark:text-gray-300'
+              data-fade='5'
+            >
+              <span className='font-medium'>学期：</span>
+              <Tag onClick={() => toggleTerm('recent-1')}>
+                {termFilter === 'recent-1' ? <Accent>近一年</Accent> : '近一年'}
+              </Tag>
+              <Tag onClick={() => toggleTerm('recent-3')}>
+                {termFilter === 'recent-3' ? <Accent>近三年</Accent> : '近三年'}
+              </Tag>
+              {allYears.map((y) => (
+                <Tag key={y} onClick={() => toggleTerm(String(y))}>
+                  {termFilter === String(y) ? <Accent>{y}</Accent> : String(y)}
                 </Tag>
               ))}
             </div>
@@ -186,7 +235,7 @@ function TermSection({
                     <Td>
                       <UnstyledLink
                         href={`/feiyue/applicant/${a.id}`}
-                        className='font-medium text-primary-400 hover:text-primary-500'
+                        className='animated-underline font-medium text-primary-400 hover:text-primary-500'
                       >
                         {a.name}
                       </UnstyledLink>

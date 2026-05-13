@@ -95,11 +95,11 @@ export default function ApplicantPage({
         <section className={clsx(isLoaded && 'fade-in-start')}>
           <div className='layout py-12'>
             <div data-fade='0'>
-              <FeiyueNav />
+              <ApplicantProfile applicant={applicant} />
             </div>
 
             <div className='mt-4' data-fade='1'>
-              <ApplicantProfile applicant={applicant} />
+              <FeiyueNav />
             </div>
 
             <h2

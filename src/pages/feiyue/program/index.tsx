@@ -43,14 +43,7 @@ export default function ProgramIndexPage({
       <main>
         <section className={clsx(isLoaded && 'fade-in-start')}>
           <div className='layout py-12'>
-            <div data-fade='0'>
-              <FeiyueNav />
-            </div>
-
-            <div
-              className='mt-4 flex items-center justify-between'
-              data-fade='1'
-            >
+            <div className='flex items-center justify-between' data-fade='0'>
               <h1 className='text-3xl md:text-5xl'>
                 <Accent>按项目查看</Accent>
               </h1>
@@ -64,6 +57,10 @@ export default function ProgramIndexPage({
               >
                 {showFull ? '显示缩写' : '显示全名'}
               </button>
+            </div>
+
+            <div className='mt-4' data-fade='1'>
+              <FeiyueNav />
             </div>
 
             <div className='mt-6 flex flex-col gap-8 lg:flex-row' data-fade='2'>

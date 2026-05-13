@@ -4,7 +4,11 @@ import * as React from 'react';
 import Markdown from 'react-markdown';
 
 import { getResultDisplay } from '@/lib/feiyue.client';
-import { getAllApplicants, getAllMajors } from '@/lib/feiyue.server';
+import {
+  getAllApplicants,
+  getAllMajors,
+  SCHOOL_ALIASES,
+} from '@/lib/feiyue.server';
 import useLoaded from '@/hooks/useLoaded';
 
 import Accent from '@/components/Accent';
@@ -33,6 +37,25 @@ const RESULT_OPTIONS: ApplicationResult[] = [
   'unknown',
 ];
 
+const SCHOLARSHIP_OPTIONS = [
+  '全额奖学金',
+  '半额奖学金',
+  'TA',
+  'RA',
+  'Tuition Waiver',
+  '部分奖学金',
+];
+
+function buildTermOptions(): string[] {
+  const currentYear = new Date().getFullYear();
+  const terms: string[] = [];
+  for (let y = currentYear + 1; y >= currentYear - 4; y--) {
+    terms.push(`${y} Fall`, `${y} Spring`);
+  }
+  return terms;
+}
+const TERM_OPTIONS = buildTermOptions();
+
 const SUMMARY_DEFAULT = `## 背景
 
 （请介绍你的 GPA、排名、语言成绩、科研/实习经历等基本情况）
@@ -53,8 +76,10 @@ type AppEntry = {
   degree: DegreeType;
   degreeCustom: string;
   term: string;
+  termCustom: string;
   result: ApplicationResult;
   final: boolean;
+  scholarshipOption: string;
   scholarship: string;
   note: string;
 };
@@ -83,9 +108,11 @@ const emptyApp: AppEntry = {
   program: '',
   degree: 'MSc',
   degreeCustom: '',
-  term: '',
+  term: TERM_OPTIONS[0],
+  termCustom: '',
   result: 'pending',
   final: false,
+  scholarshipOption: '',
   scholarship: '',
   note: '',
 };
@@ -122,7 +149,9 @@ function getValidationErrors(form: FormData): string[] {
     const app = form.applications[i];
     if (!app.school.trim()) errors.push(`申请 #${i + 1}：学校未填写`);
     if (!app.program.trim()) errors.push(`申请 #${i + 1}：项目未填写`);
-    if (!app.term.trim()) errors.push(`申请 #${i + 1}：学期未填写`);
+    const actualTerm =
+      app.term === 'Other' ? app.termCustom.trim() : app.term.trim();
+    if (!actualTerm) errors.push(`申请 #${i + 1}：学期未填写`);
   }
   const finals = form.applications.filter((a) => a.final);
   if (finals.length > 1) errors.push('最终去向只能有一条');
@@ -196,11 +225,19 @@ function generateMarkdown(form: FormData, id: string): string {
         ? app.degreeCustom.trim()
         : app.degree;
     lines.push(`    degree: ${yamlStr(deg)}`);
-    lines.push(`    term: ${yamlStr(app.term)}`);
+    const actualTerm =
+      app.term === 'Other' && app.termCustom.trim()
+        ? app.termCustom.trim()
+        : app.term;
+    lines.push(`    term: ${yamlStr(actualTerm)}`);
     lines.push(`    result: ${app.result}`);
     lines.push(`    final: ${app.final}`);
-    if (app.scholarship.trim())
-      lines.push(`    scholarship: ${yamlStr(app.scholarship)}`);
+    const actualScholarship =
+      app.scholarshipOption === 'Other'
+        ? app.scholarship.trim()
+        : app.scholarshipOption;
+    if (actualScholarship)
+      lines.push(`    scholarship: ${yamlStr(actualScholarship)}`);
     if (app.note.trim()) lines.push(`    note: ${yamlStr(app.note)}`);
   }
   lines.push('---');
@@ -217,9 +254,13 @@ function buildGitHubUrl(id: string, markdown: string): string {
   return `https://github.com/bjut-swift/swifts-nest/new/main/src/contents/feiyue?filename=${filename}&value=${encoded}`;
 }
 
+type SchoolOption = { name: string; aliases: string };
+
 export default function ContributePage({
   existingMajors,
   nextSerial,
+  schools,
+  existingPrograms,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const isLoaded = useLoaded();
   const STORAGE_KEY = 'feiyue-contribute-draft';
@@ -247,6 +288,24 @@ export default function ContributePage({
 
   const [majorSuggestions, setMajorSuggestions] = React.useState<string[]>([]);
   const [showMajorList, setShowMajorList] = React.useState(false);
+
+  const schoolOptions = React.useMemo(
+    () =>
+      schools.map((s) => ({
+        label: s.name,
+        searchText: `${s.name} ${s.aliases}`,
+      })),
+    [schools]
+  );
+
+  const programOptions = React.useMemo(
+    () =>
+      existingPrograms.map((p) => ({
+        label: p,
+        searchText: p,
+      })),
+    [existingPrograms]
+  );
 
   React.useEffect(() => {
     try {
@@ -340,15 +399,16 @@ export default function ContributePage({
       <main>
         <section className={clsx(isLoaded && 'fade-in-start')}>
           <div className='layout py-12'>
-            <div data-fade='0'>
-              <FeiyueNav />
-            </div>
-            <h1 className='mt-4 text-3xl md:text-5xl' data-fade='1'>
+            <h1 className='text-3xl md:text-5xl' data-fade='0'>
               <Accent>贡献数据</Accent>
             </h1>
-            <p className='mt-2 text-gray-600 dark:text-gray-300' data-fade='2'>
+            <p className='mt-2 text-gray-600 dark:text-gray-300' data-fade='1'>
               填写信息 → 撰写申请总结 → 一键提交到 GitHub
             </p>
+
+            <div className='mt-4' data-fade='2'>
+              <FeiyueNav />
+            </div>
 
             {/* Collapsible form sections */}
             <div className='mt-8 space-y-3' data-fade='3'>
@@ -508,17 +568,19 @@ export default function ContributePage({
                     </div>
                     <Row className='mt-3'>
                       <Field label='学校 *'>
-                        <Input
+                        <AutocompleteInput
                           value={app.school}
                           onChange={(v) => updateApp(i, { school: v })}
-                          placeholder='The University of Hong Kong'
+                          placeholder='输入校名、缩写或中文'
+                          options={schoolOptions}
                         />
                       </Field>
                       <Field label='项目 *'>
-                        <Input
+                        <AutocompleteInput
                           value={app.program}
                           onChange={(v) => updateApp(i, { program: v })}
                           placeholder='Computer Science'
+                          options={programOptions}
                         />
                       </Field>
                     </Row>
@@ -549,11 +611,30 @@ export default function ContributePage({
                         )}
                       </Field>
                       <Field label='学期 *'>
-                        <Input
+                        <select
                           value={app.term}
-                          onChange={(v) => updateApp(i, { term: v })}
-                          placeholder='2026 Fall'
-                        />
+                          onChange={(e) =>
+                            updateApp(i, {
+                              term: e.target.value,
+                              termCustom: '',
+                            })
+                          }
+                          className={selectClass}
+                        >
+                          {TERM_OPTIONS.map((t) => (
+                            <option key={t} value={t}>
+                              {t}
+                            </option>
+                          ))}
+                          <option value='Other'>Other</option>
+                        </select>
+                        {app.term === 'Other' && (
+                          <Input
+                            value={app.termCustom}
+                            onChange={(v) => updateApp(i, { termCustom: v })}
+                            placeholder='如 2020 Fall'
+                          />
+                        )}
                       </Field>
                       <Field label='结果 *'>
                         <select
@@ -575,11 +656,31 @@ export default function ContributePage({
                     </Row>
                     <Row className='mt-2'>
                       <Field label='奖学金'>
-                        <Input
-                          value={app.scholarship}
-                          onChange={(v) => updateApp(i, { scholarship: v })}
-                          placeholder='全奖 / 半奖'
-                        />
+                        <select
+                          value={app.scholarshipOption}
+                          onChange={(e) =>
+                            updateApp(i, {
+                              scholarshipOption: e.target.value,
+                              scholarship: '',
+                            })
+                          }
+                          className={selectClass}
+                        >
+                          <option value=''>无</option>
+                          {SCHOLARSHIP_OPTIONS.map((s) => (
+                            <option key={s} value={s}>
+                              {s}
+                            </option>
+                          ))}
+                          <option value='Other'>Other</option>
+                        </select>
+                        {app.scholarshipOption === 'Other' && (
+                          <Input
+                            value={app.scholarship}
+                            onChange={(v) => updateApp(i, { scholarship: v })}
+                            placeholder='请填写奖学金名称'
+                          />
+                        )}
                       </Field>
                       <Field label='备注'>
                         <Input
@@ -853,6 +954,82 @@ function Input({
   );
 }
 
+function AutocompleteInput({
+  value,
+  onChange,
+  placeholder,
+  options,
+}: {
+  value: string;
+  onChange: (v: string) => void;
+  placeholder?: string;
+  options: { label: string; searchText: string }[];
+}) {
+  const [open, setOpen] = React.useState(false);
+  const ref = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node))
+        setOpen(false);
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  const filtered = React.useMemo(() => {
+    if (!value.trim()) return options.slice(0, 8);
+    const q = value.trim().toLowerCase();
+    return options
+      .filter((o) => o.searchText.toLowerCase().includes(q))
+      .slice(0, 8);
+  }, [value, options]);
+
+  return (
+    <div className='relative' ref={ref}>
+      <input
+        type='text'
+        value={value}
+        onChange={(e) => {
+          onChange(e.target.value);
+          setOpen(true);
+        }}
+        onFocus={() => setOpen(true)}
+        placeholder={placeholder}
+        className={clsx(
+          'w-full rounded-md dark:bg-dark',
+          'border border-gray-300 dark:border-gray-600',
+          'focus:border-primary-300 focus:outline-none focus:ring-0 dark:focus:border-primary-300',
+          'text-sm'
+        )}
+      />
+      {open && filtered.length > 0 && (
+        <ul className='absolute z-20 mt-1 max-h-48 w-full overflow-auto rounded-md border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-dark'>
+          {filtered.map((o) => (
+            <li key={o.label}>
+              <button
+                type='button'
+                onClick={() => {
+                  onChange(o.label);
+                  setOpen(false);
+                }}
+                className='w-full px-3 py-2 text-left text-sm hover:bg-primary-300/10'
+              >
+                <span className='font-medium'>{o.label}</span>
+                {o.searchText !== o.label && (
+                  <span className='ml-2 text-xs text-gray-400'>
+                    {o.searchText.replace(o.label, '').trim()}
+                  </span>
+                )}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
 function CommaInput({
   value,
   onChange,
@@ -890,10 +1067,24 @@ function CommaInput({
 export async function getStaticProps() {
   const majors = await getAllMajors();
   const applicants = await getAllApplicants();
+
+  const schools: SchoolOption[] = Object.entries(SCHOOL_ALIASES).map(
+    ([name, aliases]) => ({ name, aliases })
+  );
+
+  const programSet = new Set<string>();
+  for (const a of applicants) {
+    for (const app of a.applications) {
+      programSet.add(app.program);
+    }
+  }
+
   return {
     props: {
       existingMajors: majors.map((m) => m.name).sort(),
       nextSerial: applicants.length + 1,
+      schools,
+      existingPrograms: Array.from(programSet).sort(),
     },
   };
 }

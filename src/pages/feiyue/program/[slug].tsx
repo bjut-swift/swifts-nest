@@ -71,19 +71,19 @@ export default function ProgramPage({
       <main>
         <section className={clsx(isLoaded && 'fade-in-start')}>
           <div className='layout py-12'>
-            <div data-fade='0'>
-              <FeiyueNav />
-            </div>
-
             <h1
-              className='mt-4 text-2xl font-bold text-gray-900 dark:text-gray-100 md:text-4xl'
-              data-fade='1'
+              className='text-2xl font-bold text-gray-900 dark:text-gray-100 md:text-4xl'
+              data-fade='0'
             >
               <Accent>{program.program}</Accent>
               <span className='ml-2 text-lg font-normal text-gray-500 dark:text-gray-400'>
                 {program.degree} @ {program.school}
               </span>
             </h1>
+
+            <div className='mt-4' data-fade='1'>
+              <FeiyueNav />
+            </div>
 
             <div
               className='mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4'

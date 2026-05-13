@@ -51,16 +51,16 @@ export default function MajorDetailPage(
       <main>
         <section className={clsx(isLoaded && 'fade-in-start')}>
           <div className='layout py-12'>
-            <div data-fade='0'>
-              <FeiyueNav />
-            </div>
-
             <h1
-              className='mt-4 text-2xl font-bold text-gray-900 dark:text-gray-100 md:text-4xl'
-              data-fade='1'
+              className='text-2xl font-bold text-gray-900 dark:text-gray-100 md:text-4xl'
+              data-fade='0'
             >
               {props.name}
             </h1>
+
+            <div className='mt-4' data-fade='1'>
+              <FeiyueNav />
+            </div>
 
             {/* Stats cards */}
             <div
@@ -139,7 +139,7 @@ export default function MajorDetailPage(
                                 <Td>
                                   <UnstyledLink
                                     href={`/feiyue/applicant/${a.id}`}
-                                    className='font-medium text-primary-400 hover:text-primary-500'
+                                    className='animated-underline font-medium text-primary-400 hover:text-primary-500'
                                   >
                                     {a.name}
                                   </UnstyledLink>

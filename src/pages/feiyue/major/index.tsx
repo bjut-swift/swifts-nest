@@ -28,13 +28,13 @@ export default function MajorIndexPage({
       <main>
         <section className={clsx(isLoaded && 'fade-in-start')}>
           <div className='layout py-12'>
-            <div data-fade='0'>
-              <FeiyueNav />
-            </div>
-
-            <h1 className='mt-4 text-3xl md:text-5xl' data-fade='1'>
+            <h1 className='text-3xl md:text-5xl' data-fade='0'>
               <Accent>按专业查看</Accent>
             </h1>
+
+            <div className='mt-4' data-fade='1'>
+              <FeiyueNav />
+            </div>
 
             <ul className='mt-8 space-y-3' data-fade='2'>
               {majors.map((major) => (

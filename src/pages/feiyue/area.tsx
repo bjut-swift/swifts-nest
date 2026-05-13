@@ -34,13 +34,13 @@ export default function AreaPage({
       <main>
         <section className={clsx(isLoaded && 'fade-in-start')}>
           <div className='layout py-12'>
-            <div data-fade='0'>
-              <FeiyueNav />
-            </div>
-
-            <h1 className='mt-4 text-3xl md:text-5xl' data-fade='1'>
+            <h1 className='text-3xl md:text-5xl' data-fade='0'>
               <Accent>按方向查看</Accent>
             </h1>
+
+            <div className='mt-4' data-fade='1'>
+              <FeiyueNav />
+            </div>
 
             {/* Tag navigation */}
             <div className='mt-6 flex flex-wrap gap-2' data-fade='2'>
@@ -80,7 +80,7 @@ export default function AreaPage({
                                 <Td>
                                   <UnstyledLink
                                     href={`/feiyue/applicant/${a.id}`}
-                                    className='font-medium text-primary-400 hover:text-primary-500'
+                                    className='animated-underline font-medium text-primary-400 hover:text-primary-500'
                                   >
                                     {a.name}
                                   </UnstyledLink>

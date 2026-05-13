@@ -90,7 +90,7 @@ export async function getAllDatapoints(): Promise<Datapoint[]> {
     applicant.applications.map((app) => ({
       ...app,
       applicant_id: applicant.id,
-      applicant_name: applicant.anonymous ? '匿名' : applicant.name,
+      applicant_name: applicant.name,
       applicant_major: applicant.undergraduate.major,
       applicant_gpa: applicant.undergraduate.gpa,
       applicant_gpa_scale: applicant.undergraduate.gpa_scale,
@@ -268,7 +268,7 @@ export type SearchEntry = {
   href: string;
 };
 
-const SCHOOL_ALIASES: Record<string, string> = {
+export const SCHOOL_ALIASES: Record<string, string> = {
   // North America - Ivy League
   'Harvard University': 'Harvard 哈佛',
   'Yale University': 'Yale 耶鲁',
