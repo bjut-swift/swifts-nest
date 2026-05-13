@@ -68,7 +68,7 @@
         "eslint-config-next": "^14.2.35",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-simple-import-sort": "12.1.1",
-        "eslint-plugin-unused-imports": "3.2.0",
+        "eslint-plugin-unused-imports": "4.4.1",
         "gray-matter": "^4.0.3",
         "husky": "^9.1.7",
         "lint-staged": "^17.0.4",
@@ -1097,9 +1097,7 @@
 
     "eslint-plugin-simple-import-sort": ["eslint-plugin-simple-import-sort@12.1.1", "", { "peerDependencies": { "eslint": ">=5.0.0" } }, "sha512-6nuzu4xwQtE3332Uz0to+TxDQYRLTKRESSc2hefVT48Zc8JthmN23Gx9lnYhu0FtkRSL1oxny3kJ2aveVhmOVA=="],
 
-    "eslint-plugin-unused-imports": ["eslint-plugin-unused-imports@3.2.0", "", { "dependencies": { "eslint-rule-composer": "^0.3.0" }, "peerDependencies": { "@typescript-eslint/eslint-plugin": "6 - 7", "eslint": "8" }, "optionalPeers": ["@typescript-eslint/eslint-plugin"] }, "sha512-6uXyn6xdINEpxE1MtDjxQsyXB37lfyO2yKGVVgtD7WEWQGORSOZjgrD6hBhvGv4/SO+TOlS+UnC6JppRqbuwGQ=="],
-
-    "eslint-rule-composer": ["eslint-rule-composer@0.3.0", "https://registry.npmmirror.com/eslint-rule-composer/-/eslint-rule-composer-0.3.0.tgz", {}, "sha512-bt+Sh8CtDmn2OajxvNO+BX7Wn4CIWMpTRm3MaiKPCQcnnlm0CS2mhui6QaoeQugs+3Kj2ESKEEGJUdVafwhiCg=="],
+    "eslint-plugin-unused-imports": ["eslint-plugin-unused-imports@4.4.1", "", { "peerDependencies": { "@typescript-eslint/eslint-plugin": "^8.0.0-0 || ^7.0.0 || ^6.0.0 || ^5.0.0", "eslint": "^10.0.0 || ^9.0.0 || ^8.0.0" }, "optionalPeers": ["@typescript-eslint/eslint-plugin"] }, "sha512-oZGYUz1X3sRMGUB+0cZyK2VcvRX5lm/vB56PgNNcU+7ficUCKm66oZWKUubXWnOuPjQ8PvmXtCViXBMONPe7tQ=="],
 
     "eslint-scope": ["eslint-scope@7.2.2", "", { "dependencies": { "esrecurse": "^4.3.0", "estraverse": "^5.2.0" } }, "sha512-dOt21O7lTMhDM+X9mB4GX+DZrZtCUJPL/wlcTqxyrx5IvO0IYtILdtrQGQp+8n5S0gwSVmOf9NQrjMOgfQZlIg=="],
 
