@@ -1,8 +1,6 @@
-import Tippy from '@tippyjs/react';
+import Tippy from '@tippyjs/react/headless';
 import clsx from 'clsx';
 import * as React from 'react';
-
-import 'tippy.js/dist/tippy.css';
 
 type TooltipTextProps = {
   tipChildren?: React.ReactNode;
@@ -22,17 +20,20 @@ export default function Tooltip({
   return (
     <Tippy
       interactive
-      content={
+      render={(attrs) => (
         <div
           className={clsx(
             className,
-            'dark:bg-dark inline-block rounded-md bg-white p-2 text-gray-600 shadow-md dark:text-gray-200',
-            'border dark:border-gray-600',
+            'dark:bg-dark rounded-lg bg-white px-3 py-2 text-sm text-gray-600 dark:text-gray-200',
+            'border border-gray-200 shadow-lg dark:border-gray-700',
+            'animate-in fade-in-0 zoom-in-95',
           )}
+          tabIndex={-1}
+          {...attrs}
         >
           {tipChildren}
         </div>
-      }
+      )}
     >
       {withUnderline ? (
         <span
