@@ -9,8 +9,6 @@ import GithubCard from '@/components/content/card/GithubCard';
 import { Pre } from '@/components/content/Pre';
 import SplitImage, { Split } from '@/components/content/SplitImage';
 import TweetCard from '@/components/content/TweetCard';
-import CloudinaryImg from '@/components/images/CloudinaryImg';
-
 const FeishuBaseEmbed = dynamic(() => import('@/components/FeishuBaseEmbed'), {
   ssr: false,
 });
@@ -27,7 +25,6 @@ const MDXComponents = {
   Image,
   pre: Pre,
   // code: CustomCode,
-  CloudinaryImg,
   NextImage,
   LiteYouTubeEmbed,
   SplitImage,

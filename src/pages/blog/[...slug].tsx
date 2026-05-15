@@ -27,7 +27,6 @@ import ReloadDevtool from '@/components/content/ReloadDevtool';
 import TableOfContents, {
   HeadingScrollSpy,
 } from '@/components/content/TableOfContents';
-import CloudinaryImg from '@/components/images/CloudinaryImg';
 import Layout from '@/components/layout/Layout';
 import CustomLink from '@/components/links/CustomLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
@@ -68,7 +67,7 @@ export default function SingleBlogPage({
   //#region  //*=========== Link Constants ===========
   const COMMIT_HISTORY_LINK = `https://github.com/bjut-swift/swifts-nest/commits/main/src/contents/blog/${frontmatter.slug}.mdx`;
   const GITHUB_EDIT_LINK = `https://github.com/bjut-swift/swifts-nest/blob/main/src/contents/blog/${frontmatter.slug}.mdx`;
-  const OG_BANNER_LINK = `https://res.cloudinary.com/theodorusclarence/image/upload/f_auto,g_auto,c_fill,ar_4:5,w_1200/theodorusclarence/banner/${frontmatter.banner}`;
+  const OG_BANNER_LINK = frontmatter.banner ?? '';
   //#endregion  //*======== Link Constants ===========
 
   //#region  //*=========== Blog Language ===========
@@ -128,21 +127,7 @@ export default function SingleBlogPage({
         <section className=''>
           <div className='layout'>
             <div className='pb-4 dark:border-gray-600'>
-              {frontmatter.banner &&
-              !(
-                frontmatter.banner.includes('https') ||
-                frontmatter.banner.includes('images')
-              ) ? (
-                <CloudinaryImg
-                  publicId={`theodorusclarence/banner/${frontmatter.banner}`}
-                  alt={`Photo from unsplash: ${frontmatter.banner}`}
-                  width={1200}
-                  height={(1200 * 2) / 5}
-                  aspect={{ height: 2, width: 5 }}
-                />
-              ) : frontmatter.banner &&
-                (frontmatter.banner.includes('https') ||
-                  frontmatter.banner.includes('images')) ? (
+              {frontmatter.banner ? (
                 <div
                   className='relative w-full overflow-hidden rounded-md'
                   style={{ paddingTop: '40%' }}
