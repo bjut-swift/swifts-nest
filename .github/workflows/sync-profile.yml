@@ -1,0 +1,17 @@
+name: Dispatch profile sync
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  dispatch:
+    if: contains(github.event.head_commit.message, '[sync-profile]')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger .github repo sync
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.ORG_DISPATCH_TOKEN }}
+          repository: bjut-swift/.github
+          event-type: sync-profile

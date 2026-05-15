@@ -6,6 +6,7 @@ import { SiGithub } from 'react-icons/si';
 import { InView } from 'react-intersection-observer';
 
 import { trackEvent } from '@/lib/analytics';
+import { generateContentJson } from '@/lib/content-json';
 import { getAllFilesFrontmatter, getFeatured } from '@/lib/mdx.server';
 import { generateRss } from '@/lib/rss';
 import useInjectContentMeta from '@/hooks/useInjectContentMeta';
@@ -376,6 +377,7 @@ export default function IndexPage({
 
 export async function getStaticProps() {
   generateRss();
+  await generateContentJson();
 
   const blogs = await getAllFilesFrontmatter('blog');
   const projects = await getAllFilesFrontmatter('projects');
