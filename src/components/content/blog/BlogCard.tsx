@@ -45,7 +45,7 @@ export default function BlogCard({
             >
               <Image
                 src={post.banner}
-                alt={`Photo from external link: ${post.banner}`}
+                alt={`${post.title} 封面图`}
                 fill
                 sizes='100vw'
                 style={{
