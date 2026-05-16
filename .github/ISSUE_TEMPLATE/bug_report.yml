@@ -1,71 +1,71 @@
-name: Bug Report
-description: Report a bug to help us improve
+name: Bug 报告
+description: 提交 Bug 报告，帮助我们改进项目
 title: "[Bug]: "
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to report a bug! Please fill out the form below.
+        感谢你花时间提交 Bug 报告！请填写以下表单。
 
   - type: textarea
     id: description
     attributes:
-      label: Bug Description
-      description: A clear and concise description of what the bug is.
-      placeholder: Describe the bug...
+      label: 问题描述
+      description: 清晰简洁地描述这个 Bug。
+      placeholder: 描述问题...
     validations:
       required: true
 
   - type: textarea
     id: steps
     attributes:
-      label: Steps to Reproduce
-      description: Steps to reproduce the behavior.
+      label: 复现步骤
+      description: 复现该问题的操作步骤。
       placeholder: |
-        1. Go to '...'
-        2. Click on '...'
-        3. Scroll down to '...'
-        4. See error
+        1. 打开 '...'
+        2. 点击 '...'
+        3. 滚动到 '...'
+        4. 出现错误
     validations:
       required: true
 
   - type: textarea
     id: expected
     attributes:
-      label: Expected Behavior
-      description: What you expected to happen.
+      label: 期望行为
+      description: 你期望发生什么。
     validations:
       required: true
 
   - type: textarea
     id: actual
     attributes:
-      label: Actual Behavior
-      description: What actually happened.
+      label: 实际行为
+      description: 实际发生了什么。
     validations:
       required: true
 
   - type: textarea
     id: screenshots
     attributes:
-      label: Screenshots
-      description: If applicable, add screenshots to help explain the problem.
+      label: 截图
+      description: 如有截图，请添加以帮助说明问题。
 
   - type: dropdown
     id: os
     attributes:
-      label: Operating System
+      label: 操作系统
       options:
         - Windows
         - macOS
         - Linux
-        - Other
+        - 其他
     validations:
       required: true
 
   - type: textarea
     id: additional
     attributes:
-      label: Additional Context
-      description: Any other context about the problem.
+      label: 补充信息
+      description: 其他与问题相关的上下文信息。
