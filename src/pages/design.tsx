@@ -16,17 +16,17 @@ export default function DesignPage() {
 
   return (
     <Layout>
-      <Seo templateTitle='Design' robots='noindex,nofollow' />
+      <Seo templateTitle='网站设计' robots='noindex,nofollow' />
 
       <main>
         <section className={clsx(isLoaded && 'fade-in-start')}>
           <div className='layout py-12'>
             <h1 data-fade='0'>
-              <Accent>Website's Design</Accent>
+              <Accent>网站设计</Accent>
             </h1>
 
             <p data-fade='1' className='mt-2 text-gray-600 dark:text-gray-300'>
-              bjutswift.cn color palette
+              bjutswift.cn 色彩方案
             </p>
 
             <div
@@ -42,7 +42,7 @@ export default function DesignPage() {
               </div>
 
               <p className='mt-1 text-sm text-gray-600 dark:text-gray-300'>
-                Font Family: Inter
+                字体：Inter
               </p>
 
               <div className='grid sm:grid-cols-2'>
@@ -60,37 +60,37 @@ export default function DesignPage() {
 
 const THEME_COLORS = [
   {
-    title: 'White Background',
+    title: '白色背景',
     subTitle: '#ffffff',
     colorClassName: 'bg-white',
   },
   {
-    title: 'Dark Background',
+    title: '深色背景',
     subTitle: '#0e1111',
     colorClassName: 'bg-dark',
   },
   {
-    title: 'Primary 200',
+    title: '主色 200',
     subTitle: '#dbff00',
     colorClassName: 'bg-primary-200',
   },
   {
-    title: 'Primary 300',
+    title: '主色 300',
     subTitle: '#00e887',
     colorClassName: 'bg-primary-300',
   },
   {
-    title: 'Primary 400',
+    title: '主色 400',
     subTitle: '#00e0f3',
     colorClassName: 'bg-primary-400',
   },
   {
-    title: 'Primary 500',
+    title: '主色 500',
     subTitle: '#00bfff',
     colorClassName: 'bg-primary-500',
   },
   {
-    title: 'Gradient',
+    title: '渐变色',
     subTitle: '#00e0f3 to #00bfff',
     colorClassName: 'bg-linear-to-tr/srgb from-primary-300 to-primary-500',
   },
