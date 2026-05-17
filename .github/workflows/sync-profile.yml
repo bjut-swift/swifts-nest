@@ -9,6 +9,29 @@ jobs:
     if: contains(github.event.head_commit.message, '[sync-profile]')
     runs-on: ubuntu-latest
     steps:
+      - name: Wait for Vercel deploy to succeed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for i in {1..60}; do
+            CONCLUSION=$(gh api \
+              "repos/${{ github.repository }}/commits/${{ github.sha }}/check-runs" \
+              --jq '.check_runs[] | select(.name | test("Vercel"; "i")) | .conclusion' \
+              | head -1)
+            if [ "$CONCLUSION" = "success" ]; then
+              echo "Vercel deploy succeeded"
+              exit 0
+            fi
+            if [ "$CONCLUSION" = "failure" ]; then
+              echo "Vercel deploy failed"
+              exit 1
+            fi
+            echo "Waiting for Vercel deploy... (attempt $i/60)"
+            sleep 10
+          done
+          echo "Timeout waiting for Vercel deploy"
+          exit 1
+
       - name: Trigger .github repo sync
         uses: peter-evans/repository-dispatch@v3
         with:
