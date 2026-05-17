@@ -29,7 +29,7 @@
 - [BJUT-LaTeX-Template](https://www.bjutswift.cn/projects/bjut-latex) - LaTeX 模板
 - [BJUT-PPT-Template](https://www.bjutswift.cn/projects/bjut-ppt-temple) - PPT 模板
 - [BJUT-CS](https://www.bjutswift.cn/projects/bjut-cs) - 计算机学院资源
-- [BJUT-Chaoxing](https://www.bjutswift.cn/projects/bjut-chaoxing) - 超星助手
+- [BJUT-Chaoxing](https://www.bjutswift.cn/projects/bjut-chaoxing) - 学习通任务一览插件
 
 ### [技术速查](https://www.bjutswift.cn/shorts)
 
