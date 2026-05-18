@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head>
+  <!-- ===== META STANDARDS ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Language" content="zh-CN">
+  
+  <!-- ===== SEO & SOCIAL ===== -->
+  <title>网站设计 | bjutswift.cn</title>
+  <meta name="description" content="bjutswift.cn 色彩方案 — 探索我们的设计系统，感受中文 Web 设计之美。">
+  <meta name="keywords" content="bjutswift.cn, 设计系统, 色彩方案, 网站设计, 前端, 中文">
+  <meta name="author" content="bjutswift.cn">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="bjutswift.cn">
+  <meta property="og:title" content="网站设计 | bjutswift.cn">
+  <meta property="og:description" content="bjutswift.cn 色彩方案 — 探索我们的设计系统。">
+  <meta property="og:url" content="https://bjutswift.cn/design">
+  <meta property="og:locale" content="zh_CN">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="网站设计 | bjutswift.cn">
+  <meta name="twitter:description" content="bjutswift.cn 色彩方案 — 探索我们的设计系统。">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://bjutswift.cn/design">
+
+  <!-- ===== PERFORMANCE ===== -->
+  <!-- Preconnect to Google Fonts origins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Preload main stylesheet -->
+  <link rel="preload" href="styles.css" as="style">
+  
+  <!-- ===== FONTS (optimised with display=swap) ===== -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- ===== STYLES ===== -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- ===== THEME & PWA ===== -->
+  <meta name="theme-color" content="#1a1a2e">
+  <meta name="color-scheme" content="light dark">
+  <!-- placeholder for manifest -->
+  <!-- <link rel="manifest" href="manifest.json"> -->
+
+  <!-- ===== SECURITY (Content Security Policy via meta – basic) ===== -->
+  <!-- For production, prefer HTTP headers; meta is a fallback -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'">
+
+  <!-- ===== FALLBACK ===== -->
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=?noscript=1">
+    <link rel="stylesheet" href="noscript.css">
+  </noscript>
+</head>
+
+<body>
+  <!-- Accessibility skip link -->
+  <a href="#main-content" class="skip-link" aria-label="跳转到主要内容">跳转到主要内容</a>
+
+  <!-- ===== ROOT CONTAINER ===== -->
+  <div id="root" role="main" aria-label="页面主要内容">
+    <!-- JS will render here; static fallback for noscript -->
+    <noscript>
+      <section class="noscript-fallback" aria-labelledby="noscript-title">
+        <h1 id="noscript-title">网站设计 — bjutswift.cn 色彩方案</h1>
+        <p>您的浏览器未启用 JavaScript，请启用后查看完整设计系统。</p>
+        <p>或访问 <a href="/">首页</a>。</p>
+      </section>
+    </noscript>
+  </div>
+
+  <!-- ===== SCRIPT (defer + type module) ===== -->
+  <script type="module" src="design.js" defer onerror="handleScriptError()"></script>
+
+  <!-- ===== INLINE ERROR HANDLER ===== -->
+  <script>
+    /**
+     * Handles script loading failure.
+     * Logs to console and displays user-friendly message.
+     * @param {Event} [event] - Error event (optional).
+     */
+    function handleScriptError(event) {
+      console.error('[DesignPage] Critical script failed to load:', event);
+      const root = document.getElementById('root');
+      if (root) {
+        root.innerHTML = `
+          <section style="padding:2rem;text-align:center;color:#d32f2f;">
+            <h1>加载失败</h1>
+            <p>很抱歉，设计页面因脚本错误无法正常显示。请刷新页面或稍后再试。</p>
+            <button onclick="location.reload()" style="padding:0.5rem 1rem;margin-top:1rem;cursor:pointer;">刷新页面</button>
+          </section>
+        `;
+      }
+    }
+
+    // Optional: global unhandled rejection listener
+    window.addEventListener('unhandledrejection', function(event) {
+      console.warn('[DesignPage] Unhandled Promise rejection:', event.reason);
+    });
+  </script>
+
+  <!-- ===== PERFORMANCE & CACHE ===== -->
+  <!-- Service worker registration (if needed) -->
+  <script>
+    if ('serviceWorker' in navigator && location.protocol === 'https:') {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').then(function(reg) {
+          console.log('Service worker registered with scope:', reg.scope);
+        }).catch(function(err) {
+          console.warn('Service worker registration failed:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
