@@ -1,0 +1,146 @@
+/*
+ * Global Font Configuration for Production
+ *
+ * This stylesheet defines @font-face declarations for the primary typefaces
+ * used across the application:
+ *   - Inter (Latin) – UI text, body copy, headings
+ *   - Noto Sans SC (CJK) – Simplified Chinese text, fallback for other CJK
+ *
+ * Performance & loading strategy:
+ *   - woff2 format with woff fallback (covers ~98% of browsers)
+ *   - `font-display: swap` reduces invisible text (FOIT) and improves LCP
+ *   - Local fonts checked first via `local()` to avoid network requests
+ *   - Narrow unicode-range subsets reduce file size and improve cache efficiency
+ *   - Font files served over HTTPS from Google Fonts CDN (fast, globally cached)
+ *   - Consider adding `<link rel="preconnect" href="https://fonts.gstatic.com">`
+ *     in HTML to warm up the connection.
+ *
+ * Security:
+ *   - All external URLs use HTTPS
+ *   - Subresource integrity (SRI) not provided by Google Fonts CDN;
+ *     consider self-hosting with SRI for critical paths.
+ *
+ * Fallback strategy:
+ *   - Inter: falls back to system-ui, sans-serif (defined via CSS custom property)
+ *   - Noto Sans SC: falls back to "PingFang SC", "Microsoft YaHei", sans-serif
+ *   - Both families are available via the custom property `--font-ui` / `--font-cjk`.
+ *
+ * Variable font alternative:
+ *   - Google Fonts also serves Inter as a variable font (single woff2 file for all weights).
+ *   - Uncomment the variable @font-face below to reduce the number of requests.
+ *   - Usage: `font-weight: 400;` to `700;` etc.
+ */
+
+/* CSS Custom Properties for consistent font family usage */
+:root {
+  --font-ui: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-cjk: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
+}
+
+/* ────────── Inter variable font (uncomment if preferred) ────────── */
+/*
+@font-face {
+  font-family: 'Inter Var';
+  font-style: normal;
+  font-weight: 100 900;                /* Variable weight range */
+  font-display: swap;
+  src: local('InterVariable'), local('Inter-Variable'),
+       url('https://fonts.gstatic.com/s/inter/v12/Inter-Variable.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+*/
+
+/* ────────── Inter — Regular (400) ────────── */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Inter'), local('Inter-Regular'),
+       url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2') format('woff2'),
+       url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff') format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ────────── Inter — Medium (500) ────────── */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Inter Medium'), local('Inter-Medium'),
+       url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hiJ-Ek-_EeA.woff2') format('woff2'),
+       url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hiJ-Ek-_EeA.woff') format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ────────── Inter — SemiBold (600) ────────── */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Inter SemiBold'), local('Inter-SemiBold'),
+       url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hiJ-Ek-_EeA.woff2') format('woff2'),
+       url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hiJ-Ek-_EeA.woff') format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ────────── Inter — Bold (700) ────────── */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Inter Bold'), local('Inter-Bold'),
+       url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZ9hiJ-Ek-_EeA.woff2') format('woff2'),
+       url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZ9hiJ-Ek-_EeA.woff') format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ────────── Noto Sans SC — Regular (400) ────────── */
+/*
+ * Unicode range covers:
+ *   - CJK Unified Ideographs (U+4E00-9FFF)
+ *   - CJK Extension A (U+3400-4DBF)
+ *   - Kangxi Radicals (U+2F00-2FDF)
+ *   - CJK Symbols and Punctuation (U+3000-303F)
+ *   - Fullwidth Forms (U+FF00-FFEF)
+ *   - General Punctuation (U+2000-206F)
+ *   - CJK Compatibility Ideographs (U+F900-FAFF, U+2F800-2FA1F)
+ */
+@font-face {
+  font-family: 'Noto Sans SC';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Noto Sans SC'), local('NotoSansSC-Regular'),
+       url('https://fonts.gstatic.com/s/notosanssc/v26/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_EnYxNbPzS5HE.woff2') format('woff2'),
+       url('https://fonts.gstatic.com/s/notosanssc/v26/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_EnYxNbPzS5HE.woff') format('woff');
+  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+2F00-2FDF, U+3000-303F, U+FF00-FFEF, U+2000-206F, U+3000-303F, U+3100-312F, U+31C0-31EF, U+3200-32FF, U+3300-33FF, U+FE00-FE0F, U+F900-FAFF, U+2F800-2FA1F;
+}
+
+/* ────────── Noto Sans SC — Medium (500) ────────── */
+@font-face {
+  font-family: 'Noto Sans SC';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Noto Sans SC Medium'), local('NotoSansSC-Medium'),
+       url('https://fonts.gstatic.com/s/notosanssc/v26/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_EnYxNbPzS5HE.woff2') format('woff2'),
+       url('https://fonts.gstatic.com/s/notosanssc/v26/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_EnYxNbPzS5HE.woff') format('woff');
+  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+2F00-2FDF, U+3000-303F, U+FF00-FFEF, U+2000-206F, U+3000-303F, U+3100-312F, U+31C0-31EF, U+3200-32FF, U+3300-33FF, U+FE00-FE0F, U+F900-FAFF, U+2F800-2FA1F;
+}
+
+/* ────────── Noto Sans SC — Bold (700) ────────── */
+@font-face {
+  font-family: 'Noto Sans SC';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Noto Sans SC Bold'), local('NotoSansSC-Bold'),
+       url('https://fonts.gstatic.com/s/notosanssc/v26/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_EnYxNbPzS5HE.woff2') format('woff2'),
+       url('https://fonts.gstatic.com/s/notosanssc/v26/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_EnYxNbPzS5HE.woff') format('woff');
+  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+2F00-2FDF, U+3000-303F, U+FF00-FFEF, U+2000-206F, U+3000-303F, U+3100-312F, U+31C0-31EF, U+3200-32FF, U+3300-33FF, U+FE00-FE0F, U+F900-FAFF, U+2F800-2FA1F;
+}

@@ -1,0 +1,751 @@
+/* ==========================================================================
+   Design System — Base Styles & CSS Custom Properties
+   Version: 3.0 | Maintainer: Design Team
+   License: MIT | Last Updated: 2025-03-21
+   ========================================================================== */
+
+/* ==========================================================================
+   #1. CSS Custom Properties (Design Tokens)
+   ========================================================================== */
+:root {
+  /* ------------------------------------------------------------------
+     1a. Typography
+     ------------------------------------------------------------------ */
+  --font-base: 'Noto Sans SC', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-headings: 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --font-scale: 1.25; /* Major third scale */
+  --font-size-body: 16px;
+  --font-size-h1: calc(var(--font-size-body, 16px) * 2.5); /* 40px at 16px base */
+  --font-size-h2: calc(var(--font-size-body, 16px) * 2);   /* 32px */
+  --font-size-h3: calc(var(--font-size-body, 16px) * 1.5); /* 24px */
+  --line-height-body: 1.6;
+  --line-height-heading: 1.2;
+
+  /* ------------------------------------------------------------------
+     1b. Colors (Light Theme)
+     ------------------------------------------------------------------ */
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8; /* Add for better state handling */
+  --color-secondary: #7c3aed;
+  --color-secondary-hover: #6d28d9;
+  --color-accent: #f59e0b;
+  --color-accent-hover: #d97706;
+  --color-neutral: #f8fafc;
+  --color-text: #0f172a;
+  --color-text-inverse: #f8fafc;
+  --color-background-light: #ffffff;
+  --color-background-dark: #0f172a;
+  --color-danger: #dc2626;
+  --color-success: #16a34a;
+
+  /* ------------------------------------------------------------------
+     1c. Spacing (4px base unit – modular scale)
+     ------------------------------------------------------------------ */
+  --spacing-unit: 4px;
+  --spacing-1: calc(var(--spacing-unit, 4px) * 1); /* 4px */
+  --spacing-2: calc(var(--spacing-unit, 4px) * 2); /* 8px */
+  --spacing-3: calc(var(--spacing-unit, 4px) * 3); /* 12px */
+  --spacing-4: calc(var(--spacing-unit, 4px) * 4); /* 16px */
+  --spacing-5: calc(var(--spacing-unit, 4px) * 5); /* 20px */
+  --spacing-6: calc(var(--spacing-unit, 4px) * 6); /* 24px */
+  --spacing-8: calc(var(--spacing-unit, 4px) * 8); /* 32px */
+  --spacing-10: calc(var(--spacing-unit, 4px) * 10); /* 40px */
+  --spacing-12: calc(var(--spacing-unit, 4px) * 12); /* 48px */
+
+  /* ------------------------------------------------------------------
+     1d. Border Radius
+     ------------------------------------------------------------------ */
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* ------------------------------------------------------------------
+     1e. Box Shadows (with fallback for high contrast)
+     ------------------------------------------------------------------ */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.12), 0 4px 6px rgba(0, 0, 0, 0.08);
+
+  /* ------------------------------------------------------------------
+     1f. Theme-Aware Variables (Light by default, overridden in dark)
+     ------------------------------------------------------------------ */
+  --bg-primary: var(--color-background-light, #ffffff);
+  --bg-secondary: var(--color-neutral, #f8fafc);
+  --bg-tertiary: #f1f5f9; /* Add for deeper layers */
+  --text-primary: var(--color-text, #0f172a);
+  --text-secondary: #475569;
+  --text-tertiary: #64748b;
+  --border-color: #e2e8f0;
+  --border-color-strong: #cbd5e1;
+  --overlay-color: rgba(0, 0, 0, 0.4);
+  --focus-ring-color: var(--color-primary, #2563eb);
+
+  /* ------------------------------------------------------------------
+     1g. Transition & Animation Speeds
+     ------------------------------------------------------------------ */
+  --transition-fast: 150ms;
+  --transition-base: 250ms;
+  --transition-slow: 350ms;
+  --easing-default: ease;
+  --easing-enter: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-exit: cubic-bezier(0.0, 0, 0.2, 1);
+
+  /* ------------------------------------------------------------------
+     1h. Z-index Scale
+     ------------------------------------------------------------------ */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal: 400;
+  --z-tooltip: 500;
+
+  /* ------------------------------------------------------------------
+     1i. Scrollbar styles (light)
+     ------------------------------------------------------------------ */
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-track: #f1f5f9;
+}
+
+/* ==========================================================================
+   #1.1 Dark Theme (via data attribute – explicit control)
+   ========================================================================== */
+[data-theme="dark"] {
+  --bg-primary: var(--color-background-dark, #0f172a);
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: var(--color-text-inverse, #f8fafc);
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --border-color: #334155;
+  --border-color-strong: #475569;
+  --overlay-color: rgba(0, 0, 0, 0.6);
+  --focus-ring-color: var(--color-accent, #f59e0b);
+  --scrollbar-thumb: #475569;
+  --scrollbar-track: #1e293b;
+
+  /* Shadow adjustments for dark mode */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   #1.2 Auto Dark Mode Fallback (if no data-theme set)
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-primary: var(--color-background-dark, #0f172a);
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --text-primary: var(--color-text-inverse, #f8fafc);
+    --text-secondary: #94a3b8;
+    --text-tertiary: #64748b;
+    --border-color: #334155;
+    --border-color-strong: #475569;
+    --overlay-color: rgba(0, 0, 0, 0.6);
+    --focus-ring-color: var(--color-accent, #f59e0b);
+    --scrollbar-thumb: #475569;
+    --scrollbar-track: #1e293b;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* ==========================================================================
+   #1.3 Forced Light Theme (override)
+   ========================================================================== */
+[data-theme="light"] {
+  /* Use root defaults – no override needed, but ensure consistency */
+  --bg-primary: var(--color-background-light, #ffffff);
+  --bg-secondary: var(--color-neutral, #f8fafc);
+  --bg-tertiary: #f1f5f9;
+  --text-primary: var(--color-text, #0f172a);
+  --text-secondary: #475569;
+  --text-tertiary: #64748b;
+  --border-color: #e2e8f0;
+  --border-color-strong: #cbd5e1;
+  --overlay-color: rgba(0, 0, 0, 0.4);
+  --focus-ring-color: var(--color-primary, #2563eb);
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-track: #f1f5f9;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.12), 0 4px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
+   #2. Responsive Typography (Viewport-Based Scaling)
+   ========================================================================== */
+@media (min-width: 640px) {
+  :root {
+    --font-size-body: 16px;
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    --font-size-body: 17px;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --font-size-body: 18px;
+  }
+}
+
+/* ==========================================================================
+   #3. Base Styles & Reset
+   ========================================================================== */
+
+/* Reset margins, padding, and box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Document-level defaults */
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-base);
+  font-size: var(--font-size-body, 16px);
+  line-height: var(--line-height-body, 1.6);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  transition: background-color var(--transition-base) var(--easing-default),
+              color var(--transition-base) var(--easing-default);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headings);
+  font-weight: 600;
+  line-height: var(--line-height-heading, 1.2);
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  color: var(--text-primary);
+}
+
+h1 { font-size: var(--font-size-h1, 2.5rem); }
+h2 { font-size: var(--font-size-h2, 2rem); }
+h3 { font-size: var(--font-size-h3, 1.5rem); }
+
+p {
+  margin-bottom: 1em;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast) var(--easing-default);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
+
+/* Focus visible for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm, 2px);
+}
+
+/* Remove default outline for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Code and preformatted text */
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.875em; /* 14px relative to body */
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-sm, 4px);
+}
+
+code {
+  padding: 0.125em 0.4em;
+  word-break: break-word;
+}
+
+pre {
+  overflow-x: auto;
+  padding: 1em;
+  background: var(--bg-secondary);
+  border-radius: var(--radius, 8px);
+  border: 1px solid var(--border-color);
+  line-height: 1.5;
+  tab-size: 4;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  border-radius: 0;
+}
+
+/* Images and media */
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  overflow-x: auto;
+  display: block; /* Make tables scrollable on small screens */
+}
+
+th,
+td {
+  padding: var(--spacing-2, 8px) var(--spacing-3, 12px);
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+/* Lists */
+ul, ol {
+  padding-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+li {
+  margin-bottom: 0.25em;
+}
+
+/* Buttons (reset) */
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius, 8px);
+  padding: var(--spacing-2, 8px) var(--spacing-3, 12px);
+  transition: border-color var(--transition-fast) var(--easing-default),
+              box-shadow var(--transition-fast) var(--easing-default);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--focus-ring-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); /* Fallback color */
+  outline: none;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+/* Scrollbar styling (webkit) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-color-strong);
+}
+
+/* ==========================================================================
+   #4. Utility Classes (Atomic Design)
+   ========================================================================== */
+
+/* 4a. Text colors */
+.text-primary { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
+.text-accent { color: var(--color-accent); }
+.text-inverse { color: var(--color-text-inverse); }
+.text-danger { color: var(--color-danger); }
+.text-success { color: var(--color-success); }
+.text-muted { color: var(--text-secondary); }
+
+/* 4b. Background colors */
+.bg-primary { background-color: var(--bg-primary); }
+.bg-secondary { background-color: var(--bg-secondary); }
+.bg-tertiary { background-color: var(--bg-tertiary); }
+.bg-dark { background-color: var(--color-background-dark); }
+
+/* 4c. Border radius */
+.rounded-sm { border-radius: var(--radius-sm, 4px); }
+.rounded { border-radius: var(--radius, 8px); }
+.rounded-lg { border-radius: var(--radius-lg, 12px); }
+.rounded-xl { border-radius: var(--radius-xl, 16px); }
+.rounded-full { border-radius: 9999px; }
+
+/* 4d. Shadows */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-none { box-shadow: none; }
+
+/* 4e. Spacing (padding) */
+.p-1 { padding: var(--spacing-1, 4px); }
+.p-2 { padding: var(--spacing-2, 8px); }
+.p-3 { padding: var(--spacing-3, 12px); }
+.p-4 { padding: var(--spacing-4, 16px); }
+.p-6 { padding: var(--spacing-6, 24px); }
+.p-8 { padding: var(--spacing-8, 32px); }
+
+.pt-1 { padding-top: var(--spacing-1); }
+.pt-2 { padding-top: var(--spacing-2); }
+.pt-4 { padding-top: var(--spacing-4); }
+.pt-8 { padding-top: var(--spacing-8); }
+
+.pb-1 { padding-bottom: var(--spacing-1); }
+.pb-2 { padding-bottom: var(--spacing-2); }
+.pb-4 { padding-bottom: var(--spacing-4); }
+.pb-8 { padding-bottom: var(--spacing-8); }
+
+.pl-1 { padding-left: var(--spacing-1); }
+.pl-2 { padding-left: var(--spacing-2); }
+.pl-4 { padding-left: var(--spacing-4); }
+.pr-1 { padding-right: var(--spacing-1); }
+.pr-2 { padding-right: var(--spacing-2); }
+.pr-4 { padding-right: var(--spacing-4); }
+
+.px-1 { padding-left: var(--spacing-1); padding-right: var(--spacing-1); }
+.px-2 { padding-left: var(--spacing-2); padding-right: var(--spacing-2); }
+.px-4 { padding-left: var(--spacing-4); padding-right: var(--spacing-4); }
+.py-1 { padding-top: var(--spacing-1); padding-bottom: var(--spacing-1); }
+.py-2 { padding-top: var(--spacing-2); padding-bottom: var(--spacing-2); }
+.py-4 { padding-top: var(--spacing-4); padding-bottom: var(--spacing-4); }
+
+/* 4f. Spacing (margin) */
+.m-0 { margin: 0; }
+.m-1 { margin: var(--spacing-1, 4px); }
+.m-2 { margin: var(--spacing-2, 8px); }
+.m-3 { margin: var(--spacing-3, 12px); }
+.m-4 { margin: var(--spacing-4, 16px); }
+.m-6 { margin: var(--spacing-6, 24px); }
+.m-8 { margin: var(--spacing-8, 32px); }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: var(--spacing-1); }
+.mt-2 { margin-top: var(--spacing-2); }
+.mt-4 { margin-top: var(--spacing-4); }
+.mt-8 { margin-top: var(--spacing-8); }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--spacing-1); }
+.mb-2 { margin-bottom: var(--spacing-2); }
+.mb-4 { margin-bottom: var(--spacing-4); }
+.mb-8 { margin-bottom: var(--spacing-8); }
+
+.ml-auto { margin-left: auto; }
+.mr-auto { margin-right: auto; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+/* 4g. Visibility & Layout */
+.hidden { display: none; }
+.block { display: block; }
+.inline { display: inline; }
+.inline-block { display: inline-block; }
+.flex { display: flex; }
+.grid { display: grid; }
+
+.flex-col { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-end { justify-content: flex-end; }
+.gap-1 { gap: var(--spacing-1); }
+.gap-2 { gap: var(--spacing-2); }
+.gap-4 { gap: var(--spacing-4); }
+.gap-6 { gap: var(--spacing-6); }
+
+/* 4h. Text utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-uppercase { text-transform: uppercase; }
+.text-capitalize { text-transform: capitalize; }
+.font-bold { font-weight: 700; }
+.font-medium { font-weight: 500; }
+.font-normal { font-weight: 400; }
+.text-sm { font-size: 0.875rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 4i. Sizing */
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.min-h-screen { min-height: 100vh; }
+
+/* 4j. Cursor */
+.cursor-pointer { cursor: pointer; }
+.cursor-default { cursor: default; }
+.cursor-not-allowed { cursor: not-allowed; }
+
+/* 4k. Transitions */
+.transition { transition: all var(--transition-base) var(--easing-default); }
+.transition-colors {
+  transition: background-color var(--transition-base) var(--easing-default),
+              color var(--transition-base) var(--easing-default),
+              border-color var(--transition-base) var(--easing-default);
+}
+.transition-transform {
+  transition: transform var(--transition-base) var(--easing-enter);
+}
+
+/* 4l. Overflow */
+.overflow-hidden { overflow: hidden; }
+.overflow-auto { overflow: auto; }
+.overflow-x-auto { overflow-x: auto; }
+.overflow-y-auto { overflow-y: auto; }
+
+/* 4m. Pointer Events */
+.pointer-events-none { pointer-events: none; }
+.pointer-events-auto { pointer-events: auto; }
+
+/* ==========================================================================
+   #5. Responsive Container
+   ========================================================================== */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-4, 16px);
+  padding-right: var(--spacing-4, 16px);
+  max-width: 100%;
+}
+
+@media (min-width: 480px) {
+  .container { max-width: 480px; }
+}
+@media (min-width: 640px) {
+  .container { max-width: 640px; }
+}
+@media (min-width: 768px) {
+  .container { max-width: 768px; }
+}
+@media (min-width: 1024px) {
+  .container { max-width: 1024px; }
+}
+@media (min-width: 1280px) {
+  .container { max-width: 1280px; }
+}
+@media (min-width: 1536px) {
+  .container { max-width: 1440px; }
+}
+
+/* ==========================================================================
+   #6. Enhanced Accessibility & Performance
+   ========================================================================== */
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+  :root {
+    --border-color: currentColor;
+    --border-color-strong: currentColor;
+    --shadow-sm: none;
+    --shadow-md: none;
+    --shadow-lg: none;
+  }
+  body {
+    text-shadow: none !important;
+  }
+  * {
+    outline-width: 2px !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  nav,
+  .no-print {
+    display: none !important;
+  }
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+}
+
+/* ==========================================================================
+   #7. Feature Detection & Progressive Enhancement
+   ========================================================================== */
+
+/* If the browser supports CSS Grid, use it for consistent layouts */
+@supports (display: grid) {
+  .grid-layout {
+    display: grid;
+  }
+}
+
+/* If the browser supports backdrop-filter, use for glassmorphism effects */
+@supports (backdrop-filter: blur(4px)) or (-webkit-backdrop-filter: blur(4px)) {
+  .glass {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+/* ==========================================================================
+   #8. Component Base Styles (Optional convenience classes)
+   ========================================================================== */
+
+/* Card component */
+.card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius, 8px);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-4, 16px);
+  transition: box-shadow var(--transition-fast) var(--easing-default),
+              transform var(--transition-fast) var(--easing-default);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Button base (extend with BEM or utility classes) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2, 8px);
+  padding: var(--spacing-2, 8px) var(--spacing-4, 16px);
+  font-family: var(--font-base);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius, 8px);
+  cursor: pointer;
+  transition: background-color var(--transition-fast) var(--easing-default),
+              color var(--transition-fast) var(--easing-default),
+              box-shadow var(--transition-fast) var(--easing-default),
+              transform var(--transition-fast) var(--easing-default);
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Badge component */
+.badge {
+  display: inline-block;
+  padding: 0.125em 0.5em;
+  font-size: 0.75em;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-text-inverse);
+  background-color: var(--color-primary);
+  border-radius: 9999px;
+}
+
+/* ==========================================================================
+   #9. Debug / Development Overlay (Only in dev mode)
+   ========================================================================== */
+/* Uncomment for debugging:
+[class*="grid"] {
+  outline: 1px dashed rgba(255, 0, 0, 0.3);
+}
+*/

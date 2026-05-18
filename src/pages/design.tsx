@@ -1,97 +1,55 @@
-import clsx from 'clsx';
+import React from 'react';
+import Head from 'next/head';
 import { useTheme } from 'next-themes';
-import * as React from 'react';
 
-import useLoaded from '@/hooks/useLoaded';
-
-import Accent from '@/components/Accent';
-import ThemeButton from '@/components/buttons/ThemeButton';
-import ColorSwatch from '@/components/ColorSwatch';
-import Layout from '@/components/layout/Layout';
-import Seo from '@/components/Seo';
-
-export default function DesignPage() {
-  const { theme } = useTheme();
-  const isLoaded = useLoaded();
+const DesignPage: React.FC = () => {
+  const { theme, setTheme } = useTheme();
 
   return (
-    <Layout>
-      <Seo templateTitle='网站设计' robots='noindex,nofollow' />
+    <>
+      <Head>
+        <title>设计 - bjutswift.cn</title>
+        <meta name="description" content="bjutswift.cn 设计页面" />
+      </Head>
+      <div className="min-h-screen p-8">
+        <h1 className="text-3xl font-bold mb-6">网站设计</h1>
 
-      <main>
-        <section className={clsx(isLoaded && 'fade-in-start')}>
-          <div className='layout py-12'>
-            <h1 data-fade='0'>
-              <Accent>网站设计</Accent>
-            </h1>
-
-            <p data-fade='1' className='mt-2 text-gray-600 dark:text-gray-300'>
-              bjutswift.cn 色彩方案
-            </p>
-
-            <div
-              data-fade='2'
-              className={clsx(
-                'mt-8 rounded-sm p-4',
-                'border-2 border-dashed border-gray-300 dark:border-gray-600',
-              )}
-            >
-              <div className='flex items-end justify-between'>
-                <h2 className='capitalize'>{theme} Mode</h2>
-                <ThemeButton />
-              </div>
-
-              <p className='mt-1 text-sm text-gray-600 dark:text-gray-300'>
-                字体：Inter
-              </p>
-
-              <div className='grid sm:grid-cols-2'>
-                {THEME_COLORS.map((color) => (
-                  <ColorSwatch key={color.title} {...color} />
-                ))}
-              </div>
-            </div>
+        <section className="mb-8">
+          <h2 className="text-xl font-semibold mb-2">色彩方案（bjutswift.cn）</h2>
+          <div className="flex gap-4">
+            <div className="w-12 h-12 rounded bg-blue-500" />
+            <div className="w-12 h-12 rounded bg-gray-200" />
+            <div className="w-12 h-12 rounded bg-white border" />
           </div>
         </section>
-      </main>
-    </Layout>
-  );
-}
 
-const THEME_COLORS = [
-  {
-    title: '白色背景',
-    subTitle: '#ffffff',
-    colorClassName: 'bg-white',
-  },
-  {
-    title: '深色背景',
-    subTitle: '#0e1111',
-    colorClassName: 'bg-dark',
-  },
-  {
-    title: '主色 200',
-    subTitle: '#dbff00',
-    colorClassName: 'bg-primary-200',
-  },
-  {
-    title: '主色 300',
-    subTitle: '#00e887',
-    colorClassName: 'bg-primary-300',
-  },
-  {
-    title: '主色 400',
-    subTitle: '#00e0f3',
-    colorClassName: 'bg-primary-400',
-  },
-  {
-    title: '主色 500',
-    subTitle: '#00bfff',
-    colorClassName: 'bg-primary-500',
-  },
-  {
-    title: '渐变色',
-    subTitle: '#00e0f3 to #00bfff',
-    colorClassName: 'bg-linear-to-tr/srgb from-primary-300 to-primary-500',
-  },
-];
+        <section className="mb-8">
+          <h2 className="text-xl font-semibold mb-2">字体：Inter</h2>
+          <p className="font-sans text-lg">
+            The quick brown fox jumps over the lazy dog.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold mb-2">背景模式</h2>
+          <div className="flex gap-4">
+            <button
+              onClick={() => setTheme('light')}
+              className={`px-4 py-2 rounded ${theme === 'light' ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}
+            >
+              浅色背景
+            </button>
+            <button
+              onClick={() => setTheme('dark')}
+              className={`px-4 py-2 rounded ${theme === 'dark' ? 'bg-blue-500 text-white' : 'bg-gray-800 text-white'}`}
+            >
+              深色背景
+            </button>
+          </div>
+        </section>
+      </div>
+    </>
+  );
+};
+
+export default DesignPage;

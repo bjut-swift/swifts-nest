@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <clipPath id="palette-clip">
+      <path d="M8 20C8 12.268 14.268 6 22 6h9a5 5 0 0 1 5 5v3c0 4.418 3.582 8 8 8h9.5a4.5 4.5 0 0 1 4.5 4.5V44c0 7.732-6.268 14-14 14H22C14.268 58 8 51.732 8 44V20Z"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#palette-clip)">
+    <rect x="0" y="0" width="64" height="58" rx="12" fill="#E2E8F0"/>
+    <!-- Palette body -->
+    <path d="M8 20c0-7.732 6.268-14 14-14h9a5 5 0 0 1 5 5v3c0 4.418 3.582 8 8 8h9.5a4.5 4.5 0 0 1 4.5 4.5V44c0 7.732-6.268 14-14 14H22C14.268 58 8 51.732 8 44V20Z" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5"/>
+    <!-- Paint blobs -->
+    <circle cx="18" cy="30" r="5" fill="#EF4444"/>
+    <circle cx="30" cy="22" r="5" fill="#3B82F6"/>
+    <circle cx="44" cy="28" r="5" fill="#10B981"/>
+    <circle cx="38" cy="42" r="5" fill="#F59E0B"/>
+    <circle cx="22" cy="44" r="5" fill="#8B5CF6"/>
+    <!-- Thumb hole -->
+    <circle cx="44" cy="38" r="3" fill="#CBD5E1"/>
+  </g>
+</svg>
