@@ -1,7 +1,0 @@
-{
-  "baseUrl": "https://www.bjutswift.cn",
-  "projectId": "zk1sui",
-  "retries": {
-    "runMode": 2
-  }
-}
