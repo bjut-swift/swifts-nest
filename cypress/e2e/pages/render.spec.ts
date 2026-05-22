@@ -9,41 +9,37 @@ describe('All Page', () => {
 
   it('should display index page', () => {
     cy.visit('/');
-    cy.get('h1').should('contain', 'BJUT SWIFT');
-  });
-
-  it('should display about page', () => {
-    cy.visit('/about');
-    cy.get('h1').should('contain', 'BJUT SWIFT');
+    cy.get('h1').should('contain', 'BJUT').and('contain', 'SWIFT');
+    cy.contains('a', '留言簿').should('be.visible');
   });
 
   it('should display blog page', () => {
     cy.visit('/blog');
-    cy.get('h1').should('contain', 'Blog');
+    cy.contains('h1', '专栏分享').should('be.visible');
+    cy.get('input[placeholder="搜索..."]').should('be.visible');
   });
 
-  it('should display library page', () => {
-    cy.visit('/library');
-    cy.get('h1').should('contain', 'Library');
+  it('should display feiyue page', () => {
+    cy.visit('/feiyue');
+    cy.contains('h1', '北京工业大学飞跃手册').should('be.visible');
+    cy.get('input[placeholder="搜索申请人、专业、方向..."]').should('be.visible');
   });
 
   it('should display projects page', () => {
     cy.visit('/projects');
-    cy.get('h1').should('contain', 'Projects');
+    cy.contains('h1', '已有项目').should('be.visible');
+    cy.contains('p', '正在发展中，欢迎任何同学参与建设。').should('be.visible');
   });
 
-  it('should display subscribe page', () => {
-    cy.visit('/subscribe');
-    cy.get('h1').should('contain', 'Subscribe to BJUT SWIFT');
+  it('should display shorts page', () => {
+    cy.visit('/shorts');
+    cy.contains('h1', '教程').should('be.visible');
+    cy.get('input[placeholder="Search..."]').should('be.visible');
   });
 
-  it('should display trf bca page', () => {
-    cy.visit('/trf/bca');
-    cy.get('h1').should('contain', 'Rekening BCA');
-  });
-
-  it('should display trf mandiri page', () => {
-    cy.visit('/trf/mandiri');
-    cy.get('h1').should('contain', 'Rekening Mandiri');
+  it('should display guestbook page', () => {
+    cy.visit('/guestbook');
+    cy.contains('h1', '留言簿').should('be.visible');
+    cy.contains('a', 'GitHub Discussions').should('be.visible');
   });
 });
