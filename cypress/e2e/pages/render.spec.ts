@@ -13,6 +13,16 @@ describe('All Page', () => {
     cy.contains('a', '留言簿').should('be.visible');
   });
 
+  it('should display about page', () => {
+    cy.visit('/about');
+    cy.get('h1').should('contain', 'BJUT').and('contain', 'SWIFT');
+  });
+
+  it('should display subscribe page', () => {
+    cy.visit('/subscribe');
+    cy.contains('h1', '订阅').should('be.visible');
+  });
+
   it('should display blog page', () => {
     cy.visit('/blog');
     cy.contains('h1', '专栏分享').should('be.visible');
