@@ -38,6 +38,9 @@ export default function ApplicantProfile({ applicant }: ApplicantProfileProps) {
                 部分披露
               </span>
             )}
+            {applicant.application_via && (
+              <ApplicationViaBadge via={applicant.application_via} />
+            )}
           </div>
           <p className='mt-1 text-gray-600 dark:text-gray-400'>
             北京工业大学 · {undergraduate.major}
@@ -147,6 +150,49 @@ export default function ApplicantProfile({ applicant }: ApplicantProfileProps) {
         )}
       </div>
     </div>
+  );
+}
+
+const VIA_META: Record<
+  NonNullable<Applicant['application_via']>,
+  { label: string; icon: string; classes: string }
+> = {
+  diy: {
+    label: 'DIY',
+    icon: '🛠',
+    classes:
+      'border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-700/60 dark:bg-emerald-900/30 dark:text-emerald-200',
+  },
+  agency: {
+    label: '中介',
+    icon: '🏢',
+    classes:
+      'border-sky-300 bg-sky-50 text-sky-800 dark:border-sky-700/60 dark:bg-sky-900/30 dark:text-sky-200',
+  },
+  mixed: {
+    label: '部分中介',
+    icon: '⚙️',
+    classes:
+      'border-violet-300 bg-violet-50 text-violet-800 dark:border-violet-700/60 dark:bg-violet-900/30 dark:text-violet-200',
+  },
+};
+
+function ApplicationViaBadge({
+  via,
+}: {
+  via: NonNullable<Applicant['application_via']>;
+}) {
+  const meta = VIA_META[via];
+  return (
+    <span
+      className={clsx(
+        'inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs font-medium',
+        meta.classes,
+      )}
+    >
+      <span aria-hidden='true'>{meta.icon}</span>
+      {meta.label}
+    </span>
   );
 }
 

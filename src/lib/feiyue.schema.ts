@@ -61,4 +61,5 @@ export const applicantSchema = z.object({
   tags: z.array(z.string()).default([]),
   disclosure: z.enum(['full', 'partial']).optional(),
   disclosure_note: z.string().optional(),
+  application_via: z.enum(['diy', 'agency', 'mixed']).optional(),
 });

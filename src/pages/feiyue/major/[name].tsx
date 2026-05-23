@@ -3,11 +3,8 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import * as React from 'react';
 
 import { generateProgramSlug } from '@/lib/feiyue.client';
-import {
-  getAllApplicants,
-  getAllMajors,
-  getSchoolShortName,
-} from '@/lib/feiyue.server';
+import { getSchoolShortName } from '@/lib/feiyue.schools';
+import { getAllApplicants, getAllMajors } from '@/lib/feiyue.server';
 import useLoaded from '@/hooks/useLoaded';
 
 import FeiyueNav from '@/components/feiyue/FeiyueNav';

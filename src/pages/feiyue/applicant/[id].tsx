@@ -4,6 +4,7 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import * as React from 'react';
 import Markdown from 'react-markdown';
 
+import { schoolAbbr } from '@/lib/feiyue.schools';
 import {
   getAllApplicants,
   getApplicantById,
@@ -20,6 +21,7 @@ import Layout from '@/components/layout/Layout';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 import Table from '@/components/table/Table';
+import Tooltip from '@/components/Tooltip';
 
 import { Applicant, ApplicationRecord } from '@/types/feiyue';
 
@@ -32,6 +34,16 @@ const columns: ColumnDef<ApplicationRecord>[] = [
   {
     accessorKey: 'school',
     header: '学校',
+    cell: ({ row }) => {
+      const full = row.original.school;
+      const abbr = schoolAbbr(full);
+      if (!abbr) return full;
+      return (
+        <Tooltip tipChildren={full} withUnderline>
+          {abbr}
+        </Tooltip>
+      );
+    },
   },
   {
     accessorKey: 'program',
@@ -72,6 +84,24 @@ const columns: ColumnDef<ApplicationRecord>[] = [
       <ResultBadge result={row.original.result} isFinal={row.original.final} />
     ),
   },
+  {
+    id: 'extras',
+    header: '备注',
+    cell: ({ row }) => {
+      const { scholarship, note } = row.original;
+      if (!scholarship && !note) return null;
+      return (
+        <span className='text-sm text-gray-600 dark:text-gray-400'>
+          {scholarship && (
+            <span className='mr-2'>
+              <span aria-hidden='true'>🎓</span> {scholarship}
+            </span>
+          )}
+          {note && <span>{note}</span>}
+        </span>
+      );
+    },
+  },
 ];
 
 export default function ApplicantPage({
@@ -81,8 +111,6 @@ export default function ApplicantPage({
   const isLoaded = useLoaded();
 
   const displayName = applicant.name;
-
-  const extras = applicant.applications.filter((a) => a.scholarship || a.note);
 
   return (
     <Layout>
@@ -115,25 +143,6 @@ export default function ApplicantPage({
                 columns={columns}
               />
             </div>
-
-            {extras.length > 0 && (
-              <div className='mt-6 space-y-2' data-fade='4'>
-                {extras.map((a, i) => (
-                  <div
-                    key={i}
-                    className='text-sm text-gray-600 dark:text-gray-400'
-                  >
-                    <span className='font-medium text-gray-800 dark:text-gray-200'>
-                      {a.program} @ {a.school}
-                    </span>
-                    {a.scholarship && (
-                      <span className='ml-2'>🎓 {a.scholarship}</span>
-                    )}
-                    {a.note && <span className='ml-2'>— {a.note}</span>}
-                  </div>
-                ))}
-              </div>
-            )}
 
             {storyContent && (
               <>

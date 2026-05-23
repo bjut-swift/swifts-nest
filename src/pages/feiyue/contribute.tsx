@@ -4,11 +4,8 @@ import * as React from 'react';
 import Markdown from 'react-markdown';
 
 import { getResultDisplay } from '@/lib/feiyue.client';
-import {
-  getAllApplicants,
-  getAllMajors,
-  SCHOOL_ALIASES,
-} from '@/lib/feiyue.server';
+import { SCHOOL_ALIASES } from '@/lib/feiyue.schools';
+import { getAllApplicants, getAllMajors } from '@/lib/feiyue.server';
 import useLoaded from '@/hooks/useLoaded';
 
 import Accent from '@/components/Accent';

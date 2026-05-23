@@ -2,7 +2,8 @@ import clsx from 'clsx';
 import { InferGetStaticPropsType } from 'next';
 import * as React from 'react';
 
-import { getProgramsBySchool, getSchoolShortName } from '@/lib/feiyue.server';
+import { getSchoolShortName } from '@/lib/feiyue.schools';
+import { getProgramsBySchool } from '@/lib/feiyue.server';
 import useLoaded from '@/hooks/useLoaded';
 
 import Accent from '@/components/Accent';

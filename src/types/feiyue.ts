@@ -47,6 +47,7 @@ export type Applicant = {
   tags: string[];
   disclosure?: 'full' | 'partial';
   disclosure_note?: string;
+  application_via?: 'diy' | 'agency' | 'mixed';
 };
 
 export type ApplicantSummary = {
