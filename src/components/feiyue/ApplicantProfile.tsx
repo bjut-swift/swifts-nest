@@ -22,9 +22,23 @@ export default function ApplicantProfile({ applicant }: ApplicantProfileProps) {
     >
       <div className='flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between'>
         <div>
-          <h1 className='text-2xl font-bold text-gray-900 dark:text-gray-100'>
-            {displayName}
-          </h1>
+          <div className='flex flex-wrap items-center gap-2'>
+            <h1 className='text-2xl font-bold text-gray-900 dark:text-gray-100'>
+              {displayName}
+            </h1>
+            {applicant.disclosure === 'partial' && (
+              <span
+                className={clsx(
+                  'inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs font-medium',
+                  'border-amber-300 bg-amber-50 text-amber-800',
+                  'dark:border-amber-700/60 dark:bg-amber-900/30 dark:text-amber-200',
+                )}
+              >
+                <span aria-hidden='true'>ⓘ</span>
+                部分披露
+              </span>
+            )}
+          </div>
           <p className='mt-1 text-gray-600 dark:text-gray-400'>
             北京工业大学 · {undergraduate.major}
           </p>
@@ -65,6 +79,20 @@ export default function ApplicantProfile({ applicant }: ApplicantProfileProps) {
           ))}
         </div>
       </div>
+
+      {applicant.disclosure === 'partial' && (
+        <div
+          className={clsx(
+            'mt-4 rounded-md border-l-2 px-3 py-2 text-sm',
+            'border-amber-400 bg-amber-50/60 text-amber-900',
+            'dark:border-amber-600 dark:bg-amber-900/20 dark:text-amber-100',
+          )}
+        >
+          <b className='font-semibold'>关于本记录的披露范围：</b>
+          {applicant.disclosure_note ||
+            '应申请人要求，本记录仅披露部分申请经历。请勿据此判断完整申请路径。'}
+        </div>
+      )}
 
       {/* Contact & offers */}
       {(applicant.contact || applicant.homepage || applicant.offers) && (

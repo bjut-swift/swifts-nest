@@ -45,6 +45,8 @@ export type Applicant = {
   offers?: string[];
   applications: ApplicationRecord[];
   tags: string[];
+  disclosure?: 'full' | 'partial';
+  disclosure_note?: string;
 };
 
 export type ApplicantSummary = {

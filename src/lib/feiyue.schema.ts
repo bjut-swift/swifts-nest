@@ -54,4 +54,6 @@ export const applicantSchema = z.object({
   offers: z.array(z.string()).optional(),
   applications: z.array(applicationRecordSchema).min(1),
   tags: z.array(z.string()).default([]),
+  disclosure: z.enum(['full', 'partial']).optional(),
+  disclosure_note: z.string().optional(),
 });
