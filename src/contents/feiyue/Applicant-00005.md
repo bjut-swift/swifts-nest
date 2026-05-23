@@ -1,68 +1,66 @@
 ---
-id: 'Applicant-00005'
-name: '天生是猫奴'
+id: "Applicant-00005"
+name: "天生是猫奴"
 undergraduate:
-  major: '人工智能'
+  major: "人工智能"
   gpa: 3.76
-  ranking: '不知道'
+  ranking: "不知道"
 scores:
   ielts: 7.5
-directions: ['CS', 'AI', 'Computer Vision']
-offers: ['选校咨询', '科研', '瞎聊']
-disclosure: partial
-disclosure_note: '本记录为申请人本人提供的对外版本，仅包含其选择展示的申请经历。读者参考时建议结合自己判断。'
+directions: ["CS", "AI", "Computer Vision"]
+offers: ["选校咨询", "科研", "瞎聊"]
 applications:
-  - school: 'Stanford University'
-    program: 'Biomedical Informatics'
-    degree: 'PhD'
-    term: '2025 Fall'
+  - school: "Stanford University"
+    program: "Biomedical Informatics"
+    degree: "PhD"
+    term: "2025 Fall"
     result: reject
     final: false
-    note: '类似孔庙祈福的行为，给了master，但没那么多金币可爆'
-  - school: 'Columbia University'
-    program: 'Computer Science'
-    degree: 'PhD'
-    term: '2025 Fall'
+    note: "类似孔庙祈福的行为，给了master，但没那么多金币可爆"
+  - school: "Columbia University"
+    program: "Computer Science"
+    degree: "PhD"
+    term: "2025 Fall"
     result: reject
     final: false
-    scholarship: 'RA'
-    note: '黄毛乃龙锁了funding，offer withdrew'
-  - school: 'Dartmouth College'
-    program: 'Computer Science'
-    degree: 'PhD'
-    term: '2025 Fall'
+    scholarship: "RA"
+    note: "黄毛乃龙锁了funding，offer withdrew"
+  - school: "Dartmouth College"
+    program: "Computer Science"
+    degree: "PhD"
+    term: "2025 Fall"
     result: admit
     final: false
-    scholarship: 'RA'
-    note: '导师好抽象'
-  - school: 'Cornell University'
-    program: 'systems engineering'
-    degree: 'PhD'
-    term: '2025 Fall'
+    scholarship: "RA"
+    note: "导师好抽象"
+  - school: "Cornell University"
+    program: "systems engineering"
+    degree: "PhD"
+    term: "2025 Fall"
     result: admit
     final: true
-    scholarship: 'RA'
-  - school: 'University of California, Los Angeles'
-    program: 'Computer Science'
-    degree: 'PhD'
-    term: '2025 Fall'
+    scholarship: "RA"
+  - school: "University of California, Los Angeles"
+    program: "Computer Science"
+    degree: "PhD"
+    term: "2025 Fall"
     result: reject
     final: false
-    note: '呃呃'
-  - school: 'New York University'
-    program: 'Computer Science'
-    degree: 'PhD'
-    term: '2025 Fall'
+    note: "呃呃"
+  - school: "New York University"
+    program: "Computer Science"
+    degree: "PhD"
+    term: "2025 Fall"
     result: reject
     final: false
-    note: 'auv纽大难过登天啊'
-  - school: 'Brown University'
-    program: 'Computer Science'
-    degree: 'PhD'
-    term: '2025 Fall'
+    note: "auv纽大难过登天啊"
+  - school: "Brown University"
+    program: "Computer Science"
+    degree: "PhD"
+    term: "2025 Fall"
     result: reject
     final: false
-    note: '系里topic太小众了哈'
+    note: "系里topic太小众了哈"
 ---
 
 申请总结。主包已经健忘掉大多了。。。那总结就是潜心学习虔诚科研。
