@@ -38,6 +38,10 @@ export default async function handler(
       // Sort alphabetically
       content.sort((a, b) => a.slug.localeCompare(b.slug));
 
+      res.setHeader(
+        'Cache-Control',
+        'public, s-maxage=60, stale-while-revalidate=300',
+      );
       res.status(200).json(content);
     } else {
       res.status(405).json({ message: 'Method Not Allowed' });

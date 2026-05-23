@@ -34,6 +34,7 @@ export default async function handler(
         devtoViews = await getArticleViewsFromDevto(slug);
       }
 
+      res.setHeader('Cache-Control', 'private, max-age=60');
       return res.status(200).json({
         contentViews: (content?._count.views ?? 0) + (devtoViews ?? 0),
         contentLikes: content?._count.likes ?? 0,
