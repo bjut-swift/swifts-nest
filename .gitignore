@@ -50,3 +50,4 @@ scripts/out
 
 #other
 bunfig.toml
+.env*.local
