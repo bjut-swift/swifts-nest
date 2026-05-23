@@ -694,11 +694,18 @@ export default function ContributePage({
                       <input
                         type='checkbox'
                         checked={app.final}
-                        onChange={(e) =>
-                          updateApp(i, { final: e.target.checked })
-                        }
+                        onChange={(e) => {
+                          const checked = e.target.checked;
+                          setForm((prev) => ({
+                            ...prev,
+                            applications: prev.applications.map((a, idx) => ({
+                              ...a,
+                              final: idx === i ? checked : false,
+                            })),
+                          }));
+                        }}
                       />
-                      最终去向
+                      最终去向（仅可勾选一条）
                     </label>
                   </div>
                 ))}

@@ -52,7 +52,12 @@ export const applicantSchema = z.object({
     )
     .optional(),
   offers: z.array(z.string()).optional(),
-  applications: z.array(applicationRecordSchema).min(1),
+  applications: z
+    .array(applicationRecordSchema)
+    .min(1)
+    .refine((apps) => apps.filter((a) => a.final).length <= 1, {
+      message: '最终去向（final）只能有一条',
+    }),
   tags: z.array(z.string()).default([]),
   disclosure: z.enum(['full', 'partial']).optional(),
   disclosure_note: z.string().optional(),
