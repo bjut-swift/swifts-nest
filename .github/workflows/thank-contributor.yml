@@ -6,10 +6,12 @@ on:
 
 jobs:
   thank:
-    # 仅当「来自 fork 的外部贡献者」PR 被合并时触发；
+    # 仅当「首次贡献者」来自 fork 的 PR 被合并时触发；
+    # FIRST_TIME_CONTRIBUTOR 保证只在某人对本仓库的第一个 PR 发；
     # 跳过组织内分支（dependabot、自己推的分支等）和机器人。
     if: >-
       github.event.pull_request.merged == true &&
+      github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR' &&
       github.event.pull_request.head.repo.fork == true &&
       github.event.pull_request.user.type != 'Bot'
     runs-on: ubuntu-latest
