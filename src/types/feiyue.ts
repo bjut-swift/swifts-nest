@@ -46,7 +46,6 @@ export type Applicant = {
   applications: ApplicationRecord[];
   tags: string[];
   disclosure?: 'full' | 'partial';
-  disclosure_note?: string;
   application_via?: 'diy' | 'agency' | 'mixed';
 };
 

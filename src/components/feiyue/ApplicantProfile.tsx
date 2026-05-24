@@ -9,6 +9,10 @@ type ApplicantProfileProps = {
   applicant: Applicant;
 };
 
+// 部分披露记录统一展示的固定声明（非用户可编辑）
+const DISCLOSURE_NOTE =
+  '本页面内容由申请人自行维护并授权展示，所列信息经申请人选择性披露，不代表其完整的申请记录。读者参考时建议结合自己的判断。';
+
 export default function ApplicantProfile({ applicant }: ApplicantProfileProps) {
   const { undergraduate, scores, directions, tags } = applicant;
   const displayName = applicant.name;
@@ -92,8 +96,7 @@ export default function ApplicantProfile({ applicant }: ApplicantProfileProps) {
           )}
         >
           <b className='font-semibold'>关于本记录的披露范围：</b>
-          {applicant.disclosure_note ||
-            '应申请人要求，本记录仅披露部分申请经历。请勿据此判断完整申请路径。'}
+          {DISCLOSURE_NOTE}
         </div>
       )}
 

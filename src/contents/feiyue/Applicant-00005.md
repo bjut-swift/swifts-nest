@@ -10,7 +10,6 @@ scores:
 directions: ['CS', 'AI', 'Computer Vision']
 offers: ['选校咨询', '科研', '瞎聊']
 disclosure: partial
-disclosure_note: '本页面内容由申请人自行维​​护并授权展示，所列信息经申请人选择性披露，不代表其完整的申请记录'
 applications:
   - school: 'Stanford University'
     program: 'Biomedical Informatics'
@@ -68,7 +67,7 @@ applications:
 
 申请总结。主包已经健忘掉大多了。。。总结就是潜心学习虔诚科研。
 
-应网站方邀请将之前校内参与或组织的公益讲座/采访视频链接放在这里, 您喜欢欢迎点钢镚收藏。
+这里将之前校内参与或组织的公益讲座/采访视频链接放在这里, 您喜欢欢迎点钢镚收藏。
 
 2025-04-17 北京工业大学本科保研直博经验，演讲者的背景不分先后分别为：计科保研北航，电科保研北大，人工智能直博康奈尔
 [![经验分享视频](https://img.shields.io/badge/Bilibili-视频链接-fb7299?logo=bilibili)](https://www.bilibili.com/video/BV1nT5izsEGu/)
