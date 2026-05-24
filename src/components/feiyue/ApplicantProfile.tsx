@@ -95,7 +95,7 @@ export default function ApplicantProfile({ applicant }: ApplicantProfileProps) {
             'dark:border-amber-600 dark:bg-amber-900/20 dark:text-amber-100',
           )}
         >
-          <b className='font-semibold'>关于本记录的披露范围：</b>
+          <b className='font-semibold'>说明：</b>
           {DISCLOSURE_NOTE}
         </div>
       )}
