@@ -10,7 +10,6 @@ scores:
 directions: ['CS', 'AI', 'Computer Vision']
 offers: ['选校咨询', '科研', '瞎聊']
 disclosure: partial
-disclosure_note: '本页面内容由申请人自行维​​护并授权展示，所列信息经申请人选择性披露，不代表其完整的申请记录'
 applications:
   - school: 'Stanford University'
     program: 'Biomedical Informatics'
@@ -123,11 +122,12 @@ mubzuai kaust.
 
 哥大：
 藤校老的department多是传统的committee审核，单个老师很难拍板，嫡系，山大王，不同派系的enemies，混在一起综合打分（吵架互踩），说实话机制是一坨。
+
 1. 如果有和你领域八竿子打不着的人来面试你，这个人八成是来踩你的。
 2. 还有一个帅哥面试，本科是thu，面着面着说嘿嘿我突然想考你道算法设计。我说老师你很有创意，来吧。
-3. 白人假笑*n
+3. 白人假笑\*n
 4. 友军面试，我上头巴拉巴拉讲了一个小时太长了，老师嫌弃了我
-   
+
 经验是：老系的committee水深的很，藤校taste更希望学生不用ppt，随意聊研究兴趣，不希望applicants过于刻意的展现强度，反正跟老中风格反着来。我是不太理解但想加入的话也只能理解了。
 
 ok回到主题，除了我尝试过的地区，还有法国工程师学位（我忘记ddl了），瑞士（epfl，瑞典，德国很多学校（被马普所所长拒了），韩国，加拿大等等都有很不错的项目和学校。
