@@ -1,0 +1,32 @@
+name: Thank external contributor
+
+on:
+  pull_request_target:
+    types: [closed]
+
+jobs:
+  thank:
+    # 仅当「来自 fork 的外部贡献者」PR 被合并时触发；
+    # 跳过组织内分支（dependabot、自己推的分支等）和机器人。
+    if: >-
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.head.repo.fork == true &&
+      github.event.pull_request.user.type != 'Bot'
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Comment on merged PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              body: [
+                '感谢贡献，已合并 🎉',
+                '',
+                '小建议：如果想让这次贡献在你的 GitHub 主页上更显眼，可以到 profile 页面点 "Customize your pins"，把这个仓库 pin 到顶部——比默认显示 fork 更有 impact，也算是对组织的一份支持～',
+              ].join('\n'),
+            });
