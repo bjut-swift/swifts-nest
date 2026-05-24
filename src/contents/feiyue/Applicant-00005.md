@@ -10,7 +10,7 @@ scores:
 directions: ['CS', 'AI', 'Computer Vision']
 offers: ['选校咨询', '科研', '瞎聊']
 disclosure: partial
-disclosure_note: '本记录为申请人本人提供的对外版本，仅包含其选择展示的申请经历。读者参考时建议结合自己判断。'
+disclosure_note: '本页面内容由申请人自行维​​护并授权展示，所列信息经申请人选择性披露，不代表其完整的申请记录'
 applications:
   - school: 'Stanford University'
     program: 'Biomedical Informatics'
@@ -41,6 +41,7 @@ applications:
     term: '2025 Fall'
     result: admit
     final: true
+    note: '因funding freeze等多种原因25fall未入学, 后26fall入学'
     scholarship: 'RA'
   - school: 'University of California, Los Angeles'
     program: 'Computer Science'
@@ -65,12 +66,12 @@ applications:
     note: '系里topic太小众了哈'
 ---
 
-申请总结。主包已经健忘掉大多了。。。那总结就是潜心学习虔诚科研。
+申请总结。主包已经健忘掉大多了。。。总结就是潜心学习虔诚科研。
 
-应邀将之前校内参与或组织的公益讲座/采访视频链接放在这里, 您喜欢欢迎点钢镚收藏哈。
+应网站方邀请将之前校内参与或组织的公益讲座/采访视频链接放在这里, 您喜欢欢迎点钢镚收藏。
 
 2025-04-17 北京工业大学本科保研直博经验，演讲者的背景不分先后分别为：计科保研北航，电科保研北大，人工智能直博康奈尔
 [![经验分享视频](https://img.shields.io/badge/Bilibili-视频链接-fb7299?logo=bilibili)](https://www.bilibili.com/video/BV1nT5izsEGu/)
 
-2025-05-22 海硕如何修炼成phd,采访是暑研认识的好盆友,感谢ta捧场.
+2025-05-22 关于海硕修炼成留校phd的宝贵经验,采访是暑研认识的好盆友,大大的感谢ta捧场.
 [![经验分享视频](https://img.shields.io/badge/Bilibili-视频链接-fb7299?logo=bilibili)](https://www.bilibili.com/video/BV13bGY61EEC/?share_source=copy_web&vd_source=1bb8535f3fd29b51ced75f651ade4d2e)
