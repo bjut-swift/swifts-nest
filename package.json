@@ -79,7 +79,7 @@
     "@types/umami": "^0.1.5",
     "@typescript-eslint/eslint-plugin": "8",
     "@typescript-eslint/parser": "8",
-    "autoprefixer": "^10.4.27",
+    "autoprefixer": "^10.5.0",
     "commitlint": "^21.0.1",
     "cypress": "^15",
     "esbuild": "^0.25.0",
