@@ -94,7 +94,7 @@
     "local-cypress": "^1.2.8",
     "mdx-bundler": "^9.2.1",
     "next-remote-refresh": "^0.10.0",
-    "next-remote-watch": "^1.0.0",
+    "next-remote-watch": "^2.0.0",
     "next-sitemap": "^4.2.3",
     "postcss": "^8.5.14",
     "prettier": "^3.8.3",
