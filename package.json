@@ -26,7 +26,7 @@
     "@neondatabase/serverless": "^1.1.0",
     "@prisma/adapter-neon": "^7.8.0",
     "@prisma/client": "^7.8.0",
-    "@tanstack/react-query": "^5.100.11",
+    "@tanstack/react-query": "^5.101.0",
     "@tanstack/react-query-devtools": "^5.91.3",
     "@tanstack/react-table": "^8.21.3",
     "@tippyjs/react": "^4.2.6",
