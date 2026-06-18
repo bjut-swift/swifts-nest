@@ -69,7 +69,7 @@
     "@eslint/eslintrc": "^3.3.5",
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/forms": "^0.5.11",
-    "@tailwindcss/postcss": "^4.3.0",
+    "@tailwindcss/postcss": "^4.3.1",
     "@tailwindcss/typography": "^0.5.19",
     "@tanstack/eslint-plugin-query": "^5.100.11",
     "@types/lodash": "^4.17.24",
