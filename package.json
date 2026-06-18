@@ -58,7 +58,7 @@
     "react-twitter-widgets": "^1.11.0",
     "rehype-pretty-code": "^0.14.3",
     "shiki": "^4.2.0",
-    "style-to-object": "^1.0.14",
+    "style-to-object": "^2.0.0",
     "tailwind-merge": "^3.6.0",
     "tippy.js": "^6.3.7",
     "zod": "^4.4.3"
