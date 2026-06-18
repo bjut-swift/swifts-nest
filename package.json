@@ -73,7 +73,7 @@
     "@tailwindcss/typography": "^0.5.19",
     "@tanstack/eslint-plugin-query": "^5.100.11",
     "@types/lodash": "^4.17.24",
-    "@types/node": "^18.19.130",
+    "@types/node": "^25.9.3",
     "@types/nprogress": "^0.2.3",
     "@types/react": "^19.2.14",
     "@types/umami": "^0.1.5",
