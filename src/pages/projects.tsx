@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import { InferGetStaticPropsType } from 'next';
 import * as React from 'react';
 
-import { sortByDate } from '@/lib/mdx.client';
 import { getAllFilesFrontmatter } from '@/lib/mdx.server';
 import useLoaded from '@/hooks/useLoaded';
 
@@ -45,9 +44,22 @@ export default function ProjectsPage({
   );
 }
 
+const PROJECT_ORDER = [
+  'bjut-helper',
+  'bjut-undergraduate-thesis',
+  'bjut-cs',
+  'bjut-latex',
+  'bjut-ppt-temple',
+  'bjut-chaoxing',
+];
+
 export async function getStaticProps() {
   const files = await getAllFilesFrontmatter('projects');
-  const projects = sortByDate(files);
+  const rank = (slug: string) => {
+    const i = PROJECT_ORDER.indexOf(slug);
+    return i === -1 ? PROJECT_ORDER.length : i;
+  };
+  const projects = files.sort((a, b) => rank(a.slug) - rank(b.slug));
 
   return { props: { projects } };
 }

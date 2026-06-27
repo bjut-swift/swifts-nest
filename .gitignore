@@ -40,6 +40,7 @@ yarn-error.log*
 # next-sitemap
 robots.txt
 sitemap.xml
+sitemap-*.xml
 
 # cypress
 cypress/videos
@@ -47,6 +48,9 @@ cypress/screenshots
 
 # rss
 rss.xml
+
+# build-time generated content
+public/content.json
 
 # scripts
 scripts/out
