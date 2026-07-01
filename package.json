@@ -101,7 +101,7 @@
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.1.0",
-    "remark-gfm": "^3.0.1",
+    "remark-gfm": "^4.0.1",
     "tailwindcss": "^4.3.1",
     "ts-node": "^10.9.1",
     "typescript": "^6.0.3"
