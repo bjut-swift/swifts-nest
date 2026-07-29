@@ -59,7 +59,7 @@
         "@types/node": "^25.9.3",
         "@types/nprogress": "^0.2.3",
         "@types/react": "^19.2.17",
-        "@types/umami": "^0.1.5",
+        "@types/umami": "^2.10.1",
         "@typescript-eslint/eslint-plugin": "8",
         "@typescript-eslint/parser": "8",
         "autoprefixer": "^10.5.0",
@@ -779,7 +779,7 @@
 
     "@types/trusted-types": ["@types/trusted-types@2.0.7", "", {}, "sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw=="],
 
-    "@types/umami": ["@types/umami@0.1.5", "https://registry.npmmirror.com/@types/umami/-/umami-0.1.5.tgz", {}, "sha512-9MG8FuWArG85OOppjTU41AXF0ifAysjqqUgs68J1LOqOZKOHXLKv3G1NOYRKMAacYeL4f8rYR/spVAa+RfmDDA=="],
+    "@types/umami": ["@types/umami@2.10.1", "", {}, "sha512-CvOEMq+BFOUXj8yciq4hPsdOt0o9KBg5jQXnF1FrdOMKZMxJiwryyZNLa9Ud2NVO6nXSwU22YMKR3E+Xhbo+DA=="],
 
     "@types/unist": ["@types/unist@2.0.11", "https://registry.npmmirror.com/@types/unist/-/unist-2.0.11.tgz", {}, "sha512-CmBKiL6NNo/OqgmMn95Fk9Whlp2mtvIv+KNpQKN2F4SjvrEesubTRWGYSg+BnWZOnlCaSTU1sMpsBOzgbYhnsA=="],
 
