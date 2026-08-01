@@ -84,7 +84,7 @@
     "eslint": "9",
     "eslint-config-next": "^16.2.12",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-simple-import-sort": "13",
+    "eslint-plugin-simple-import-sort": "14",
     "eslint-plugin-unused-imports": "4",
     "gray-matter": "^4.0.3",
     "husky": "^9.1.7",
