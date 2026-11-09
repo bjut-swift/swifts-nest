@@ -9,7 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint src",
     "lint:fix": "eslint src --fix && bun format",
     "lint:strict": "eslint --max-warnings=0 src",
     "typecheck": "tsc --noEmit --incremental false",

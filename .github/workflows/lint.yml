@@ -31,4 +31,3 @@ jobs:
 
       - name: 💅 Format check
         run: bun run format:check
-        continue-on-error: true
