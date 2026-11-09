@@ -65,4 +65,6 @@ export type ProjectType = {
 export type FrontmatterWithTags = BlogFrontmatter | LibraryFrontmatter;
 export type FrontmatterWithDate = BlogFrontmatter | ProjectFrontmatter;
 export type Frontmatter =
-  ProjectFrontmatter | BlogFrontmatter | LibraryFrontmatter;
+  | ProjectFrontmatter
+  | BlogFrontmatter
+  | LibraryFrontmatter;

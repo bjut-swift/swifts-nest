@@ -11,7 +11,7 @@ concurrency:
 
 jobs:
   lint:
-    name: ⬣ ESLint, ʦ TypeScript, and 💅 Prettier
+    name: ⬣ ESLint, ʦ TypeScript, and 💅 Format
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
@@ -29,6 +29,6 @@ jobs:
       - name: 🔎 Type check
         run: bun run typecheck
 
-      - name: 💅 Prettier check
+      - name: 💅 Format check
         run: bun run format:check
         continue-on-error: true

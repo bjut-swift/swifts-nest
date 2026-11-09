@@ -13,8 +13,8 @@
     "lint:fix": "eslint src --fix && bun format",
     "lint:strict": "eslint --max-warnings=0 src",
     "typecheck": "tsc --noEmit --incremental false",
-    "format": "prettier -w .",
-    "format:check": "prettier -c .",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
     "cy": "cypress open",
     "cy:headless": "cypress run",
     "postbuild": "next-sitemap",
@@ -97,9 +97,8 @@
     "next-remote-refresh": "^0.10.0",
     "next-remote-watch": "^2.0.0",
     "next-sitemap": "^4.2.3",
+    "oxfmt": "^0.77.0",
     "postcss": "^8.5.28",
-    "prettier": "^3.9.9",
-    "prettier-plugin-tailwindcss": "^0.8.1",
     "prisma": "^7.10.0",
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^6.1.1",
@@ -113,13 +112,13 @@
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
       "eslint --max-warnings=0",
-      "prettier -w"
+      "oxfmt"
     ],
     "src/**/*.{json,css,scss,md,mdx}": [
-      "prettier -w"
+      "oxfmt"
     ]
   },
   "overrides": {
-    "@types/react": "^19.2.14"
+    "@types/react": "^19.3.0"
   }
 }

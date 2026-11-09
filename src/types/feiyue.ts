@@ -1,5 +1,10 @@
 export type ApplicationResult =
-  'admit' | 'reject' | 'withdraw' | 'pending' | 'waitlist' | 'unknown';
+  | 'admit'
+  | 'reject'
+  | 'withdraw'
+  | 'pending'
+  | 'waitlist'
+  | 'unknown';
 
 export type DegreeType = string;
 
