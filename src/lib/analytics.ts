@@ -6,8 +6,7 @@ type TrackEvent = (
 ) => void;
 
 declare const umami:
-  | { track: (...args: Parameters<TrackEvent>) => void }
-  | undefined;
+  { track: (...args: Parameters<TrackEvent>) => void } | undefined;
 
 export const trackEvent: TrackEvent = (...args) => {
   if (typeof umami !== 'undefined' && typeof umami.track === 'function') {

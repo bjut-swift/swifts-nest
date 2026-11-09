@@ -32,7 +32,9 @@ describe('All Page', () => {
   it('should display feiyue page', () => {
     cy.visit('/feiyue');
     cy.contains('h1', '北京工业大学飞跃手册').should('be.visible');
-    cy.get('input[placeholder="搜索申请人、专业、方向..."]').should('be.visible');
+    cy.get('input[placeholder="搜索申请人、专业、方向..."]').should(
+      'be.visible',
+    );
   });
 
   it('should display projects page', () => {
