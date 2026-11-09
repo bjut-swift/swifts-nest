@@ -107,7 +107,8 @@
     "remark-gfm": "^4.0.1",
     "tailwindcss": "^4.3.3",
     "ts-node": "^10.9.1",
-    "typescript": "^6.0.3"
+    "typescript": "npm:@typescript/typescript6@^6.0.2",
+    "typescript7": "npm:typescript@^7.0.2"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
